@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[2017班级对抗赛WP&心得]]></title>
       <url>/2017/12/01/2017%E7%8F%AD%E7%BA%A7%E5%AF%B9%E6%8A%97%E8%B5%9BWP+%E5%BF%83%E5%BE%97/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" geek="" 之后又来了一波班级对抗赛，成绩不是最重要的，主要是想见见世面，涨涨见识。知己知彼，百战不殆嘛！=""><br>+<a id="more"></a></excerpt></p>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>    Geek 之后又来了一波班级对抗赛，成绩不是最重要的，主要是想见见世面，涨涨见识。知己知彼，百战不殆嘛！<a id="more"></a></excerpt></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h2 id="1-简单代码审计（送分）by-Ph0rse"><a href="#1-简单代码审计（送分）by-Ph0rse" class="headerlink" title="1.简单代码审计（送分）by  Ph0rse"></a>1.简单代码审计（送分）by  Ph0rse</h2><h3 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="http://45.32.90.22:2501/index.php" target="_blank" rel="noopener">http://45.32.90.22:2501/index.php</a></p>
@@ -170,7 +170,9 @@
     <entry>
       <title><![CDATA[论Mac备份的重要性<-血的教训]]></title>
       <url>/2017/11/19/%E8%AE%BAMac%E5%A4%87%E4%BB%BD%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%3C-%E8%A1%80%E7%9A%84%E6%95%99%E8%AE%ADmd/</url>
-      <content type="html"><![CDATA[<h3 id="博客转移"><a href="#博客转移" class="headerlink" title="博客转移"></a>博客转移</h3><p>​    由于blog文件没有备份，所以所有文章都不见了，也懒得再找回来了，虽然也没几篇！原博客园：<a href="http://www.cnblogs.com/AK-K/" target="_blank" rel="noopener">http://www.cnblogs.com/AK-K/</a></p>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>    总以为不会发生的事情，万一有一天真的降临在你头上了……<a id="more"></a></excerpt></p>
+<p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
+<h3 id="博客转移"><a href="#博客转移" class="headerlink" title="博客转移"></a>博客转移</h3><p>​    由于blog文件没有备份，所以所有文章都不见了，也懒得再找回来了，虽然也没几篇！原博客园：<a href="http://www.cnblogs.com/AK-K/" target="_blank" rel="noopener">http://www.cnblogs.com/AK-K/</a></p>
 <p>​    有时间就更新Blog，写下自己的学习和生活路上的点点滴滴！！</p>
 <h3 id="论备份的重要性"><a href="#论备份的重要性" class="headerlink" title="论备份的重要性"></a>论备份的重要性</h3><p>​    前天mac提示系统更新，由于一直没有养成打补丁前要备份的好习惯，所以就直接开始了系统更新！！但是，奇迹的事情发生了，进度条卡在半路3小时！！我就强制重启了！！然后出现了令人发指的场面！！<img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fln7wf8vz5j30xk0iihdt.jpg" alt=""></p>
 <p>​    输入密码之后，就出现system崩溃的场景！！</p>
