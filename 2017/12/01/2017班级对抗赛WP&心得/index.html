@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://akkayin.github.io">
   <title>2017班级对抗赛WP&amp;心得 | KarmA&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#Web ##1.简单代码审计（送分）by  Ph0rse ###题目地址 http://45.32.90.22:2501/index.php ###题目类型 代码审计，PHP弱类型 ###考察知识点 1、Base64解密2、变量覆盖3、md5弱类型相等4、md5数组加密漏洞 ###Payload http://45.">
+  <meta name="description" content="##Web ##1.简单代码审计（送分）by  Ph0rse 题目地址http://45.32.90.22:2501/index.php 题目类型代码审计，PHP弱类型 考察知识点1、Base64解密2、变量覆盖3、md5弱类型相等4、md5数组加密漏洞 ###Payload http://45.32.90.22:25">
 <meta name="keywords" content="CTF,Summary">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2017班级对抗赛WP&amp;心得">
 <meta property="og:url" content="http://akkayin.github.io/2017/12/01/2017班级对抗赛WP&心得/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
-<meta property="og:description" content="#Web ##1.简单代码审计（送分）by  Ph0rse ###题目地址 http://45.32.90.22:2501/index.php ###题目类型 代码审计，PHP弱类型 ###考察知识点 1、Base64解密2、变量覆盖3、md5弱类型相等4、md5数组加密漏洞 ###Payload http://45.32.90.22:2501/index.php?name=xiaohong&amp;am">
+<meta property="og:description" content="##Web ##1.简单代码审计（送分）by  Ph0rse 题目地址http://45.32.90.22:2501/index.php 题目类型代码审计，PHP弱类型 考察知识点1、Base64解密2、变量覆盖3、md5弱类型相等4、md5数组加密漏洞 ###Payload http://45.32.90.22:2501/index.php?name=xiaohong&amp;amp;sex=nv&amp;am">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gs4a6g0j30km0f4wfj.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fm1gtzr8ctj30pu0zk4dy.jpg">
 <meta property="og:image" content="file:////Users/akk/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image002.png">
@@ -40,10 +40,10 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h5jcdqdj30ps0ton17.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fm1h5uvt0ij30k00qsdhe.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h67v3snj30na13gtjq.jpg">
-<meta property="og:updated_time" content="2017-12-01T14:40:28.812Z">
+<meta property="og:updated_time" content="2017-12-01T14:43:12.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017班级对抗赛WP&amp;心得">
-<meta name="twitter:description" content="#Web ##1.简单代码审计（送分）by  Ph0rse ###题目地址 http://45.32.90.22:2501/index.php ###题目类型 代码审计，PHP弱类型 ###考察知识点 1、Base64解密2、变量覆盖3、md5弱类型相等4、md5数组加密漏洞 ###Payload http://45.32.90.22:2501/index.php?name=xiaohong&amp;am">
+<meta name="twitter:description" content="##Web ##1.简单代码审计（送分）by  Ph0rse 题目地址http://45.32.90.22:2501/index.php 题目类型代码审计，PHP弱类型 考察知识点1、Base64解密2、变量覆盖3、md5弱类型相等4、md5数组加密漏洞 ###Payload http://45.32.90.22:2501/index.php?name=xiaohong&amp;amp;sex=nv&amp;am">
 <meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gs4a6g0j30km0f4wfj.jpg">
   
     <link rel="alternative" href="/atom.xml" title="KarmA&#39;s Blog" type="application/atom+xml">
@@ -204,14 +204,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#Web</p>
+        <p>##Web</p>
 <p>##1.简单代码审计（送分）by  Ph0rse</p>
-<p>###题目地址</p>
-<p><a href="http://45.32.90.22:2501/index.php" target="_blank" rel="noopener">http://45.32.90.22:2501/index.php</a></p>
-<p>###题目类型</p>
-<p>代码审计，PHP弱类型</p>
-<p>###考察知识点</p>
-<p>1、Base64解密<br>2、变量覆盖<br>3、md5弱类型相等<br>4、md5数组加密漏洞</p>
+<h3 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="http://45.32.90.22:2501/index.php" target="_blank" rel="noopener">http://45.32.90.22:2501/index.php</a></p>
+<h3 id="题目类型"><a href="#题目类型" class="headerlink" title="题目类型"></a>题目类型</h3><p>代码审计，PHP弱类型</p>
+<h3 id="考察知识点"><a href="#考察知识点" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>1、Base64解密<br>2、变量覆盖<br>3、md5弱类型相等<br>4、md5数组加密漏洞</p>
 <p>###Payload</p>
 <p><a href="http://45.32.90.22:2501/index.php?name=xiaohong&amp;sex=nv&amp;key=240610708&amp;pen[]=1&amp;apple[]=2" target="_blank" rel="noopener">http://45.32.90.22:2501/index.php?name=xiaohong&amp;sex=nv&amp;key=240610708&amp;pen[]=1&amp;apple[]=2</a></p>
 <p>###Flag</p>
@@ -332,9 +329,7 @@
 <p>所以key=0xdec0de</p>
 <p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fm1h0yf7wej30ns0hkgp4.jpg" alt=""></p>
 <p>#####这道题难道是我在整理writeup的时候出的？我怎么一点印象都没有！！</p>
-<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><p>##1.热身upup</p>
-<p>###考察知识点</p>
-<p>摩斯电码，听得出来可以直接翻译，但是乐感较差的可以用音频编辑软件打开，例如AU，即可看到明显的分段</p>
+<h2 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h2><h3 id="1-热身upup"><a href="#1-热身upup" class="headerlink" title="1.热身upup"></a>1.热身upup</h3><h3 id="考察知识点-1"><a href="#考察知识点-1" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>摩斯电码，听得出来可以直接翻译，但是乐感较差的可以用音频编辑软件打开，例如AU，即可看到明显的分段</p>
 <p>###Flag</p>
 <p>D0g3{UUUTUTUUT}</p>
 <p>#####划重点：</p>
