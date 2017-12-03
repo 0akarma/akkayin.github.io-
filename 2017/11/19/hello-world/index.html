@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li></ul>
                     </div>
                 </section>
                 
@@ -430,7 +430,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训md/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs/">It's time to set Flags in freshman year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训md/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
 
 
 
@@ -503,7 +503,22 @@
 <script>
     // Open in New Window
     
-        $("a[target=_blank]").removeAttr("target");
+        var oOpenInNew = {
+            
+             title: "a.article-title, .article-more-link a", 
+            
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
     
 </script>
 
