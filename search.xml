@@ -52,27 +52,27 @@
         
         <tags>
             
+            <tag> Summary </tag>
+            
             <tag> 代码审计 </tag>
             
             <tag> PHP </tag>
-            
-            <tag> Summary </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[Mac下配置mentohust上校园网/移动/联通/]]></title>
+      <title><![CDATA[Mac下配置mentohust连接校园网/移动/联通/]]></title>
       <url>/2017/12/08/mentohust/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
 
 <p>开学，兴高采烈地去开通校园网，结果插上网线，下好客户端……<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<p>一开始，我还是“年轻地“以为客户端会兼容Mac，我会像用windows的室友一样，轻轻松松地连上校园网。<br>然而，当我点开客户端时～～<img src="https://ws4.sinaimg.cn/large/006tNc79gy1fmec94r8uxj30nc08qtb2.jpg" width="200px"></p>
+<p>一开始，我还是“年轻地“以为客户端会兼容Mac，我会像用windows的室友一样，轻轻松松地连上校园网。<br>然而，当我点开客户端时～～<img src="https://ws4.sinaimg.cn/large/006tNc79gy1fmec94r8uxj30nc08qtb2.jpg" width="300px"></p>
 <p>原因：可能锐捷客户端是被修改过的，所以mac会自动识别为文件损坏（就像你打开**软件一样）<br>解决方法：打开终端，并输入 如下代码</p>
-<figure class="highlight plain"><figcaption><span>spctl --master-disable  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
 <p>根据提示，输入密码–&gt;回车，你再打开锐捷客户端，如果运气好，那你就可以像你的windows室友一样轻轻松松连上校园网了。（反正我是不行&gt;.&lt;）</p>
 <p>所以我们还是老老实实的配置mentohust吧QAQ </p>
 <h4 id="0x01首先需要下载mentohust配置文件"><a href="#0x01首先需要下载mentohust配置文件" class="headerlink" title="0x01首先需要下载mentohust配置文件"></a>0x01首先需要下载mentohust配置文件</h4><p>百度云：链接:<a href="https://pan.baidu.com/s/1mi3QOfY" target="_blank" rel="noopener">https://pan.baidu.com/s/1mi3QOfY</a>  密码:avwy</p>
@@ -433,9 +433,9 @@
         
         <tags>
             
-            <tag> Summary </tag>
-            
             <tag> CTF </tag>
+            
+            <tag> Summary </tag>
             
         </tags>
         
