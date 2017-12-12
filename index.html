@@ -294,43 +294,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <excerpt in="" index="" |="" 首页摘要="">
+              <excerpt in="" index="" |="" 首页摘要="">
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开始涉足代码审计，将自己的一些笔记记录下来！&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-
-
-<h2 id="PHP代码执行函数"><a href="#PHP代码执行函数" class="headerlink" title="PHP代码执行函数"></a>PHP代码执行函数</h2><h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><p><strong><em>Grammar:</em></strong>     eval(phpcode)</p>
-<p>eval() 函数把字符串按照 PHP 代码来计算。</p>
-<p>该字符串必须是‘合法的 PHP 代码’，且必须以‘分号’结尾。</p>
-<p>如果没有在代码字符串中调用 return 语句，则返回 NULL。如果代码中存在解析错误，则 eval() 函数返回 false。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$string = <span class="string">"beautiful"</span>;</span><br><span class="line">$time = <span class="string">"winter"</span>;</span><br><span class="line"></span><br><span class="line">$str = <span class="string">'This is a $string $time morning!'</span>;</span><br><span class="line"><span class="keyword">echo</span> $str. <span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">eval</span>(<span class="string">"\$str = \"$str\";"</span>); <span class="comment">/*一定要用\转义，不然会出现语法错误 */</span></span><br><span class="line"><span class="keyword">echo</span> $str;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">/* eval 还可以实现</span></span><br><span class="line"><span class="comment">  1.运行普通字符串 eg:	eval("echo 'aaa';")</span></span><br><span class="line"><span class="comment">  2.运行带&lt;? php开头的字符串</span></span><br><span class="line"><span class="comment">  3.运行&lt;? Php开头，?&gt;结尾的字符串</span></span><br><span class="line"><span class="comment">  4，运行HTML与PHP混合的字符串</span></span><br><span class="line"><span class="comment">  5.从MySQL读取代码（字符串形式），并动态加载</span></span><br><span class="line"><span class="comment">  6.运行包含include和request的代码</span></span><br><span class="line"><span class="comment">  7.知道运行的过程是否出现异常（但无法捕捉到详细异常信息）</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>assert函数在php中用于判断一个表达式是否成立。返回bool；</p>
-<p><strong><em>Grammar:</em></strong>     </p>
-<p>PHP 5</p>
-<figure class="highlight plain"><figcaption><span>**assert** ( [mixed $assertion [, string $description ] )</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool assert ( mixed $assertion [, string $description ] )</span><br></pre></td></tr></table></figure>
-<p>PHP 7</p>
-<figure class="highlight plain"><figcaption><span>assert ( mixed $assertion [, Throwable $exception ] )</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool assert ( mixed $assertion [, Throwable $exception ] )</span><br></pre></td></tr></table></figure>
-<p><code>mixed</code> 说明一个参数可以接受多种不同的（但不一定是所有的）类型。</p>
-<p>例如 <a href="http://php.net/manual/zh/function.gettype.php" target="_blank" rel="noopener">gettype()</a> 可以接受所有的 PHP 类型，<a href="http://php.net/manual/zh/function.str-replace.php" target="_blank" rel="noopener">str_replace()</a> 可以接受字符串和数组。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$s = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">echo</span> assert(<span class="string">"is_int($s)"</span>);</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">//	1 [Finished in 0.0s]</span></span><br></pre></td></tr></table></figure>
-<p>从这个例子可以看到字符串参数会被执行，这跟eval()类似。不过eval($code_str)只是执行符合php编码规范的$code_str。<br>assert的用法却更详细一点。</p>
-<p>assert_option()可以用来对assert()进行一些约束和控制;</p>
-<blockquote>
-<p>默认值</p>
-<blockquote>
-<p>ASSERT_ACTIVE=1 //Assert函数的开关<br>ASSERT_WARNING =1 //当表达式为false时，是否要输出警告性的错误提示,issue a PHP warning for each failed assertion<br>ASSERT_BAIL= 0 //是否要中止运行；terminate execution on failed assertions<br>ASSERT_QUIET_EVAL= 0 //是否关闭错误提示，在执行表达式时；disable error_reporting during assertion expression evaluation<br>ASSERT_CALLBACK= (NULL) // 是否启动回调函数 user function to call on failed assertions</p>
-</blockquote>
-</blockquote>
-<h3 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace"></a>preg_replace</h3><p>preg_replace — 执行一个正则表达式的搜索和替换</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</span><br></pre></td></tr></table></figure>
-<p>搜索<code>subject</code>中匹配<code>pattern</code>的部分（通常用正则匹配）， 以<code>replacement</code>进行替换。</p>
-<h2 id="包含函数"><a href="#包含函数" class="headerlink" title="包含函数"></a>包含函数</h2><h2 id="命令执行函数"><a href="#命令执行函数" class="headerlink" title="命令执行函数"></a>命令执行函数</h2><h2 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h2><h2 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h2><p>参考资料：</p>
-<p><a href="http://www.cnblogs.com/galaxyyao/archive/2013/04/25/3043104.html" target="_blank" rel="noopener">PHP Eval研究笔记</a></p>
-<p><a href="https://www.douban.com/note/217557007/" target="_blank" rel="noopener">PHP assert函数的用法</a></p>
-<p><a href="http://www.jb51.net/article/46458.htm" target="_blank" rel="noopener">PHP preg_replace() 正则替换所有符合条件的字符串</a></p>
-</the></excerpt>
+<p>开始涉足代码审计，将自己的一些笔记记录下来！
+          
       
     </div>
     
@@ -347,6 +314,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2017/12/12/function/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -393,43 +364,10 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <excerpt in="" index="" |="" 首页摘要="">
+              <excerpt in="" index="" |="" 首页摘要="">
 
-<pre><code>开学，兴高采烈地去开通校园网，结果插上网线，下好客户端……&lt;!-- more --&gt;
-</code></pre><the rest="" of="" contents="" |="" 余下全文="">
-
-<p>一开始，我还是“年轻地“以为客户端会兼容Mac，我会像用windows的室友一样，轻轻松松地连上校园网。<br>然而，当我点开客户端时～～<img src="https://ws4.sinaimg.cn/large/006tNc79gy1fmec94r8uxj30nc08qtb2.jpg" alt=""></p>
-<p>原因：可能锐捷客户端是被修改过的，所以mac会自动识别为文件损坏（就像你打开**软件一样）<br>解决方法：打开终端，并输入 如下代码</p>
-<figure class="highlight plain"><figcaption><span>spctl --master-disable  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
-<p>根据提示，输入密码–&gt;回车，你再打开锐捷客户端，如果运气好，那你就可以像你的windows室友一样轻轻松松连上校园网了。（反正我是不行&gt;.&lt;）</p>
-<p>所以我们还是老老实实的配置mentohust吧QAQ </p>
-<h4 id="0x01首先需要下载mentohust配置文件"><a href="#0x01首先需要下载mentohust配置文件" class="headerlink" title="0x01首先需要下载mentohust配置文件"></a>0x01首先需要下载mentohust配置文件</h4><p>百度云：链接:<a href="https://pan.baidu.com/s/1mi3QOfY" target="_blank" rel="noopener">https://pan.baidu.com/s/1mi3QOfY</a>  密码:avwy</p>
-<h4 id="0x02配置重要步骤"><a href="#0x02配置重要步骤" class="headerlink" title="0x02配置重要步骤"></a>0x02配置重要步骤</h4><p>1⃣把mentohust_mac压缩包里的dhcping和mentohust文件复制到/usr/bin/目录下.<br>如果你无法复制到上面的目录，可以尝试<strong>在/usr/local/bin中进行以下操作（别忘了拷贝上面两个文件到这里）</strong>。</p>
-<blockquote>
-<p>有人会问：“我怎么没看到/usr/local/bin在哪里？</p>
-<p>废话，那是隐藏文件夹，肯定啊！！</p>
-<p>所以你只需要右键你的finder：finder-&gt;前往-&gt;前往文件夹-&gt;……</p>
-</blockquote>
-<p>2⃣其次，在/etc目录下新建mentohust文件夹，然后把网盘里面下载下来的三个压缩包解压后的文件全部丢到这里面。</p>
-<p>3⃣打开终端，输入sudo mentohust，按照提示选择。   </p>
-<p>具体有什么设置我忘记了，反正账号名是学号，密码是教务处密码。</p>
-<p><strong><em>敲黑板，划重点！！</em></strong></p>
-<p><strong><em>组播方式，我选的1，锐捷，，，DHCP认证方式，我选择的2认证后；</em></strong></p>
-<p><strong><em>最重要的就是选网卡，如果你有虚拟机，你直接就可以看到你的网线是在哪个网卡上，像我一样：</em></strong><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fmecyi97uxj30wo0eaae0.jpg" alt=""></p>
-<p><strong><em>实在不行，那就用穷举法吧！</em></strong></p>
-<p>一步步完成，你现在应该是可以连上校园网的了。</p>
-<h4 id="0x03修改用户信息"><a href="#0x03修改用户信息" class="headerlink" title="0x03修改用户信息"></a>0x03修改用户信息</h4><p>1⃣在穷举法的途中，你可能不能一步到位就找到你的网卡，所以你就要<strong>在/etc目录下找到mentohust.conf文件删除掉</strong>，然后把网线拔了再插进去，再重新输入sudo mentohust 重复<strong><em>0x02</em></strong>步骤，直到找到真正的网卡为止！！</p>
-<p>2⃣或许你要坏坏地用别人的账号去登陆校园网，那你还是重复1⃣步骤吧！</p>
-<h4 id="0x04-配置移动-联通宽带"><a href="#0x04-配置移动-联通宽带" class="headerlink" title="0x04 配置移动/联通宽带"></a>0x04 配置移动/联通宽带</h4><p>其实，当你成功连上了校园网之后，你只需要一条命令加上一个配置文件就可以顺利连上运营商的宽带了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mentohust -f/etc/mentohust/data.mpf -w</span><br></pre></td></tr></table></figure>
-<p><strong>/etc/mentohust/yidong.mpf 这里只要修改成配置文件的对应路径即可，名字记得要改噢！</strong></p>
-<p>由于配置文件是学长分享的，所以就不无偿分享了，顺便打个小广告！</p>
-<p>扫描下面二维码，</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fmedk7ukpvj30ny0no0uq.jpg" alt=""></p>
-<p>关注公众号，回复“移动”或“联通”分别获取配置文件下载链接。</p>
-<center><strong><em>——End——</em></strong></center>
-
-</the></excerpt>
+<p>开学，兴高采烈地去开通校园网，结果插上网线，下好客户端……
+          
       
     </div>
     
@@ -446,6 +384,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MISC/">MISC</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2017/12/08/mentohust/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
