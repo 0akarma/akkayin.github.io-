@@ -15,16 +15,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+<meta name="description" content="1开始涉足代码审计，将自己的一些笔记记录下来！&amp;lt;!-- more --&amp;gt;     PHP代码执行函数evalGrammar:     eval(phpcode) eval() 函数把字符串按照 PHP 代码来计算。 该字符串必须是‘合法的 PHP 代码’，且必须以‘分号’结尾。 如果没有在代">
+<meta name="keywords" content="Summary,代码审计,PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://akkayin.github.io/2017/11/19/hello-world/index.html">
+<meta property="og:title" content="PHP常见危险函数及特殊函数Summary">
+<meta property="og:url" content="http://akkayin.github.io/2017/12/12/function/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-11-19T00:10:18.005Z">
+<meta property="og:description" content="1开始涉足代码审计，将自己的一些笔记记录下来！&amp;lt;!-- more --&amp;gt;     PHP代码执行函数evalGrammar:     eval(phpcode) eval() 函数把字符串按照 PHP 代码来计算。 该字符串必须是‘合法的 PHP 代码’，且必须以‘分号’结尾。 如果没有在代码字符串中调用 return 语句，则返回 NULL。如果代码中存在解析错误，则 eval(">
+<meta property="og:updated_time" content="2017-12-12T15:04:43.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="PHP常见危险函数及特殊函数Summary">
+<meta name="twitter:description" content="1开始涉足代码审计，将自己的一些笔记记录下来！&amp;lt;!-- more --&amp;gt;     PHP代码执行函数evalGrammar:     eval(phpcode) eval() 函数把字符串按照 PHP 代码来计算。 该字符串必须是‘合法的 PHP 代码’，且必须以‘分号’结尾。 如果没有在代码字符串中调用 return 语句，则返回 NULL。如果代码中存在解析错误，则 eval(">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -56,7 +57,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hello World | KarmA&#39;s Blog</title>
+<title>PHP常见危险函数及特殊函数Summary | KarmA&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -262,11 +263,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-function" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/19/hello-world/" class="article-date">
-      <time datetime="2017-11-19T00:10:18.004Z" itemprop="datePublished">2017-11-19</time>
+      <a href="/2017/12/12/function/" class="article-date">
+      <time datetime="2017-12-12T09:50:17.000Z" itemprop="datePublished">2017-12-12</time>
 </a>
 
 
@@ -281,7 +282,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      PHP常见危险函数及特殊函数Summary
     </h1>
   
 
@@ -289,8 +290,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -298,16 +307,43 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <excerpt in="" index="" |="" 首页摘要="">
 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开始涉足代码审计，将自己的一些笔记记录下来！&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+
+<h2 id="PHP代码执行函数"><a href="#PHP代码执行函数" class="headerlink" title="PHP代码执行函数"></a>PHP代码执行函数</h2><h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><p><strong><em>Grammar:</em></strong>     eval(phpcode)</p>
+<p>eval() 函数把字符串按照 PHP 代码来计算。</p>
+<p>该字符串必须是‘合法的 PHP 代码’，且必须以‘分号’结尾。</p>
+<p>如果没有在代码字符串中调用 return 语句，则返回 NULL。如果代码中存在解析错误，则 eval() 函数返回 false。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$string = <span class="string">"beautiful"</span>;</span><br><span class="line">$time = <span class="string">"winter"</span>;</span><br><span class="line"></span><br><span class="line">$str = <span class="string">'This is a $string $time morning!'</span>;</span><br><span class="line"><span class="keyword">echo</span> $str. <span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">eval</span>(<span class="string">"\$str = \"$str\";"</span>); <span class="comment">/*一定要用\转义，不然会出现语法错误 */</span></span><br><span class="line"><span class="keyword">echo</span> $str;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">/* eval 还可以实现</span></span><br><span class="line"><span class="comment">  1.运行普通字符串 eg:	eval("echo 'aaa';")</span></span><br><span class="line"><span class="comment">  2.运行带&lt;? php开头的字符串</span></span><br><span class="line"><span class="comment">  3.运行&lt;? Php开头，?&gt;结尾的字符串</span></span><br><span class="line"><span class="comment">  4，运行HTML与PHP混合的字符串</span></span><br><span class="line"><span class="comment">  5.从MySQL读取代码（字符串形式），并动态加载</span></span><br><span class="line"><span class="comment">  6.运行包含include和request的代码</span></span><br><span class="line"><span class="comment">  7.知道运行的过程是否出现异常（但无法捕捉到详细异常信息）</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>assert函数在php中用于判断一个表达式是否成立。返回bool；</p>
+<p><strong><em>Grammar:</em></strong>     </p>
+<p>PHP 5</p>
+<figure class="highlight plain"><figcaption><span>**assert** ( [mixed $assertion [, string $description ] )</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool assert ( mixed $assertion [, string $description ] )</span><br></pre></td></tr></table></figure>
+<p>PHP 7</p>
+<figure class="highlight plain"><figcaption><span>assert ( mixed $assertion [, Throwable $exception ] )</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool assert ( mixed $assertion [, Throwable $exception ] )</span><br></pre></td></tr></table></figure>
+<p><code>mixed</code> 说明一个参数可以接受多种不同的（但不一定是所有的）类型。</p>
+<p>例如 <a href="http://php.net/manual/zh/function.gettype.php" target="_blank" rel="noopener">gettype()</a> 可以接受所有的 PHP 类型，<a href="http://php.net/manual/zh/function.str-replace.php" target="_blank" rel="noopener">str_replace()</a> 可以接受字符串和数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$s = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">echo</span> assert(<span class="string">"is_int($s)"</span>);</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">//	1 [Finished in 0.0s]</span></span><br></pre></td></tr></table></figure>
+<p>从这个例子可以看到字符串参数会被执行，这跟eval()类似。不过eval($code_str)只是执行符合php编码规范的$code_str。<br>assert的用法却更详细一点。</p>
+<p>assert_option()可以用来对assert()进行一些约束和控制;</p>
+<blockquote>
+<p>默认值</p>
+<blockquote>
+<p>ASSERT_ACTIVE=1 //Assert函数的开关<br>ASSERT_WARNING =1 //当表达式为false时，是否要输出警告性的错误提示,issue a PHP warning for each failed assertion<br>ASSERT_BAIL= 0 //是否要中止运行；terminate execution on failed assertions<br>ASSERT_QUIET_EVAL= 0 //是否关闭错误提示，在执行表达式时；disable error_reporting during assertion expression evaluation<br>ASSERT_CALLBACK= (NULL) // 是否启动回调函数 user function to call on failed assertions</p>
+</blockquote>
+</blockquote>
+<h3 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace"></a>preg_replace</h3><p>preg_replace — 执行一个正则表达式的搜索和替换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</span><br></pre></td></tr></table></figure>
+<p>搜索<code>subject</code>中匹配<code>pattern</code>的部分（通常用正则匹配）， 以<code>replacement</code>进行替换。</p>
+<h2 id="包含函数"><a href="#包含函数" class="headerlink" title="包含函数"></a>包含函数</h2><h2 id="命令执行函数"><a href="#命令执行函数" class="headerlink" title="命令执行函数"></a>命令执行函数</h2><h2 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h2><h2 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h2><p>参考资料：</p>
+<p><a href="http://www.cnblogs.com/galaxyyao/archive/2013/04/25/3043104.html" target="_blank" rel="noopener">PHP Eval研究笔记</a></p>
+<p><a href="https://www.douban.com/note/217557007/" target="_blank" rel="noopener">PHP assert函数的用法</a></p>
+<p><a href="http://www.jb51.net/article/46458.htm" target="_blank" rel="noopener">PHP preg_replace() 正则替换所有符合条件的字符串</a></p>
+</the></excerpt>
       
     </div>
     
@@ -315,13 +351,13 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/2017/11/19/hello-world/">Hello World</a></p>
+        <p><span>Title:</span><a href="/2017/12/12/function/">PHP常见危险函数及特殊函数Summary</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
-        <p><span>Created:</span>2017-11-19, 08:10:18</p>
-        <p><span>Updated:</span>2017-11-19, 08:10:18</p>
+        <p><span>Created:</span>2017-12-12, 17:50:17</p>
+        <p><span>Updated:</span>2017-12-12, 23:04:43</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/2017/11/19/hello-world/" title="Hello World">http://akkayin.github.io/2017/11/19/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="From http://akkayin.github.io/2017/11/19/hello-world/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2017/12/12/function/" title="PHP常见危险函数及特殊函数Summary">http://akkayin.github.io/2017/12/12/function/</a>
+            <span class="copy-path" data-clipboard-text="From http://akkayin.github.io/2017/12/12/function/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -333,12 +369,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/11/19/论Mac备份的重要性<-血的教训md/">
-                    论Mac备份的重要性&lt;-血的教训
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/08/mentohust/">
+                    Mac下配置mentohust上校园网/移动/联通/
                 </a>
             </div>
-        
         
     </nav>
 
@@ -348,7 +384,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP代码执行函数"><span class="toc-text">PHP代码执行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#eval"><span class="toc-text">eval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assert"><span class="toc-text">assert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#preg-replace"><span class="toc-text">preg_replace</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含函数"><span class="toc-text">包含函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令执行函数"><span class="toc-text">命令执行函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作函数"><span class="toc-text">文件操作函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊函数"><span class="toc-text">特殊函数</span></a></li></ol>
         
     </div>
     <style>
@@ -384,7 +420,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Hello World　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"PHP常见危险函数及特殊函数Summary　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -418,15 +454,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/19/论Mac备份的重要性<-血的教训md/" title="Pre: 论Mac备份的重要性&lt;-血的教训">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
         
 
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+            <a href="/2017/12/08/mentohust/" title="Next: Mac下配置mentohust上校园网/移动/联通/">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
