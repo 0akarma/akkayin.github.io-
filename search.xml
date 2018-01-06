@@ -3,6 +3,83 @@
   
     
     <entry>
+      <title><![CDATA[Python Notes]]></title>
+      <url>/2018/01/05/python/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>Python学习笔记<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文=""></the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Summary </tag>
+            
+            <tag> Notes </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux初探]]></title>
+      <url>/2018/01/04/linux/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><br></p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h3><h4 id="ls-显示目录文件"><a href="#ls-显示目录文件" class="headerlink" title="ls 显示目录文件"></a>ls 显示目录文件</h4><p>-a 显示所有文件，包括隐藏文件</p>
+<p>-l 详细信息展示 -h 人性化显示</p>
+<p>-d 查看目录属性</p>
+<p>-i</p>
+<h4 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h4><p>-p 递归创建</p>
+<h4 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h4><p><strong>..</strong>  -&gt;当前目录的上一级目录</p>
+<p><strong>.</strong>   -&gt;当前目录</p>
+<h4 id="pwd-显示当前目录"><a href="#pwd-显示当前目录" class="headerlink" title="pwd 显示当前目录"></a>pwd 显示当前目录</h4><h4 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a>rmdir 删除空目录</h4><h4 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h4><p>-f 复制目录</p>
+<p>-p 保留文件属性</p>
+<h4 id="mv-剪切-改名"><a href="#mv-剪切-改名" class="headerlink" title="mv 剪切/改名"></a>mv 剪切/改名</h4><h4 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h4><p>-rf [文件或目录]</p>
+<p>-f 删除目录</p>
+<p>-f 强制执行</p>
+<h3 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h3><h4 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h4><h4 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h4><p>-n 显示行号</p>
+<h4 id="tac-显示文件内容（反向）"><a href="#tac-显示文件内容（反向）" class="headerlink" title="tac 显示文件内容（反向）"></a>tac 显示文件内容（反向）</h4><h4 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h4><p>空格/f      -&gt;翻页</p>
+<p>回车      -&gt;换行</p>
+<p>q或Q     -&gt;退出</p>
+<h4 id="less-分页显示文件内容（可向上翻页）"><a href="#less-分页显示文件内容（可向上翻页）" class="headerlink" title="less 分页显示文件内容（可向上翻页）"></a>less 分页显示文件内容（可向上翻页）</h4><p>搜索：<strong>/关键词</strong></p>
+<h4 id="head-显示文件前几行"><a href="#head-显示文件前几行" class="headerlink" title="head 显示文件前几行"></a>head 显示文件前几行</h4><p>-n 制定行数（默认10）</p>
+<h4 id="tail-显示文件后面几行"><a href="#tail-显示文件后面几行" class="headerlink" title="tail 显示文件后面几行"></a>tail 显示文件后面几行</h4><p>-n 指定行数</p>
+<p>-f 动态显示文件末尾内容</p>
+<h3 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h3></the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Summary </tag>
+            
+            <tag> Linux </tag>
+            
+            <tag> Notes </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[My Book List In 2018]]></title>
       <url>/2018/01/01/2018books/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>The books i have read in 2018.<a id="more"></a></excerpt></p>
@@ -36,7 +113,7 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p><br></p>
-<h2 id="xXx-Return-of-Xander-Cage-1、2、3"><a href="#xXx-Return-of-Xander-Cage-1、2、3" class="headerlink" title="xXx.Return.of.Xander.Cage. (1、2、3)"></a>xXx.Return.of.Xander.Cage. (1、2、3)</h2><h2 id="英伦对决"><a href="#英伦对决" class="headerlink" title="英伦对决"></a>英伦对决</h2></the>]]></content>
+<h3 id="xXx-Return-of-Xander-Cage-极限特工1-2-3"><a href="#xXx-Return-of-Xander-Cage-极限特工1-2-3" class="headerlink" title="xXx.Return.of.Xander.Cage. (极限特工1-2-3)"></a>xXx.Return.of.Xander.Cage. (极限特工1-2-3)</h3><h3 id="The-Foreigner-英伦对决"><a href="#The-Foreigner-英伦对决" class="headerlink" title="The.Foreigner. (英伦对决)"></a>The.Foreigner. (英伦对决)</h3><h3 id="The-Intern（实习生）"><a href="#The-Intern（实习生）" class="headerlink" title="The Intern（实习生）"></a>The Intern（实习生）</h3></the>]]></content>
       
         <categories>
             
@@ -2328,7 +2405,7 @@ located at/in
     
     <entry>
       <title><![CDATA[论Mac备份的重要性<-血的教训]]></title>
-      <url>/2017/11/19/%E8%AE%BAMac%E5%A4%87%E4%BB%BD%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%3C-%E8%A1%80%E7%9A%84%E6%95%99%E8%AE%ADmd/</url>
+      <url>/2017/11/19/%E8%AE%BAMac%E5%A4%87%E4%BB%BD%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%3C-%E8%A1%80%E7%9A%84%E6%95%99%E8%AE%AD/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>    总以为不会发生的事情，万一有一天真的降临在你头上了……<a id="more"></a></excerpt></p>
 <p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
 <h3 id="博客转移"><a href="#博客转移" class="headerlink" title="博客转移"></a>博客转移</h3><p>​    由于blog文件没有备份，所以所有文章都不见了，也懒得再找回来了，虽然也没几篇！原<a href="http://www.cnblogs.com/AK-K/" target="_blank" rel="noopener">博客</a></p>
