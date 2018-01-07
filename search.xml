@@ -7,8 +7,24 @@
       <url>/2018/01/05/python/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
 
-<p>Python学习笔记<a id="more"></a></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the></excerpt>]]></content>
+<p>Some python studying notes from FishC lectures.<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><br></p>
+<h2 id="1-我和python的第一次亲密接触"><a href="#1-我和python的第一次亲密接触" class="headerlink" title="1.我和python的第一次亲密接触"></a>1.我和python的第一次亲密接触</h2><p><a href="http://bbs.fishc.com/thread-35509-1-1.html" target="_blank" rel="noopener">Python3 与Python2* 的区别</a></p>
+<h2 id="2-用Python设计的第一个游戏"><a href="#2-用Python设计的第一个游戏" class="headerlink" title="2.用Python设计的第一个游戏"></a>2.用Python设计的第一个游戏</h2><p>注意<strong>Tab</strong>的运用</p>
+<p>流程图的重要性（logic）</p>
+<p>内置函数（built-in functions 简称BIF）（通过import调入）</p>
+<p><strong>In addition：</strong></p>
+<p>Python程序内不需要事先声明变量，可以直接赋值使用</p>
+<p>另外需要注意if和else语句的使用方法， 注意  <strong>“ ：” </strong></p>
+<p>赋运算符值”=”和比较运算符 “==” 的区别。</p>
+<h2 id="3-插曲之变量与字符串"><a href="#3-插曲之变量与字符串" class="headerlink" title="3.插曲之变量与字符串"></a>3.插曲之变量与字符串</h2><h4 id="变量："><a href="#变量：" class="headerlink" title="变量："></a>变量：</h4><p>由字母、数字、下划线组成，且首位不允许是数字</p>
+<h4 id="字符串："><a href="#字符串：" class="headerlink" title="字符串："></a>字符串：</h4><h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><h4 id="原始字符串："><a href="#原始字符串：" class="headerlink" title="原始字符串："></a>原始字符串：</h4><p>在Python中，反斜杠主要用来作为转义字符的，当我们需要用其本身含义时，可以对其自身前面加一个转义字符处理。但是对于一些特殊的字符串，如果里面频繁用到反斜杠，再手动的去一个个加就显得繁琐，这个时候可以在其字符串前面加上一个字母r轻松解决，这就是原始字符串的含义，让字符串中的反斜杠回归其原始的本意。例如字符串C:\Program File\Intel\WiFi\Help，定义只要r’C:\Program File\Intel\WiFi\Help’，它的实现方法其实很简单，就是程序会自动对每一个反斜杠前面再加一个反斜杠。但是r不能对末尾是反斜杠的字符串进行定义，’C:\Temp\’。这个时候如果非要使用r进行原始字符串操作的话可以采用如下形式解决：r’C:\Temp’ ‘\‘ 或者r’C:\Temp’+’\‘。</p>
+<h4 id="长字符串："><a href="#长字符串：" class="headerlink" title="长字符串："></a>长字符串：</h4><p>一般情况下，使用单引号或者双引号只能引一行的字符串，如果字符串是有多行组成，则需要使用三引号</p>
+<h2 id="4-改进我们的小游戏"><a href="#4-改进我们的小游戏" class="headerlink" title="4.改进我们的小游戏"></a>4.改进我们的小游戏</h2><h4 id="Python-“and”和C-“-amp-amp-”-有什么区别"><a href="#Python-“and”和C-“-amp-amp-”-有什么区别" class="headerlink" title="Python “and”和C “&amp;&amp;” 有什么区别"></a>Python “and”和C “&amp;&amp;” 有什么区别</h4><p>在c中，0&amp;&amp;3 = 0,1&amp;&amp;3 = 1在python中，,0 and 3 = 0，1 and 3 = 3!</p>
+<h4 id="短路逻辑（short-circuit-logic）"><a href="#短路逻辑（short-circuit-logic）" class="headerlink" title="短路逻辑（short-circuit logic）"></a>短路逻辑（short-circuit logic）</h4><p>逻辑操作符有个有趣的特性：在不需要求值的时候不进行操作。这么说可能比较“高深”，举个例子，表达式 x and y，需要 x 和 y 两个变量同时为真(True)的时候，结果才为真。因此，如果当 x 变量得知是假(False)的时候，表达式就会立刻返回 False，而不用去管 y 变量的值。<br>这种行为被称为短路逻辑（short-circuit logic）或者惰性求值（lazy evaluation），这种行为同样也应用与 or 操作符。</p>
+<h2 id="5-闲聊之Python的数据类型"><a href="#5-闲聊之Python的数据类型" class="headerlink" title="5.闲聊之Python的数据类型"></a>5.闲聊之Python的数据类型</h2><h2 id="6-Python之常用操作符"><a href="#6-Python之常用操作符" class="headerlink" title="6.Python之常用操作符"></a>6.Python之常用操作符</h2><h2 id="7-了不起的分支和循环1"><a href="#7-了不起的分支和循环1" class="headerlink" title="7.了不起的分支和循环1"></a>7.了不起的分支和循环1</h2><h2 id="8-了不起的分支和循环2"><a href="#8-了不起的分支和循环2" class="headerlink" title="8.了不起的分支和循环2"></a>8.了不起的分支和循环2</h2><h2 id="9-了不起的分支和循环3"><a href="#9-了不起的分支和循环3" class="headerlink" title="9.了不起的分支和循环3"></a>9.了不起的分支和循环3</h2><h2 id="10-列表，一个打了激素的数组1"><a href="#10-列表，一个打了激素的数组1" class="headerlink" title="10.列表，一个打了激素的数组1"></a>10.列表，一个打了激素的数组1</h2><h2 id="11-列表，一个打了激素的数组2"><a href="#11-列表，一个打了激素的数组2" class="headerlink" title="11.列表，一个打了激素的数组2"></a>11.列表，一个打了激素的数组2</h2><h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h2 id="13-元组，戴上了枷锁的列表"><a href="#13-元组，戴上了枷锁的列表" class="headerlink" title="13.元组，戴上了枷锁的列表"></a>13.元组，戴上了枷锁的列表</h2><h2 id="14-字符串：各种奇葩的内置方法"><a href="#14-字符串：各种奇葩的内置方法" class="headerlink" title="14.字符串：各种奇葩的内置方法"></a>14.字符串：各种奇葩的内置方法</h2><h2 id="15-字符串的格式语句与操作符"><a href="#15-字符串的格式语句与操作符" class="headerlink" title="15.字符串的格式语句与操作符"></a>15.字符串的格式语句与操作符</h2><h2 id="16-序列相关内置函数介绍"><a href="#16-序列相关内置函数介绍" class="headerlink" title="16.序列相关内置函数介绍"></a>16.序列相关内置函数介绍</h2><h2 id="17"><a href="#17" class="headerlink" title="17."></a>17.</h2><h2 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h2><h2 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h2><h2 id="20"><a href="#20" class="headerlink" title="20."></a>20.</h2><h2 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h2><h2 id="22"><a href="#22" class="headerlink" title="22."></a>22.</h2></the></excerpt>]]></content>
       
         <categories>
             
@@ -38,27 +54,46 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p><br></p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h3><h4 id="ls-显示目录文件"><a href="#ls-显示目录文件" class="headerlink" title="ls 显示目录文件"></a>ls 显示目录文件</h4><p>-a 显示所有文件，包括隐藏文件</p>
+<h1 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h1><h2 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h2><h3 id="ls-显示目录文件"><a href="#ls-显示目录文件" class="headerlink" title="ls 显示目录文件"></a>ls 显示目录文件</h3><p>-a 显示所有文件，包括隐藏文件</p>
 <p>-l 详细信息展示 -h 人性化显示</p>
 <p>-d 查看目录属性</p>
 <p>-i</p>
-<h4 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h4><p>-p 递归创建</p>
-<h4 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h4><p><strong>..</strong>  -&gt;当前目录的上一级目录</p>
+<h3 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h3><p>-p 递归创建</p>
+<h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h3><p><strong>..</strong>  -&gt;当前目录的上一级目录</p>
 <p><strong>.</strong>   -&gt;当前目录</p>
-<h4 id="pwd-显示当前目录"><a href="#pwd-显示当前目录" class="headerlink" title="pwd 显示当前目录"></a>pwd 显示当前目录</h4><h4 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a>rmdir 删除空目录</h4><h4 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h4><p>-f 复制目录</p>
+<h3 id="pwd-显示当前目录"><a href="#pwd-显示当前目录" class="headerlink" title="pwd 显示当前目录"></a>pwd 显示当前目录</h3><h3 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a>rmdir 删除空目录</h3><h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p>-f 复制目录</p>
 <p>-p 保留文件属性</p>
-<h4 id="mv-剪切-改名"><a href="#mv-剪切-改名" class="headerlink" title="mv 剪切/改名"></a>mv 剪切/改名</h4><h4 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h4><p>-rf [文件或目录]</p>
+<h3 id="mv-剪切-改名"><a href="#mv-剪切-改名" class="headerlink" title="mv 剪切/改名"></a>mv 剪切/改名</h3><h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h3><p>-rf [文件或目录]</p>
 <p>-f 删除目录</p>
 <p>-f 强制执行</p>
-<h3 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h3><h4 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h4><h4 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h4><p>-n 显示行号</p>
-<h4 id="tac-显示文件内容（反向）"><a href="#tac-显示文件内容（反向）" class="headerlink" title="tac 显示文件内容（反向）"></a>tac 显示文件内容（反向）</h4><h4 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h4><p>空格/f      -&gt;翻页</p>
+<p><br></p>
+<h2 id="文件处理命令-1"><a href="#文件处理命令-1" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><h3 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h3><h3 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h3><p>-n 显示行号</p>
+<h3 id="tac-显示文件内容（反向）"><a href="#tac-显示文件内容（反向）" class="headerlink" title="tac 显示文件内容（反向）"></a>tac 显示文件内容（反向）</h3><h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h3><p>空格/f      -&gt;翻页</p>
 <p>回车      -&gt;换行</p>
 <p>q或Q     -&gt;退出</p>
-<h4 id="less-分页显示文件内容（可向上翻页）"><a href="#less-分页显示文件内容（可向上翻页）" class="headerlink" title="less 分页显示文件内容（可向上翻页）"></a>less 分页显示文件内容（可向上翻页）</h4><p>搜索：<strong>/关键词</strong></p>
-<h4 id="head-显示文件前几行"><a href="#head-显示文件前几行" class="headerlink" title="head 显示文件前几行"></a>head 显示文件前几行</h4><p>-n 制定行数（默认10）</p>
-<h4 id="tail-显示文件后面几行"><a href="#tail-显示文件后面几行" class="headerlink" title="tail 显示文件后面几行"></a>tail 显示文件后面几行</h4><p>-n 指定行数</p>
+<h3 id="less-分页显示文件内容（可向上翻页）"><a href="#less-分页显示文件内容（可向上翻页）" class="headerlink" title="less 分页显示文件内容（可向上翻页）"></a>less 分页显示文件内容（可向上翻页）</h3><p>搜索：<strong>/关键词</strong></p>
+<h3 id="head-显示文件前几行"><a href="#head-显示文件前几行" class="headerlink" title="head 显示文件前几行"></a>head 显示文件前几行</h3><p>-n 制定行数（默认10）</p>
+<h3 id="tail-显示文件后面几行"><a href="#tail-显示文件后面几行" class="headerlink" title="tail 显示文件后面几行"></a>tail 显示文件后面几行</h3><p>-n 指定行数</p>
 <p>-f 动态显示文件末尾内容</p>
-<h3 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h3></the></excerpt>]]></content>
+<p><br></p>
+<h2 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h2><h3 id="ln-生成链接文件"><a href="#ln-生成链接文件" class="headerlink" title="ln 生成链接文件"></a>ln 生成链接文件</h3><h4 id="软链接："><a href="#软链接：" class="headerlink" title="软链接："></a>软链接：</h4><p>类似windows的快捷方式</p>
+<p>-s 创建软链接</p>
+<p>1.lrwxrwxrwx   <strong>l -&gt;软链接</strong></p>
+<p>2.文件很小</p>
+<p>3.箭头指向源文件</p>
+<h4 id="硬链接："><a href="#硬链接：" class="headerlink" title="硬链接："></a>硬链接：</h4><p>除了位置不一样，其余都一样（像cp -p 一样）</p>
+<ol>
+<li><p>cp -p + 同步更新</p>
+<p>echo “123456” &gt;&gt;/etc/issue</p>
+</li>
+<li><p>通过 <strong>i</strong> 节点识别</p>
+</li>
+<li><p>不能跨分区</p>
+</li>
+<li><p>不能针对目录使用</p>
+</li>
+</ol>
+</the></excerpt>]]></content>
       
         <categories>
             

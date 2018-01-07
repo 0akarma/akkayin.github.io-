@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="Python学习笔记">
+<meta name="description" content="Some python studying notes from FishC lectures.">
 <meta name="keywords" content="Summary,Python,Notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python Notes">
 <meta property="og:url" content="http://akkayin.github.io/2018/01/05/python/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
-<meta property="og:description" content="Python学习笔记">
+<meta property="og:description" content="Some python studying notes from FishC lectures.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-04T06:35:14.188Z">
+<meta property="og:updated_time" content="2018-01-07T13:35:57.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Notes">
-<meta name="twitter:description" content="Python学习笔记">
+<meta name="twitter:description" content="Some python studying notes from FishC lectures.">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -310,8 +310,24 @@
           
         <excerpt in="" index="" |="" 首页摘要="">
 
-<p>Python学习笔记<a id="more"></a></p>
-<the rest="" of="" contents="" |="" 余下全文=""></the></excerpt>
+<p>Some python studying notes from FishC lectures.<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><br></p>
+<h2 id="1-我和python的第一次亲密接触"><a href="#1-我和python的第一次亲密接触" class="headerlink" title="1.我和python的第一次亲密接触"></a>1.我和python的第一次亲密接触</h2><p><a href="http://bbs.fishc.com/thread-35509-1-1.html" target="_blank" rel="noopener">Python3 与Python2* 的区别</a></p>
+<h2 id="2-用Python设计的第一个游戏"><a href="#2-用Python设计的第一个游戏" class="headerlink" title="2.用Python设计的第一个游戏"></a>2.用Python设计的第一个游戏</h2><p>注意<strong>Tab</strong>的运用</p>
+<p>流程图的重要性（logic）</p>
+<p>内置函数（built-in functions 简称BIF）（通过import调入）</p>
+<p><strong>In addition：</strong></p>
+<p>Python程序内不需要事先声明变量，可以直接赋值使用</p>
+<p>另外需要注意if和else语句的使用方法， 注意  <strong>“ ：” </strong></p>
+<p>赋运算符值”=”和比较运算符 “==” 的区别。</p>
+<h2 id="3-插曲之变量与字符串"><a href="#3-插曲之变量与字符串" class="headerlink" title="3.插曲之变量与字符串"></a>3.插曲之变量与字符串</h2><h4 id="变量："><a href="#变量：" class="headerlink" title="变量："></a>变量：</h4><p>由字母、数字、下划线组成，且首位不允许是数字</p>
+<h4 id="字符串："><a href="#字符串：" class="headerlink" title="字符串："></a>字符串：</h4><h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><h4 id="原始字符串："><a href="#原始字符串：" class="headerlink" title="原始字符串："></a>原始字符串：</h4><p>在Python中，反斜杠主要用来作为转义字符的，当我们需要用其本身含义时，可以对其自身前面加一个转义字符处理。但是对于一些特殊的字符串，如果里面频繁用到反斜杠，再手动的去一个个加就显得繁琐，这个时候可以在其字符串前面加上一个字母r轻松解决，这就是原始字符串的含义，让字符串中的反斜杠回归其原始的本意。例如字符串C:\Program File\Intel\WiFi\Help，定义只要r’C:\Program File\Intel\WiFi\Help’，它的实现方法其实很简单，就是程序会自动对每一个反斜杠前面再加一个反斜杠。但是r不能对末尾是反斜杠的字符串进行定义，’C:\Temp\’。这个时候如果非要使用r进行原始字符串操作的话可以采用如下形式解决：r’C:\Temp’ ‘\‘ 或者r’C:\Temp’+’\‘。</p>
+<h4 id="长字符串："><a href="#长字符串：" class="headerlink" title="长字符串："></a>长字符串：</h4><p>一般情况下，使用单引号或者双引号只能引一行的字符串，如果字符串是有多行组成，则需要使用三引号</p>
+<h2 id="4-改进我们的小游戏"><a href="#4-改进我们的小游戏" class="headerlink" title="4.改进我们的小游戏"></a>4.改进我们的小游戏</h2><h4 id="Python-“and”和C-“-amp-amp-”-有什么区别"><a href="#Python-“and”和C-“-amp-amp-”-有什么区别" class="headerlink" title="Python “and”和C “&amp;&amp;” 有什么区别"></a>Python “and”和C “&amp;&amp;” 有什么区别</h4><p>在c中，0&amp;&amp;3 = 0,1&amp;&amp;3 = 1在python中，,0 and 3 = 0，1 and 3 = 3!</p>
+<h4 id="短路逻辑（short-circuit-logic）"><a href="#短路逻辑（short-circuit-logic）" class="headerlink" title="短路逻辑（short-circuit logic）"></a>短路逻辑（short-circuit logic）</h4><p>逻辑操作符有个有趣的特性：在不需要求值的时候不进行操作。这么说可能比较“高深”，举个例子，表达式 x and y，需要 x 和 y 两个变量同时为真(True)的时候，结果才为真。因此，如果当 x 变量得知是假(False)的时候，表达式就会立刻返回 False，而不用去管 y 变量的值。<br>这种行为被称为短路逻辑（short-circuit logic）或者惰性求值（lazy evaluation），这种行为同样也应用与 or 操作符。</p>
+<h2 id="5-闲聊之Python的数据类型"><a href="#5-闲聊之Python的数据类型" class="headerlink" title="5.闲聊之Python的数据类型"></a>5.闲聊之Python的数据类型</h2><h2 id="6-Python之常用操作符"><a href="#6-Python之常用操作符" class="headerlink" title="6.Python之常用操作符"></a>6.Python之常用操作符</h2><h2 id="7-了不起的分支和循环1"><a href="#7-了不起的分支和循环1" class="headerlink" title="7.了不起的分支和循环1"></a>7.了不起的分支和循环1</h2><h2 id="8-了不起的分支和循环2"><a href="#8-了不起的分支和循环2" class="headerlink" title="8.了不起的分支和循环2"></a>8.了不起的分支和循环2</h2><h2 id="9-了不起的分支和循环3"><a href="#9-了不起的分支和循环3" class="headerlink" title="9.了不起的分支和循环3"></a>9.了不起的分支和循环3</h2><h2 id="10-列表，一个打了激素的数组1"><a href="#10-列表，一个打了激素的数组1" class="headerlink" title="10.列表，一个打了激素的数组1"></a>10.列表，一个打了激素的数组1</h2><h2 id="11-列表，一个打了激素的数组2"><a href="#11-列表，一个打了激素的数组2" class="headerlink" title="11.列表，一个打了激素的数组2"></a>11.列表，一个打了激素的数组2</h2><h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h2 id="13-元组，戴上了枷锁的列表"><a href="#13-元组，戴上了枷锁的列表" class="headerlink" title="13.元组，戴上了枷锁的列表"></a>13.元组，戴上了枷锁的列表</h2><h2 id="14-字符串：各种奇葩的内置方法"><a href="#14-字符串：各种奇葩的内置方法" class="headerlink" title="14.字符串：各种奇葩的内置方法"></a>14.字符串：各种奇葩的内置方法</h2><h2 id="15-字符串的格式语句与操作符"><a href="#15-字符串的格式语句与操作符" class="headerlink" title="15.字符串的格式语句与操作符"></a>15.字符串的格式语句与操作符</h2><h2 id="16-序列相关内置函数介绍"><a href="#16-序列相关内置函数介绍" class="headerlink" title="16.序列相关内置函数介绍"></a>16.序列相关内置函数介绍</h2><h2 id="17"><a href="#17" class="headerlink" title="17."></a>17.</h2><h2 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h2><h2 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h2><h2 id="20"><a href="#20" class="headerlink" title="20."></a>20.</h2><h2 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h2><h2 id="22"><a href="#22" class="headerlink" title="22."></a>22.</h2></the></excerpt>
       
     </div>
     
@@ -322,7 +338,7 @@
         <p><span>本文标题:</span><a href="/2018/01/05/python/">Python Notes</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-01-05, 14:34:14</p>
-        <p><span>最后更新:</span>2018-01-04, 14:35:14</p>
+        <p><span>最后更新:</span>2018-01-07, 21:35:57</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/05/python/" title="Python Notes">http://akkayin.github.io/2018/01/05/python/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/01/05/python/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -352,7 +368,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-我和python的第一次亲密接触"><span class="toc-text">1.我和python的第一次亲密接触</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用Python设计的第一个游戏"><span class="toc-text">2.用Python设计的第一个游戏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-插曲之变量与字符串"><span class="toc-text">3.插曲之变量与字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量："><span class="toc-text">变量：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串："><span class="toc-text">字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转义字符"><span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原始字符串："><span class="toc-text">原始字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#长字符串："><span class="toc-text">长字符串：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-改进我们的小游戏"><span class="toc-text">4.改进我们的小游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-“and”和C-“-amp-amp-”-有什么区别"><span class="toc-text">Python “and”和C “&&” 有什么区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#短路逻辑（short-circuit-logic）"><span class="toc-text">短路逻辑（short-circuit logic）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-闲聊之Python的数据类型"><span class="toc-text">5.闲聊之Python的数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Python之常用操作符"><span class="toc-text">6.Python之常用操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-了不起的分支和循环1"><span class="toc-text">7.了不起的分支和循环1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-了不起的分支和循环2"><span class="toc-text">8.了不起的分支和循环2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-了不起的分支和循环3"><span class="toc-text">9.了不起的分支和循环3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-列表，一个打了激素的数组1"><span class="toc-text">10.列表，一个打了激素的数组1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-列表，一个打了激素的数组2"><span class="toc-text">11.列表，一个打了激素的数组2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-列表，一个打了激素的数组3"><span class="toc-text">12.列表，一个打了激素的数组3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-元组，戴上了枷锁的列表"><span class="toc-text">13.元组，戴上了枷锁的列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-字符串：各种奇葩的内置方法"><span class="toc-text">14.字符串：各种奇葩的内置方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-字符串的格式语句与操作符"><span class="toc-text">15.字符串的格式语句与操作符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-序列相关内置函数介绍"><span class="toc-text">16.序列相关内置函数介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17"><span class="toc-text">17.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18"><span class="toc-text">18.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19"><span class="toc-text">19.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20"><span class="toc-text">20.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21"><span class="toc-text">21.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22"><span class="toc-text">22.</span></a></li></ol>
         
     </div>
     <style>
