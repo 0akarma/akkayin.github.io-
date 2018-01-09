@@ -16,14 +16,14 @@
 
 
 <meta name="description" content="线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！">
-<meta name="keywords" content="Summary,Notes,Linux">
+<meta name="keywords" content="Summary,Linux,Notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux初探">
 <meta property="og:url" content="http://akkayin.github.io/2018/01/04/linux/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-07T07:13:24.847Z">
+<meta property="og:updated_time" content="2018-01-09T04:59:57.934Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初探">
 <meta name="twitter:description" content="线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！">
@@ -314,34 +314,50 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p><br></p>
-<h1 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h1><h2 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h2><h3 id="ls-显示目录文件"><a href="#ls-显示目录文件" class="headerlink" title="ls 显示目录文件"></a>ls 显示目录文件</h3><p>-a 显示所有文件，包括隐藏文件</p>
+<h1 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h1><h2 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h2><h3 id="ls-显示目录文件"><a href="#ls-显示目录文件" class="headerlink" title="ls 显示目录文件"></a>ls 显示目录文件</h3><p><strong>grammar: ls [-ald]【文件或目录】</strong></p>
+<p>-a 显示所有文件，包括隐藏文件</p>
 <p>-l 详细信息展示 -h 人性化显示</p>
 <p>-d 查看目录属性</p>
 <p>-i</p>
-<h3 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h3><p>-p 递归创建</p>
-<h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h3><p><strong>..</strong>  -&gt;当前目录的上一级目录</p>
+<h3 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h3><p><strong>grammar: mkdir -p [目录名]</strong></p>
+<p>-p 递归创建</p>
+<h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h3><p><strong>grammar: cd [目录名]</strong></p>
+<p><strong>..</strong>  -&gt;当前目录的上一级目录</p>
 <p><strong>.</strong>   -&gt;当前目录</p>
-<h3 id="pwd-显示当前目录"><a href="#pwd-显示当前目录" class="headerlink" title="pwd 显示当前目录"></a>pwd 显示当前目录</h3><h3 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a>rmdir 删除空目录</h3><h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p>-f 复制目录</p>
+<h3 id="pwd-显示当前目录"><a href="#pwd-显示当前目录" class="headerlink" title="pwd 显示当前目录"></a>pwd 显示当前目录</h3><h3 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a>rmdir 删除空目录</h3><p><strong>grammar: rmdir  [目录名]</strong></p>
+<h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p><strong>grammar: cp [原文件或目录]【目标目录】</strong></p>
+<p>-f 复制目录</p>
 <p>-p 保留文件属性</p>
-<h3 id="mv-剪切-改名"><a href="#mv-剪切-改名" class="headerlink" title="mv 剪切/改名"></a>mv 剪切/改名</h3><h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h3><p>-rf [文件或目录]</p>
+<h3 id="mv-剪切-改名"><a href="#mv-剪切-改名" class="headerlink" title="mv 剪切/改名"></a>mv 剪切/改名</h3><p><strong>grammar: mv [原文件或目录]【目标目录】</strong></p>
+<h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h3><p><strong>grammar: rm [文件或目录]</strong></p>
+<p>-rf [文件或目录]</p>
 <p>-f 删除目录</p>
 <p>-f 强制执行</p>
 <p><br></p>
-<h2 id="文件处理命令-1"><a href="#文件处理命令-1" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><h3 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h3><h3 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h3><p>-n 显示行号</p>
-<h3 id="tac-显示文件内容（反向）"><a href="#tac-显示文件内容（反向）" class="headerlink" title="tac 显示文件内容（反向）"></a>tac 显示文件内容（反向）</h3><h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h3><p>空格/f      -&gt;翻页</p>
+<h2 id="文件处理命令-1"><a href="#文件处理命令-1" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><h3 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h3><p><strong>grammar: touch [文件名]</strong></p>
+<h3 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h3><p><strong>grammar: cat [文件名]</strong></p>
+<p>-n 显示行号</p>
+<h3 id="tac-显示文件内容（反向）"><a href="#tac-显示文件内容（反向）" class="headerlink" title="tac 显示文件内容（反向）"></a>tac 显示文件内容（反向）</h3><p><strong>grammar: tac [文件名]</strong></p>
+<h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h3><p><strong>grammar: more [文件名]</strong></p>
+<p>空格/f      -&gt;翻页</p>
 <p>回车      -&gt;换行</p>
 <p>q或Q     -&gt;退出</p>
-<h3 id="less-分页显示文件内容（可向上翻页）"><a href="#less-分页显示文件内容（可向上翻页）" class="headerlink" title="less 分页显示文件内容（可向上翻页）"></a>less 分页显示文件内容（可向上翻页）</h3><p>搜索：<strong>/关键词</strong></p>
-<h3 id="head-显示文件前几行"><a href="#head-显示文件前几行" class="headerlink" title="head 显示文件前几行"></a>head 显示文件前几行</h3><p>-n 制定行数（默认10）</p>
-<h3 id="tail-显示文件后面几行"><a href="#tail-显示文件后面几行" class="headerlink" title="tail 显示文件后面几行"></a>tail 显示文件后面几行</h3><p>-n 指定行数</p>
+<h3 id="less-分页显示文件内容（可向上翻页）"><a href="#less-分页显示文件内容（可向上翻页）" class="headerlink" title="less 分页显示文件内容（可向上翻页）"></a>less 分页显示文件内容（可向上翻页）</h3><p><strong>grammar: less [文件名]</strong></p>
+<p>搜索：<strong>/关键词</strong></p>
+<h3 id="head-显示文件前几行"><a href="#head-显示文件前几行" class="headerlink" title="head 显示文件前几行"></a>head 显示文件前几行</h3><p><strong>grammar: head [文件名]</strong></p>
+<p>-n 制定行数（默认10）</p>
+<h3 id="tail-显示文件后面几行"><a href="#tail-显示文件后面几行" class="headerlink" title="tail 显示文件后面几行"></a>tail 显示文件后面几行</h3><p><strong>grammar: tail [文件名]</strong></p>
+<p>-n 指定行数</p>
 <p>-f 动态显示文件末尾内容</p>
 <p><br></p>
-<h2 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h2><h3 id="ln-生成链接文件"><a href="#ln-生成链接文件" class="headerlink" title="ln 生成链接文件"></a>ln 生成链接文件</h3><h4 id="软链接："><a href="#软链接：" class="headerlink" title="软链接："></a>软链接：</h4><p>类似windows的快捷方式</p>
+<h2 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h2><h3 id="ln-生成链接文件"><a href="#ln-生成链接文件" class="headerlink" title="ln 生成链接文件"></a>ln 生成链接文件</h3><h4 id="软链接："><a href="#软链接：" class="headerlink" title="软链接："></a>软链接：</h4><p><strong>grammar: ln -s [原文件]【目标文件】</strong></p>
+<p>类似windows的快捷方式</p>
 <p>-s 创建软链接</p>
 <p>1.lrwxrwxrwx   <strong>l -&gt;软链接</strong></p>
 <p>2.文件很小</p>
 <p>3.箭头指向源文件</p>
-<h4 id="硬链接："><a href="#硬链接：" class="headerlink" title="硬链接："></a>硬链接：</h4><p>除了位置不一样，其余都一样（像cp -p 一样）</p>
+<h4 id="硬链接："><a href="#硬链接：" class="headerlink" title="硬链接："></a>硬链接：</h4><p><strong>grammar: ls  [原文件]【目标文件】</strong></p>
+<p>除了位置不一样，其余都一样（像cp -p 一样）</p>
 <ol>
 <li><p>cp -p + 同步更新</p>
 <p>echo “123456” &gt;&gt;/etc/issue</p>
@@ -353,7 +369,51 @@
 <li><p>不能针对目录使用</p>
 </li>
 </ol>
-</the></excerpt>
+<h1 id="权限管理命令"><a href="#权限管理命令" class="headerlink" title="权限管理命令"></a>权限管理命令</h1><p><strong>权限的数字表示</strong></p>
+<p>r  —-  4</p>
+<p>w —- 2</p>
+<p>x  —- 1</p>
+<p>rwxrw-r–</p>
+<p>7    6    4</p>
+<h3 id="chmod-改变文件或目录权限"><a href="#chmod-改变文件或目录权限" class="headerlink" title="chmod 改变文件或目录权限"></a>chmod 改变文件或目录权限</h3><p><strong>grammar: chgmod  [{ugoa} {+-=} [文件或目录] </strong></p>
+<p>-R 递归修改</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">代表字符</th>
+<th style="text-align:center">权限</th>
+<th style="text-align:center">对文件的含义</th>
+<th style="text-align:center">对目录的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">读权限</td>
+<td style="text-align:center">可以查看文件内容(cat/more/head/tail……)</td>
+<td style="text-align:center">可以列出目录中的内容(ls)\</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td style="text-align:center">写权限</td>
+<td style="text-align:center">可以修改文件内容(vim)</td>
+<td style="text-align:center">可以在目录中创建、删除文件(touch/mkdir/rmdir/rm)</td>
+</tr>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">执行权限</td>
+<td style="text-align:center">可以执行文件(script/command)</td>
+<td style="text-align:center">可以进入目录(cd)\</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chown-改变文件或目录的所有者"><a href="#chown-改变文件或目录的所有者" class="headerlink" title="chown 改变文件或目录的所有者"></a>chown 改变文件或目录的所有者</h3><p><strong>grammar: chown [用户]【文件或目录】</strong></p>
+<h3 id="chgrp-改变文件或目录所属组"><a href="#chgrp-改变文件或目录所属组" class="headerlink" title="chgrp 改变文件或目录所属组"></a>chgrp 改变文件或目录所属组</h3><p><strong>grammar: chgrp [用户组]【文件或目录】</strong></p>
+<h3 id="umask-显示、设置文件的缺省权限"><a href="#umask-显示、设置文件的缺省权限" class="headerlink" title="umask 显示、设置文件的缺省权限"></a>umask 显示、设置文件的缺省权限</h3><p><strong>grammar: umask [-S]</strong></p>
+<p>-S 以rwx形式显示新建文件的缺省权限</p>
+<p>umask 022  -&gt; 755</p>
+<h1 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h1></the></excerpt>
       
     </div>
     
@@ -364,7 +424,7 @@
         <p><span>本文标题:</span><a href="/2018/01/04/linux/">Linux初探</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-01-04, 14:32:21</p>
-        <p><span>最后更新:</span>2018-01-07, 15:13:24</p>
+        <p><span>最后更新:</span>2018-01-09, 12:59:57</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/04/linux/" title="Linux初探">http://akkayin.github.io/2018/01/04/linux/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/01/04/linux/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -400,7 +460,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件处理命令"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录处理命令"><span class="toc-text">目录处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls-显示目录文件"><span class="toc-text">ls 显示目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建新目录"><span class="toc-text">mkdir 创建新目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-切换目录"><span class="toc-text">cd 切换目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwd-显示当前目录"><span class="toc-text">pwd 显示当前目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir-删除空目录"><span class="toc-text">rmdir 删除空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制"><span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-剪切-改名"><span class="toc-text">mv 剪切/改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-删除"><span class="toc-text">rm 删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处理命令-1"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-创建空文件"><span class="toc-text">touch 创建空文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat-显示文件内容"><span class="toc-text">cat 显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tac-显示文件内容（反向）"><span class="toc-text">tac 显示文件内容（反向）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more-分页显示文件内容"><span class="toc-text">more 分页显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-分页显示文件内容（可向上翻页）"><span class="toc-text">less 分页显示文件内容（可向上翻页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head-显示文件前几行"><span class="toc-text">head 显示文件前几行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail-显示文件后面几行"><span class="toc-text">tail 显示文件后面几行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接命令"><span class="toc-text">链接命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ln-生成链接文件"><span class="toc-text">ln 生成链接文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#软链接："><span class="toc-text">软链接：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬链接："><span class="toc-text">硬链接：</span></a></li></ol></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件处理命令"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录处理命令"><span class="toc-text">目录处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls-显示目录文件"><span class="toc-text">ls 显示目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建新目录"><span class="toc-text">mkdir 创建新目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-切换目录"><span class="toc-text">cd 切换目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwd-显示当前目录"><span class="toc-text">pwd 显示当前目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir-删除空目录"><span class="toc-text">rmdir 删除空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制"><span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-剪切-改名"><span class="toc-text">mv 剪切/改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-删除"><span class="toc-text">rm 删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处理命令-1"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-创建空文件"><span class="toc-text">touch 创建空文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat-显示文件内容"><span class="toc-text">cat 显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tac-显示文件内容（反向）"><span class="toc-text">tac 显示文件内容（反向）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more-分页显示文件内容"><span class="toc-text">more 分页显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-分页显示文件内容（可向上翻页）"><span class="toc-text">less 分页显示文件内容（可向上翻页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head-显示文件前几行"><span class="toc-text">head 显示文件前几行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail-显示文件后面几行"><span class="toc-text">tail 显示文件后面几行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接命令"><span class="toc-text">链接命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ln-生成链接文件"><span class="toc-text">ln 生成链接文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#软链接："><span class="toc-text">软链接：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬链接："><span class="toc-text">硬链接：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限管理命令"><span class="toc-text">权限管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod-改变文件或目录权限"><span class="toc-text">chmod 改变文件或目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown-改变文件或目录的所有者"><span class="toc-text">chown 改变文件或目录的所有者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chgrp-改变文件或目录所属组"><span class="toc-text">chgrp 改变文件或目录所属组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#umask-显示、设置文件的缺省权限"><span class="toc-text">umask 显示、设置文件的缺省权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件搜索命令"><span class="toc-text">文件搜索命令</span></a></li></ol>
         
     </div>
     <style>

@@ -12,6 +12,7 @@
 
 <p><br></p>
 <h2 id="1-我和python的第一次亲密接触"><a href="#1-我和python的第一次亲密接触" class="headerlink" title="1.我和python的第一次亲密接触"></a>1.我和python的第一次亲密接触</h2><p><a href="http://bbs.fishc.com/thread-35509-1-1.html" target="_blank" rel="noopener">Python3 与Python2* 的区别</a></p>
+<p>Python3 可以给变量命名中文名</p>
 <h2 id="2-用Python设计的第一个游戏"><a href="#2-用Python设计的第一个游戏" class="headerlink" title="2.用Python设计的第一个游戏"></a>2.用Python设计的第一个游戏</h2><p>注意<strong>Tab</strong>的运用</p>
 <p>流程图的重要性（logic）</p>
 <p>内置函数（built-in functions 简称BIF）（通过import调入）</p>
@@ -24,7 +25,76 @@
 <h4 id="长字符串："><a href="#长字符串：" class="headerlink" title="长字符串："></a>长字符串：</h4><p>一般情况下，使用单引号或者双引号只能引一行的字符串，如果字符串是有多行组成，则需要使用三引号</p>
 <h2 id="4-改进我们的小游戏"><a href="#4-改进我们的小游戏" class="headerlink" title="4.改进我们的小游戏"></a>4.改进我们的小游戏</h2><h4 id="Python-“and”和C-“-amp-amp-”-有什么区别"><a href="#Python-“and”和C-“-amp-amp-”-有什么区别" class="headerlink" title="Python “and”和C “&amp;&amp;” 有什么区别"></a>Python “and”和C “&amp;&amp;” 有什么区别</h4><p>在c中，0&amp;&amp;3 = 0,1&amp;&amp;3 = 1在python中，,0 and 3 = 0，1 and 3 = 3!</p>
 <h4 id="短路逻辑（short-circuit-logic）"><a href="#短路逻辑（short-circuit-logic）" class="headerlink" title="短路逻辑（short-circuit logic）"></a>短路逻辑（short-circuit logic）</h4><p>逻辑操作符有个有趣的特性：在不需要求值的时候不进行操作。这么说可能比较“高深”，举个例子，表达式 x and y，需要 x 和 y 两个变量同时为真(True)的时候，结果才为真。因此，如果当 x 变量得知是假(False)的时候，表达式就会立刻返回 False，而不用去管 y 变量的值。<br>这种行为被称为短路逻辑（short-circuit logic）或者惰性求值（lazy evaluation），这种行为同样也应用与 or 操作符。</p>
-<h2 id="5-闲聊之Python的数据类型"><a href="#5-闲聊之Python的数据类型" class="headerlink" title="5.闲聊之Python的数据类型"></a>5.闲聊之Python的数据类型</h2><h2 id="6-Python之常用操作符"><a href="#6-Python之常用操作符" class="headerlink" title="6.Python之常用操作符"></a>6.Python之常用操作符</h2><h2 id="7-了不起的分支和循环1"><a href="#7-了不起的分支和循环1" class="headerlink" title="7.了不起的分支和循环1"></a>7.了不起的分支和循环1</h2><h2 id="8-了不起的分支和循环2"><a href="#8-了不起的分支和循环2" class="headerlink" title="8.了不起的分支和循环2"></a>8.了不起的分支和循环2</h2><h2 id="9-了不起的分支和循环3"><a href="#9-了不起的分支和循环3" class="headerlink" title="9.了不起的分支和循环3"></a>9.了不起的分支和循环3</h2><h2 id="10-列表，一个打了激素的数组1"><a href="#10-列表，一个打了激素的数组1" class="headerlink" title="10.列表，一个打了激素的数组1"></a>10.列表，一个打了激素的数组1</h2><h2 id="11-列表，一个打了激素的数组2"><a href="#11-列表，一个打了激素的数组2" class="headerlink" title="11.列表，一个打了激素的数组2"></a>11.列表，一个打了激素的数组2</h2><h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h2 id="13-元组，戴上了枷锁的列表"><a href="#13-元组，戴上了枷锁的列表" class="headerlink" title="13.元组，戴上了枷锁的列表"></a>13.元组，戴上了枷锁的列表</h2><h2 id="14-字符串：各种奇葩的内置方法"><a href="#14-字符串：各种奇葩的内置方法" class="headerlink" title="14.字符串：各种奇葩的内置方法"></a>14.字符串：各种奇葩的内置方法</h2><h2 id="15-字符串的格式语句与操作符"><a href="#15-字符串的格式语句与操作符" class="headerlink" title="15.字符串的格式语句与操作符"></a>15.字符串的格式语句与操作符</h2><h2 id="16-序列相关内置函数介绍"><a href="#16-序列相关内置函数介绍" class="headerlink" title="16.序列相关内置函数介绍"></a>16.序列相关内置函数介绍</h2><h2 id="17"><a href="#17" class="headerlink" title="17."></a>17.</h2><h2 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h2><h2 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h2><h2 id="20"><a href="#20" class="headerlink" title="20."></a>20.</h2><h2 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h2><h2 id="22"><a href="#22" class="headerlink" title="22."></a>22.</h2></the></excerpt>]]></content>
+<h2 id="5-闲聊之Python的数据类型"><a href="#5-闲聊之Python的数据类型" class="headerlink" title="5.闲聊之Python的数据类型"></a>5.闲聊之Python的数据类型</h2><h3 id="基本数据类型："><a href="#基本数据类型：" class="headerlink" title="基本数据类型："></a>基本数据类型：</h3><h4 id="int-（整型）"><a href="#int-（整型）" class="headerlink" title="int （整型）"></a>int （整型）</h4><p>在Python3中长整形和整形归为一类，所有的整数都属于整型，例如1，0,1000,1203等等</p>
+<h4 id="float-（浮点型）"><a href="#float-（浮点型）" class="headerlink" title="float （浮点型）"></a>float （浮点型）</h4><p>数字中有小数点的数，如12.1   1.85   10.0  等等，另外1e10也表示浮点数</p>
+<h4 id="str-（字符串）"><a href="#str-（字符串）" class="headerlink" title="str （字符串）"></a>str （字符串）</h4><p>所有以单引号或双引号括起来的值都叫做字符串，例如“小甲鱼”</p>
+<h4 id="bool-（布尔型）"><a href="#bool-（布尔型）" class="headerlink" title="bool （布尔型）"></a>bool （布尔型）</h4><p>布尔类型只有两个值，True 或False ，记得在Python里面这两个值首字母均大写。</p>
+<h3 id="e记法-gt-科学计数法"><a href="#e记法-gt-科学计数法" class="headerlink" title="e记法-&gt; 科学计数法"></a>e记法-&gt; 科学计数法</h3><p>0.000000000000135用e记法表示为1.35<strong>e-13</strong>,它是一个浮点数类型</p>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><h4 id="整型强制转换函数-int"><a href="#整型强制转换函数-int" class="headerlink" title="整型强制转换函数 int()"></a>整型强制转换函数 int()</h4><p>可以将纯数字的字符串或浮点型强制转换为整形，如int(‘0012’)为12；  int(12.5)为12   -&gt;  <strong>截断大法</strong></p>
+<p>若要“四舍五入”取整，则须：</p>
+<p>5.4 “四舍五入”结果为：5，int(5.4+0.5) == 5<br>5.6 “四舍五入”结果为：6，int(5.6+0.5) == 6</p>
+<h4 id="浮点型强制转换函数float"><a href="#浮点型强制转换函数float" class="headerlink" title="浮点型强制转换函数float()"></a>浮点型强制转换函数float()</h4><p>可以将包含一个小数点的数字字符串或者整形转换为浮点型，如float(‘0012’)为12.0，<br>float(‘.123’)为0.123； float(12)为12.0<br>字符串强制类型转换函数str(),可以将任何类型转换为字符串类型，例如str(1e28)为‘1e+28’  str(1e2)为’100.0’等等</p>
+<h3 id="数据类型信息获取"><a href="#数据类型信息获取" class="headerlink" title="数据类型信息获取"></a>数据类型信息获取</h3><h4 id="函数type"><a href="#函数type" class="headerlink" title="函数type()"></a>函数<strong>type()</strong></h4><p>直接给出数的数据类型，例如type(12.0)则返回float，type(1000)返回int， type(False)返回bool等</p>
+<h4 id="函数isinstance"><a href="#函数isinstance" class="headerlink" title="函数isinstance()"></a>函数<strong>isinstance()</strong></h4><p>需要给出需要判断的数和一个数据类型，是则返回True，否则返回False，如isinstace(1,int)返回<br>True ，isinstance(12.5,float)返回True，isinstance(‘I love u’,float)返回False，而isinstance(‘I love u’,str)返回True</p>
+<blockquote>
+<p>s为字符串<br>s.isalnum()  所有字符都是数字或者字母，为真返回 Ture，否则返回 False。<br>s.isalpha()   所有字符都是字母，为真返回 Ture，否则返回 False。<br>s.isdigit()     所有字符都是数字，为真返回 Ture，否则返回 False。<br>s.islower()    所有字符都是小写，为真返回 Ture，否则返回 False。<br>s.isupper()   所有字符都是大写，为真返回 Ture，否则返回 False。<br>s.istitle()      所有单词都是首字母大写，为真返回 Ture，否则返回 False。<br>s.isspace()   所有字符都是空白字符，为真返回 Ture，否则返回 False。</p>
+</blockquote>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>写一个程序，判断给定年份是否为闰年。（注意：请使用已学过的 BIF 进行灵活运用）<br>这样定义闰年的:能被4整除但不能被100整除,或者能被400整除都是闰年。   </li>
+</ol>
+<h2 id="6-Python之常用操作符"><a href="#6-Python之常用操作符" class="headerlink" title="6.Python之常用操作符"></a>6.Python之常用操作符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>加（+），减（-），乘（<em>），除（/），幂运算（*</em>），地板除（//）</p>
+<h4 id="和-的区别"><a href="#和-的区别" class="headerlink" title="/和//的区别"></a>/和//的区别</h4><p>在Python中的除运算符与其它程序语言的不太一样，/表示真正的除号，例如1/3=0.3333333333333333，而4/2的值为2.0。说明两个数相除的值是一个浮点数，而其它程序语言/却表示两个整数相除，只返回一个整数。Python后来为了兼容这种用法，引入了//来实现。例如3//2的值为1，而3.0//2的值为1.0，且3//2.0的值也为1.0。说明在Python中//符号两边同为整数时的值才为整数，否则则为一个浮点数（后面带’.0’）。</p>
+<h4 id="运算符与负号（-）运算符的优先级问题"><a href="#运算符与负号（-）运算符的优先级问题" class="headerlink" title="**运算符与负号（-）运算符的优先级问题"></a>**运算符与负号（-）运算符的优先级问题</h4><p>在Python中，‘-’在一个数字前面表示成负号，例如-3，-5.12等。**在-的右边时，其优先级高于-，例如-2**2相当于-（2*<em>2）等于-4，而当其在右边时优先级低于-，如2\</em>*-2则相当于2**（-2）等于0.25.</p>
+<h4 id="允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如-x-5，x-5后，x的值为10"><a href="#允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如-x-5，x-5后，x的值为10" class="headerlink" title="允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如 x =5，x+=5后，x的值为10"></a>允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如 x =5，x+=5后，x的值为10</h4><h3 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h3><h4 id="and"><a href="#and" class="headerlink" title="and"></a>and</h4><p>x and y 的值计算过程为先判断x的值，如果为0则返回0，否则返回y的值，  例如 3 and  4 值为4；0 and 4 值为0</p>
+<h4 id="or"><a href="#or" class="headerlink" title="or"></a>or</h4><p>x or y 的值计算过程为先判断x的值，如果为0则返回y的值，否则返回x的值，例如 3 or 4的值为 3；0 or 4的值为4</p>
+<h4 id="not"><a href="#not" class="headerlink" title="not"></a>not</h4><p>not x 的值的计算过程为先判断x的值，如果为0则返回True，否则返回False 例如 not 0的值为True； not 0.12 值为False</p>
+<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><p>三者的优先级  not &gt; and &gt;or</p>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p>&lt;    &lt;=      &gt;     &gt;=     ==      !=</p>
+<p>返回值为bool型</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>=</p>
+<p>Python中允许  x=y=z=2，表示x,y,z的值均为2</p>
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>几元运算符指的是运算符的操作数有几个；一般而言优先级上一元运算符高于二元运算符，算数运算符优先级&gt;比较运算符&gt;逻辑运算符</p>
+<p><img src="http://xxx.fishc.com/forum/201508/25/141958lu8ugzyymrxyannz.png"></p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>请写一个程序打印出 0~100 所有的奇数。   </li>
+<li>我们说过现在的 Python 可以计算很大很大的数据，但是……真正的大数据计算可是要靠刚刚的硬件滴，不妨写一个小代码，让你的计算机为之崩溃？   </li>
+<li>爱因斯坦曾出过这样一道有趣的数学题：有一个长阶梯，若每步上2阶，最后剩1阶；若每步上3阶，最后剩2阶；若每步上5阶，最后剩4阶；若每步上6阶，最后剩5阶；只有每步上7阶，最后刚好一阶也不剩。 （小甲鱼温馨提示：步子太大真的容易扯着蛋~~~）<br>题目：请编程求解该阶梯至少有多少阶？ </li>
+</ol>
+<h2 id="7-了不起的分支和循环1"><a href="#7-了不起的分支和循环1" class="headerlink" title="7.了不起的分支和循环1"></a>7.了不起的分支和循环1</h2><h2 id="8-了不起的分支和循环2"><a href="#8-了不起的分支和循环2" class="headerlink" title="8.了不起的分支和循环2"></a>8.了不起的分支和循环2</h2><h3 id="if-的三种用法"><a href="#if-的三种用法" class="headerlink" title="if 的三种用法"></a>if 的三种用法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1</span></span><br><span class="line">score = int(input(<span class="string">"请输入一个分数："</span>))</span><br><span class="line"><span class="keyword">if</span> <span class="number">100</span> &gt;= score &gt;= <span class="number">90</span>:</span><br><span class="line">        print(<span class="string">"A"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">90</span> &gt; score &gt;= <span class="number">80</span>:</span><br><span class="line">        print(<span class="string">"B"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">80</span> &gt; score &gt;= <span class="number">70</span>:</span><br><span class="line">        print(<span class="string">"C"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">70</span> &gt; score &gt;= <span class="number">60</span>:</span><br><span class="line">        print(<span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">60</span> &gt; score:</span><br><span class="line">        print(<span class="string">"E"</span>)</span><br><span class="line"><span class="keyword">if</span> score &gt; <span class="number">100</span>:</span><br><span class="line">    print(<span class="string">"输入错误！"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2</span></span><br><span class="line">score = int(input(<span class="string">"请输入一个分数："</span>))</span><br><span class="line"><span class="keyword">if</span> <span class="number">100</span> &gt;= score &gt;= <span class="number">90</span>:</span><br><span class="line">        print(<span class="string">"A"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="number">90</span> &gt; score &gt;= <span class="number">80</span>:</span><br><span class="line">            print(<span class="string">"B"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">80</span> &gt; score &gt;= <span class="number">70</span>:</span><br><span class="line">                print(<span class="string">"C"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="number">70</span> &gt; score &gt;= <span class="number">60</span>:</span><br><span class="line">                    print(<span class="string">"D"</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> <span class="number">60</span> &gt; score:</span><br><span class="line">                        print(<span class="string">"E"</span>)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> score &gt; <span class="number">100</span>:</span><br><span class="line">                        print(<span class="string">"输入错误！"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3</span></span><br><span class="line">score = int(input(<span class="string">"请输入一个分数："</span>))</span><br><span class="line"><span class="keyword">if</span> <span class="number">100</span> &gt;= score &gt;= <span class="number">90</span>:</span><br><span class="line">        print(<span class="string">"A"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">90</span> &gt; score &gt;= <span class="number">80</span>:</span><br><span class="line">        print(<span class="string">"B"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">80</span> &gt; score &gt;= <span class="number">70</span>:</span><br><span class="line">        print(<span class="string">"C"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">70</span> &gt; score &gt;= <span class="number">60</span>:</span><br><span class="line">        print(<span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">60</span> &gt; score:</span><br><span class="line">        print(<span class="string">"E"</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt; <span class="number">100</span>:</span><br><span class="line">    print(<span class="string">"输入错误！"</span>)</span><br></pre></td></tr></table></figure>
+<p>###三元运算符</p>
+<p>3 if 4&gt;3 else 4  值为3，而3 if 4&lt;3 else 4 的值为4 </p>
+<p>###断言语句assert</p>
+<p>assert后面跟一个条件表达式，如果条件表达式的值为假时，程序自动崩溃并报异常AssertionError，如果为真则继续执行后面的语句，主要用于在程序中植入检查点，只有assert后面的条件永远为真时程序才能正常运行，否则就崩溃。例如 assert 3&gt;4，程序就会执行这一条语句后崩溃并报出异常，而assert 4&gt;3则正常执行 </p>
+<p><strong>Exercise</strong></p>
+<p>0.视频中小甲鱼使用 if elif else 在大多数情况下效率要比全部使用 if 要高，但根据一般的统计规律，一个班的成绩一般服从正态分布，也就是说平均成绩一般集中在 70~80 分之间，因此根据统计规律，我们还可以改进下程序以提高效率。     </p>
+<p>题目备忘：按照100分制，90分以上成绩为A，80到90为B，60到80为C，60以下为D，写一个程序，当用户输入分数，自动转换为ABCD的形式打印。    </p>
+<p>1.Python 的作者在很长一段时间不肯加入三元操作符就是怕跟C语言一样搞出国际乱码大赛，蛋疼的复杂度让初学者望而生畏，不过，如果你一旦搞清楚了三元操作符的使用技巧，或许一些比较复杂的问题反而迎刃而解。 请将以下代码修改为三元操作符实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> x, y, z = <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span> </span><br><span class="line"><span class="number">2.</span> <span class="keyword">if</span> x &lt; y: </span><br><span class="line"><span class="number">3.</span>     small = x </span><br><span class="line"><span class="number">4.</span>     <span class="keyword">if</span> z &lt; small: </span><br><span class="line"><span class="number">5.</span>         small = z </span><br><span class="line"><span class="number">6.</span> <span class="keyword">elif</span> y &lt; z: </span><br><span class="line"><span class="number">7.</span>     small = y </span><br><span class="line"><span class="number">8.</span> <span class="keyword">else</span>: </span><br><span class="line"><span class="number">9.</span>     small = z</span><br></pre></td></tr></table></figure>
+<p>成员资格运算符:    in，用于检查一个值是否在序列中，如果在序列中返回 True，否则返回 False。 </p>
+<h2 id="9-了不起的分支和循环3"><a href="#9-了不起的分支和循环3" class="headerlink" title="9.了不起的分支和循环3"></a>9.了不起的分支和循环3</h2><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span>      </span><br><span class="line"><span class="keyword">while</span> i&lt;<span class="number">3</span>:       <span class="comment"># 条件是i的值小于3，当满足此条件时循环体会一直被执行下去</span></span><br><span class="line">        print(i,end=<span class="string">' '</span>)          <span class="comment">#循环体，打印出i的值</span></span><br><span class="line">        i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>while循环中首先判断条件是否成立，成立则执行循环体，然后再次判断条件是否成立，如此循环下去直到条件不成立</p>
+<h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">member =[<span class="string">'小甲鱼'</span>,<span class="string">'小布丁'</span>,<span class="string">'黑夜'</span>,<span class="string">'醉酒青牛'</span>]                 <span class="comment">#member是一个列表变量</span></span><br><span class="line"><span class="keyword">for</span> each <span class="keyword">in</span> member:                                                      <span class="comment">#each是一个迭代变量 </span></span><br><span class="line">        print(each,len(each),end=<span class="string">' '</span>)</span><br><span class="line"><span class="comment">#在这里，目标指的的每次迭代的变量的值，表达式一般是序列（字符串，列表，元组等）</span></span><br></pre></td></tr></table></figure>
+<p><a href="http://blog.csdn.net/a392807287/article/details/50000641" target="_blank" rel="noopener">Python中的for与其他类C语言的比较（如c++，c#）</a></p>
+<h3 id="range"><a href="#range" class="headerlink" title="range()"></a>range()</h3><p>生成一个数字序列的内置函数，经常作为for循环的表达式存在，其形式是range([start,] stop [step=1])<br>range(5)  -&gt;0～5  </p>
+<p>range(1, 9) -&gt;1～9 即[1,9)</p>
+<p>step -&gt;每次递增几</p>
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break是结束所在循环（即只能跳出一层循环）</p>
+<h3 id="continue"><a href="#continue" class="headerlink" title="continue"></a>continue</h3><p>continue是结束本轮循环并判断循环条件</p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li><p>设计一个验证用户密码程序，用户只有三次机会输入错误，不过如果用户输入的内容中包含”*”则不计算在内。</p>
+</li>
+<li><p>编写一个程序，求 100~999 之间的所有水仙花数。  </p>
+<p>如果一个 3 位数等于其各位数字的立方和，则称这个数为水仙花数。例如：153 = 1^3 + 5^3 + 3^3，因此 153 就是一个水仙花数。</p>
+</li>
+<li><p>三色球问题  </p>
+<p>有红、黄、蓝三种颜色的求，其中红球 3 个，黄球 3 </p>
+<p>个，绿球 6 个。先将这 12 个球混合放在一个盒子中，从中任意摸出 8 个球，编程计算摸出球的各种颜色搭配。</p>
+</li>
+</ol>
+<h2 id="10-列表，一个打了激素的数组1"><a href="#10-列表，一个打了激素的数组1" class="headerlink" title="10.列表，一个打了激素的数组1"></a>10.列表，一个打了激素的数组1</h2><h2 id="11-列表，一个打了激素的数组2"><a href="#11-列表，一个打了激素的数组2" class="headerlink" title="11.列表，一个打了激素的数组2"></a>11.列表，一个打了激素的数组2</h2><h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h2 id="13-元组，戴上了枷锁的列表"><a href="#13-元组，戴上了枷锁的列表" class="headerlink" title="13.元组，戴上了枷锁的列表"></a>13.元组，戴上了枷锁的列表</h2><h2 id="14-字符串：各种奇葩的内置方法"><a href="#14-字符串：各种奇葩的内置方法" class="headerlink" title="14.字符串：各种奇葩的内置方法"></a>14.字符串：各种奇葩的内置方法</h2><h2 id="15-字符串的格式语句与操作符"><a href="#15-字符串的格式语句与操作符" class="headerlink" title="15.字符串的格式语句与操作符"></a>15.字符串的格式语句与操作符</h2><h2 id="16-序列相关内置函数介绍"><a href="#16-序列相关内置函数介绍" class="headerlink" title="16.序列相关内置函数介绍"></a>16.序列相关内置函数介绍</h2><h2 id="17"><a href="#17" class="headerlink" title="17."></a>17.</h2><h2 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h2><h2 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h2><h2 id="20"><a href="#20" class="headerlink" title="20."></a>20.</h2><h2 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h2><h2 id="22"><a href="#22" class="headerlink" title="22."></a>22.</h2></the></excerpt>]]></content>
       
         <categories>
             
@@ -37,9 +107,9 @@
             
             <tag> Summary </tag>
             
-            <tag> Python </tag>
-            
             <tag> Notes </tag>
+            
+            <tag> Python </tag>
             
         </tags>
         
@@ -54,34 +124,50 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p><br></p>
-<h1 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h1><h2 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h2><h3 id="ls-显示目录文件"><a href="#ls-显示目录文件" class="headerlink" title="ls 显示目录文件"></a>ls 显示目录文件</h3><p>-a 显示所有文件，包括隐藏文件</p>
+<h1 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h1><h2 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h2><h3 id="ls-显示目录文件"><a href="#ls-显示目录文件" class="headerlink" title="ls 显示目录文件"></a>ls 显示目录文件</h3><p><strong>grammar: ls [-ald]【文件或目录】</strong></p>
+<p>-a 显示所有文件，包括隐藏文件</p>
 <p>-l 详细信息展示 -h 人性化显示</p>
 <p>-d 查看目录属性</p>
 <p>-i</p>
-<h3 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h3><p>-p 递归创建</p>
-<h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h3><p><strong>..</strong>  -&gt;当前目录的上一级目录</p>
+<h3 id="mkdir-创建新目录"><a href="#mkdir-创建新目录" class="headerlink" title="mkdir 创建新目录"></a>mkdir 创建新目录</h3><p><strong>grammar: mkdir -p [目录名]</strong></p>
+<p>-p 递归创建</p>
+<h3 id="cd-切换目录"><a href="#cd-切换目录" class="headerlink" title="cd 切换目录"></a>cd 切换目录</h3><p><strong>grammar: cd [目录名]</strong></p>
+<p><strong>..</strong>  -&gt;当前目录的上一级目录</p>
 <p><strong>.</strong>   -&gt;当前目录</p>
-<h3 id="pwd-显示当前目录"><a href="#pwd-显示当前目录" class="headerlink" title="pwd 显示当前目录"></a>pwd 显示当前目录</h3><h3 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a>rmdir 删除空目录</h3><h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p>-f 复制目录</p>
+<h3 id="pwd-显示当前目录"><a href="#pwd-显示当前目录" class="headerlink" title="pwd 显示当前目录"></a>pwd 显示当前目录</h3><h3 id="rmdir-删除空目录"><a href="#rmdir-删除空目录" class="headerlink" title="rmdir 删除空目录"></a>rmdir 删除空目录</h3><p><strong>grammar: rmdir  [目录名]</strong></p>
+<h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p><strong>grammar: cp [原文件或目录]【目标目录】</strong></p>
+<p>-f 复制目录</p>
 <p>-p 保留文件属性</p>
-<h3 id="mv-剪切-改名"><a href="#mv-剪切-改名" class="headerlink" title="mv 剪切/改名"></a>mv 剪切/改名</h3><h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h3><p>-rf [文件或目录]</p>
+<h3 id="mv-剪切-改名"><a href="#mv-剪切-改名" class="headerlink" title="mv 剪切/改名"></a>mv 剪切/改名</h3><p><strong>grammar: mv [原文件或目录]【目标目录】</strong></p>
+<h3 id="rm-删除"><a href="#rm-删除" class="headerlink" title="rm 删除"></a>rm 删除</h3><p><strong>grammar: rm [文件或目录]</strong></p>
+<p>-rf [文件或目录]</p>
 <p>-f 删除目录</p>
 <p>-f 强制执行</p>
 <p><br></p>
-<h2 id="文件处理命令-1"><a href="#文件处理命令-1" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><h3 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h3><h3 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h3><p>-n 显示行号</p>
-<h3 id="tac-显示文件内容（反向）"><a href="#tac-显示文件内容（反向）" class="headerlink" title="tac 显示文件内容（反向）"></a>tac 显示文件内容（反向）</h3><h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h3><p>空格/f      -&gt;翻页</p>
+<h2 id="文件处理命令-1"><a href="#文件处理命令-1" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><h3 id="touch-创建空文件"><a href="#touch-创建空文件" class="headerlink" title="touch 创建空文件"></a>touch 创建空文件</h3><p><strong>grammar: touch [文件名]</strong></p>
+<h3 id="cat-显示文件内容"><a href="#cat-显示文件内容" class="headerlink" title="cat 显示文件内容"></a>cat 显示文件内容</h3><p><strong>grammar: cat [文件名]</strong></p>
+<p>-n 显示行号</p>
+<h3 id="tac-显示文件内容（反向）"><a href="#tac-显示文件内容（反向）" class="headerlink" title="tac 显示文件内容（反向）"></a>tac 显示文件内容（反向）</h3><p><strong>grammar: tac [文件名]</strong></p>
+<h3 id="more-分页显示文件内容"><a href="#more-分页显示文件内容" class="headerlink" title="more 分页显示文件内容"></a>more 分页显示文件内容</h3><p><strong>grammar: more [文件名]</strong></p>
+<p>空格/f      -&gt;翻页</p>
 <p>回车      -&gt;换行</p>
 <p>q或Q     -&gt;退出</p>
-<h3 id="less-分页显示文件内容（可向上翻页）"><a href="#less-分页显示文件内容（可向上翻页）" class="headerlink" title="less 分页显示文件内容（可向上翻页）"></a>less 分页显示文件内容（可向上翻页）</h3><p>搜索：<strong>/关键词</strong></p>
-<h3 id="head-显示文件前几行"><a href="#head-显示文件前几行" class="headerlink" title="head 显示文件前几行"></a>head 显示文件前几行</h3><p>-n 制定行数（默认10）</p>
-<h3 id="tail-显示文件后面几行"><a href="#tail-显示文件后面几行" class="headerlink" title="tail 显示文件后面几行"></a>tail 显示文件后面几行</h3><p>-n 指定行数</p>
+<h3 id="less-分页显示文件内容（可向上翻页）"><a href="#less-分页显示文件内容（可向上翻页）" class="headerlink" title="less 分页显示文件内容（可向上翻页）"></a>less 分页显示文件内容（可向上翻页）</h3><p><strong>grammar: less [文件名]</strong></p>
+<p>搜索：<strong>/关键词</strong></p>
+<h3 id="head-显示文件前几行"><a href="#head-显示文件前几行" class="headerlink" title="head 显示文件前几行"></a>head 显示文件前几行</h3><p><strong>grammar: head [文件名]</strong></p>
+<p>-n 制定行数（默认10）</p>
+<h3 id="tail-显示文件后面几行"><a href="#tail-显示文件后面几行" class="headerlink" title="tail 显示文件后面几行"></a>tail 显示文件后面几行</h3><p><strong>grammar: tail [文件名]</strong></p>
+<p>-n 指定行数</p>
 <p>-f 动态显示文件末尾内容</p>
 <p><br></p>
-<h2 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h2><h3 id="ln-生成链接文件"><a href="#ln-生成链接文件" class="headerlink" title="ln 生成链接文件"></a>ln 生成链接文件</h3><h4 id="软链接："><a href="#软链接：" class="headerlink" title="软链接："></a>软链接：</h4><p>类似windows的快捷方式</p>
+<h2 id="链接命令"><a href="#链接命令" class="headerlink" title="链接命令"></a>链接命令</h2><h3 id="ln-生成链接文件"><a href="#ln-生成链接文件" class="headerlink" title="ln 生成链接文件"></a>ln 生成链接文件</h3><h4 id="软链接："><a href="#软链接：" class="headerlink" title="软链接："></a>软链接：</h4><p><strong>grammar: ln -s [原文件]【目标文件】</strong></p>
+<p>类似windows的快捷方式</p>
 <p>-s 创建软链接</p>
 <p>1.lrwxrwxrwx   <strong>l -&gt;软链接</strong></p>
 <p>2.文件很小</p>
 <p>3.箭头指向源文件</p>
-<h4 id="硬链接："><a href="#硬链接：" class="headerlink" title="硬链接："></a>硬链接：</h4><p>除了位置不一样，其余都一样（像cp -p 一样）</p>
+<h4 id="硬链接："><a href="#硬链接：" class="headerlink" title="硬链接："></a>硬链接：</h4><p><strong>grammar: ls  [原文件]【目标文件】</strong></p>
+<p>除了位置不一样，其余都一样（像cp -p 一样）</p>
 <ol>
 <li><p>cp -p + 同步更新</p>
 <p>echo “123456” &gt;&gt;/etc/issue</p>
@@ -93,7 +179,51 @@
 <li><p>不能针对目录使用</p>
 </li>
 </ol>
-</the></excerpt>]]></content>
+<h1 id="权限管理命令"><a href="#权限管理命令" class="headerlink" title="权限管理命令"></a>权限管理命令</h1><p><strong>权限的数字表示</strong></p>
+<p>r  —-  4</p>
+<p>w —- 2</p>
+<p>x  —- 1</p>
+<p>rwxrw-r–</p>
+<p>7    6    4</p>
+<h3 id="chmod-改变文件或目录权限"><a href="#chmod-改变文件或目录权限" class="headerlink" title="chmod 改变文件或目录权限"></a>chmod 改变文件或目录权限</h3><p><strong>grammar: chgmod  [{ugoa} {+-=} [文件或目录] </strong></p>
+<p>-R 递归修改</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">代表字符</th>
+<th style="text-align:center">权限</th>
+<th style="text-align:center">对文件的含义</th>
+<th style="text-align:center">对目录的含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">r</td>
+<td style="text-align:center">读权限</td>
+<td style="text-align:center">可以查看文件内容(cat/more/head/tail……)</td>
+<td style="text-align:center">可以列出目录中的内容(ls)\</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">w</td>
+<td style="text-align:center">写权限</td>
+<td style="text-align:center">可以修改文件内容(vim)</td>
+<td style="text-align:center">可以在目录中创建、删除文件(touch/mkdir/rmdir/rm)</td>
+</tr>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:center">执行权限</td>
+<td style="text-align:center">可以执行文件(script/command)</td>
+<td style="text-align:center">可以进入目录(cd)\</td>
+</tr>
+</tbody>
+</table>
+<h3 id="chown-改变文件或目录的所有者"><a href="#chown-改变文件或目录的所有者" class="headerlink" title="chown 改变文件或目录的所有者"></a>chown 改变文件或目录的所有者</h3><p><strong>grammar: chown [用户]【文件或目录】</strong></p>
+<h3 id="chgrp-改变文件或目录所属组"><a href="#chgrp-改变文件或目录所属组" class="headerlink" title="chgrp 改变文件或目录所属组"></a>chgrp 改变文件或目录所属组</h3><p><strong>grammar: chgrp [用户组]【文件或目录】</strong></p>
+<h3 id="umask-显示、设置文件的缺省权限"><a href="#umask-显示、设置文件的缺省权限" class="headerlink" title="umask 显示、设置文件的缺省权限"></a>umask 显示、设置文件的缺省权限</h3><p><strong>grammar: umask [-S]</strong></p>
+<p>-S 以rwx形式显示新建文件的缺省权限</p>
+<p>umask 022  -&gt; 755</p>
+<h1 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h1></the></excerpt>]]></content>
       
         <categories>
             
@@ -106,9 +236,9 @@
             
             <tag> Summary </tag>
             
-            <tag> Notes </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> Notes </tag>
             
         </tags>
         
