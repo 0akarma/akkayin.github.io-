@@ -59,8 +59,8 @@
 <p><strong>Exercise</strong></p>
 <ol>
 <li>请写一个程序打印出 0~100 所有的奇数。   </li>
-<li>我们说过现在的 Python 可以计算很大很大的数据，但是……真正的大数据计算可是要靠刚刚的硬件滴，不妨写一个小代码，让你的计算机为之崩溃？   </li>
-<li>爱因斯坦曾出过这样一道有趣的数学题：有一个长阶梯，若每步上2阶，最后剩1阶；若每步上3阶，最后剩2阶；若每步上5阶，最后剩4阶；若每步上6阶，最后剩5阶；只有每步上7阶，最后刚好一阶也不剩。 （小甲鱼温馨提示：步子太大真的容易扯着蛋~~~）<br>题目：请编程求解该阶梯至少有多少阶？ </li>
+<li>我们说过现在的 Python 可以计算很大很大的数据，但是……真正的大数据计算可是要靠刚刚的硬件滴，不妨写一个小代码，让你的计算机为之崩溃？    9-</li>
+<li>爱因斯坦曾出过这样一道有趣的数学题：有一个长阶梯，若每步上2阶，最后剩1阶；若每步上3阶，最后剩2阶；若每步上5阶，最后剩4阶；若每步上6阶，最后剩5阶；只有每步上7阶，最后刚好一阶也不剩。 （小甲鱼温馨提示：步子太大真的容易扯着蛋~~~）<br>题目：请编程求解该阶梯至少有多少阶？  <strong>(119)</strong></li>
 </ol>
 <h2 id="7-了不起的分支和循环1"><a href="#7-了不起的分支和循环1" class="headerlink" title="7.了不起的分支和循环1"></a>7.了不起的分支和循环1</h2><h2 id="8-了不起的分支和循环2"><a href="#8-了不起的分支和循环2" class="headerlink" title="8.了不起的分支和循环2"></a>8.了不起的分支和循环2</h2><h3 id="if-的三种用法"><a href="#if-的三种用法" class="headerlink" title="if 的三种用法"></a>if 的三种用法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#1</span></span><br><span class="line">score = int(input(<span class="string">"请输入一个分数："</span>))</span><br><span class="line"><span class="keyword">if</span> <span class="number">100</span> &gt;= score &gt;= <span class="number">90</span>:</span><br><span class="line">        print(<span class="string">"A"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">90</span> &gt; score &gt;= <span class="number">80</span>:</span><br><span class="line">        print(<span class="string">"B"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">80</span> &gt; score &gt;= <span class="number">70</span>:</span><br><span class="line">        print(<span class="string">"C"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">70</span> &gt; score &gt;= <span class="number">60</span>:</span><br><span class="line">        print(<span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="number">60</span> &gt; score:</span><br><span class="line">        print(<span class="string">"E"</span>)</span><br><span class="line"><span class="keyword">if</span> score &gt; <span class="number">100</span>:</span><br><span class="line">    print(<span class="string">"输入错误！"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2</span></span><br><span class="line">score = int(input(<span class="string">"请输入一个分数："</span>))</span><br><span class="line"><span class="keyword">if</span> <span class="number">100</span> &gt;= score &gt;= <span class="number">90</span>:</span><br><span class="line">        print(<span class="string">"A"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">if</span> <span class="number">90</span> &gt; score &gt;= <span class="number">80</span>:</span><br><span class="line">            print(<span class="string">"B"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">80</span> &gt; score &gt;= <span class="number">70</span>:</span><br><span class="line">                print(<span class="string">"C"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="number">70</span> &gt; score &gt;= <span class="number">60</span>:</span><br><span class="line">                    print(<span class="string">"D"</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> <span class="number">60</span> &gt; score:</span><br><span class="line">                        print(<span class="string">"E"</span>)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">if</span> score &gt; <span class="number">100</span>:</span><br><span class="line">                        print(<span class="string">"输入错误！"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#3</span></span><br><span class="line">score = int(input(<span class="string">"请输入一个分数："</span>))</span><br><span class="line"><span class="keyword">if</span> <span class="number">100</span> &gt;= score &gt;= <span class="number">90</span>:</span><br><span class="line">        print(<span class="string">"A"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">90</span> &gt; score &gt;= <span class="number">80</span>:</span><br><span class="line">        print(<span class="string">"B"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">80</span> &gt; score &gt;= <span class="number">70</span>:</span><br><span class="line">        print(<span class="string">"C"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">70</span> &gt; score &gt;= <span class="number">60</span>:</span><br><span class="line">        print(<span class="string">"D"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="number">60</span> &gt; score:</span><br><span class="line">        print(<span class="string">"E"</span>)</span><br><span class="line"><span class="keyword">elif</span> score &gt; <span class="number">100</span>:</span><br><span class="line">    print(<span class="string">"输入错误！"</span>)</span><br></pre></td></tr></table></figure>
 <p>###三元运算符</p>
@@ -68,11 +68,16 @@
 <p>###断言语句assert</p>
 <p>assert后面跟一个条件表达式，如果条件表达式的值为假时，程序自动崩溃并报异常AssertionError，如果为真则继续执行后面的语句，主要用于在程序中植入检查点，只有assert后面的条件永远为真时程序才能正常运行，否则就崩溃。例如 assert 3&gt;4，程序就会执行这一条语句后崩溃并报出异常，而assert 4&gt;3则正常执行 </p>
 <p><strong>Exercise</strong></p>
-<p>0.视频中小甲鱼使用 if elif else 在大多数情况下效率要比全部使用 if 要高，但根据一般的统计规律，一个班的成绩一般服从正态分布，也就是说平均成绩一般集中在 70~80 分之间，因此根据统计规律，我们还可以改进下程序以提高效率。     </p>
+<ol>
+<li>视频中小甲鱼使用 if elif else 在大多数情况下效率要比全部使用 if 要高，但根据一般的统计规律，一个班的成绩一般服从正态分布，也就是说平均成绩一般集中在 70~80 分之间，因此根据统计规律，我们还可以改进下程序以提高效率。     </li>
+</ol>
 <p>题目备忘：按照100分制，90分以上成绩为A，80到90为B，60到80为C，60以下为D，写一个程序，当用户输入分数，自动转换为ABCD的形式打印。    </p>
-<p>1.Python 的作者在很长一段时间不肯加入三元操作符就是怕跟C语言一样搞出国际乱码大赛，蛋疼的复杂度让初学者望而生畏，不过，如果你一旦搞清楚了三元操作符的使用技巧，或许一些比较复杂的问题反而迎刃而解。 请将以下代码修改为三元操作符实现：</p>
+<ol>
+<li>Python 的作者在很长一段时间不肯加入三元操作符就是怕跟C语言一样搞出国际乱码大赛，蛋疼的复杂度让初学者望而生畏，不过，如果你一旦搞清楚了三元操作符的使用技巧，或许一些比较复杂的问题反而迎刃而解。 请将以下代码修改为三元操作符实现：</li>
+</ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> x, y, z = <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span> </span><br><span class="line"><span class="number">2.</span> <span class="keyword">if</span> x &lt; y: </span><br><span class="line"><span class="number">3.</span>     small = x </span><br><span class="line"><span class="number">4.</span>     <span class="keyword">if</span> z &lt; small: </span><br><span class="line"><span class="number">5.</span>         small = z </span><br><span class="line"><span class="number">6.</span> <span class="keyword">elif</span> y &lt; z: </span><br><span class="line"><span class="number">7.</span>     small = y </span><br><span class="line"><span class="number">8.</span> <span class="keyword">else</span>: </span><br><span class="line"><span class="number">9.</span>     small = z</span><br></pre></td></tr></table></figure>
-<p>成员资格运算符:    in，用于检查一个值是否在序列中，如果在序列中返回 True，否则返回 False。 </p>
+<p><strong>成员资格运算符:</strong>    in，用于检查一个值是否在序列中，如果在序列中返回 True，否则返回 False。 </p>
+<p><strong>Python支持a&lt;b&lt;c,相当于a&lt;b and b&lt;c(与C语言不同)</strong></p>
 <h2 id="9-了不起的分支和循环3"><a href="#9-了不起的分支和循环3" class="headerlink" title="9.了不起的分支和循环3"></a>9.了不起的分支和循环3</h2><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span>      </span><br><span class="line"><span class="keyword">while</span> i&lt;<span class="number">3</span>:       <span class="comment"># 条件是i的值小于3，当满足此条件时循环体会一直被执行下去</span></span><br><span class="line">        print(i,end=<span class="string">' '</span>)          <span class="comment">#循环体，打印出i的值</span></span><br><span class="line">        i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 <p>while循环中首先判断条件是否成立，成立则执行循环体，然后再次判断条件是否成立，如此循环下去直到条件不成立</p>
 <h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">member =[<span class="string">'小甲鱼'</span>,<span class="string">'小布丁'</span>,<span class="string">'黑夜'</span>,<span class="string">'醉酒青牛'</span>]                 <span class="comment">#member是一个列表变量</span></span><br><span class="line"><span class="keyword">for</span> each <span class="keyword">in</span> member:                                                      <span class="comment">#each是一个迭代变量 </span></span><br><span class="line">        print(each,len(each),end=<span class="string">' '</span>)</span><br><span class="line"><span class="comment">#在这里，目标指的的每次迭代的变量的值，表达式一般是序列（字符串，列表，元组等）</span></span><br></pre></td></tr></table></figure>
@@ -94,7 +99,35 @@
 <p>个，绿球 6 个。先将这 12 个球混合放在一个盒子中，从中任意摸出 8 个球，编程计算摸出球的各种颜色搭配。</p>
 </li>
 </ol>
-<h2 id="10-列表，一个打了激素的数组1"><a href="#10-列表，一个打了激素的数组1" class="headerlink" title="10.列表，一个打了激素的数组1"></a>10.列表，一个打了激素的数组1</h2><h2 id="11-列表，一个打了激素的数组2"><a href="#11-列表，一个打了激素的数组2" class="headerlink" title="11.列表，一个打了激素的数组2"></a>11.列表，一个打了激素的数组2</h2><h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h2 id="13-元组，戴上了枷锁的列表"><a href="#13-元组，戴上了枷锁的列表" class="headerlink" title="13.元组，戴上了枷锁的列表"></a>13.元组，戴上了枷锁的列表</h2><h2 id="14-字符串：各种奇葩的内置方法"><a href="#14-字符串：各种奇葩的内置方法" class="headerlink" title="14.字符串：各种奇葩的内置方法"></a>14.字符串：各种奇葩的内置方法</h2><h2 id="15-字符串的格式语句与操作符"><a href="#15-字符串的格式语句与操作符" class="headerlink" title="15.字符串的格式语句与操作符"></a>15.字符串的格式语句与操作符</h2><h2 id="16-序列相关内置函数介绍"><a href="#16-序列相关内置函数介绍" class="headerlink" title="16.序列相关内置函数介绍"></a>16.序列相关内置函数介绍</h2><h2 id="17"><a href="#17" class="headerlink" title="17."></a>17.</h2><h2 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h2><h2 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h2><h2 id="20"><a href="#20" class="headerlink" title="20."></a>20.</h2><h2 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h2><h2 id="22"><a href="#22" class="headerlink" title="22."></a>22.</h2></the></excerpt>]]></content>
+<h2 id="10-列表，一个打了激素的数组1"><a href="#10-列表，一个打了激素的数组1" class="headerlink" title="10.列表，一个打了激素的数组1"></a>10.列表，一个打了激素的数组1</h2><h3 id="列表内插入新元素的方法"><a href="#列表内插入新元素的方法" class="headerlink" title="列表内插入新元素的方法"></a>列表内插入新元素的方法</h3><p>方法的调用形式： 列表.append(‘ ’)</p>
+<h4 id="append-将参数作为一个元素增加到列表的末尾"><a href="#append-将参数作为一个元素增加到列表的末尾" class="headerlink" title="append() 将参数作为一个元素增加到列表的末尾"></a>append() 将参数作为一个元素增加到列表的末尾</h4><h4 id="extend-是将参数作为一个列表去扩展列表的末尾"><a href="#extend-是将参数作为一个列表去扩展列表的末尾" class="headerlink" title="extend() 是将参数作为一个列表去扩展列表的末尾"></a>extend() 是将参数作为一个列表去扩展列表的末尾</h4><h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><p>insert(位置,元素)        从0开始</p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>自己动手试试看，并分析在这种情况下，向列表添加数据应当采用哪种方法比较好？<br>假设给定以下列表：<br>member = [‘小甲鱼’, ‘黑夜’, ‘迷途’, ‘怡静’, ‘秋舞斜阳’]<br>要求将列表修改为：<br>member = [‘小甲鱼’, 88, ‘黑夜’, 90, ‘迷途’, 85, ‘怡静’, 90, ‘秋舞斜阳’, 88]<br>方法一：使用 insert() 和 append() 方法修改列表。<br>方法二：重新创建一个同名字的列表覆盖。</li>
+<li>利用 for 循环打印上边 member 列表中的每个内容</li>
+</ol>
+<h2 id="11-列表，一个打了激素的数组2"><a href="#11-列表，一个打了激素的数组2" class="headerlink" title="11.列表，一个打了激素的数组2"></a>11.列表，一个打了激素的数组2</h2><h3 id="通过索引值获得列表中的元素"><a href="#通过索引值获得列表中的元素" class="headerlink" title="通过索引值获得列表中的元素"></a>通过索引值获得列表中的元素</h3><p>从0开始</p>
+<h3 id="从列表中删除元素的方法"><a href="#从列表中删除元素的方法" class="headerlink" title="从列表中删除元素的方法"></a>从列表中删除元素的方法</h3><h4 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h4><p>member.remove(‘黑夜’)     若删除元素不在列表里，则会报错</p>
+<h4 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h4><p>不给出参数，直接返回列表中最后一个元素并从列表中删除</p>
+<p>也可以给出索引值参数，直接返回该索引值对应元素并从列表中删除。例如继续执行member.pop(0)</p>
+<h4 id="del语句"><a href="#del语句" class="headerlink" title="del语句"></a>del语句</h4><p>del member[2]</p>
+<h3 id="列表分片"><a href="#列表分片" class="headerlink" title="列表分片"></a>列表分片</h3><p>列表名[左索引值:右索引值:步长]</p>
+<p>另外，python支持负数索引，-1相当于列表中右侧第一个元素值，以此类推。步长也允许为负值</p>
+<h3 id="列表拷贝"><a href="#列表拷贝" class="headerlink" title="列表拷贝"></a>列表拷贝</h3><p>通过将已知列表名直接赋值给一个变量和通过分片操作及列表内置方法copy()赋值给一个变量新建一个列表的本质区别：前者两个变量指向通一个数据存储空间，存储空间内数值发生变化，则两者均改变；后者相当于重新建立了一个存储空间，里面的数据不受其他空间内数值变化影响。</p>
+<p>List1 = [1,2,3,4,5,6]</p>
+<p>List2 = list[:]</p>
+<h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h3 id="常用操作符"><a href="#常用操作符" class="headerlink" title="常用操作符"></a>常用操作符</h3><h4 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h4><h4 id="逻辑操作符-1"><a href="#逻辑操作符-1" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h4><h4 id="拼接操作符"><a href="#拼接操作符" class="headerlink" title="拼接操作符"></a>拼接操作符</h4><h4 id="重复操作符"><a href="#重复操作符" class="headerlink" title="重复操作符"></a>重复操作符</h4><h4 id="成员关系操作符"><a href="#成员关系操作符" class="headerlink" title="成员关系操作符"></a>成员关系操作符</h4><h3 id="列表的内置方法"><a href="#列表的内置方法" class="headerlink" title="列表的内置方法"></a>列表的内置方法</h3><h4 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h4><p>用于删除列表中的所有元素，形成一个空的列表，例如：<br>list1 = [123,456,789]<br>list1.clear() 的值为[]，一个空的列表</p>
+<h4 id="copy"><a href="#copy" class="headerlink" title="copy()"></a>copy()</h4><p>用于浅拷贝一个列表，例如：<br>list1 = [123,456]<br>list2 = list1.copy()  则list2的值也变为[123,456]它的功能和列表分片功能 list2 = list1[:]作用是一样的；他们两个与赋值运算符=是有区别的，前者是在内存中重新申请一个空间并存放列表的值，而=则是将列表的地址直接赋值给了另一个列表，举例说明两者带来的区别：<br>list1 = [1,3,5]<br>list2 =list1<br>list3 = list1.copy()<br>list1.append（’醉酒青牛’），则list1的值变为[1,3,5,’醉酒青牛’]，而list3的内容仍为[1,3,5]   </p>
+<h4 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h4><p>用于统计所需参数在列表中出现的次数，例如：<br>list1 = [1,3,1,4,1,5,1,10]<br>则list1.count(1)的值为4，而list1.count(100)的值为0。</p>
+<h4 id="index"><a href="#index" class="headerlink" title="index()"></a>index()</h4><p>L.index(value, [start, [stop]])</p>
+<p>用于寻找所输入参数在列表中的第一个位置并返回该位置值，还有两个参数可以确定寻找该值的的列表范围，例如：<br>list1 = [1,3,1,4,1,5,1,10]<br>list1.index(1)则返回0，而list1.index(1,2,4)则返回2，而list1.index(100)则报错，因为100不存在该列表中</p>
+<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h4><p>将列表中所有元素倒置，例如<br>list1 = [1,2,3,4,5]<br>list1.reverse()的值为[5,4,3,2,1]</p>
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h4><p>L.sort(key=None, reverse=False)</p>
+<p>这是一个比较重要的函数，其有三个参数值，前两个分别是指定排序算法和算法搭配的关键字，我们现在不去管这两个值，最后一个是reverse =False，说明默认状态下sort是按照从小到大进行排序，如果想改为从大到小则将reverse=True，例如<br>list1 = [12,7,9,15,18,4]<br>list1.sort()的值为[4,7,9,12,15,18] 而执行list1.sort(reverse=True)的值为[18,15,12,9,7,4] 变为了从大到小排序。</p>
+<h3 id="列表推导式-列表解析"><a href="#列表推导式-列表解析" class="headerlink" title="列表推导式/列表解析"></a>列表推导式/列表解析</h3><p>列表推导式（list comprehensions）也叫列表解析，灵感取自于函数式编程语言Haskell，可以用来动态创建列表。其一般形式如下：<br>(有关的A的表达式  for A in B ): 举例说明：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list1 = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">5</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list1</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>]</span><br></pre></td></tr></table></figure>
+<p><a href="http://bbs.fishc.com/thread-46783-1-1.html" target="_blank" rel="noopener">跟着小甲鱼学Python笔记(2)—&gt;&gt;列表</a></p>
+<h2 id="13-元组，戴上了枷锁的列表"><a href="#13-元组，戴上了枷锁的列表" class="headerlink" title="13.元组，戴上了枷锁的列表"></a>13.元组，戴上了枷锁的列表</h2><h2 id="14-字符串：各种奇葩的内置方法"><a href="#14-字符串：各种奇葩的内置方法" class="headerlink" title="14.字符串：各种奇葩的内置方法"></a>14.字符串：各种奇葩的内置方法</h2><h2 id="15-字符串的格式语句与操作符"><a href="#15-字符串的格式语句与操作符" class="headerlink" title="15.字符串的格式语句与操作符"></a>15.字符串的格式语句与操作符</h2><h2 id="16-序列相关内置函数介绍"><a href="#16-序列相关内置函数介绍" class="headerlink" title="16.序列相关内置函数介绍"></a>16.序列相关内置函数介绍</h2><h2 id="17"><a href="#17" class="headerlink" title="17."></a>17.</h2><h2 id="18"><a href="#18" class="headerlink" title="18."></a>18.</h2><h2 id="19"><a href="#19" class="headerlink" title="19."></a>19.</h2><h2 id="20"><a href="#20" class="headerlink" title="20."></a>20.</h2><h2 id="21"><a href="#21" class="headerlink" title="21."></a>21.</h2><h2 id="22"><a href="#22" class="headerlink" title="22."></a>22.</h2></the></excerpt>]]></content>
       
         <categories>
             
@@ -223,7 +256,34 @@
 <h3 id="umask-显示、设置文件的缺省权限"><a href="#umask-显示、设置文件的缺省权限" class="headerlink" title="umask 显示、设置文件的缺省权限"></a>umask 显示、设置文件的缺省权限</h3><p><strong>grammar: umask [-S]</strong></p>
 <p>-S 以rwx形式显示新建文件的缺省权限</p>
 <p>umask 022  -&gt; 755</p>
-<h1 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h1></the></excerpt>]]></content>
+<h1 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h1><h3 id="find-文件搜索"><a href="#find-文件搜索" class="headerlink" title="find 文件搜索"></a>find 文件搜索</h3><p><strong>grammar: find [搜索范围]【匹配条件】</strong></p>
+<p>-name [name]</p>
+<p>(-iname 不区分大小写)</p>
+<p>-size [+/- ]</p>
+<p>一个数据块 512字节 0.5k</p>
+<p>-user</p>
+<p>-group</p>
+<p>-cmin -5</p>
+<p>文件属性 change</p>
+<p>-amin -5</p>
+<p>访问时间 access</p>
+<p>-mmin -5</p>
+<p>文件内容 modify</p>
+<p>-exec/ok cmd {} \; </p>
+<p>对搜索结果执行命令</p>
+<p>-type 根据文件类型查找</p>
+<p> f 文件        d 目录        l 软链接文件</p>
+<p>-inum 根据i节点查找</p>
+<p><strong>-a</strong> 两个条件同时满足     <strong>-o</strong> 两个条件满足一个即可</p>
+<p>eg: find /etc -size +163840 -a -size -204800</p>
+<h3 id="locate-在文件资料库中查找文件"><a href="#locate-在文件资料库中查找文件" class="headerlink" title="locate 在文件资料库中查找文件"></a>locate 在文件资料库中查找文件</h3><p><strong>grammar: locate [文件名]</strong></p>
+<p>updatedb</p>
+<h3 id="which-搜索命令所在目录及别名信息"><a href="#which-搜索命令所在目录及别名信息" class="headerlink" title="which 搜索命令所在目录及别名信息"></a>which 搜索命令所在目录及别名信息</h3><p><strong>grammar: which [命令]</strong></p>
+<h3 id="whereis-搜索命令所在目录及帮助文档路径"><a href="#whereis-搜索命令所在目录及帮助文档路径" class="headerlink" title="whereis 搜索命令所在目录及帮助文档路径"></a>whereis 搜索命令所在目录及帮助文档路径</h3><p><strong>grammar: whereis [命令]</strong></p>
+<h3 id="grep-在文件中搜寻字符串匹配的行并输出"><a href="#grep-在文件中搜寻字符串匹配的行并输出" class="headerlink" title="grep 在文件中搜寻字符串匹配的行并输出"></a>grep 在文件中搜寻字符串匹配的行并输出</h3><p><strong>grammar: grep [指定字符串]【文件】</strong></p>
+<p>-i 不区分大小写</p>
+<p>-v 排除指定字符串 (^#   -&gt; 行首#)</p>
+</the></excerpt>]]></content>
       
         <categories>
             
@@ -278,7 +338,48 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p><br></p>
-<h3 id="xXx-Return-of-Xander-Cage-极限特工1-2-3"><a href="#xXx-Return-of-Xander-Cage-极限特工1-2-3" class="headerlink" title="xXx.Return.of.Xander.Cage. (极限特工1-2-3)"></a>xXx.Return.of.Xander.Cage. (极限特工1-2-3)</h3><h3 id="The-Foreigner-英伦对决"><a href="#The-Foreigner-英伦对决" class="headerlink" title="The.Foreigner. (英伦对决)"></a>The.Foreigner. (英伦对决)</h3><h3 id="The-Intern（实习生）"><a href="#The-Intern（实习生）" class="headerlink" title="The Intern（实习生）"></a>The Intern（实习生）</h3></the>]]></content>
+<h3 id="xXx-Return-of-Xander-Cage-极限特工1-2-3"><a href="#xXx-Return-of-Xander-Cage-极限特工1-2-3" class="headerlink" title="xXx.Return.of.Xander.Cage. (极限特工1-2-3)"></a>xXx.Return.of.Xander.Cage. (极限特工1-2-3)</h3><h3 id="The-Foreigner-英伦对决"><a href="#The-Foreigner-英伦对决" class="headerlink" title="The.Foreigner. (英伦对决)"></a>The.Foreigner. (英伦对决)</h3><h3 id="The-Intern（实习生）"><a href="#The-Intern（实习生）" class="headerlink" title="The Intern（实习生）"></a>The Intern（实习生）</h3><p>​    <strong>It is really a powerful and inspiring film. </strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fncq0kp77tj30u018g13h.jpg" alt=""></p>
+<p>附上让我知道这部电影的海报：<em>Experience never gets old.</em> </p>
+<p>Ben，是一个传统却又以高标准要求自己的gentleman。虽将至古稀，但仍热爱生活，尝试各种新鲜事物，无意中发现并参加了一间电商公司Fit的”Senior Intern”项目……</p>
+<p>Jules，一个聪明、善良、励志但又可怜、脆弱的女强人，一个亲力亲为，无私付出，带领自己的公司在几个月内完成5年的目标……</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fncpx4jqwdj31hc0tse82.jpg" width="50%"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fncpylx50sj31hc0tsnpe.jpg" width="50%"></p>
+<p>同样是同一天进入公司实习的人，P1是现代小伙的装备，P2是传统严谨的Ben的装备。</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fncpzqu69hj31hc0tsnpe.jpg" alt=""></p>
+<p>看着桌子上的MacBook不晓得怎么开机……（这里让我笑了好久～）</p>
+<p>Jules是一个新时代女性的象征，是女强人的代表，用新时代的理念管理公司；与员工打成一片，其实如今许多互联网公司也是如此，因为这样更能激发“创新”行为。</p>
+<p>Jules也不是完美的，但她非常清楚地了解自己，知道自己“习惯把丑话说在前头，习惯保护自己的隐私“。而且她还很注重保护Matt的自尊心，因为他怕别人因为他是一个house-husband而瞧不起他。</p>
+<p>这样的女人，实在是太聪明了。</p>
+<p>但她终究是女人，终究有自己脆弱的时候。</p>
+<p><strong>这个世界有让她失望的地方，但她从来不要求别人改变，哪怕别人有可能伤害她。她只要求自己做得更好。</strong></p>
+<p>面对公司与家庭，</p>
+<p>Jules笑过，烦恼过，醉过，哭过……</p>
+<p>Ben的gentleman风度和作风让“鸭梨山大、时间永远不够用”的 Jules有一丝平静的时候（我更愿意理解成：Jules 找到了一个懂她的人——Ben）于是，在后来Ben 陪 Jules 去旧金山开会时，他们就来了次“促膝长谈”</p>
+<p>后来，她选择了忍让，选择了原谅。回家后就与Matt 坦白“you and me , us”。</p>
+<p>彻夜思考之后，第二天，Jules 一早来到 Ben 的家，Ben说了一番”心灵鸡汤“后，她决定要 follow her heart.去做自己喜欢做的事情，哪怕今后她没有任何支持，哪怕她最终要埋在Ben 旁边。</p>
+<p>结果就是，当Jules 准备打电话拒绝旧金山的CEO时，Matt 匆匆忙忙来到公司，希望自己能改过……</p>
+<p>后来Jules 兴匆匆地想告诉Ben 这个好消息，结果发现他请假了，在公园才找到似乎在打“太极”的Ben，继续给Jules 熬“心灵鸡汤”——找到内在的平衡。</p>
+<p><br></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fncppolug7j31kw0zk1dp.jpg" alt=""></p>
+<p>这句出自Mark Twain的名言，也让我印象深刻。</p>
+<p>有的人会说，这部电影结局很完美，但正因完美却显得不真实。</p>
+<p>于我而言：真不真实，结局如何，只是一时刻的感受而已。</p>
+<p>而最重要的应是思考导演通过电影，想表达什么思想，能引发我们什么思考吧？</p>
+<p>在这部片里，印证了：</p>
+<ol>
+<li>灵魂相通的男女不一定要肉体交换才能升华感情，互相懂得可以高山流水知音难求。这才是绅士和女性在这世界上创造的美好，他们不需要睡觉，他们是最相爱的朋友，这份爱里有无限尊重和心疼，超越任何感情。（Adult Conversation）</li>
+<li>男人应让自己 sensitive 和 gentlemanly，而不是只会打游戏，形象邋遢，连劈腿道歉都企图用网络语言和邮件短信。</li>
+<li>Say the right thing. Do the right thing . Be the right thing.</li>
+</ol>
+<p><br></p>
+<p>看完，感触很深，但当真正想写些什么的时候，却又不知道说什么。</p>
+<p>愿消化完这份感触之后，</p>
+<p>我能发现自己的不足，聆听自己内心的声音，做正确的事，遇见更好的自己，然后有一日能成为像Ben一样拥有独特的人格魅力，sensitive ，gentlemanly，又有新时代的气息的人。</p>
+<p><br></p>
+<p><strong>这部片，值得多刷</strong></p>
+<p>更多细致影评：<a href="https://www.zhihu.com/question/35875851" target="_blank" rel="noopener">如何评价《实习生》（The Intern）这部电影？</a></p>
+</the>]]></content>
       
         <categories>
             

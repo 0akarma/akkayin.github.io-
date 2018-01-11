@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-09T04:59:57.934Z">
+<meta property="og:updated_time" content="2018-01-11T14:28:21.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初探">
 <meta name="twitter:description" content="线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！">
@@ -413,7 +413,34 @@
 <h3 id="umask-显示、设置文件的缺省权限"><a href="#umask-显示、设置文件的缺省权限" class="headerlink" title="umask 显示、设置文件的缺省权限"></a>umask 显示、设置文件的缺省权限</h3><p><strong>grammar: umask [-S]</strong></p>
 <p>-S 以rwx形式显示新建文件的缺省权限</p>
 <p>umask 022  -&gt; 755</p>
-<h1 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h1></the></excerpt>
+<h1 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h1><h3 id="find-文件搜索"><a href="#find-文件搜索" class="headerlink" title="find 文件搜索"></a>find 文件搜索</h3><p><strong>grammar: find [搜索范围]【匹配条件】</strong></p>
+<p>-name [name]</p>
+<p>(-iname 不区分大小写)</p>
+<p>-size [+/- ]</p>
+<p>一个数据块 512字节 0.5k</p>
+<p>-user</p>
+<p>-group</p>
+<p>-cmin -5</p>
+<p>文件属性 change</p>
+<p>-amin -5</p>
+<p>访问时间 access</p>
+<p>-mmin -5</p>
+<p>文件内容 modify</p>
+<p>-exec/ok cmd {} \; </p>
+<p>对搜索结果执行命令</p>
+<p>-type 根据文件类型查找</p>
+<p> f 文件        d 目录        l 软链接文件</p>
+<p>-inum 根据i节点查找</p>
+<p><strong>-a</strong> 两个条件同时满足     <strong>-o</strong> 两个条件满足一个即可</p>
+<p>eg: find /etc -size +163840 -a -size -204800</p>
+<h3 id="locate-在文件资料库中查找文件"><a href="#locate-在文件资料库中查找文件" class="headerlink" title="locate 在文件资料库中查找文件"></a>locate 在文件资料库中查找文件</h3><p><strong>grammar: locate [文件名]</strong></p>
+<p>updatedb</p>
+<h3 id="which-搜索命令所在目录及别名信息"><a href="#which-搜索命令所在目录及别名信息" class="headerlink" title="which 搜索命令所在目录及别名信息"></a>which 搜索命令所在目录及别名信息</h3><p><strong>grammar: which [命令]</strong></p>
+<h3 id="whereis-搜索命令所在目录及帮助文档路径"><a href="#whereis-搜索命令所在目录及帮助文档路径" class="headerlink" title="whereis 搜索命令所在目录及帮助文档路径"></a>whereis 搜索命令所在目录及帮助文档路径</h3><p><strong>grammar: whereis [命令]</strong></p>
+<h3 id="grep-在文件中搜寻字符串匹配的行并输出"><a href="#grep-在文件中搜寻字符串匹配的行并输出" class="headerlink" title="grep 在文件中搜寻字符串匹配的行并输出"></a>grep 在文件中搜寻字符串匹配的行并输出</h3><p><strong>grammar: grep [指定字符串]【文件】</strong></p>
+<p>-i 不区分大小写</p>
+<p>-v 排除指定字符串 (^#   -&gt; 行首#)</p>
+</the></excerpt>
       
     </div>
     
@@ -424,7 +451,7 @@
         <p><span>本文标题:</span><a href="/2018/01/04/linux/">Linux初探</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-01-04, 14:32:21</p>
-        <p><span>最后更新:</span>2018-01-09, 12:59:57</p>
+        <p><span>最后更新:</span>2018-01-11, 22:28:21</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/04/linux/" title="Linux初探">http://akkayin.github.io/2018/01/04/linux/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/01/04/linux/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -460,7 +487,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件处理命令"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录处理命令"><span class="toc-text">目录处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls-显示目录文件"><span class="toc-text">ls 显示目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建新目录"><span class="toc-text">mkdir 创建新目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-切换目录"><span class="toc-text">cd 切换目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwd-显示当前目录"><span class="toc-text">pwd 显示当前目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir-删除空目录"><span class="toc-text">rmdir 删除空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制"><span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-剪切-改名"><span class="toc-text">mv 剪切/改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-删除"><span class="toc-text">rm 删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处理命令-1"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-创建空文件"><span class="toc-text">touch 创建空文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat-显示文件内容"><span class="toc-text">cat 显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tac-显示文件内容（反向）"><span class="toc-text">tac 显示文件内容（反向）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more-分页显示文件内容"><span class="toc-text">more 分页显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-分页显示文件内容（可向上翻页）"><span class="toc-text">less 分页显示文件内容（可向上翻页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head-显示文件前几行"><span class="toc-text">head 显示文件前几行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail-显示文件后面几行"><span class="toc-text">tail 显示文件后面几行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接命令"><span class="toc-text">链接命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ln-生成链接文件"><span class="toc-text">ln 生成链接文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#软链接："><span class="toc-text">软链接：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬链接："><span class="toc-text">硬链接：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限管理命令"><span class="toc-text">权限管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod-改变文件或目录权限"><span class="toc-text">chmod 改变文件或目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown-改变文件或目录的所有者"><span class="toc-text">chown 改变文件或目录的所有者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chgrp-改变文件或目录所属组"><span class="toc-text">chgrp 改变文件或目录所属组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#umask-显示、设置文件的缺省权限"><span class="toc-text">umask 显示、设置文件的缺省权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件搜索命令"><span class="toc-text">文件搜索命令</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件处理命令"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录处理命令"><span class="toc-text">目录处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls-显示目录文件"><span class="toc-text">ls 显示目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建新目录"><span class="toc-text">mkdir 创建新目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-切换目录"><span class="toc-text">cd 切换目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwd-显示当前目录"><span class="toc-text">pwd 显示当前目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir-删除空目录"><span class="toc-text">rmdir 删除空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制"><span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-剪切-改名"><span class="toc-text">mv 剪切/改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-删除"><span class="toc-text">rm 删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处理命令-1"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-创建空文件"><span class="toc-text">touch 创建空文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat-显示文件内容"><span class="toc-text">cat 显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tac-显示文件内容（反向）"><span class="toc-text">tac 显示文件内容（反向）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more-分页显示文件内容"><span class="toc-text">more 分页显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-分页显示文件内容（可向上翻页）"><span class="toc-text">less 分页显示文件内容（可向上翻页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head-显示文件前几行"><span class="toc-text">head 显示文件前几行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail-显示文件后面几行"><span class="toc-text">tail 显示文件后面几行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接命令"><span class="toc-text">链接命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ln-生成链接文件"><span class="toc-text">ln 生成链接文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#软链接："><span class="toc-text">软链接：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬链接："><span class="toc-text">硬链接：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限管理命令"><span class="toc-text">权限管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod-改变文件或目录权限"><span class="toc-text">chmod 改变文件或目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown-改变文件或目录的所有者"><span class="toc-text">chown 改变文件或目录的所有者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chgrp-改变文件或目录所属组"><span class="toc-text">chgrp 改变文件或目录所属组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#umask-显示、设置文件的缺省权限"><span class="toc-text">umask 显示、设置文件的缺省权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件搜索命令"><span class="toc-text">文件搜索命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#find-文件搜索"><span class="toc-text">find 文件搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#locate-在文件资料库中查找文件"><span class="toc-text">locate 在文件资料库中查找文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#which-搜索命令所在目录及别名信息"><span class="toc-text">which 搜索命令所在目录及别名信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whereis-搜索命令所在目录及帮助文档路径"><span class="toc-text">whereis 搜索命令所在目录及帮助文档路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-在文件中搜寻字符串匹配的行并输出"><span class="toc-text">grep 在文件中搜寻字符串匹配的行并输出</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
