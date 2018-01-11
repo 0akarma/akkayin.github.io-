@@ -103,7 +103,7 @@
 <h4 id="append-将参数作为一个元素增加到列表的末尾"><a href="#append-将参数作为一个元素增加到列表的末尾" class="headerlink" title="append() 将参数作为一个元素增加到列表的末尾"></a>append() 将参数作为一个元素增加到列表的末尾</h4><h4 id="extend-是将参数作为一个列表去扩展列表的末尾"><a href="#extend-是将参数作为一个列表去扩展列表的末尾" class="headerlink" title="extend() 是将参数作为一个列表去扩展列表的末尾"></a>extend() 是将参数作为一个列表去扩展列表的末尾</h4><h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><p>insert(位置,元素)        从0开始</p>
 <p><strong>Exercise</strong></p>
 <ol>
-<li>自己动手试试看，并分析在这种情况下，向列表添加数据应当采用哪种方法比较好？<br>假设给定以下列表：<br>member = [‘小甲鱼’, ‘黑夜’, ‘迷途’, ‘怡静’, ‘秋舞斜阳’]<br>要求将列表修改为：<br>member = [‘小甲鱼’, 88, ‘黑夜’, 90, ‘迷途’, 85, ‘怡静’, 90, ‘秋舞斜阳’, 88]<br>方法一：使用 insert() 和 append() 方法修改列表。<br>方法二：重新创建一个同名字的列表覆盖。</li>
+<li>自己动手试试看，并分析在这种情况下，向列表添加数据应当采用哪种方法比较好？<br> 假设给定以下列表：<br> member = [‘小甲鱼’, ‘黑夜’, ‘迷途’, ‘怡静’, ‘秋舞斜阳’]<br> 要求将列表修改为：<br> member = [‘小甲鱼’, 88, ‘黑夜’, 90, ‘迷途’, 85, ‘怡静’, 90, ‘秋舞斜阳’, 88]<br> 方法一：使用 insert() 和 append() 方法修改列表。<br> 方法二：重新创建一个同名字的列表覆盖。</li>
 <li>利用 for 循环打印上边 member 列表中的每个内容</li>
 </ol>
 <h2 id="11-列表，一个打了激素的数组2"><a href="#11-列表，一个打了激素的数组2" class="headerlink" title="11.列表，一个打了激素的数组2"></a>11.列表，一个打了激素的数组2</h2><h3 id="通过索引值获得列表中的元素"><a href="#通过索引值获得列表中的元素" class="headerlink" title="通过索引值获得列表中的元素"></a>通过索引值获得列表中的元素</h3><p>从0开始</p>
@@ -116,7 +116,8 @@
 <h3 id="列表拷贝"><a href="#列表拷贝" class="headerlink" title="列表拷贝"></a>列表拷贝</h3><p>通过将已知列表名直接赋值给一个变量和通过分片操作及列表内置方法copy()赋值给一个变量新建一个列表的本质区别：前者两个变量指向通一个数据存储空间，存储空间内数值发生变化，则两者均改变；后者相当于重新建立了一个存储空间，里面的数据不受其他空间内数值变化影响。</p>
 <p>List1 = [1,2,3,4,5,6]</p>
 <p>List2 = list[:]</p>
-<h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h3 id="常用操作符"><a href="#常用操作符" class="headerlink" title="常用操作符"></a>常用操作符</h3><h4 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h4><h4 id="逻辑操作符-1"><a href="#逻辑操作符-1" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h4><h4 id="拼接操作符"><a href="#拼接操作符" class="headerlink" title="拼接操作符"></a>拼接操作符</h4><h4 id="重复操作符"><a href="#重复操作符" class="headerlink" title="重复操作符"></a>重复操作符</h4><h4 id="成员关系操作符"><a href="#成员关系操作符" class="headerlink" title="成员关系操作符"></a>成员关系操作符</h4><h3 id="列表的内置方法"><a href="#列表的内置方法" class="headerlink" title="列表的内置方法"></a>列表的内置方法</h3><h4 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h4><p>用于删除列表中的所有元素，形成一个空的列表，例如：<br>list1 = [123,456,789]<br>list1.clear() 的值为[]，一个空的列表</p>
+<h2 id="12-列表，一个打了激素的数组3"><a href="#12-列表，一个打了激素的数组3" class="headerlink" title="12.列表，一个打了激素的数组3"></a>12.列表，一个打了激素的数组3</h2><h3 id="常用操作符"><a href="#常用操作符" class="headerlink" title="常用操作符"></a>常用操作符</h3><h4 id="比较操作符"><a href="#比较操作符" class="headerlink" title="比较操作符"></a>比较操作符</h4><p>两个含有两个数字元素的列表直接比较大小  list1&gt;list2得到的值为False。在Python中会直接取两个数组的第0个元素进行比较，如果相等则继续对列表下一个元素进行比较，不相等则给出False或者True的值。这里面需要注意：元素的值必须符合比较运算符的适用范围，例如可以是两个数字进行对比，也可以是两个字符进行对比。</p>
+<h4 id="逻辑操作符-1"><a href="#逻辑操作符-1" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h4><h4 id="拼接操作符"><a href="#拼接操作符" class="headerlink" title="拼接操作符 +"></a>拼接操作符 +</h4><h4 id="重复操作符"><a href="#重复操作符" class="headerlink" title="重复操作符 *"></a>重复操作符 *</h4><h4 id="成员关系操作符-in-not-in"><a href="#成员关系操作符-in-not-in" class="headerlink" title="成员关系操作符 in / not in"></a>成员关系操作符 in / not in</h4><h3 id="列表的内置方法"><a href="#列表的内置方法" class="headerlink" title="列表的内置方法"></a>列表的内置方法</h3><h4 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h4><p>用于删除列表中的所有元素，形成一个空的列表，例如：<br>list1 = [123,456,789]<br>list1.clear() 的值为[]，一个空的列表</p>
 <h4 id="copy"><a href="#copy" class="headerlink" title="copy()"></a>copy()</h4><p>用于浅拷贝一个列表，例如：<br>list1 = [123,456]<br>list2 = list1.copy()  则list2的值也变为[123,456]它的功能和列表分片功能 list2 = list1[:]作用是一样的；他们两个与赋值运算符=是有区别的，前者是在内存中重新申请一个空间并存放列表的值，而=则是将列表的地址直接赋值给了另一个列表，举例说明两者带来的区别：<br>list1 = [1,3,5]<br>list2 =list1<br>list3 = list1.copy()<br>list1.append（’醉酒青牛’），则list1的值变为[1,3,5,’醉酒青牛’]，而list3的内容仍为[1,3,5]   </p>
 <h4 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h4><p>用于统计所需参数在列表中出现的次数，例如：<br>list1 = [1,3,1,4,1,5,1,10]<br>则list1.count(1)的值为4，而list1.count(100)的值为0。</p>
 <h4 id="index"><a href="#index" class="headerlink" title="index()"></a>index()</h4><p>L.index(value, [start, [stop]])</p>
@@ -339,14 +340,13 @@
 
 <p><br></p>
 <h3 id="xXx-Return-of-Xander-Cage-极限特工1-2-3"><a href="#xXx-Return-of-Xander-Cage-极限特工1-2-3" class="headerlink" title="xXx.Return.of.Xander.Cage. (极限特工1-2-3)"></a>xXx.Return.of.Xander.Cage. (极限特工1-2-3)</h3><h3 id="The-Foreigner-英伦对决"><a href="#The-Foreigner-英伦对决" class="headerlink" title="The.Foreigner. (英伦对决)"></a>The.Foreigner. (英伦对决)</h3><h3 id="The-Intern（实习生）"><a href="#The-Intern（实习生）" class="headerlink" title="The Intern（实习生）"></a>The Intern（实习生）</h3><p>​    <strong>It is really a powerful and inspiring film. </strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fncq0kp77tj30u018g13h.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fncq0kp77tj30u018g13h.jpg" width="50%"></p>
 <p>附上让我知道这部电影的海报：<em>Experience never gets old.</em> </p>
 <p>Ben，是一个传统却又以高标准要求自己的gentleman。虽将至古稀，但仍热爱生活，尝试各种新鲜事物，无意中发现并参加了一间电商公司Fit的”Senior Intern”项目……</p>
 <p>Jules，一个聪明、善良、励志但又可怜、脆弱的女强人，一个亲力亲为，无私付出，带领自己的公司在几个月内完成5年的目标……</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fncpx4jqwdj31hc0tse82.jpg" width="50%"></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fncpylx50sj31hc0tsnpe.jpg" width="50%"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fncpx4jqwdj31hc0tse82.jpg" width="30%"><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fncpylx50sj31hc0tsnpe.jpg" width="30%"></p>
 <p>同样是同一天进入公司实习的人，P1是现代小伙的装备，P2是传统严谨的Ben的装备。</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fncpzqu69hj31hc0tsnpe.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fncpzqu69hj31hc0tsnpe.jpg" width="50%"></p>
 <p>看着桌子上的MacBook不晓得怎么开机……（这里让我笑了好久～）</p>
 <p>Jules是一个新时代女性的象征，是女强人的代表，用新时代的理念管理公司；与员工打成一片，其实如今许多互联网公司也是如此，因为这样更能激发“创新”行为。</p>
 <p>Jules也不是完美的，但她非常清楚地了解自己，知道自己“习惯把丑话说在前头，习惯保护自己的隐私“。而且她还很注重保护Matt的自尊心，因为他怕别人因为他是一个house-husband而瞧不起他。</p>
@@ -360,8 +360,7 @@
 <p>彻夜思考之后，第二天，Jules 一早来到 Ben 的家，Ben说了一番”心灵鸡汤“后，她决定要 follow her heart.去做自己喜欢做的事情，哪怕今后她没有任何支持，哪怕她最终要埋在Ben 旁边。</p>
 <p>结果就是，当Jules 准备打电话拒绝旧金山的CEO时，Matt 匆匆忙忙来到公司，希望自己能改过……</p>
 <p>后来Jules 兴匆匆地想告诉Ben 这个好消息，结果发现他请假了，在公园才找到似乎在打“太极”的Ben，继续给Jules 熬“心灵鸡汤”——找到内在的平衡。</p>
-<p><br></p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fncppolug7j31kw0zk1dp.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fncppolug7j31kw0zk1dp.jpg" width="50%"></p>
 <p>这句出自Mark Twain的名言，也让我印象深刻。</p>
 <p>有的人会说，这部电影结局很完美，但正因完美却显得不真实。</p>
 <p>于我而言：真不真实，结局如何，只是一时刻的感受而已。</p>
