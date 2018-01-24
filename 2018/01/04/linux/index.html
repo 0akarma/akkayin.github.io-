@@ -23,10 +23,12 @@
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-11T14:28:21.827Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1fnqa43wzntj30vm0mmq9x.jpg">
+<meta property="og:updated_time" content="2018-01-24T01:59:42.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux初探">
 <meta name="twitter:description" content="线代，网页制作都考完了，过几天才考高数，所以有几天空闲时间，就赶紧恶补一下linux吧！">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1fnqa43wzntj30vm0mmq9x.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -440,7 +442,134 @@
 <h3 id="grep-在文件中搜寻字符串匹配的行并输出"><a href="#grep-在文件中搜寻字符串匹配的行并输出" class="headerlink" title="grep 在文件中搜寻字符串匹配的行并输出"></a>grep 在文件中搜寻字符串匹配的行并输出</h3><p><strong>grammar: grep [指定字符串]【文件】</strong></p>
 <p>-i 不区分大小写</p>
 <p>-v 排除指定字符串 (^#   -&gt; 行首#)</p>
-</the></excerpt>
+<h2 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h2><h3 id="man-获得帮助信息"><a href="#man-获得帮助信息" class="headerlink" title="man 获得帮助信息"></a>man 获得帮助信息</h3><p><strong>grammar: man [命令或者配置文件]</strong></p>
+<p>1 命令的帮助 man ls</p>
+<p>5 配置文件的帮助 man services</p>
+<h3 id="whatis-命令"><a href="#whatis-命令" class="headerlink" title="whatis [命令]"></a>whatis [命令]</h3><h3 id="apropos-命令"><a href="#apropos-命令" class="headerlink" title="apropos [命令]"></a>apropos [命令]</h3><h3 id="命令-–help"><a href="#命令-–help" class="headerlink" title="[命令] –help"></a>[命令] –help</h3><h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><h3 id="help-获取Shell内置命令的帮助信息"><a href="#help-获取Shell内置命令的帮助信息" class="headerlink" title="help 获取Shell内置命令的帮助信息"></a>help 获取Shell内置命令的帮助信息</h3><p><strong>grammar: help [命令]</strong></p>
+<p>找不到路径的命令，都是shell命令</p>
+<h2 id="用户管理命令"><a href="#用户管理命令" class="headerlink" title="用户管理命令"></a>用户管理命令</h2><h3 id="useradd-添加新用户"><a href="#useradd-添加新用户" class="headerlink" title="useradd 添加新用户"></a>useradd 添加新用户</h3><p><strong>grammar: useradd karma</strong></p>
+<h3 id="passwd-设置用户密码"><a href="#passwd-设置用户密码" class="headerlink" title="passwd 设置用户密码"></a>passwd 设置用户密码</h3><p><strong>grammar: passed karma</strong></p>
+<h3 id="who-查看登录用户信息"><a href="#who-查看登录用户信息" class="headerlink" title="who 查看登录用户信息"></a>who 查看登录用户信息</h3><p><strong>grammar: who</strong></p>
+<p>tty 本地终端        pts 远程终端</p>
+<h3 id="w-查看登录用户详细信息"><a href="#w-查看登录用户详细信息" class="headerlink" title="w 查看登录用户详细信息"></a>w 查看登录用户详细信息</h3><p><strong>grammar: w</strong></p>
+<h1 id="压缩解压命令"><a href="#压缩解压命令" class="headerlink" title="压缩解压命令"></a>压缩解压命令</h1><h3 id="gzip-压缩文件"><a href="#gzip-压缩文件" class="headerlink" title="gzip 压缩文件"></a>gzip 压缩文件</h3><p><strong>grammar: gzip [文件]</strong></p>
+<p>解压： gunzip  或 gzip -d</p>
+<p>不保留原文件，只能压缩文件</p>
+<h3 id="tar-打包目录"><a href="#tar-打包目录" class="headerlink" title="tar 打包目录"></a>tar 打包目录</h3><p><strong>grammar: tar 选项[-zcf] 【压缩后的文件名】[目录]</strong></p>
+<p>-c 打包    -v 显示详细信息    -f 指定文件名        -z 打包同时压缩     -x 解包</p>
+<h3 id="zip-压缩文件或目录"><a href="#zip-压缩文件或目录" class="headerlink" title="zip 压缩文件或目录"></a>zip 压缩文件或目录</h3><p><strong>grammar: zip [-r] 【压缩后的文件名】[目录]</strong></p>
+<p>-r 压缩目录</p>
+<h3 id="bzip2-压缩文件"><a href="#bzip2-压缩文件" class="headerlink" title="bzip2 压缩文件"></a>bzip2 压缩文件</h3><p><strong>grammar: bzip2 选项[-k] 【文件】</strong></p>
+<p>-k 产生压缩文件后保留原文件</p>
+<h2 id="网络命令"><a href="#网络命令" class="headerlink" title="网络命令"></a>网络命令</h2><h3 id="write-给用户发信息"><a href="#write-给用户发信息" class="headerlink" title="write 给用户发信息"></a>write 给用户发信息</h3><p><strong>grammar: write [用户名] </strong></p>
+<p>Ctrl+D 保存结束</p>
+<h3 id="wall-发广播信息"><a href="#wall-发广播信息" class="headerlink" title="wall 发广播信息"></a>wall 发广播信息</h3><p><strong>grammar: wall [message] </strong></p>
+<h3 id="ping-测试网络连通性"><a href="#ping-测试网络连通性" class="headerlink" title="ping 测试网络连通性"></a>ping 测试网络连通性</h3><p><strong>grammar: ping 选项[-c] 【IP地址】</strong></p>
+<p>-c 指定发送次数</p>
+<h3 id="ifconfig-查看和设置网卡信息"><a href="#ifconfig-查看和设置网卡信息" class="headerlink" title="ifconfig 查看和设置网卡信息"></a>ifconfig 查看和设置网卡信息</h3><p><strong>grammar: ifconfig [网卡名称] 【ip地址】</strong></p>
+<p>临时改</p>
+<h3 id="mail-查看发送电子邮件"><a href="#mail-查看发送电子邮件" class="headerlink" title="mail 查看发送电子邮件"></a>mail 查看发送电子邮件</h3><p><strong>grammar: mail [用户名] </strong></p>
+<h3 id="last-列出目前与过去登入系统的用户信息"><a href="#last-列出目前与过去登入系统的用户信息" class="headerlink" title="last 列出目前与过去登入系统的用户信息"></a>last 列出目前与过去登入系统的用户信息</h3><p><strong>grammar: last </strong></p>
+<h3 id="lastlog-检查某特定用户上次登录时间"><a href="#lastlog-检查某特定用户上次登录时间" class="headerlink" title="lastlog 检查某特定用户上次登录时间"></a>lastlog 检查某特定用户上次登录时间</h3><p><strong>grammar: lastlog -u [uid]</strong> </p>
+<h3 id="traceroute-显示数据包到主机间的路径"><a href="#traceroute-显示数据包到主机间的路径" class="headerlink" title="traceroute 显示数据包到主机间的路径"></a>traceroute 显示数据包到主机间的路径</h3><p><strong>grammar: traceroute</strong></p>
+<h3 id="netstat-显示网络相关信息"><a href="#netstat-显示网络相关信息" class="headerlink" title="netstat 显示网络相关信息"></a>netstat 显示网络相关信息</h3><p><strong>grammar: netstat [选项] </strong></p>
+<p>-t TCP协议    -u UDP协议    -l 监听    -r 路由    -n 显示ip地址和端口号</p>
+<p>常用：</p>
+<p>netstat -tlum        查看本机监听的端口</p>
+<p>netstat -an        查看本机所有的网络连接</p>
+<p>netstat -rn        查看本机路由表</p>
+<h3 id="steup-配置网络"><a href="#steup-配置网络" class="headerlink" title="steup 配置网络"></a>steup 配置网络</h3><p><strong>grammar: steup </strong></p>
+<p>Dhcp</p>
+<h3 id="mount-挂载命令"><a href="#mount-挂载命令" class="headerlink" title="mount 挂载命令"></a>mount 挂载命令</h3><p><strong>grammar: mount[-t 文件系统] 设备文件名 挂载点 </strong></p>
+<p>卸载 umount</p>
+<h2 id="关机重启命令"><a href="#关机重启命令" class="headerlink" title="关机重启命令"></a>关机重启命令</h2><h3 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h3><h4 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h4><p><strong>grammar: shutdown [选项] 时间</strong></p>
+<p>-c 取消前一个关机命令        -h 关机        -r 重启</p>
+<h4 id="halt"><a href="#halt" class="headerlink" title="halt"></a>halt</h4><h4 id="power-off"><a href="#power-off" class="headerlink" title="power off"></a>power off</h4><h4 id="init-0"><a href="#init-0" class="headerlink" title="init 0"></a>init 0</h4><h3 id="重启"><a href="#重启" class="headerlink" title="重启"></a>重启</h3><h4 id="reboot"><a href="#reboot" class="headerlink" title="reboot"></a>reboot</h4><h4 id="init-6"><a href="#init-6" class="headerlink" title="init 6"></a>init 6</h4><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><p>修改系统默认运行级别</p>
+<p>cat /etc/inittab</p>
+<p>Id:3:initdefault</p>
+<p>查询系统运行级别</p>
+<p>runlevel</p>
+<p>系统运行级别</p>
+<p>0 关机        1 单用户        2 不完全多用户，不含NFS服务        3 完全多用户        4 未分配        5 图形界面        6 重启</p>
+<h3 id="退出登录"><a href="#退出登录" class="headerlink" title="退出登录"></a>退出登录</h3><h4 id="logout"><a href="#logout" class="headerlink" title="logout"></a>logout</h4><h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h2><h3 id="定位命令"><a href="#定位命令" class="headerlink" title="定位命令"></a>定位命令</h3><p>设置行号 <strong>: set nu</strong></p>
+<p>取消行号 <strong>:set nonu</strong></p>
+<p>到第一行 <strong>gg</strong></p>
+<p>到最后一行 <strong>G</strong></p>
+<p>到第n行 <strong>nG</strong></p>
+<p>到第n行 <strong>:n</strong></p>
+<p><strong>$</strong> 移至行尾</p>
+<p><strong>0</strong> 移至行首</p>
+<h3 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h3><p><strong>a</strong> 在光标所在字符后插入</p>
+<p><strong>A</strong> 在光标所在行尾插入</p>
+<p><strong>i</strong> 在光标所在字符前插入</p>
+<p><strong>I</strong> 在光标所在行行首插入</p>
+<p><strong>o</strong> 在光标下插入新行</p>
+<p><strong>O</strong> 在光标上插入新行</p>
+<h3 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h3><p><strong>x</strong> 删除光标所在处字符</p>
+<p><strong>nx</strong> 删除光标所在处n后个字符</p>
+<p><strong>dd</strong> 删除光标所在行，ndd删除n行</p>
+<p><strong>dG</strong> 删除光标所在行到文件末尾内容</p>
+<p><strong>D</strong> 删除光标所在处到行尾内容</p>
+<p><strong>:n1,n2d</strong> 删除指定范围的行</p>
+<h3 id="复制和剪切命令"><a href="#复制和剪切命令" class="headerlink" title="复制和剪切命令"></a>复制和剪切命令</h3><p><strong>yy</strong> 复制当前行</p>
+<p><strong>nyy</strong> 复制当前行以下n行</p>
+<p><strong>dd</strong> 剪切当前行</p>
+<p><strong>ndd</strong> 剪切当前行以下n行 </p>
+<p><strong>p、P</strong> 粘贴在当前光标所在行下或行上</p>
+<h3 id="替换和取消命令"><a href="#替换和取消命令" class="headerlink" title="替换和取消命令"></a>替换和取消命令</h3><p><strong>r</strong> 取代光标所在处字符</p>
+<p><strong>R</strong> 从光标所在处开始替换字符，按Esc结束</p>
+<p><strong>u</strong> 取消上一步操作</p>
+<h3 id="搜索和搜索替换"><a href="#搜索和搜索替换" class="headerlink" title="搜索和搜索替换"></a>搜索和搜索替换</h3><p><strong>/string</strong> 搜索指定字符串，搜索时忽略大小写<strong>:set ic</strong></p>
+<p><strong>n</strong> 搜索指定字符串的下一个出现位置</p>
+<p><strong>:%s/要替换的关键词1/替换的关键词2/g</strong> 全文替换指定字符串</p>
+<p><strong>:n1,n2s/要替换的关键词1/替换的关键词2/g</strong> 在一定范围内替换指定字符串</p>
+<h3 id="保存和退出"><a href="#保存和退出" class="headerlink" title="保存和退出"></a>保存和退出</h3><p><strong>:w</strong> 保存修改</p>
+<p><strong>:w new_filename</strong> 另存为指定文件</p>
+<p><strong>wq</strong> 保存修改并退出</p>
+<p><strong>ZZ</strong> 快捷键，保存修改并退出</p>
+<p><strong>:q!</strong> v 不保存修改退出</p>
+<p><strong>:wq!</strong> 保存修改并退出（文件所有者及root可使用）</p>
+<h3 id="导入命令执行结果"><a href="#导入命令执行结果" class="headerlink" title="导入命令执行结果"></a>导入命令执行结果</h3><p><strong>:r !命令</strong></p>
+<h3 id="定义快捷键"><a href="#定义快捷键" class="headerlink" title="定义快捷键"></a>定义快捷键</h3><p><strong>:map 快捷键 触发命令</strong></p>
+<h3 id="连续行注释"><a href="#连续行注释" class="headerlink" title="连续行注释"></a>连续行注释</h3><p><strong>:n1,n2s/^/#/g</strong></p>
+<p><strong>:n1,n2s/^#//g</strong></p>
+<p><strong>:n1,n2s/^/\/\//g</strong></p>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><p>设置 vim /root/.vimrc    vim /home/username/.vimrc</p>
+<p><strong>:ab mymail <a href="mailto:abc@kkk.com" target="_blank" rel="noopener">abc@kkk.com</a> </strong>类似于文本替换</p>
+<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><h3 id="软件包分类"><a href="#软件包分类" class="headerlink" title="软件包分类"></a>软件包分类</h3><h4 id="源码包"><a href="#源码包" class="headerlink" title="源码包"></a>源码包</h4><p>优点：</p>
+<ol>
+<li>开源</li>
+<li>可以自由选择所需功能</li>
+<li>软件是编译安装，稳定性和效率更好</li>
+<li>卸载方便</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>安装步骤多</li>
+<li>编译过程时间较长，安装比二进制安装时间长</li>
+<li>编译安装，安装过程中一旦报错，新手很难解决</li>
+</ol>
+<h4 id="二进制包（RPM包、系统默认包）"><a href="#二进制包（RPM包、系统默认包）" class="headerlink" title="二进制包（RPM包、系统默认包）"></a>二进制包（RPM包、系统默认包）</h4><p>优点：</p>
+<ol>
+<li>包管理系统简单</li>
+<li>安装速度比源码包快得多</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>经过编译，不再可以看到源代码</li>
+<li>功能选择不如源码包灵活</li>
+<li>依赖性</li>
+</ol>
+<h3 id="RPM命令管理"><a href="#RPM命令管理" class="headerlink" title="RPM命令管理"></a>RPM命令管理</h3><h4 id="RPM包命名原则"><a href="#RPM包命名原则" class="headerlink" title="RPM包命名原则"></a>RPM包命名原则</h4><p><img src="https://ws1.sinaimg.cn/large/006tNc79gy1fnqa43wzntj30vm0mmq9x.jpg" width="50%"></p>
+<h4 id="RPM包依赖性"><a href="#RPM包依赖性" class="headerlink" title="RPM包依赖性"></a>RPM包依赖性</h4><h4 id="包全名与包名"><a href="#包全名与包名" class="headerlink" title="包全名与包名"></a>包全名与包名</h4><p>包全名：操作的包是没有安装的软件包时，使用包全名。而且要注意路径</p>
+<p>包名：操作已经安装的软件包时，使用包名。是搜索/var/lib/rpm/中的数据库</p>
+<h4 id="RPM安装"><a href="#RPM安装" class="headerlink" title="RPM安装"></a>RPM安装</h4><p>-i (install)    安装</p>
+<p>-v (verbose)    显示详细信息</p>
+<p>-h (hash)    显示进度</p>
+<p>–nodeps    不检测依赖性</p>
+<h4 id="RPM升级"><a href="#RPM升级" class="headerlink" title="RPM升级"></a>RPM升级</h4><p>-U</p>
+<h4 id="RPM卸载"><a href="#RPM卸载" class="headerlink" title="RPM卸载"></a>RPM卸载</h4><p>-e (erase 卸载)</p>
+<h3 id="YUM在线管理"><a href="#YUM在线管理" class="headerlink" title="YUM在线管理"></a>YUM在线管理</h3></the></excerpt>
       
     </div>
     
@@ -451,7 +580,7 @@
         <p><span>本文标题:</span><a href="/2018/01/04/linux/">Linux初探</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-01-04, 14:32:21</p>
-        <p><span>最后更新:</span>2018-01-11, 22:28:21</p>
+        <p><span>最后更新:</span>2018-01-24, 09:59:42</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/04/linux/" title="Linux初探">http://akkayin.github.io/2018/01/04/linux/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/01/04/linux/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -487,7 +616,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件处理命令"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录处理命令"><span class="toc-text">目录处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls-显示目录文件"><span class="toc-text">ls 显示目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建新目录"><span class="toc-text">mkdir 创建新目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-切换目录"><span class="toc-text">cd 切换目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwd-显示当前目录"><span class="toc-text">pwd 显示当前目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir-删除空目录"><span class="toc-text">rmdir 删除空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制"><span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-剪切-改名"><span class="toc-text">mv 剪切/改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-删除"><span class="toc-text">rm 删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处理命令-1"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-创建空文件"><span class="toc-text">touch 创建空文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat-显示文件内容"><span class="toc-text">cat 显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tac-显示文件内容（反向）"><span class="toc-text">tac 显示文件内容（反向）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more-分页显示文件内容"><span class="toc-text">more 分页显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-分页显示文件内容（可向上翻页）"><span class="toc-text">less 分页显示文件内容（可向上翻页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head-显示文件前几行"><span class="toc-text">head 显示文件前几行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail-显示文件后面几行"><span class="toc-text">tail 显示文件后面几行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接命令"><span class="toc-text">链接命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ln-生成链接文件"><span class="toc-text">ln 生成链接文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#软链接："><span class="toc-text">软链接：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬链接："><span class="toc-text">硬链接：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限管理命令"><span class="toc-text">权限管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod-改变文件或目录权限"><span class="toc-text">chmod 改变文件或目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown-改变文件或目录的所有者"><span class="toc-text">chown 改变文件或目录的所有者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chgrp-改变文件或目录所属组"><span class="toc-text">chgrp 改变文件或目录所属组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#umask-显示、设置文件的缺省权限"><span class="toc-text">umask 显示、设置文件的缺省权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件搜索命令"><span class="toc-text">文件搜索命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#find-文件搜索"><span class="toc-text">find 文件搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#locate-在文件资料库中查找文件"><span class="toc-text">locate 在文件资料库中查找文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#which-搜索命令所在目录及别名信息"><span class="toc-text">which 搜索命令所在目录及别名信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whereis-搜索命令所在目录及帮助文档路径"><span class="toc-text">whereis 搜索命令所在目录及帮助文档路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-在文件中搜寻字符串匹配的行并输出"><span class="toc-text">grep 在文件中搜寻字符串匹配的行并输出</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#文件处理命令"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录处理命令"><span class="toc-text">目录处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls-显示目录文件"><span class="toc-text">ls 显示目录文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir-创建新目录"><span class="toc-text">mkdir 创建新目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cd-切换目录"><span class="toc-text">cd 切换目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pwd-显示当前目录"><span class="toc-text">pwd 显示当前目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir-删除空目录"><span class="toc-text">rmdir 删除空目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp-复制"><span class="toc-text">cp 复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv-剪切-改名"><span class="toc-text">mv 剪切/改名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm-删除"><span class="toc-text">rm 删除</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件处理命令-1"><span class="toc-text">文件处理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#touch-创建空文件"><span class="toc-text">touch 创建空文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat-显示文件内容"><span class="toc-text">cat 显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tac-显示文件内容（反向）"><span class="toc-text">tac 显示文件内容（反向）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#more-分页显示文件内容"><span class="toc-text">more 分页显示文件内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-分页显示文件内容（可向上翻页）"><span class="toc-text">less 分页显示文件内容（可向上翻页）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head-显示文件前几行"><span class="toc-text">head 显示文件前几行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail-显示文件后面几行"><span class="toc-text">tail 显示文件后面几行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#链接命令"><span class="toc-text">链接命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ln-生成链接文件"><span class="toc-text">ln 生成链接文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#软链接："><span class="toc-text">软链接：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#硬链接："><span class="toc-text">硬链接：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#权限管理命令"><span class="toc-text">权限管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod-改变文件或目录权限"><span class="toc-text">chmod 改变文件或目录权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown-改变文件或目录的所有者"><span class="toc-text">chown 改变文件或目录的所有者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chgrp-改变文件或目录所属组"><span class="toc-text">chgrp 改变文件或目录所属组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#umask-显示、设置文件的缺省权限"><span class="toc-text">umask 显示、设置文件的缺省权限</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#文件搜索命令"><span class="toc-text">文件搜索命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#find-文件搜索"><span class="toc-text">find 文件搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#locate-在文件资料库中查找文件"><span class="toc-text">locate 在文件资料库中查找文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#which-搜索命令所在目录及别名信息"><span class="toc-text">which 搜索命令所在目录及别名信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whereis-搜索命令所在目录及帮助文档路径"><span class="toc-text">whereis 搜索命令所在目录及帮助文档路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep-在文件中搜寻字符串匹配的行并输出"><span class="toc-text">grep 在文件中搜寻字符串匹配的行并输出</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#帮助命令"><span class="toc-text">帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#man-获得帮助信息"><span class="toc-text">man 获得帮助信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whatis-命令"><span class="toc-text">whatis [命令]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apropos-命令"><span class="toc-text">apropos [命令]</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令-–help"><span class="toc-text">[命令] –help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#info"><span class="toc-text">info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#help-获取Shell内置命令的帮助信息"><span class="toc-text">help 获取Shell内置命令的帮助信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户管理命令"><span class="toc-text">用户管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useradd-添加新用户"><span class="toc-text">useradd 添加新用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd-设置用户密码"><span class="toc-text">passwd 设置用户密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#who-查看登录用户信息"><span class="toc-text">who 查看登录用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w-查看登录用户详细信息"><span class="toc-text">w 查看登录用户详细信息</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#压缩解压命令"><span class="toc-text">压缩解压命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip-压缩文件"><span class="toc-text">gzip 压缩文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tar-打包目录"><span class="toc-text">tar 打包目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip-压缩文件或目录"><span class="toc-text">zip 压缩文件或目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bzip2-压缩文件"><span class="toc-text">bzip2 压缩文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络命令"><span class="toc-text">网络命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#write-给用户发信息"><span class="toc-text">write 给用户发信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wall-发广播信息"><span class="toc-text">wall 发广播信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ping-测试网络连通性"><span class="toc-text">ping 测试网络连通性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ifconfig-查看和设置网卡信息"><span class="toc-text">ifconfig 查看和设置网卡信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mail-查看发送电子邮件"><span class="toc-text">mail 查看发送电子邮件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#last-列出目前与过去登入系统的用户信息"><span class="toc-text">last 列出目前与过去登入系统的用户信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lastlog-检查某特定用户上次登录时间"><span class="toc-text">lastlog 检查某特定用户上次登录时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#traceroute-显示数据包到主机间的路径"><span class="toc-text">traceroute 显示数据包到主机间的路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#netstat-显示网络相关信息"><span class="toc-text">netstat 显示网络相关信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#steup-配置网络"><span class="toc-text">steup 配置网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mount-挂载命令"><span class="toc-text">mount 挂载命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关机重启命令"><span class="toc-text">关机重启命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关机"><span class="toc-text">关机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#shutdown"><span class="toc-text">shutdown</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#halt"><span class="toc-text">halt</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#power-off"><span class="toc-text">power off</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#init-0"><span class="toc-text">init 0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重启"><span class="toc-text">重启</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#reboot"><span class="toc-text">reboot</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#init-6"><span class="toc-text">init 6</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#init"><span class="toc-text">init</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#退出登录"><span class="toc-text">退出登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#logout"><span class="toc-text">logout</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim"><span class="toc-text">Vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定位命令"><span class="toc-text">定位命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插入命令"><span class="toc-text">插入命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除命令"><span class="toc-text">删除命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#复制和剪切命令"><span class="toc-text">复制和剪切命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替换和取消命令"><span class="toc-text">替换和取消命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索和搜索替换"><span class="toc-text">搜索和搜索替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保存和退出"><span class="toc-text">保存和退出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导入命令执行结果"><span class="toc-text">导入命令执行结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义快捷键"><span class="toc-text">定义快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#连续行注释"><span class="toc-text">连续行注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#替换"><span class="toc-text">替换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#软件包"><span class="toc-text">软件包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#软件包分类"><span class="toc-text">软件包分类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#源码包"><span class="toc-text">源码包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制包（RPM包、系统默认包）"><span class="toc-text">二进制包（RPM包、系统默认包）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPM命令管理"><span class="toc-text">RPM命令管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RPM包命名原则"><span class="toc-text">RPM包命名原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RPM包依赖性"><span class="toc-text">RPM包依赖性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#包全名与包名"><span class="toc-text">包全名与包名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RPM安装"><span class="toc-text">RPM安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RPM升级"><span class="toc-text">RPM升级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RPM卸载"><span class="toc-text">RPM卸载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#YUM在线管理"><span class="toc-text">YUM在线管理</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
