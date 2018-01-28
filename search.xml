@@ -11,7 +11,7 @@
 <p>2月份马上到了～离开学也不远了，寒假的Tasks该完成的一定要按时完成！<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<p>​    高三毕业那个暑假就已经用sqli-lab学了一点点SQL Injection，但是好像还没有彻彻底底的明白payload为何如此构造。。经过一学期的各种学习，做做ctf题，拓展自己的知识面后，现在好像有点恍然大悟的赶脚了！！</p>
+<p>​    高三毕业那个暑假就已经用sqli-lab学了一点点SQL Injection，但是好像还没有彻彻底底的明白payload为何如此构造。。经过一学期的各种学习，做做ctf题，拓展自己的知识面后，现在好像有点恍然大悟的赶脚！！</p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -24,8 +24,6 @@
         <tags>
             
             <tag> Summary </tag>
-            
-            <tag> PHP注入漏洞 </tag>
             
             <tag> SQL Injection </tag>
             
