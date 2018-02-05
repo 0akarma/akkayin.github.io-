@@ -3,8 +3,46 @@
   
     
     <entry>
+      <title><![CDATA[SQL Injection - Sqli-labs]]></title>
+      <url>/2018/02/05/sqlinjection-sqlilabs/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>边学边记，Sqli-labs<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="Sqli-labs"><a href="#Sqli-labs" class="headerlink" title="Sqli-labs"></a>Sqli-labs</h2><h3 id="less-1-GET-Error-based-Single-quotes-String"><a href="#less-1-GET-Error-based-Single-quotes-String" class="headerlink" title="less-1 GET - Error based - Single quotes - String"></a>less-1 GET - Error based - Single quotes - String</h3><p>(基于错误的GET单引号字符型注入)</p>
+<h4 id="查询（union）"><a href="#查询（union）" class="headerlink" title="查询（union）"></a>查询（union）</h4><p>当函数mysql_fetch_array只被调用了一次时，且想显示非第一行查询的数据库数据时，可以让第一行的查询结果为空，那么，非第一行（union右边）的查询结果自然就成了第一行。</p>
+<h4 id="数据库连接函数"><a href="#数据库连接函数" class="headerlink" title="数据库连接函数"></a>数据库连接函数</h4><p>concat和concat_ws</p>
+<p>其中concat_ws的第一个参数是连接字符串的分隔符，还会用到group__concat(可以把查询出来的多行连接起来)</p>
+<h4 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h4><p>查询information_schema中的信息时，使用where语句，那个值不能直接用英文，要用单引号包裹着，当然用其十六进制表示也可以，数值类型的就不用单引号了</p>
+<h4 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h4><p>查表时也只能返回一个table，所以要用limit来控制结果集具体是哪一行</p>
+<h3 id="less-2-GET-Error-based-Intiger-based"><a href="#less-2-GET-Error-based-Intiger-based" class="headerlink" title="less-2 GET - Error based - Intiger based"></a>less-2 GET - Error based - Intiger based</h3><p> (基于错误的GET整型注入)</p>
+<p>跟less1一样，只是不用闭合‘</p>
+<h3 id="less-3-GET-Error-based-Single-quotes-with-twist-string"><a href="#less-3-GET-Error-based-Single-quotes-with-twist-string" class="headerlink" title="less-3 GET - Error based - Single quotes with twist string"></a>less-3 GET - Error based - Single quotes with twist string</h3><p>(基于错误的GET单引号变形字符型注入)</p>
+<p>多了 <strong>‘)</strong> 那么sql语句里的id 应该就是 (‘$id’) 这样！</p>
+<h3 id="less-3-GET-Error-based-Double-Quotes-String"><a href="#less-3-GET-Error-based-Double-Quotes-String" class="headerlink" title="less-3 GET - Error based - Double Quotes - String"></a>less-3 GET - Error based - Double Quotes - String</h3><p>（基于错误的GET双引号字符型注入） </p>
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Summary </tag>
+            
+            <tag> SQL Injection </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[SQL Injection 学习小记]]></title>
-      <url>/2018/01/28/sqlinjection-learning/</url>
+      <url>/2018/01/28/sqlinjection-note/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
 
 <p>一大早被各种祝福morning-call，在此，靴靴大家的祝福！虽然今天牛一，但也不能忘记学习 :) </p>
@@ -562,7 +600,15 @@
 <h4 id="yum软件组命令"><a href="#yum软件组命令" class="headerlink" title="yum软件组命令"></a>yum软件组命令</h4><h5 id="列出"><a href="#列出" class="headerlink" title="列出"></a>列出</h5><p><strong>grammar: yum grouplist</strong></p>
 <h5 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h5><p><strong>grammar: yum groupinstall 软件组名</strong></p>
 <h5 id="卸载-1"><a href="#卸载-1" class="headerlink" title="卸载"></a>卸载</h5><p><strong>grammar: yum groupremove 组名</strong></p>
-</the></excerpt>]]></content>
+<h3 id="光盘yum源搭建"><a href="#光盘yum源搭建" class="headerlink" title="光盘yum源搭建"></a>光盘yum源搭建</h3><p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fo0p0g9hyfj310e0nathb.jpg" width="50%"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fo0p12mdnoj30xa0le10n.jpg" width="50%"></p>
+<h3 id="源码包管理"><a href="#源码包管理" class="headerlink" title="源码包管理"></a>源码包管理</h3><h4 id="源码包和RPM包的区别"><a href="#源码包和RPM包的区别" class="headerlink" title="源码包和RPM包的区别"></a>源码包和RPM包的区别</h4><p>安装之前只是概念上的区别，安装之后是安装位置的不同</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fo27rvx19fj30ze0lq10h.jpg" width="50%"> <img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fo27s2mr4qj30pu094wh8.jpg" width="50%"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fo27t0b7hlj30xu0fu45m.jpg" width="50%"></p>
+<h3 id="脚本安装包与软件包选择"><a href="#脚本安装包与软件包选择" class="headerlink" title="脚本安装包与软件包选择"></a>脚本安装包与软件包选择</h3><p>脚本安装包类似于windows下软件的安装方式</p>
+<p>Webmin是一个基于Web的Linux系统管理界面</p>
+<h2 id="用户和用户组管理"><a href="#用户和用户组管理" class="headerlink" title="用户和用户组管理"></a>用户和用户组管理</h2><h3 id="用户配置文件"><a href="#用户配置文件" class="headerlink" title="用户配置文件"></a>用户配置文件</h3><h4 id="用户信息文件-etc-passwd"><a href="#用户信息文件-etc-passwd" class="headerlink" title="用户信息文件 /etc/passwd"></a>用户信息文件 /etc/passwd</h4><p>第一字段：用户名称<br>第二字段：密码标志<br>第三字段：UID（用户ID）<br>​    0：超级用户<br>​    1-499：系统用户（伪用户）<br>​    500-65535：普通用户<br>第四字段：GID（用户组初始ID）<br>第五字段：用户说明<br>第六字段：家目录<br>​    普通用户：/home/用户名/<br>​    超级用户：/root/<br>第七字段：登录之后的Shell（命令解释器）</p>
+<h4 id="影子文件-etc-shadow"><a href="#影子文件-etc-shadow" class="headerlink" title="影子文件 /etc/shadow"></a>影子文件 /etc/shadow</h4><h4 id="组信息文件-etc-group-和密码文件-etc-gshadow"><a href="#组信息文件-etc-group-和密码文件-etc-gshadow" class="headerlink" title="组信息文件 /etc/group 和密码文件 /etc/gshadow"></a>组信息文件 /etc/group 和密码文件 /etc/gshadow</h4></the></excerpt>]]></content>
       
         <categories>
             
