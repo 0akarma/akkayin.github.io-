@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="一大早被各种祝福morning-call，在此，靴靴大家的祝福！虽然今天牛一，但也不能忘记学习 :)  2月份马上到了～离开学也不远了，寒假的Tasks该完成的一定要按时完成！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-05T10:17:21.402Z">
+<meta property="og:updated_time" content="2018-02-19T14:14:01.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Injection 学习小记">
 <meta name="twitter:description" content="一大早被各种祝福morning-call，在此，靴靴大家的祝福！虽然今天牛一，但也不能忘记学习 :)  2月份马上到了～离开学也不远了，寒假的Tasks该完成的一定要按时完成！">
@@ -315,6 +315,10 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p>​    高三毕业那个暑假就已经用sqli-lab学了一点点SQL Injection，但是好像还没有彻彻底底的明白payload为何如此构造。。经过一学期的各种学习，做做ctf题，拓展自己的知识面后，现在好像有点恍然大悟的赶脚！！</p>
+<p><br></p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><p><a href="http://blog.csdn.net/linyt/article/details/52966555" target="_blank" rel="noopener">如何利用SQL注入进行爆库</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/22397455?refer=sss95zz" target="_blank" rel="noopener">你真的会SQL注入攻击吗？（上）</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/22397620" target="_blank" rel="noopener">你真的会SQL注入攻击吗？（下）</a></p>
 </the></excerpt>
       
     </div>
@@ -326,7 +330,7 @@
         <p><span>本文标题:</span><a href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-01-28, 16:36:40</p>
-        <p><span>最后更新:</span>2018-02-05, 18:17:21</p>
+        <p><span>最后更新:</span>2018-02-19, 22:14:01</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/01/28/sqlinjection-note/" title="SQL Injection 学习小记">http://akkayin.github.io/2018/01/28/sqlinjection-note/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/01/28/sqlinjection-note/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -362,7 +366,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notes"><span class="toc-text">Notes</span></a></li></ol>
         
     </div>
     <style>
@@ -446,7 +450,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">ctf-syb</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
 
 
 

