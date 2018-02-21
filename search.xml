@@ -154,8 +154,27 @@
 <h3 id="less-15-POST-Blind-Boolian-time-Based-Single-quotes"><a href="#less-15-POST-Blind-Boolian-time-Based-Single-quotes" class="headerlink" title="less-15 POST - Blind - Boolian/time Based - Single quotes"></a>less-15 POST - Blind - Boolian/time Based - Single quotes</h3><p>没有错误回显，可以用布尔盲注和延时注入</p>
 <h4 id="solution-8"><a href="#solution-8" class="headerlink" title="solution"></a>solution</h4><p>payload</p>
 <h3 id="less-16-POST-Blind-Boolian-Time-Based-Double-quotes"><a href="#less-16-POST-Blind-Boolian-Time-Based-Double-quotes" class="headerlink" title="less-16 POST - Blind - Boolian/Time Based - Double quotes"></a>less-16 POST - Blind - Boolian/Time Based - Double quotes</h3><p>单引号变双引号</p>
-<h3 id="less-17-POST-Update-Query-Error-Based-String"><a href="#less-17-POST-Update-Query-Error-Based-String" class="headerlink" title="less-17 POST - Update Query - Error Based - String"></a>less-17 POST - Update Query - Error Based - String</h3><p><a href="http://www.cnblogs.com/lcamry/p/5763048.html" target="_blank" rel="noopener">增删改函数介绍</a></p>
-<h3 id="less-18-POST-Header-injection-Uagent-field-Error-based"><a href="#less-18-POST-Header-injection-Uagent-field-Error-based" class="headerlink" title="less-18 POST - Header injection - Uagent field - Error based"></a>less-18 POST - Header injection - Uagent field - Error based</h3><h3 id="less-19-POST-Header-injection-Referer-field-Error-based"><a href="#less-19-POST-Header-injection-Referer-field-Error-based" class="headerlink" title="less-19 POST - Header injection Referer field - Error based"></a>less-19 POST - Header injection Referer field - Error based</h3><h3 id="less-20-POST-Cookie-injection-Uagent-field-error-based"><a href="#less-20-POST-Cookie-injection-Uagent-field-error-based" class="headerlink" title="less-20 POST - Cookie injection - Uagent field - error based"></a>less-20 POST - Cookie injection - Uagent field - error based</h3><h3 id="less-21-POST-Dump-into-outfile-String"><a href="#less-21-POST-Dump-into-outfile-String" class="headerlink" title="less-21 POST Dump into outfile - String"></a>less-21 POST Dump into outfile - String</h3><h3 id="less-22-Future-Editions"><a href="#less-22-Future-Editions" class="headerlink" title="less-22 Future Editions"></a>less-22 Future Editions</h3></the></excerpt>]]></content>
+<h3 id="less-17-POST-Update-Query-Error-Based-String"><a href="#less-17-POST-Update-Query-Error-Based-String" class="headerlink" title="less-17 POST - Update Query - Error Based - String"></a>less-17 POST - Update Query - Error Based - String</h3><p>这题只能从password处注入，因为username处的特殊字符都用 check_input()函数 经过了特殊转义</p>
+<p><a href="http://www.cnblogs.com/lcamry/p/5763048.html" target="_blank" rel="noopener">增删改函数介绍</a></p>
+<h3 id="less-18-POST-Header-injection-Uagent-field-Error-based"><a href="#less-18-POST-Header-injection-Uagent-field-Error-based" class="headerlink" title="less-18 POST - Header injection - Uagent field - Error based"></a>less-18 POST - Header injection - Uagent field - Error based</h3><p>这一题把password处也跟username一样处理了，所以那两处都无法注入了。看代码得知这里的注入是INSERT类型的，INSERT注入可以利用报错注入的方式获取数据。</p>
+<h3 id="less-19-POST-Header-injection-Referer-field-Error-based"><a href="#less-19-POST-Header-injection-Referer-field-Error-based" class="headerlink" title="less-19 POST - Header injection Referer field - Error based"></a>less-19 POST - Header injection Referer field - Error based</h3><p>跟上一题一样，只是在referer中注入</p>
+<h3 id="less-20-POST-Cookie-injection-Uagent-field-error-based"><a href="#less-20-POST-Cookie-injection-Uagent-field-error-based" class="headerlink" title="less-20 POST - Cookie injection - Uagent field - error based"></a>less-20 POST - Cookie injection - Uagent field - error based</h3><p>username获取 -&gt; cookie -&gt; username读取 -&gt; 查询</p>
+<h3 id="less-21-POST-Dump-into-outfile-String"><a href="#less-21-POST-Dump-into-outfile-String" class="headerlink" title="less-21 POST Dump into outfile - String"></a>less-21 POST Dump into outfile - String</h3><p>跟上一题一样，只是cookie要base64编码一下</p>
+<h3 id="less-22-Future-Editions"><a href="#less-22-Future-Editions" class="headerlink" title="less-22 Future Editions"></a>less-22 Future Editions</h3><p>把‘变成”</p>
+<h3 id="绕过姿势"><a href="#绕过姿势" class="headerlink" title="绕过姿势"></a>绕过姿势</h3><p>基于page-2 都是一些绕waf的题，所以顺便将绕waf的新姿势mark下来。</p>
+<h4 id="过滤-or-和-and"><a href="#过滤-or-和-and" class="headerlink" title="过滤 or 和 and"></a>过滤 or 和 and</h4><p>大小写变形 Or,OR,oR<br>编码，hex，urlencode<br>添加注释/<em>or</em>/<br>利用符号 and=&amp;&amp; or=||</p>
+<h4 id="过滤-空格，or，and-–-等各种符号"><a href="#过滤-空格，or，and-–-等各种符号" class="headerlink" title="过滤 空格，or，and,/*,#,–,/等各种符号"></a>过滤 空格，or，and,/*,#,–,/等各种符号</h4><p>过滤 空格，or，and,/*,#,–,/等各种符号<br>对于注释和结尾字符的我们此处只能利用构造一个 ‘ 来闭合后面到 ‘ ；对于空格，有较多的方法：</p>
+<p>%09 TAB键（水平）<br>%0a 新建一行<br>%0c 新的一页<br>%0d return功能<br>%0b TAB键（垂直）<br>%a0 空格</p>
+<h3 id="less-23"><a href="#less-23" class="headerlink" title="less-23"></a>less-23</h3><p>过滤了# 和–<br>用’闭合后面的’即可</p>
+<h3 id="less-24"><a href="#less-24" class="headerlink" title="less-24"></a>less-24</h3><p>二次排序注入</p>
+<p>注册一个admin’#帐号，然后登录，修改密码。发现修改的是admin的密码！</p>
+<h3 id="less-25"><a href="#less-25" class="headerlink" title="less-25"></a>less-25</h3><p>过滤 or 和 and</p>
+<h3 id="Less-25a"><a href="#Less-25a" class="headerlink" title="Less-25a"></a>Less-25a</h3><p>不同于25关的是sql语句中对于id，没有’’的包含，同时没有输出错误项，报错注入不能用。其余基本上和25示例没有差别。此处采取两种方式：延时注入和联合注入。</p>
+<h3 id="less-26"><a href="#less-26" class="headerlink" title="less-26"></a>less-26</h3><p>过滤 空格，or，and,/*,#,–,/等各种符号</p>
+<h3 id="less-26a"><a href="#less-26a" class="headerlink" title="less-26a"></a>less-26a</h3><p>这关与26的区别在于，sql语句添加了一个括号，同时在sql语句执行抛出错误后并不在前台页面输出。所有我们排除报错注入，这里依旧是利用union注入。 </p>
+<h3 id="less-27"><a href="#less-27" class="headerlink" title="less-27"></a>less-27</h3><p>增加过滤 union，select</p>
+<h3 id="less-27a"><a href="#less-27a" class="headerlink" title="less-27a"></a>less-27a</h3><p>本关与27关的区别在于对于id的处理，这里用的是 “ ，同时mysql的错误不会在前端页面显示。</p>
+<h3 id="less-28"><a href="#less-28" class="headerlink" title="less-28"></a>less-28</h3></the></excerpt>]]></content>
       
         <categories>
             
@@ -887,6 +906,24 @@
 <h4 id="SetGID"><a href="#SetGID" class="headerlink" title="SetGID"></a>SetGID</h4><p>设定SetGID  2代表SGID</p>
 <p>chmod 2755 文件名</p>
 <p>chmod g+s 文件名</p>
+<h4 id="Sticky-BIT"><a href="#Sticky-BIT" class="headerlink" title="Sticky BIT"></a>Sticky BIT</h4><p>粘着位目前只对目录有效</p>
+<p>普通用户对该目录拥有w和x权限，即普通用户可以在此目录拥有写入权限</p>
+<p>设置粘着位</p>
+<p>chmod 1755 目录名</p>
+<p>chmod o+t 目录名</p>
+<p>取消粘着位</p>
+<p>chmod 777 目录名</p>
+<p>chmod o-t 目录名</p>
+<h3 id="文件系统属性chattr属性"><a href="#文件系统属性chattr属性" class="headerlink" title="文件系统属性chattr属性"></a>文件系统属性chattr属性</h3><h4 id="chattr-命令格式"><a href="#chattr-命令格式" class="headerlink" title="chattr 命令格式"></a>chattr 命令格式</h4><p><strong>grammar: chattr [+-=] 选项 文件或目录名</strong></p>
+<p>+：增加权限</p>
+<p>-：删除权限</p>
+<p>=：等于某权限</p>
+<p>选项：</p>
+<p>i：对文件设置i属性不允许对文件进行删除、改名，也不能添加和修改数据；对目录设置i属性，只能修改目录下文件的数据，但不允许建立和删除文件</p>
+<p>a：对文件设置a属性，只能在文件中增加数据，但是不能删除，也不能修改数据；对目录设置a属性，只允许在目录下建立和修改文件，但是不允许删除</p>
+<h4 id="查看文件系统属性"><a href="#查看文件系统属性" class="headerlink" title="查看文件系统属性"></a>查看文件系统属性</h4><p><strong>grammar: lsattr 选项 文件名</strong></p>
+<p>-a：显示所有文件和目录</p>
+<p>-d：若目标是目录，仅列出目录本身的属性，而不是子文件的</p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -984,6 +1021,7 @@
 <h3 id="前任3-再见前任"><a href="#前任3-再见前任" class="headerlink" title="前任3-再见前任"></a>前任3-再见前任</h3><p>​    我好像1-2-3，都看了～感觉除了虐还是虐～催泪部分都给我免疫了～～emm～～</p>
 <h3 id="Paterson-帕特森"><a href="#Paterson-帕特森" class="headerlink" title="Paterson 帕特森"></a>Paterson 帕特森</h3><p>一部平淡的文艺片～</p>
 <h3 id="Arrival-降临"><a href="#Arrival-降临" class="headerlink" title="Arrival 降临"></a>Arrival 降临</h3><p>​    Wow，这部片开头我其实没看懂～～～但是。看到后面我着实是看上瘾了。特别是结局～～这个脑洞。。。I like it！！Fantastic！！！！</p>
+<h3 id="Yougth-芳华"><a href="#Yougth-芳华" class="headerlink" title="Yougth 芳华"></a>Yougth 芳华</h3><p>​    善良的人～</p>
 </the>]]></content>
       
         <categories>
