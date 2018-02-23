@@ -15,13 +15,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="KarmA&#39;s Blog">
-<meta property="og:url" content="http://akkayin.github.io/tags/Summary/page/2/index.html">
+<meta name="description" content="SQLMAP 笔记">
+<meta name="keywords" content="Summary,SQL Injection,SQLMAP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQLMAP Note">
+<meta property="og:url" content="http://akkayin.github.io/2018/02/23/SQLMAP-Note/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
+<meta property="og:description" content="SQLMAP 笔记">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-23T08:01:56.005Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="KarmA&#39;s Blog">
+<meta name="twitter:title" content="SQLMAP Note">
+<meta name="twitter:description" content="SQLMAP 笔记">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -53,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Tag: Summary | KarmA&#39;s Blog</title>
+<title>SQLMAP Note | KarmA&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,9 +68,9 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
+        isPost: true,
         isArchive: false,
-        isTag: true,
+        isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
         scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
@@ -259,138 +264,198 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-SQLMAP-Note" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2018/02/23/SQLMAP-Note/" class="article-date">
+      <time datetime="2018-02-23T05:32:03.000Z" itemprop="datePublished">2018-02-23</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SQLMAP Note
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLMAP/">SQLMAP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/12/14/php注入漏洞/" class="archive-article-date">
-      <time datetime="2017-12-14T15:05:47.000Z" itemprop="datePublished">12-14</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Study/">Study</a>
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>SQLMAP 笔记<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>-u 注入点(url)        -D 指定数据库名         -T 指定表名        -C 指定字段    </p>
+<p>–columns 列出字段<br>-current-user 获取当前用户名称<br>–current-db 获取当前数据库名称<br>–users 列数据库所有用户<br>–passwords 数据库用户所有密码<br>–dbs 列出所有数据库<br>–tables -D “xxx” 列出指定数据库中的表<br>-–columns -T “user” -D “mysql” 列出mysql数据库中的user表的所有字段<br>–-dump-all 列出所有数据库所有表</p>
+<p>–batch 从不询问用户输入，使用所有默认配置</p>
+<h2 id="POST登录框注入"><a href="#POST登录框注入" class="headerlink" title="POST登录框注入"></a>POST登录框注入</h2><p>sqlmap.py -r 从文件读取数据（burp抓包） -p 指定的参数 –tables</p>
+<p>sqlmap.py -u 登录的地址 –forms 自动判断注入</p>
+<p>sqlmap.py -u 登录的地址 –data “指定参数”</p>
+<h2 id="cookie注入"><a href="#cookie注入" class="headerlink" title="cookie注入"></a>cookie注入</h2><p>sqlmap.py -u 注入点 –cookie “参数” –tables –level 2</p>
+<h2 id="绕过waf"><a href="#绕过waf" class="headerlink" title="绕过waf"></a>绕过waf</h2><p>–tamper=”脚本名”</p>
+<p><a href="http://www.cnblogs.com/lcamry/articles/5622584.html" target="_blank" rel="noopener">[转载]使用sqlmap 绕过防火墙进行注入测试</a></p>
+<p><br></p>
+<p><strong>Note</strong></p>
+<p><a href="http://blog.csdn.net/zsf1235/article/details/50974194" target="_blank" rel="noopener">sqlmap的基本命令使用</a></p>
+</the></excerpt>
+      
     </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP注入漏洞/">PHP注入漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+    
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/12/12/phpfunction/" class="archive-article-date">
-      <time datetime="2017-12-12T09:50:17.000Z" itemprop="datePublished">12-12</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Study/">Study</a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/02/23/SQLMAP-Note/">SQLMAP Note</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
+        <p><span>发布时间:</span>2018-02-23, 13:32:03</p>
+        <p><span>最后更新:</span>2018-02-23, 16:01:56</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/02/23/SQLMAP-Note/" title="SQLMAP Note">http://akkayin.github.io/2018/02/23/SQLMAP-Note/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/02/23/SQLMAP-Note/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
-    </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/12/01/2017班级对抗赛WP+心得/" class="archive-article-date">
-      <time datetime="2017-12-01T08:08:25.000Z" itemprop="datePublished">12-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&amp;心得</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Study/">Study</a>
-    </div>
-
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/Summary/">&laquo; Prev</a><a class="page-number" href="/tags/Summary/">1</a><span class="page-number current">2</span>
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/02/19/ctf-syb/">
+                    CTF in ShiYanBa
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#POST登录框注入"><span class="toc-text">POST登录框注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie注入"><span class="toc-text">cookie注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绕过waf"><span class="toc-text">绕过waf</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"SQLMAP Note　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2151016';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/02/19/ctf-syb/" title="下一篇: CTF in ShiYanBa">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/23/SQLMAP-Note/">SQLMAP Note</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">

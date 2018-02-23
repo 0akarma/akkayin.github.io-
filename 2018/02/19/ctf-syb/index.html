@@ -24,7 +24,7 @@
 <meta property="og:description" content="拿点CTF练练手，美滋滋～">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1fom1wi623zj30js07uq2z.jpg">
-<meta property="og:updated_time" content="2018-02-19T14:16:26.227Z">
+<meta property="og:updated_time" content="2018-02-23T08:08:28.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CTF in ShiYanBa">
 <meta name="twitter:description" content="拿点CTF练练手，美滋滋～">
@@ -191,7 +191,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP文件包含漏洞/">PHP文件包含漏洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP文件操作漏洞/">PHP文件操作漏洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP注入漏洞/">PHP注入漏洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP文件包含漏洞/">PHP文件包含漏洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP文件操作漏洞/">PHP文件操作漏洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP注入漏洞/">PHP注入漏洞</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQLMAP/">SQLMAP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
                     </div>
                 </section>
                 
@@ -325,7 +325,12 @@
 <p>首先尝试上传php文件，然后发现要上传图片，然后又试了试上传图片，发现成功上传，但是又要求php后缀才行。。于是就觉得是在前端判断是否是图片后缀，然后再判断上传到目录中的文件是否是php来get flag。所以就在burp里改了file name，再改了hex，然后就OK了。</p>
 <h3 id="简单的SQL注入"><a href="#简单的SQL注入" class="headerlink" title="简单的SQL注入"></a>简单的SQL注入</h3><p><a href="http://www.shiyanbar.com/ctf/1875" target="_blank" rel="noopener">解题链接</a></p>
 <p>这个真是“简单”啊。一下子过滤了那么多～～～不过也get也一波绕过waf新方法。。但是，只要把绕过找出来。。藏flag的地方的确很。。。</p>
+<p>用sqlmap跑，再用上一个绕waf脚本，ok！</p>
 <p><a href="http://www.cnblogs.com/r00tgrok/p/SQL_Injection_Bypassing_WAF_And_Evasion_Of_Filter.html" target="_blank" rel="noopener">深入理解SQL注入绕过WAF和过滤机制</a></p>
+<h3 id="简单的SQL注入2"><a href="#简单的SQL注入2" class="headerlink" title="简单的SQL注入2"></a>简单的SQL注入2</h3><p><a href="http://ctf5.shiyanbar.com/web/index_2.php" target="_blank" rel="noopener">解题链接</a></p>
+<p>解题思路一样</p>
+<p>sqlmap -u “<a href="http://ctf5.shiyanbar.com/web/index_2.php/?id=1" target="_blank" rel="noopener">http://ctf5.shiyanbar.com/web/index_2.php/?id=1</a>“ –dump -C flag -T flag -D web1 –tamper=”space2comment.py” –level=3</p>
+<h3 id="简单的SQL注入3"><a href="#简单的SQL注入3" class="headerlink" title="简单的SQL注入3"></a>简单的SQL注入3</h3><p>连flag都一样的～如果用sqlmap跑这三道题，简直是送分，当然，如果手注的话，还是会发现细微的区别的！</p>
 </the></excerpt>
       
     </div>
@@ -337,7 +342,7 @@
         <p><span>本文标题:</span><a href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-02-19, 20:46:03</p>
-        <p><span>最后更新:</span>2018-02-19, 22:16:26</p>
+        <p><span>最后更新:</span>2018-02-23, 16:08:28</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/02/19/ctf-syb/" title="CTF in ShiYanBa">http://akkayin.github.io/2018/02/19/ctf-syb/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/02/19/ctf-syb/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -351,6 +356,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2018/02/23/SQLMAP-Note/">
+                    SQLMAP Note
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -367,7 +378,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP大法"><span class="toc-text">PHP大法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传绕过"><span class="toc-text">上传绕过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的SQL注入"><span class="toc-text">简单的SQL注入</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP大法"><span class="toc-text">PHP大法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传绕过"><span class="toc-text">上传绕过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的SQL注入"><span class="toc-text">简单的SQL注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的SQL注入2"><span class="toc-text">简单的SQL注入2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单的SQL注入3"><span class="toc-text">简单的SQL注入3</span></a></li></ol>
         
     </div>
     <style>
@@ -437,7 +448,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/02/23/SQLMAP-Note/" title="上一篇: SQLMAP Note">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -449,7 +462,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/02/23/SQLMAP-Note/">SQLMAP Note</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
 
 
 

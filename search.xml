@@ -3,6 +3,47 @@
   
     
     <entry>
+      <title><![CDATA[SQLMAP Note]]></title>
+      <url>/2018/02/23/SQLMAP-Note/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>SQLMAP 笔记<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>-u 注入点(url)        -D 指定数据库名         -T 指定表名        -C 指定字段    </p>
+<p>–columns 列出字段<br>-current-user 获取当前用户名称<br>–current-db 获取当前数据库名称<br>–users 列数据库所有用户<br>–passwords 数据库用户所有密码<br>–dbs 列出所有数据库<br>–tables -D “xxx” 列出指定数据库中的表<br>-–columns -T “user” -D “mysql” 列出mysql数据库中的user表的所有字段<br>–-dump-all 列出所有数据库所有表</p>
+<p>–batch 从不询问用户输入，使用所有默认配置</p>
+<h2 id="POST登录框注入"><a href="#POST登录框注入" class="headerlink" title="POST登录框注入"></a>POST登录框注入</h2><p>sqlmap.py -r 从文件读取数据（burp抓包） -p 指定的参数 –tables</p>
+<p>sqlmap.py -u 登录的地址 –forms 自动判断注入</p>
+<p>sqlmap.py -u 登录的地址 –data “指定参数”</p>
+<h2 id="cookie注入"><a href="#cookie注入" class="headerlink" title="cookie注入"></a>cookie注入</h2><p>sqlmap.py -u 注入点 –cookie “参数” –tables –level 2</p>
+<h2 id="绕过waf"><a href="#绕过waf" class="headerlink" title="绕过waf"></a>绕过waf</h2><p>–tamper=”脚本名”</p>
+<p><a href="http://www.cnblogs.com/lcamry/articles/5622584.html" target="_blank" rel="noopener">[转载]使用sqlmap 绕过防火墙进行注入测试</a></p>
+<p><br></p>
+<p><strong>Note</strong></p>
+<p><a href="http://blog.csdn.net/zsf1235/article/details/50974194" target="_blank" rel="noopener">sqlmap的基本命令使用</a></p>
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Summary </tag>
+            
+            <tag> SQL Injection </tag>
+            
+            <tag> SQLMAP </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[CTF in ShiYanBa]]></title>
       <url>/2018/02/19/ctf-syb/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
@@ -20,7 +61,12 @@
 <p>首先尝试上传php文件，然后发现要上传图片，然后又试了试上传图片，发现成功上传，但是又要求php后缀才行。。于是就觉得是在前端判断是否是图片后缀，然后再判断上传到目录中的文件是否是php来get flag。所以就在burp里改了file name，再改了hex，然后就OK了。</p>
 <h3 id="简单的SQL注入"><a href="#简单的SQL注入" class="headerlink" title="简单的SQL注入"></a>简单的SQL注入</h3><p><a href="http://www.shiyanbar.com/ctf/1875" target="_blank" rel="noopener">解题链接</a></p>
 <p>这个真是“简单”啊。一下子过滤了那么多～～～不过也get也一波绕过waf新方法。。但是，只要把绕过找出来。。藏flag的地方的确很。。。</p>
+<p>用sqlmap跑，再用上一个绕waf脚本，ok！</p>
 <p><a href="http://www.cnblogs.com/r00tgrok/p/SQL_Injection_Bypassing_WAF_And_Evasion_Of_Filter.html" target="_blank" rel="noopener">深入理解SQL注入绕过WAF和过滤机制</a></p>
+<h3 id="简单的SQL注入2"><a href="#简单的SQL注入2" class="headerlink" title="简单的SQL注入2"></a>简单的SQL注入2</h3><p><a href="http://ctf5.shiyanbar.com/web/index_2.php" target="_blank" rel="noopener">解题链接</a></p>
+<p>解题思路一样</p>
+<p>sqlmap -u “<a href="http://ctf5.shiyanbar.com/web/index_2.php/?id=1" target="_blank" rel="noopener">http://ctf5.shiyanbar.com/web/index_2.php/?id=1</a>“ –dump -C flag -T flag -D web1 –tamper=”space2comment.py” –level=3</p>
+<h3 id="简单的SQL注入3"><a href="#简单的SQL注入3" class="headerlink" title="简单的SQL注入3"></a>简单的SQL注入3</h3><p>连flag都一样的～如果用sqlmap跑这三道题，简直是送分，当然，如果手注的话，还是会发现细微的区别的！</p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -204,7 +250,10 @@
 
 <p>​    高三毕业那个暑假就已经用sqli-lab学了一点点SQL Injection，但是好像还没有彻彻底底的明白payload为何如此构造。。经过一学期的各种学习，做做ctf题，拓展自己的知识面后，现在好像有点恍然大悟的赶脚！！</p>
 <p><br></p>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><p><a href="http://blog.csdn.net/linyt/article/details/52966555" target="_blank" rel="noopener">如何利用SQL注入进行爆库</a></p>
+<p>一个寒假的SQL Injection 学习成果，总结如下</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79gy1foqfmk46xij31kw0t9ajb.jpg" alt=""></p>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h3><p><a href="http://www.cnblogs.com/Vinson404/p/7253255.html" target="_blank" rel="noopener">SQL注入绕过技巧</a></p>
+<p><a href="http://blog.csdn.net/linyt/article/details/52966555" target="_blank" rel="noopener">如何利用SQL注入进行爆库</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/22397455?refer=sss95zz" target="_blank" rel="noopener">你真的会SQL注入攻击吗？（上）</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/22397620" target="_blank" rel="noopener">你真的会SQL注入攻击吗？（下）</a></p>
 </the></excerpt>]]></content>
@@ -924,6 +973,16 @@
 <h4 id="查看文件系统属性"><a href="#查看文件系统属性" class="headerlink" title="查看文件系统属性"></a>查看文件系统属性</h4><p><strong>grammar: lsattr 选项 文件名</strong></p>
 <p>-a：显示所有文件和目录</p>
 <p>-d：若目标是目录，仅列出目录本身的属性，而不是子文件的</p>
+<h3 id="系统权限sudo命令"><a href="#系统权限sudo命令" class="headerlink" title="系统权限sudo命令"></a>系统权限sudo命令</h3><h4 id="sudo使用"><a href="#sudo使用" class="headerlink" title="sudo使用"></a>sudo使用</h4><p>visudo</p>
+<p>实际修改的是 /etc/sudoers 文件</p>
+<p><strong>root All=(All) All</strong></p>
+<p>用户名 被管理主机的地址=(可使用的身份) 授权命令（绝对路径）</p>
+<p>eg: sc ALL=/sbin/shutdown -r now</p>
+<p><strong>#%wheel All=(All) All</strong></p>
+<p>%组名 被管理主机的地址=(可使用的身份) 授权命令（绝对路径）</p>
+<p><strong>普通用户执行sudu赋予命令</strong></p>
+<p>su -sc</p>
+<p>sudo -l    查看可用的sudo 命令</p>
 </the></excerpt>]]></content>
       
         <categories>
