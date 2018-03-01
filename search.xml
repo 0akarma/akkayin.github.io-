@@ -3,6 +3,91 @@
   
     
     <entry>
+      <title><![CDATA[Being grateful for what you have]]></title>
+      <url>/2018/03/01/thanksgiving/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>常怀感恩之心……<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>赵某做生意发了财，花钱在郊区买了块地，修了栋三层的别墅，花园泳池很是气派，后院更有一株百年荔枝树，当初买地就是看中了这棵树，谁叫他老婆喜欢吃荔枝呢。</p>
+<p>装修期间，朋友劝他找个风水先生看看，以免犯煞。原本不怎么信这套的赵某，这次居然表示赞同，专程去香港请了个大师。</p>
+<p>大师姓曹，从事这一行三十余年，圈内很有名气。</p>
+<p>在市里吃过饭，赵某开车载着曹大师前往郊区。一路上，如果后头有车要超，赵某都是避让。</p>
+<p>曹大师笑道：“赵老板开车挺稳当呢。”虽然是香港人，一口普通话还算流利。</p>
+<p>赵某哈哈一笑：“要超车的多半有急事，可不能耽误他们。”</p>
+<p>行至小镇，街道远比市内要狭窄，赵某放慢了车速。</p>
+<p>一名小孩嬉笑着从巷子里冲了出来，赵某一脚刹车堪堪避开，小孩笑嘻嘻的跑过去以后，他并没有踩油门前行，而是看着巷子口，似乎在等着什么，片刻，又有一名小孩冲了出来，追赶着先前那名小孩远去。</p>
+<p>曹大师讶然问，“你怎么知道后头还有小孩？”</p>
+<p>赵某耸耸肩，“小孩子都是追追打打，光是一个人他可不会笑得这么开心。”</p>
+<p>曹大师竖起了大拇指，笑道：“有心。”</p>
+<p>到了别墅，刚下车，后院突然飞起七八只鸟，见状，赵某停在门口，抱歉的冲曹大师说道：“麻烦大师在门口等一会。”</p>
+<p>“有什么事吗？”曹大师再次讶然。</p>
+<p>“后院肯定有小孩在偷摘荔枝，我们现在进去，小孩自然惊慌，万一掉下来就不好了。”赵某笑着说道。</p>
+<p>曹大师默然片刻，“你这房子的风水不用看了。”</p>
+<p>这次轮到赵某讶然了，“大师何出此言？”</p>
+<p>“有您在的地方，都是风水吉地。”目中有人，才有路，心中有爱，才有度。一个人的宽容，来自一颗善待他人的心。一个人的涵养，来自一颗尊重他人的心。一个人的修养，来自一颗和善的心。为别人付出就是给自己铺路。感恩一切！口中有德，目中有人，心中有爱，行中有善！只有知道感恩的人才能让自己的生活更有色彩！</p>
+<p><br></p>
+<p>文章来源于网络，如有侵权，请联系删除！</p>
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Life </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Meditation </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Python3 Web Crawler Notes]]></title>
+      <url>/2018/03/01/py3-pachong/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>Some Python3 Crawler studying notes from blog in CSDN :)<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>根据 <a href="http://blog.csdn.net/c406495762/article/details/58716886" target="_blank" rel="noopener">Jack-Cui</a> Python3网络爬虫教程 <strong>实践总结出如下笔记</strong></p>
+<p><br></p>
+<h2 id="（一）利用urllib进行简单的网页抓取"><a href="#（一）利用urllib进行简单的网页抓取" class="headerlink" title="（一）利用urllib进行简单的网页抓取"></a>（一）利用urllib进行简单的网页抓取</h2><p><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001432688314740a0aed473a39f47b09c8c7274c9ab6aee000/" target="_blank" rel="noopener">urllib</a></p>
+<blockquote>
+<p><strong>1</strong>.urllib.request模块是用来打开和读取URLs的；</p>
+<p><strong>2</strong>.urllib.error模块包含一些有urllib.request产生的错误，可以使用try进行捕捉处理；</p>
+<p><strong>3</strong>.urllib.parse模块包含了一些解析URLs的方法；</p>
+<p><strong>4</strong>.urllib.robotparser模块用来解析robots.txt文本文件.它提供了一个单独的RobotFileParser类，通过该类提供的can_fetch()方法测试爬虫是否可以下载一个页面。</p>
+<p><strong>5</strong>.<a href="https://docs.python.org/3.6/library/urllib.html" target="_blank" rel="noopener">urlopen各类参数</a></p>
+</blockquote>
+<p><a href="http://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">requests模块</a></p>
+<p><strong>.read()</strong>方法可以读取返回的文本对象</p>
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Summary </tag>
+            
+            <tag> Notes </tag>
+            
+            <tag> Python </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[SQLMAP Note]]></title>
       <url>/2018/02/23/SQLMAP-Note/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
@@ -983,6 +1068,47 @@
 <p><strong>普通用户执行sudu赋予命令</strong></p>
 <p>su -sc</p>
 <p>sudo -l    查看可用的sudo 命令</p>
+<h3 id="文件系统管理"><a href="#文件系统管理" class="headerlink" title="文件系统管理"></a>文件系统管理</h3><h4 id="df-文件系统查看命令"><a href="#df-文件系统查看命令" class="headerlink" title="df 文件系统查看命令"></a>df 文件系统查看命令</h4><p><strong>grammar: df 选项 挂载点</strong></p>
+<p>-a：显示所有的文件系统信息，包括特殊文件系统</p>
+<p>-h：使用习惯单位显示容量，如KB、MB或GB等</p>
+<p>-T：显示文件系统类型</p>
+<p>-m：以MB为单位显示容量</p>
+<p>-k：以KB为单位显示容量，默认就是以KB</p>
+<h4 id="du-统计目录或文件大小"><a href="#du-统计目录或文件大小" class="headerlink" title="du 统计目录或文件大小"></a>du 统计目录或文件大小</h4><p><strong>grammar: du 选项 目录或文件名</strong></p>
+<p>-a：显示每个子文件的磁盘占用量，默认只统计子目录的磁盘占用量</p>
+<p>-h：使用习惯单位显示磁盘占用量</p>
+<p>-s：统计总 占用量，而不列出子目录和子文件的占用量</p>
+<h4 id="fsck-文件系统修复命令"><a href="#fsck-文件系统修复命令" class="headerlink" title="fsck 文件系统修复命令"></a>fsck 文件系统修复命令</h4><p><strong>grammar: fsck 选项 分区设备文件名</strong></p>
+<p>-a：不用显示用户提示，自动修复文件系统</p>
+<p>-y：自动修复，和-a作用一致，不过有些只支持-y</p>
+<h4 id="dump2fs-显示磁盘状态命令"><a href="#dump2fs-显示磁盘状态命令" class="headerlink" title="dump2fs 显示磁盘状态命令"></a>dump2fs 显示磁盘状态命令</h4><p><strong>grammar: dump2fs 分区设备文件名</strong></p>
+<h4 id="挂载命令"><a href="#挂载命令" class="headerlink" title="挂载命令"></a>挂载命令</h4><p><strong>grammar: mount -l</strong></p>
+<p>查询系统中已经挂载的设备，-l会显示卷标名称</p>
+<p><strong>grammar: mount -a</strong></p>
+<p>依据配置文件/etc/fstab的内容，自动挂载</p>
+<p><strong>grammar: mount [-t 文件系统] 【-L 卷标名】[-o 特殊选项] 设备文件名 挂载点</strong></p>
+<p>-t 文件系统：加入文件系统类型来指定挂载的类型</p>
+<p>-L 卷标名：挂载指定卷标的分区，而不是安装设备文件名挂载</p>
+<p>-o 特殊选项：可以指定挂载的额外选项</p>
+<h4 id="挂载光盘和U盘"><a href="#挂载光盘和U盘" class="headerlink" title="挂载光盘和U盘"></a>挂载光盘和U盘</h4><p><strong>grammar: mkdir /mnt/cdrom/</strong></p>
+<p>建立挂载点</p>
+<p><strong>grammar: mount -t ios9660 /dev/cdrom /mnt/cdrom/</strong></p>
+<p>挂载光盘</p>
+<p><strong>grammar: mount /dev/sr0 mnt/cdrom/</strong></p>
+<h4 id="卸载命令"><a href="#卸载命令" class="headerlink" title="卸载命令"></a>卸载命令</h4><p><strong>grammar: umount 设备文件名或挂载点</strong></p>
+<p><strong>grammar: umount /mnt/cdrom</strong></p>
+<h4 id="挂载U盘"><a href="#挂载U盘" class="headerlink" title="挂载U盘"></a>挂载U盘</h4><p><strong>grammar: fdisk -l</strong></p>
+<p>查看U盘设备文件名</p>
+<p><strong>grammar: mount -t vfat /dev/sdb1 /mnt/sub/</strong></p>
+<h4 id="支持NTFS文件系统"><a href="#支持NTFS文件系统" class="headerlink" title="支持NTFS文件系统"></a>支持NTFS文件系统</h4><p>下载插件</p>
+<h4 id="fdisk命令分区过程"><a href="#fdisk命令分区过程" class="headerlink" title="fdisk命令分区过程"></a>fdisk命令分区过程</h4><p><strong>grammar: fdisk -l</strong></p>
+<p>查看新硬盘</p>
+<p><strong>grammar: fdisk /dev/sdb</strong></p>
+<p>使用fdisk命令分区</p>
+<p><strong>grammar: partprobe</strong></p>
+<p>重新读取分区表信息</p>
+<p><strong>grammar: mkfs -t ext4 /dev/sdb1</strong></p>
+<p>格式化分区</p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -3374,7 +3500,7 @@ located at/in
     <entry>
       <title><![CDATA[论Mac备份的重要性<-血的教训]]></title>
       <url>/2017/11/19/%E8%AE%BAMac%E5%A4%87%E4%BB%BD%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%3C-%E8%A1%80%E7%9A%84%E6%95%99%E8%AE%AD/</url>
-      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>    总以为不会发生的事情，万一有一天真的降临在你头上了……<a id="more"></a></excerpt></p>
+      <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要=""><br>总以为不会发生的事情，万一有一天真的降临在你头上了……<a id="more"></a></excerpt></p>
 <p><the rest="" of="" contents="" |="" 余下全文=""></the></p>
 <h3 id="博客转移"><a href="#博客转移" class="headerlink" title="博客转移"></a>博客转移</h3><p>​    由于blog文件没有备份，所以所有文章都不见了，也懒得再找回来了，虽然也没几篇！原<a href="http://www.cnblogs.com/AK-K/" target="_blank" rel="noopener">博客</a></p>
 <p>​    有时间就更新Blog，写下自己的学习和生活路上的点点滴滴！！</p>
