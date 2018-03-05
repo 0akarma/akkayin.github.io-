@@ -5,12 +5,7 @@
     <entry>
       <title><![CDATA[Being grateful for what you have]]></title>
       <url>/2018/03/01/thanksgiving/</url>
-      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
-
-<p>常怀感恩之心……<a id="more"></a></p>
-<the rest="" of="" contents="" |="" 余下全文="">
-
-<p>赵某做生意发了财，花钱在郊区买了块地，修了栋三层的别墅，花园泳池很是气派，后院更有一株百年荔枝树，当初买地就是看中了这棵树，谁叫他老婆喜欢吃荔枝呢。</p>
+      <content type="html"><![CDATA[<p>赵某做生意发了财，花钱在郊区买了块地，修了栋三层的别墅，花园泳池很是气派，后院更有一株百年荔枝树，当初买地就是看中了这棵树，谁叫他老婆喜欢吃荔枝呢。</p>
 <p>装修期间，朋友劝他找个风水先生看看，以免犯煞。原本不怎么信这套的赵某，这次居然表示赞同，专程去香港请了个大师。</p>
 <p>大师姓曹，从事这一行三十余年，圈内很有名气。</p>
 <p>在市里吃过饭，赵某开车载着曹大师前往郊区。一路上，如果后头有车要超，赵某都是避让。</p>
@@ -29,7 +24,7 @@
 <p>“有您在的地方，都是风水吉地。”目中有人，才有路，心中有爱，才有度。一个人的宽容，来自一颗善待他人的心。一个人的涵养，来自一颗尊重他人的心。一个人的修养，来自一颗和善的心。为别人付出就是给自己铺路。感恩一切！口中有德，目中有人，心中有爱，行中有善！只有知道感恩的人才能让自己的生活更有色彩！</p>
 <p><br></p>
 <p>文章来源于网络，如有侵权，请联系删除！</p>
-</the></excerpt>]]></content>
+]]></content>
       
         <categories>
             
@@ -65,7 +60,45 @@
 <p><strong>5</strong>.<a href="https://docs.python.org/3.6/library/urllib.html" target="_blank" rel="noopener">urlopen各类参数</a></p>
 </blockquote>
 <p><a href="http://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">requests模块</a></p>
+<p><a href="https://pypi.python.org/pypi/chardet/" target="_blank" rel="noopener">chardet模块</a></p>
 <p><strong>.read()</strong>方法可以读取返回的文本对象</p>
+<p><strong>.decode()</strong> 可以转码</p>
+<h2 id="二-：利用urllib-urlopen向有道翻译发送数据获得翻译结果"><a href="#二-：利用urllib-urlopen向有道翻译发送数据获得翻译结果" class="headerlink" title="(二)：利用urllib.urlopen向有道翻译发送数据获得翻译结果"></a>(二)：利用urllib.urlopen向有道翻译发送数据获得翻译结果</h2><p>geturl()返回的是一个url的字符串；</p>
+<p>info()返回的是一些meta标记的元信息，包括一些服务器的信息；</p>
+<p>getcode()返回的是HTTP的状态码，如果返回200表示请求成功。</p>
+<p>但是好像现在有道翻译网页更新了之后。。好像爬不出来了～<img src="https://ws2.sinaimg.cn/large/006tNc79ly1foyvffocsej30bm01kglo.jpg" alt=""></p>
+<h2 id="三-：urllib-error异常"><a href="#三-：urllib-error异常" class="headerlink" title="(三)：urllib.error异常"></a>(三)：urllib.error异常</h2><p>HTTPError和URLError一起捕获异常，那么需要将HTTPError放在URLError的前面，因为HTTPError是URLError的一个子类。如果URLError放在前面，出现HTTP异常会先响应URLError，这样HTTPError就捕获不到错误信息了。</p>
+<p>这里发现一个有趣的现象，URL上是一个404页面，但是爬的时候没有加ua，所以httperror就变成了403了:)</p>
+<h2 id="四-：使用User-Agent和代理IP隐藏身份"><a href="#四-：使用User-Agent和代理IP隐藏身份" class="headerlink" title="(四)：使用User Agent和代理IP隐藏身份"></a>(四)：使用User Agent和代理IP隐藏身份</h2><h3 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User Agent"></a>User Agent</h3><p>两种方法加UA，注意headers参数要求为<strong>字典</strong></p>
+<ol>
+<li>在创建Request对象的时候就传入headers参数</li>
+<li>创建之后用 <strong>.add.header()</strong> 方法添加</li>
+</ol>
+<h3 id="IP代理"><a href="#IP代理" class="headerlink" title="IP代理"></a>IP代理</h3><p>捣鼓来捣鼓去，都是出现error～</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.client.RemoteDisconnected: Remote end closed connection without response</span><br></pre></td></tr></table></figure>
+<p>然后后来发现，是代理ip的问题，换了个ip之后出现了504～</p>
+<p>结果成功没报错之后，没有print的值～这就…… </p>
+<h2 id="五-：Python3安装Scrapy"><a href="#五-：Python3安装Scrapy" class="headerlink" title="(五)：Python3安装Scrapy"></a>(五)：Python3安装Scrapy</h2><p>自动跳过～</p>
+<h2 id="六-：Python3使用Cookie-模拟登陆获取妹子联系方式"><a href="#六-：Python3使用Cookie-模拟登陆获取妹子联系方式" class="headerlink" title="(六)：Python3使用Cookie-模拟登陆获取妹子联系方式"></a>(六)：Python3使用Cookie-模拟登陆获取妹子联系方式</h2><p>这个网站已经关闭注册了，所以，理解代码思路就ok！</p>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><h4 id="将cookie保存到变量中"><a href="#将cookie保存到变量中" class="headerlink" title="将cookie保存到变量中"></a>将cookie保存到变量中</h4><p>利用CookieJar对象实现获取cookie的功能，存储到变量中</p>
+<h4 id="保存cookie到文件中"><a href="#保存cookie到文件中" class="headerlink" title="保存cookie到文件中"></a>保存cookie到文件中</h4><p>使用MozillaCookieJar来实现Cookie的保存</p>
+<blockquote>
+<p>cookie.save的参数说明：</p>
+<ul>
+<li>ignore_discard的意思是即使cookies将被丢弃也将它保存下来；</li>
+<li>ignore_expires的意思是如果在该文件中cookies已经存在，则覆盖原文件写入。</li>
+</ul>
+</blockquote>
+<h4 id="从文件中获取cookie"><a href="#从文件中获取cookie" class="headerlink" title="从文件中获取cookie"></a>从文件中获取cookie</h4><blockquote>
+<p>cookie.load就是从文件中获取cookie，其余参数不变</p>
+</blockquote>
+<h2 id="七-：使用Beautiful-Soup爬取小说"><a href="#七-：使用Beautiful-Soup爬取小说" class="headerlink" title="(七)：使用Beautiful Soup爬取小说"></a>(七)：使用Beautiful Soup爬取小说</h2><p><a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">Beautiful Soup</a></p>
+<p>这是个利器啊～～！</p>
+<p>手敲代码，果然会手误啊！敲了半天，逻辑没错。。检查了半天才发现～～打少了个字母，然后就报错了！<img src="https://ws2.sinaimg.cn/large/006tNc79ly1fozql04lbwj30ze02mt8z.jpg" alt=""></p>
+<p>纠正回来，然后就顺利爬到各章节的页面<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fozqljteeij30dk05uq49.jpg" alt=""></p>
+<p>成功爬取整本小说的内容。。。瞬间感觉成就感爆棚～～哈哈哈哈！让我捋一捋思路，简化一下代码先～～</p>
+<p>Maybe 多线程？</p>
+<h2 id="八-：爱奇艺等主流视频网站的VIP视频破解-在线观看-视频下载"><a href="#八-：爱奇艺等主流视频网站的VIP视频破解-在线观看-视频下载" class="headerlink" title="(八)：爱奇艺等主流视频网站的VIP视频破解(在线观看+视频下载)"></a>(八)：爱奇艺等主流视频网站的VIP视频破解(在线观看+视频下载)</h2><h2 id="九-：使用Selenium爬取百度文库word文章"><a href="#九-：使用Selenium爬取百度文库word文章" class="headerlink" title="(九)：使用Selenium爬取百度文库word文章"></a>(九)：使用Selenium爬取百度文库word文章</h2><p><a href="https://www.jianshu.com/p/e137031bc7db" target="_blank" rel="noopener">Mac OS环境配置chromedriver</a></p>
 </the></excerpt>]]></content>
       
         <categories>
@@ -1109,6 +1142,33 @@
 <p>重新读取分区表信息</p>
 <p><strong>grammar: mkfs -t ext4 /dev/sdb1</strong></p>
 <p>格式化分区</p>
+<h4 id="分区自动挂载与fstab文件修复"><a href="#分区自动挂载与fstab文件修复" class="headerlink" title="分区自动挂载与fstab文件修复"></a>分区自动挂载与fstab文件修复</h4><p>/etc/fstab文件各字段的意思</p>
+<p>/etc/fstab文件修复</p>
+<p><strong>grammar: mount -o remount,rw /</strong></p>
+<h4 id="分配swap分区"><a href="#分配swap分区" class="headerlink" title="分配swap分区"></a>分配swap分区</h4><p><strong>grammar: free</strong></p>
+<p>查看内存和swap分区使用状况</p>
+<p><strong>grammar: fdisk /dev/sdb</strong></p>
+<p>新建swap分区，要把分区id改为82</p>
+<p><strong>grammar: mkswap /dev/sdb6</strong></p>
+<p>格式化</p>
+<p><strong>grammar: swapon /dev/sdb6</strong></p>
+<p>加入swap分区</p>
+<p><strong>grammar: vi /etc/fstab</strong></p>
+<p>分区开机自动挂载</p>
+<p>/dev/sdb6    swap    swap    defaults    0 0    </p>
+<h3 id="Shell基础"><a href="#Shell基础" class="headerlink" title="Shell基础"></a>Shell基础</h3><h4 id="Shell脚本的执行方式"><a href="#Shell脚本的执行方式" class="headerlink" title="Shell脚本的执行方式"></a>Shell脚本的执行方式</h4><p><strong>grammar: echo [选项]【输出内容】</strong></p>
+<p>-e：支持反斜线控制的字符转换</p>
+<p>一定要加 <strong>#!/bin/bash </strong></p>
+<p>脚本执行：</p>
+<ol>
+<li>赋予执行权限(chmod 755 hello.sh) -&gt; 直接运行(./hello.sh)</li>
+<li>通过Bash调用执行脚本(Bash hello.sh)</li>
+</ol>
+<p>格式转换：</p>
+<ol>
+<li>yum -y install dos2unix</li>
+<li>Dos2unix xxx.sh</li>
+</ol>
 </the></excerpt>]]></content>
       
         <categories>
@@ -1149,9 +1209,9 @@
         
         <tags>
             
-            <tag> Perception </tag>
-            
             <tag> Book </tag>
+            
+            <tag> Perception </tag>
             
         </tags>
         
@@ -1218,9 +1278,9 @@
         
         <tags>
             
-            <tag> Film </tag>
-            
             <tag> Perception </tag>
+            
+            <tag> Film </tag>
             
         </tags>
         
@@ -1327,9 +1387,9 @@
         
         <tags>
             
-            <tag> Film </tag>
-            
             <tag> Perception </tag>
+            
+            <tag> Film </tag>
             
         </tags>
         

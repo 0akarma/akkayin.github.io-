@@ -23,10 +23,14 @@
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="Some Python3 Crawler studying notes from blog in CSDN :)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-01T12:56:00.072Z">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1foyvffocsej30bm01kglo.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fozql04lbwj30ze02mt8z.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fozqljteeij30dk05uq49.jpg">
+<meta property="og:updated_time" content="2018-03-05T09:16:33.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python3 Web Crawler Notes">
 <meta name="twitter:description" content="Some Python3 Crawler studying notes from blog in CSDN :)">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1foyvffocsej30bm01kglo.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -200,6 +204,8 @@
                     
                       <a class="main-nav-link switch-friends-link" href="http://ph0rse.me/">Ph0rse</a>
                     
+                      <a class="main-nav-link switch-friends-link" href="http://sancrane.top/">Sanc7ane</a>
+                    
                       <a class="main-nav-link switch-friends-link" href="http://0xpoker.cuit.site/">Poker</a>
                     
                       <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
@@ -324,7 +330,45 @@
 <p><strong>5</strong>.<a href="https://docs.python.org/3.6/library/urllib.html" target="_blank" rel="noopener">urlopen各类参数</a></p>
 </blockquote>
 <p><a href="http://cn.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">requests模块</a></p>
+<p><a href="https://pypi.python.org/pypi/chardet/" target="_blank" rel="noopener">chardet模块</a></p>
 <p><strong>.read()</strong>方法可以读取返回的文本对象</p>
+<p><strong>.decode()</strong> 可以转码</p>
+<h2 id="二-：利用urllib-urlopen向有道翻译发送数据获得翻译结果"><a href="#二-：利用urllib-urlopen向有道翻译发送数据获得翻译结果" class="headerlink" title="(二)：利用urllib.urlopen向有道翻译发送数据获得翻译结果"></a>(二)：利用urllib.urlopen向有道翻译发送数据获得翻译结果</h2><p>geturl()返回的是一个url的字符串；</p>
+<p>info()返回的是一些meta标记的元信息，包括一些服务器的信息；</p>
+<p>getcode()返回的是HTTP的状态码，如果返回200表示请求成功。</p>
+<p>但是好像现在有道翻译网页更新了之后。。好像爬不出来了～<img src="https://ws2.sinaimg.cn/large/006tNc79ly1foyvffocsej30bm01kglo.jpg" alt=""></p>
+<h2 id="三-：urllib-error异常"><a href="#三-：urllib-error异常" class="headerlink" title="(三)：urllib.error异常"></a>(三)：urllib.error异常</h2><p>HTTPError和URLError一起捕获异常，那么需要将HTTPError放在URLError的前面，因为HTTPError是URLError的一个子类。如果URLError放在前面，出现HTTP异常会先响应URLError，这样HTTPError就捕获不到错误信息了。</p>
+<p>这里发现一个有趣的现象，URL上是一个404页面，但是爬的时候没有加ua，所以httperror就变成了403了:)</p>
+<h2 id="四-：使用User-Agent和代理IP隐藏身份"><a href="#四-：使用User-Agent和代理IP隐藏身份" class="headerlink" title="(四)：使用User Agent和代理IP隐藏身份"></a>(四)：使用User Agent和代理IP隐藏身份</h2><h3 id="User-Agent"><a href="#User-Agent" class="headerlink" title="User Agent"></a>User Agent</h3><p>两种方法加UA，注意headers参数要求为<strong>字典</strong></p>
+<ol>
+<li>在创建Request对象的时候就传入headers参数</li>
+<li>创建之后用 <strong>.add.header()</strong> 方法添加</li>
+</ol>
+<h3 id="IP代理"><a href="#IP代理" class="headerlink" title="IP代理"></a>IP代理</h3><p>捣鼓来捣鼓去，都是出现error～</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.client.RemoteDisconnected: Remote end closed connection without response</span><br></pre></td></tr></table></figure>
+<p>然后后来发现，是代理ip的问题，换了个ip之后出现了504～</p>
+<p>结果成功没报错之后，没有print的值～这就…… </p>
+<h2 id="五-：Python3安装Scrapy"><a href="#五-：Python3安装Scrapy" class="headerlink" title="(五)：Python3安装Scrapy"></a>(五)：Python3安装Scrapy</h2><p>自动跳过～</p>
+<h2 id="六-：Python3使用Cookie-模拟登陆获取妹子联系方式"><a href="#六-：Python3使用Cookie-模拟登陆获取妹子联系方式" class="headerlink" title="(六)：Python3使用Cookie-模拟登陆获取妹子联系方式"></a>(六)：Python3使用Cookie-模拟登陆获取妹子联系方式</h2><p>这个网站已经关闭注册了，所以，理解代码思路就ok！</p>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><h4 id="将cookie保存到变量中"><a href="#将cookie保存到变量中" class="headerlink" title="将cookie保存到变量中"></a>将cookie保存到变量中</h4><p>利用CookieJar对象实现获取cookie的功能，存储到变量中</p>
+<h4 id="保存cookie到文件中"><a href="#保存cookie到文件中" class="headerlink" title="保存cookie到文件中"></a>保存cookie到文件中</h4><p>使用MozillaCookieJar来实现Cookie的保存</p>
+<blockquote>
+<p>cookie.save的参数说明：</p>
+<ul>
+<li>ignore_discard的意思是即使cookies将被丢弃也将它保存下来；</li>
+<li>ignore_expires的意思是如果在该文件中cookies已经存在，则覆盖原文件写入。</li>
+</ul>
+</blockquote>
+<h4 id="从文件中获取cookie"><a href="#从文件中获取cookie" class="headerlink" title="从文件中获取cookie"></a>从文件中获取cookie</h4><blockquote>
+<p>cookie.load就是从文件中获取cookie，其余参数不变</p>
+</blockquote>
+<h2 id="七-：使用Beautiful-Soup爬取小说"><a href="#七-：使用Beautiful-Soup爬取小说" class="headerlink" title="(七)：使用Beautiful Soup爬取小说"></a>(七)：使用Beautiful Soup爬取小说</h2><p><a href="http://beautifulsoup.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">Beautiful Soup</a></p>
+<p>这是个利器啊～～！</p>
+<p>手敲代码，果然会手误啊！敲了半天，逻辑没错。。检查了半天才发现～～打少了个字母，然后就报错了！<img src="https://ws2.sinaimg.cn/large/006tNc79ly1fozql04lbwj30ze02mt8z.jpg" alt=""></p>
+<p>纠正回来，然后就顺利爬到各章节的页面<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fozqljteeij30dk05uq49.jpg" alt=""></p>
+<p>成功爬取整本小说的内容。。。瞬间感觉成就感爆棚～～哈哈哈哈！让我捋一捋思路，简化一下代码先～～</p>
+<p>Maybe 多线程？</p>
+<h2 id="八-：爱奇艺等主流视频网站的VIP视频破解-在线观看-视频下载"><a href="#八-：爱奇艺等主流视频网站的VIP视频破解-在线观看-视频下载" class="headerlink" title="(八)：爱奇艺等主流视频网站的VIP视频破解(在线观看+视频下载)"></a>(八)：爱奇艺等主流视频网站的VIP视频破解(在线观看+视频下载)</h2><h2 id="九-：使用Selenium爬取百度文库word文章"><a href="#九-：使用Selenium爬取百度文库word文章" class="headerlink" title="(九)：使用Selenium爬取百度文库word文章"></a>(九)：使用Selenium爬取百度文库word文章</h2><p><a href="https://www.jianshu.com/p/e137031bc7db" target="_blank" rel="noopener">Mac OS环境配置chromedriver</a></p>
 </the></excerpt>
       
     </div>
@@ -336,7 +380,7 @@
         <p><span>本文标题:</span><a href="/2018/03/01/py3-pachong/">Python3 Web Crawler Notes</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-03-01, 20:34:18</p>
-        <p><span>最后更新:</span>2018-03-01, 20:56:00</p>
+        <p><span>最后更新:</span>2018-03-05, 17:16:33</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/03/01/py3-pachong/" title="Python3 Web Crawler Notes">http://akkayin.github.io/2018/03/01/py3-pachong/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/03/01/py3-pachong/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -372,7 +416,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）利用urllib进行简单的网页抓取"><span class="toc-text">（一）利用urllib进行简单的网页抓取</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）利用urllib进行简单的网页抓取"><span class="toc-text">（一）利用urllib进行简单的网页抓取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-：利用urllib-urlopen向有道翻译发送数据获得翻译结果"><span class="toc-text">(二)：利用urllib.urlopen向有道翻译发送数据获得翻译结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-：urllib-error异常"><span class="toc-text">(三)：urllib.error异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-：使用User-Agent和代理IP隐藏身份"><span class="toc-text">(四)：使用User Agent和代理IP隐藏身份</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#User-Agent"><span class="toc-text">User Agent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP代理"><span class="toc-text">IP代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-：Python3安装Scrapy"><span class="toc-text">(五)：Python3安装Scrapy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-：Python3使用Cookie-模拟登陆获取妹子联系方式"><span class="toc-text">(六)：Python3使用Cookie-模拟登陆获取妹子联系方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#将cookie保存到变量中"><span class="toc-text">将cookie保存到变量中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#保存cookie到文件中"><span class="toc-text">保存cookie到文件中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#从文件中获取cookie"><span class="toc-text">从文件中获取cookie</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七-：使用Beautiful-Soup爬取小说"><span class="toc-text">(七)：使用Beautiful Soup爬取小说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#八-：爱奇艺等主流视频网站的VIP视频破解-在线观看-视频下载"><span class="toc-text">(八)：爱奇艺等主流视频网站的VIP视频破解(在线观看+视频下载)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#九-：使用Selenium爬取百度文库word文章"><span class="toc-text">(九)：使用Selenium爬取百度文库word文章</span></a></li></ol>
         
     </div>
     <style>
