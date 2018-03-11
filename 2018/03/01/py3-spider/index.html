@@ -18,7 +18,7 @@
 <meta name="description" content="Some Python3 Crawler studying notes from blog in CSDN :)">
 <meta name="keywords" content="Summary,Notes,Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python3 Web Crawler Notes">
+<meta property="og:title" content="Python3 Web Spider Notes">
 <meta property="og:url" content="http://akkayin.github.io/2018/03/01/py3-spider/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
 <meta property="og:description" content="Some Python3 Crawler studying notes from blog in CSDN :)">
@@ -26,9 +26,10 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1foyvffocsej30bm01kglo.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fozql04lbwj30ze02mt8z.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fozqljteeij30dk05uq49.jpg">
-<meta property="og:updated_time" content="2018-03-10T15:23:51.000Z">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fp8mxbqlhrj30zk0mwwg5.jpg">
+<meta property="og:updated_time" content="2018-03-11T16:53:03.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python3 Web Crawler Notes">
+<meta name="twitter:title" content="Python3 Web Spider Notes">
 <meta name="twitter:description" content="Some Python3 Crawler studying notes from blog in CSDN :)">
 <meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1foyvffocsej30bm01kglo.jpg">
 
@@ -62,7 +63,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Python3 Web Crawler Notes | KarmA&#39;s Blog</title>
+<title>Python3 Web Spider Notes | KarmA&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -289,7 +290,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Python3 Web Crawler Notes
+      Python3 Web Spider Notes
     </h1>
   
 
@@ -373,7 +374,9 @@
 <p>发现百度文库排版设计发生了变化～没那么好用xpath定位了，然后我就在豆丁上审计了一下元素，发现好像可以～～豆丁上的页面排版跟旧版百度文库好像。。。没什么区别～除了名字不一样之外～～难道？？:)</p>
 <p>这一节卡了我好久，用到了前面用过的BeautifulSoup和还没完全搞懂的re～～</p>
 <p>总结来说就是多次用BeautifulSoup来筛选内容，然后用Selenium来定位元素，通过selenium和jsp脚本，翻页，根据每5页内容放在一个页面内，然后用一个表达式判断啥时候到尾，结束循环，爬完～如果再利用写入文件，就可以把爬去的内容导出，然后就可以～～免去一笔费用啦！！</p>
-<p>实际操作的时候，发现不少坑，python的简单，让锁进变得更严谨，有时候自己根本看不出来是锁进的问题。。但他确确实实就是锁进的问题。。一次次的调试，让我渐渐明白selenum的原理。。可以自动翻页，但是。。。爬取的内容还是前5页的～后来发现循环那里没有重新爬页面。。调整之后就可以实现爬整篇文章了，但是想写入文件。。对于 write 方法我还没掌握好，所以又要研究一会儿</p>
+<p>实际操作的时候，发现不少坑，python的简单，让锁进变得更严谨，有时候自己根本看不出来是锁进的问题。。但他确确实实就是锁进的问题。。一次次的调试，让我渐渐明白selenum的原理。。可以自动翻页，但是。。。爬取的内容还是前5页的～后来发现循环那里没有重新爬页面。。调整之后就可以实现爬整篇文章了，但是想写入文件。。对于 write 方法我还没掌握好，所以又要研究一会儿.</p>
+<p>Bingo～<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp8mxbqlhrj30zk0mwwg5.jpg" alt=""></p>
+<p>但是对于打印进度的 sys 模块还没完全搞清楚如何弄，再看看官方文档先～</p>
 <h2 id="十-：这个帅哥、肌肉男横行的世界（爬取帅哥图）"><a href="#十-：这个帅哥、肌肉男横行的世界（爬取帅哥图）" class="headerlink" title="(十)：这个帅哥、肌肉男横行的世界（爬取帅哥图）"></a>(十)：这个帅哥、肌肉男横行的世界（爬取帅哥图）</h2><p><a href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">requests库</a></p>
 </the></excerpt>
       
@@ -383,12 +386,12 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/03/01/py3-spider/">Python3 Web Crawler Notes</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/01/py3-spider/">Python3 Web Spider Notes</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
         <p><span>发布时间:</span>2018-03-01, 20:34:18</p>
-        <p><span>最后更新:</span>2018-03-10, 23:23:51</p>
+        <p><span>最后更新:</span>2018-03-12, 00:53:03</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/03/01/py3-spider/" title="Python3 Web Crawler Notes">http://akkayin.github.io/2018/03/01/py3-spider/</a>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/01/py3-spider/" title="Python3 Web Spider Notes">http://akkayin.github.io/2018/03/01/py3-spider/</a>
             <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/03/01/py3-spider/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -458,7 +461,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Python3 Web Crawler Notes　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Python3 Web Spider Notes　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -506,7 +509,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/thanksgiving/">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/py3-spider/">Python3 Web Crawler Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/23/SQLMAP-Note/">SQLMAP Note</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/thanksgiving/">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/py3-spider/">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/23/SQLMAP-Note/">SQLMAP Note</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/18/php文件操作漏洞/">php文件操作漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/14/php注入漏洞/">php注入漏洞Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
 
 
 

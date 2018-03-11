@@ -44,7 +44,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Python3 Web Crawler Notes]]></title>
+      <title><![CDATA[Python3 Web Spider Notes]]></title>
       <url>/2018/03/01/py3-spider/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
 
@@ -105,7 +105,9 @@
 <p>发现百度文库排版设计发生了变化～没那么好用xpath定位了，然后我就在豆丁上审计了一下元素，发现好像可以～～豆丁上的页面排版跟旧版百度文库好像。。。没什么区别～除了名字不一样之外～～难道？？:)</p>
 <p>这一节卡了我好久，用到了前面用过的BeautifulSoup和还没完全搞懂的re～～</p>
 <p>总结来说就是多次用BeautifulSoup来筛选内容，然后用Selenium来定位元素，通过selenium和jsp脚本，翻页，根据每5页内容放在一个页面内，然后用一个表达式判断啥时候到尾，结束循环，爬完～如果再利用写入文件，就可以把爬去的内容导出，然后就可以～～免去一笔费用啦！！</p>
-<p>实际操作的时候，发现不少坑，python的简单，让锁进变得更严谨，有时候自己根本看不出来是锁进的问题。。但他确确实实就是锁进的问题。。一次次的调试，让我渐渐明白selenum的原理。。可以自动翻页，但是。。。爬取的内容还是前5页的～后来发现循环那里没有重新爬页面。。调整之后就可以实现爬整篇文章了，但是想写入文件。。对于 write 方法我还没掌握好，所以又要研究一会儿</p>
+<p>实际操作的时候，发现不少坑，python的简单，让锁进变得更严谨，有时候自己根本看不出来是锁进的问题。。但他确确实实就是锁进的问题。。一次次的调试，让我渐渐明白selenum的原理。。可以自动翻页，但是。。。爬取的内容还是前5页的～后来发现循环那里没有重新爬页面。。调整之后就可以实现爬整篇文章了，但是想写入文件。。对于 write 方法我还没掌握好，所以又要研究一会儿.</p>
+<p>Bingo～<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fp8mxbqlhrj30zk0mwwg5.jpg" alt=""></p>
+<p>但是对于打印进度的 sys 模块还没完全搞清楚如何弄，再看看官方文档先～</p>
 <h2 id="十-：这个帅哥、肌肉男横行的世界（爬取帅哥图）"><a href="#十-：这个帅哥、肌肉男横行的世界（爬取帅哥图）" class="headerlink" title="(十)：这个帅哥、肌肉男横行的世界（爬取帅哥图）"></a>(十)：这个帅哥、肌肉男横行的世界（爬取帅哥图）</h2><p><a href="http://docs.python-requests.org/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">requests库</a></p>
 </the></excerpt>]]></content>
       
@@ -1218,6 +1220,14 @@
 <p>-n：输出行号</p>
 <p>-v：反向查找</p>
 <p>—color=auto 搜索出的关键字用颜色显示</p>
+<p><strong>通配符</strong></p>
+<p>?：匹配一个任意字符</p>
+<p>*：匹配0个或任意多个字符，也就是可以匹配任何内容</p>
+<p>[]：匹配括号中任意一个字符。例如：[abc]代表一定匹配一个字符，或者是a，或者是b，或者是c</p>
+<p>[-]：匹配中括号中任意一个字符，- 代表一个范围。例如：[a-z] 代表匹配一个小写字母</p>
+<p>[`]：逻辑非，表示匹配不是中括号的一个字符。例如 [^0-9] 代表匹配一个不是数字的字符</p>
+<p><strong>Bash中其他特殊符号</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fp9acfz37aj31260mqtn9.jpg" alt=""></p>
 </the></excerpt>]]></content>
       
         <categories>
