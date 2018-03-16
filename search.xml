@@ -3,6 +3,65 @@
   
     
     <entry>
+      <title><![CDATA[Mac Personal Settings]]></title>
+      <url>/2018/03/16/Mac-Personal-Settings/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>实在是受不了开着个虚拟机，顶着高温来复现环境之类的了。。花了一下午，配置了各种环境。<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p>有些教程来自<a href="http://lucifaer.com/index.php/archives/10/" target="_blank" rel="noopener">Lucifaer</a>学长～～然后自己还踩了一些坑～</p>
+<h2 id="Softwares"><a href="#Softwares" class="headerlink" title="Softwares"></a>Softwares</h2><ol>
+<li>分屏软件：Hyperdock，appstore有的下（虽然要钱）</li>
+<li>Shadowsocks～～必备的咯</li>
+<li>没用MWeb之前，我用的是轻量md编辑器：Typora</li>
+<li>Dash</li>
+<li>浏览器：Chrome（插件舒服） + Firefox（不得不用）</li>
+<li>IDE：JetBrains系列</li>
+</ol>
+<h2 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h2><h3 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h3><p>这个东西，一般都是必装的:)</p>
+<h3 id="Item2-Oh-My-Zsh"><a href="#Item2-Oh-My-Zsh" class="headerlink" title="Item2+Oh-My-Zsh"></a>Item2+Oh-My-Zsh</h3><p>其实装完之后我觉得，除了好看点，没啥区别。就是拿来养眼～～偷懒的。。。</p>
+<h4 id="安装ITem2"><a href="#安装ITem2" class="headerlink" title="安装ITem2"></a>安装ITem2</h4><p>首先我们下载的 iTem2 这个软件，比Mac自带的终端更加强大。直接官网 <a href="http://iterm2.com/" target="_blank" rel="noopener">http://iterm2.com/</a> 下载并安装即可。</p>
+<h4 id="设置为默认终端"><a href="#设置为默认终端" class="headerlink" title="设置为默认终端"></a>设置为默认终端</h4><p>将iTem2设置为默认终端：<br>（菜单栏）iTerm2 -&gt; Make iTerm2 Default Term<br><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fpf3b0lk8ej30es0lctd5.jpg" width="50%"></p>
+<h4 id="配色、文字"><a href="#配色、文字" class="headerlink" title="配色、文字"></a>配色、文字</h4><p>Preferences -&gt; Profiles -&gt; Colors/Text<br>根据自己的喜好调整颜色和文字。。solarized dark是item2一装上就内置的，只需要自己选就可以了<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fpf3e16hcjj30rk0n446p.jpg" width="50%"></p>
+<h4 id="安装-oh-my-zsh"><a href="#安装-oh-my-zsh" class="headerlink" title="安装 oh-my-zsh"></a>安装 oh-my-zsh</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="换主题"><a href="#换主题" class="headerlink" title="换主题"></a>换主题</h4><p>用vim 打开隐藏文件 <strong>.zshrc</strong>，修改主题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=&quot;agnoster&quot;</span><br><span class="line">之后还要下载一个字体，否则会出现乱码：</span><br><span class="line">$ brew install git //先装个git</span><br><span class="line">$ git clone https://github.com/powerline/fonts.git</span><br><span class="line">$ cd fonts</span><br><span class="line">$ ./install.sh</span><br></pre></td></tr></table></figure>
+<h4 id="插件-语法高亮"><a href="#插件-语法高亮" class="headerlink" title="插件-语法高亮"></a>插件-语法高亮</h4><p>直接使用homebrew安装zsh-syntax-highlighting插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<p>然后在根目录下.zshrc中插入下面内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh</span><br></pre></td></tr></table></figure>
+<p>最后重启一下ITem2就ok啦<img src="https://ws1.sinaimg.cn/large/006tKfTcly1fpf3ja95uoj30kw02sgm7.jpg" alt=""></p>
+<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>这个搭Blog的时候就已经需要用到了，轻松clone下别人的代码来研究。</p>
+<h3 id="Python2-3"><a href="#Python2-3" class="headerlink" title="Python2+3"></a>Python2+3</h3><p>系统自带一个2.7的python，但是太。。。难用了～～所以安利两种方法处理多版本的问题</p>
+<ol>
+<li>一个好用的软件<a href="https://foofish.net/compatible-py2-and-py3.html" target="_blank" rel="noopener">Anaconda</a></li>
+<li>用brew重新装两个Python，然后用不同的命令来运行，但是，我觉得还是没有Anaconda好用。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ proxychains4 brew install python    </span><br><span class="line">//python2与python3的pip指令并不通用，安装包时需要分别安装</span><br><span class="line">$ proxychains4 brew install python3</span><br></pre></td></tr></table></figure>
+<p>需要注意的使用的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ python --version    //源生自带版本</span><br><span class="line">Python 2.7.10</span><br><span class="line">$ python2 --version    //刚刚brew的版本</span><br><span class="line">Python 2.7.13</span><br><span class="line">$ python3 --version    //brew install python3</span><br><span class="line">Python 3.6.0</span><br></pre></td></tr></table></figure>
+<h3 id="Apache-PHP-MySql"><a href="#Apache-PHP-MySql" class="headerlink" title="Apache+PHP+MySql"></a>Apache+PHP+MySql</h3><p>这里我直接贴学长的文章了。。因为这里我自己踩了很多坑，找了很多paper才搞定。。<br><a href="http://lucifaer.com/index.php/archives/11/" target="_blank" rel="noopener">Mac OS Sierra 配置 PHP 开发与漏洞分析环境</a><br><a href="https://zhuanlan.zhihu.com/p/24614926" target="_blank" rel="noopener">在 MacOS Sierra 上安装 Apache 和多个版本的 PHP</a></p>
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Summary </tag>
+            
+            <tag> Mac </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[复现Pwnhub会员日的一道题]]></title>
       <url>/2018/03/13/%E5%A4%8D%E7%8E%B0Pwnhub%E4%BC%9A%E5%91%98%E6%97%A5/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
@@ -12,8 +71,8 @@
 
 <p>一开始创表和字段的时候自信的自己创。。然后发现出问题了。。然后。。就老老实实的“自带”的代码。。然后就ojbk了～～</p>
 <p>这道题涉及了太多太多原先我并不知道的东西，所以仔细思考下来，还是收获了很多新姿势～</p>
-<p>面对一开始的login界面，<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fpcmdthln0j30eu0pg0tq.jpg" alt=""><br>测试了半天，发现没有注入点，然后不知道怎么进行下一步，就很懵逼～</p>
-<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>对于一个没有丰富ctf经验的小白来说。。就真的不知道要用扫描器这个神奇的东西～～后来发现thisisourcecode，就赶紧download下来审计一波～～<img src="https://ws1.sinaimg.cn/large/006tNc79ly1fpcmr2wbazj308u0bmjs3.jpg" alt="">就只有几个php，根据代码审计老套路～寻找可控点～捋清楚逻辑</p>
+<p>面对一开始的login界面，<img src="https://ws4.sinaimg.cn/large/006tNc79ly1fpcmdthln0j30eu0pg0tq.jpg" width="50%"><br>测试了半天，发现没有注入点，然后不知道怎么进行下一步，就很懵逼～</p>
+<h2 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h2><p>对于一个没有丰富ctf经验的小白来说。。就真的不知道要用扫描器这个神奇的东西～～后来发现thisisourcecode，就赶紧download下来审计一波～～<img src="https://ws1.sinaimg.cn/large/006tNc79ly1fpcmr2wbazj308u0bmjs3.jpg" width="50%">就只有几个php，根据代码审计老套路～寻找可控点～捋清楚逻辑</p>
 <h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3><p>profile.php 中有一个注入点<img src="https://ws3.sinaimg.cn/large/006tNc79ly1fpcmt0stvpj30qk06275h.jpg" alt="">但是。。过滤了我认为最重要的()，这就很难受了。。因为这样子，我该如何注入啊？？</p>
 <h3 id="Flag"><a href="#Flag" class="headerlink" title="Flag"></a>Flag</h3><p>要想拿到flag，<br>1.就要拿到$secrect<img src="https://ws1.sinaimg.cn/large/006tKfTcly1fpcrxzb723j30k4068t9p.jpg" alt="">因为兑换码是一个“str_shuffle“的随机字符串</p>
 <blockquote>
