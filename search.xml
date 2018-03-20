@@ -3,6 +3,36 @@
   
     
     <entry>
+      <title><![CDATA[Get Shell ->  Get Root]]></title>
+      <url>/2018/03/17/getshell/</url>
+      <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
+
+<p>Get Shell -&gt;  Get Root 的心路历程<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+
+
+</the></excerpt>]]></content>
+      
+        <categories>
+            
+            <category> Study </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Summary </tag>
+            
+            <tag> Shell </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Mac Personal Settings]]></title>
       <url>/2018/03/16/Mac-Personal-Settings/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
@@ -2585,7 +2615,7 @@
 <p>上传多张图片</p>
 </blockquote>
 <p>在upload.php中测试怎么bypass<img src="https://ws1.sinaimg.cn/large/006tNc79gy1fmt8uyotp9j30tk0cqgm9.jpg" width="50%"></p>
-<p>经过上述php的审计，得出他是用白名单策略来检查扩展名，所以就试了下 <strong>nginx空子节漏洞</strong>，用burp在.jpg后加上<strong>%00.php </strong>后发现上传的jpg文件已经被解析为php了。所以…. <strong>:)</strong> </p>
+<p>经过上述php的审计，得出他是用白名单策略来检查扩展名，所以就试了下 <strong>nginx空子节漏洞</strong>，用burp在.jpg后加上<strong>%00.php</strong>后发现上传的jpg文件已经被解析为php了。所以…. <strong>:)</strong> </p>
 <p>难道只存在解析漏洞？再找找看～～</p>
 <p>但是我又在之前已嵌入php代码的png文件中尝试用%00.php 来执行png中的代码，发现不得行：<img src="https://ws3.sinaimg.cn/large/006tNc79gy1fmt9e5nmcxj313e0eeaam.jpg" width="50%"></p>
 <p>初步分析是过滤了<strong>%</strong>，<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fmu79c9wx2j30ae01eq2s.jpg" width="30%">但是直接在url上加%后enter，发现，没有被转义啊！<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fmu7a6tic6j308y01a3yc.jpg" width="30%"></p>
