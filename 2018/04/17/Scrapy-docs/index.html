@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="小组爬虫项目一步一步按计划进行，翻译也提上日程，先看一遍Scrapy 1.5的官方文档热热身先 :)">
+<meta name="keywords" content="Summary,Scrapy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy1.5 英-&gt;中">
+<meta property="og:url" content="http://akkayin.github.io/2018/04/17/Scrapy-docs/index.html">
+<meta property="og:site_name" content="KarmA - You get served what you deserved.">
+<meta property="og:description" content="小组爬虫项目一步一步按计划进行，翻译也提上日程，先看一遍Scrapy 1.5的官方文档热热身先 :)">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-17T14:44:49.330Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scrapy1.5 英-&gt;中">
+<meta name="twitter:description" content="小组爬虫项目一步一步按计划进行，翻译也提上日程，先看一遍Scrapy 1.5的官方文档热热身先 :)">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA - You get served what you deserved." type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Scrapy1.5 英-&gt;中 | KarmA - You get served what you deserved.</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/board/">留言板</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://ph0rse.me/">Ph0rse</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://sancrane.top/">Sanc7ane</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://0xpoker.cuit.site/">Poker</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hu3sky.github.io/">Hu3sky</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/board/">留言板</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa RSS" target="_blank" href="/atom.xml" title="RSS"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Scrapy-docs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/04/17/Scrapy-docs/" class="article-date">
+      <time datetime="2018-04-17T09:40:10.000Z" itemprop="datePublished">2018-04-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Scrapy1.5 英-&gt;中
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>小组爬虫项目一步一步按计划进行，翻译也提上日程，先看一遍Scrapy 1.5的官方文档热热身先 <strong>:)</strong><a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="0x01-Scrapy指引"><a href="#0x01-Scrapy指引" class="headerlink" title="0x01 Scrapy指引"></a>0x01 Scrapy指引</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>In this tutorial, we’ll assume that Scrapy is already installed on your system. If that’s not the case, see <a href="https://doc.scrapy.org/en/latest/intro/install.html#intro-install" target="_blank" rel="noopener">Installation guide</a>.</p>
+<p>We are going to scrape <a href="http://quotes.toscrape.com/" target="_blank" rel="noopener">quotes.toscrape.com</a>, a website that lists quotes from famous authors.</p>
+<p>This tutorial will walk you through these tasks:</p>
+<ol>
+<li>Creating a new Scrapy project</li>
+<li>Writing a <a href="https://doc.scrapy.org/en/latest/topics/spiders.html#topics-spiders" target="_blank" rel="noopener">spider</a> to crawl a site and extract data</li>
+<li>Exporting the scraped data using the command line</li>
+<li>Changing spider to recursively follow links</li>
+<li>Using spider arguments</li>
+</ol>
+<p>Scrapy is written in <a href="https://www.python.org/" target="_blank" rel="noopener">Python</a>. If you’re new to the language you might want to start by getting an idea of what the language is like, to get the most out of Scrapy.</p>
+<p>If you’re already familiar with other languages, and want to learn Python quickly, we recommend reading through <a href="http://www.diveintopython3.net/" target="_blank" rel="noopener">Dive Into Python 3</a>. Alternatively, you can follow the <a href="https://docs.python.org/3/tutorial" target="_blank" rel="noopener">Python Tutorial</a>.</p>
+<p>If you’re new to programming and want to start with Python, you may find useful the online book <a href="https://learnpythonthehardway.org/book/" target="_blank" rel="noopener">Learn Python The Hard Way</a>. You can also take a look at <a href="https://wiki.python.org/moin/BeginnersGuide/NonProgrammers" target="_blank" rel="noopener">this list of Python resources for non-programmers</a>.</p>
+<h3 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h3><p>在开始爬虫之前，你要先建立一个Scrapy项目。进入一个你想存放代码的目录，然后输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject tutorial</span><br></pre></td></tr></table></figure>
+<p>然后就创建了一个叫<strong>tutorial</strong>且带有如下文件的目录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tutorial/</span><br><span class="line">    scrapy.cfg            <span class="comment"># deploy configuration file</span></span><br><span class="line">    tutorial/             <span class="comment"># project's Python module, you'll import your code from here</span></span><br><span class="line">        __init__.py</span><br><span class="line">        items.py          <span class="comment"># project items definition file</span></span><br><span class="line">        middlewares.py    <span class="comment"># project middlewares file</span></span><br><span class="line">        pipelines.py      <span class="comment"># project pipelines file</span></span><br><span class="line">        settings.py       <span class="comment"># project settings file</span></span><br><span class="line">        spiders/          <span class="comment"># a directory where you'll later put your spiders</span></span><br><span class="line">            __init__.py</span><br></pre></td></tr></table></figure>
+<h3 id="第一个爬虫"><a href="#第一个爬虫" class="headerlink" title="第一个爬虫"></a>第一个爬虫</h3><p>Spiders are classes that you define and that Scrapy uses to scrape information from a website (or a group of websites). They must subclass <code>scrapy.Spider</code> and define the initial requests to make, optionally how to follow links in the pages, and how to parse the downloaded page content to extract data.</p>
+<p>下面是我们第一个爬虫的代码，把如下代码储存在你项目/tutorial/spiders的目录下，并命名为<strong>quotes_spider.py </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QuotesSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">"quotes"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        urls = [</span><br><span class="line">            <span class="string">'http://quotes.toscrape.com/page/1/'</span>,</span><br><span class="line">            <span class="string">'http://quotes.toscrape.com/page/2/'</span>,</span><br><span class="line">        ]</span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=url, callback=self.parse)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        page = response.url.split(<span class="string">"/"</span>)[<span class="number">-2</span>]</span><br><span class="line">        filename = <span class="string">'quotes-%s.html'</span> % page</span><br><span class="line">        <span class="keyword">with</span> open(filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.body)</span><br><span class="line">        self.log(<span class="string">'Saved file %s'</span> % filename)</span><br></pre></td></tr></table></figure>
+<p>正如你所看到的那样，我们的爬虫有一个<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider" target="_blank" rel="noopener"><code>scrapy.Spider</code></a> （一个已经定义了一些属性和方法的类）：</p>
+<ul>
+<li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.name" target="_blank" rel="noopener"><code>name</code></a>: 为了便于辨认各个爬虫，所以就必须要求每个爬虫互不重名。</li>
+<li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_requests" target="_blank" rel="noopener"><code>start_requests()</code></a>: </li>
+<li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a>: 这是一个拿来处理来自每个request请求的回应。回应的参数，是一个带有网页内容文本实例（<a href="https://doc.scrapy.org/en/latest/topics/request-response.html#scrapy.http.TextResponse" target="_blank" rel="noopener"><code>TextResponse</code></a>），这个实例，我们后续有一些实用的方法可以处理它</li>
+</ul>
+<p><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a> 这个方法，经常用来处理回应，将储存在字典中的爬取数据提取出来，然后寻找下一个新的目标url，继续发送新的请求。</p>
+<h3 id="如何开始我们的爬虫"><a href="#如何开始我们的爬虫" class="headerlink" title="如何开始我们的爬虫"></a>如何开始我们的爬虫</h3><p>要让我们的爬虫运行起来，只需要cd到我们的项目根目录，然后执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl quotes</span><br></pre></td></tr></table></figure>
+<p>这个命令就是执行我们上面建立的名叫<strong>quotes</strong>的爬虫文件，它会发送请求到<code>quotes.toscrape.com</code>这个域名上，然后你的命令行上就有类似如下输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">... (omitted for brevity)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] INFO: Spider opened</span><br><span class="line">2016-12-16 21:24:05 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] DEBUG: Crawled (404) &lt;GET http://quotes.toscrape.com/robots.txt&gt; (referer: None)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET http://quotes.toscrape.com/page/1/&gt; (referer: None)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET http://quotes.toscrape.com/page/2/&gt; (referer: None)</span><br><span class="line">2016-12-16 21:24:05 [quotes] DEBUG: Saved file quotes-1.html</span><br><span class="line">2016-12-16 21:24:05 [quotes] DEBUG: Saved file quotes-2.html</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] INFO: Closing spider (finished)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>现在，我们可以发现，目录下多了两个html文件：<em>quotes-1.html</em> 和 <em>quotes-2.html</em> ，他们根据我们<strong>parse</strong>方法的定义，各自储存着自己网页上的内容。</p>
+<blockquote>
+<p><strong>!Note</strong></p>
+<p>如果你想问，为什么我们还没开始分析我们的html？不用急。。我们待会就会讲到:)</p>
+</blockquote>
+<h3 id="刚刚发生了些什么？"><a href="#刚刚发生了些什么？" class="headerlink" title="刚刚发生了些什么？"></a>刚刚发生了些什么？</h3><h3 id="条条大路通start-requests-方法"><a href="#条条大路通start-requests-方法" class="headerlink" title="条条大路通start_requests(方法)"></a>条条大路通start_requests(方法)</h3><p>除了用<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_requests" target="_blank" rel="noopener"><code>start_requests()</code></a>方法来请求网页之外，你 还可以定义一个<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_urls" target="_blank" rel="noopener"><code>start_urls</code></a> 类带有一堆url的属性。这样子，就可以将它们排列起来，然后传递给<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_requests" target="_blank" rel="noopener"><code>start_requests()</code></a> 帮你的爬虫完成网页请求操作。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QuotesSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">"quotes"</span></span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">'http://quotes.toscrape.com/page/1/'</span>,</span><br><span class="line">        <span class="string">'http://quotes.toscrape.com/page/2/'</span>,</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        page = response.url.split(<span class="string">"/"</span>)[<span class="number">-2</span>]</span><br><span class="line">        filename = <span class="string">'quotes-%s.html'</span> % page</span><br><span class="line">        <span class="keyword">with</span> open(filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.body)</span><br></pre></td></tr></table></figure>
+<p><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a> 这个方法，会被用来处理每一个url的请求。即使我们还没有明确的告诉Scrapy要这样做，但是，因为<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a> 是Scrapy的默认回调方法，即是不用妈妈吩咐，就能自动自觉地去做家务的“乖乖仔”噢！！</p>
+<h3 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h3><p>要问怎么学习用Scrapy提取数据最有用，那就是尝试结合Scrapy的shell命令去学习利用选择器（CSS、Xpath），运行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell &apos;http://quotes.toscrape.com/page/1/&apos;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>!Note</p>
+<p>记得url地址要用   <strong>‘</strong>  单引号闭合，不然会导致一些不必要的错误。</p>
+<p>如果是windows下，请把单引号换成双引号，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; scrapy shell &quot;http://quotes.toscrape.com/page/1/&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>你就会看到如下响应：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[ ... Scrapy log here ... ]</span><br><span class="line"><span class="number">2016</span><span class="number">-09</span><span class="number">-19</span> <span class="number">12</span>:<span class="number">09</span>:<span class="number">27</span> [scrapy.core.engine] DEBUG: Crawled (<span class="number">200</span>) &lt;GET http://quotes.toscrape.com/page/<span class="number">1</span>/&gt; (referer: <span class="keyword">None</span>)</span><br><span class="line">[s] Available Scrapy objects:</span><br><span class="line">[s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)</span><br><span class="line">[s]   crawler    &lt;scrapy.crawler.Crawler object at <span class="number">0x7fa91d888c90</span>&gt;</span><br><span class="line">[s]   item       &#123;&#125;</span><br><span class="line">[s]   request    &lt;GET http://quotes.toscrape.com/page/<span class="number">1</span>/&gt;</span><br><span class="line">[s]   response   &lt;<span class="number">200</span> http://quotes.toscrape.com/page/<span class="number">1</span>/&gt;</span><br><span class="line">[s]   settings   &lt;scrapy.settings.Settings object at <span class="number">0x7fa91d888c10</span>&gt;</span><br><span class="line">[s]   spider     &lt;DefaultSpider <span class="string">'default'</span> at <span class="number">0x7fa91c8af990</span>&gt;</span><br><span class="line">[s] Useful shortcuts:</span><br><span class="line">[s]   shelp()           Shell help (<span class="keyword">print</span> this help)</span><br><span class="line">[s]   fetch(req_or_url) Fetch request (<span class="keyword">or</span> URL) <span class="keyword">and</span> update local objects</span><br><span class="line">[s]   view(response)    View response <span class="keyword">in</span> a browser</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
+<p>运用如上的一些命令，你就可以尝试运用<a href="https://www.w3.org/TR/selectors/" target="_blank" rel="noopener">CSS选择器</a>的一些知识寻找出响应对象中的一些元素：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title'</span>)</span><br><span class="line">[&lt;Selector xpath=<span class="string">'descendant-or-self::title'</span> data=<span class="string">'&lt;title&gt;Quotes to Scrape&lt;/title&gt;'</span>&gt;]</span><br></pre></td></tr></table></figure>
+<p>运行如上命令的结果就是得到一个叫选择器表（<a href="https://doc.scrapy.org/en/latest/topics/selectors.html#scrapy.selector.SelectorList" target="_blank" rel="noopener"><code>SelectorList</code></a>）的表对象，这就意味着这是一个包含了XML\HTML元素的可以用于接下来进一步提取的选择器。</p>
+<p>要提取上面title中的内容，你可以输入如下命令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title::text'</span>).extract()</span><br><span class="line">[<span class="string">'Quotes to Scrape'</span>]</span><br></pre></td></tr></table></figure>
+<p>这里有两点值得注意：</p>
+<ol>
+<li>我们要在CSS查找指令中加上<code>::text</code> ，因为这样才能表明我们只要<title>中的文本元素，如果我们不加<code>::text</code> ，我们就会得到含title标签的文本：</title></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title'</span>).extract()</span><br><span class="line">[<span class="string">'&lt;title&gt;Quotes to Scrape&lt;/title&gt;'</span>]</span><br></pre></td></tr></table></figure>
+<ol>
+<li><code>.extract()</code>的返回结果是一个列表，因为我们正在处理一个选择器表，如果你知道自己所要的内容就是第一个内容，你就可以这样：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title::text'</span>).extract_first()</span><br><span class="line"><span class="string">'Quotes to Scrape'</span></span><br></pre></td></tr></table></figure>
+<p>当然，你也可以这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title::text'</span>)[<span class="number">0</span>].extract()</span><br><span class="line"><span class="string">'Quotes to Scrape'</span></span><br></pre></td></tr></table></figure>
+<h3 id="简单介绍XPath"><a href="#简单介绍XPath" class="headerlink" title="简单介绍XPath"></a>简单介绍XPath</h3><h3 id="如何提取引文和作者"><a href="#如何提取引文和作者" class="headerlink" title="如何提取引文和作者"></a>如何提取引文和作者</h3><h3 id="在我们的爬虫中处理数据"><a href="#在我们的爬虫中处理数据" class="headerlink" title="在我们的爬虫中处理数据"></a>在我们的爬虫中处理数据</h3><h3 id="如何储存我们所爬取的数据"><a href="#如何储存我们所爬取的数据" class="headerlink" title="如何储存我们所爬取的数据"></a>如何储存我们所爬取的数据</h3><h3 id="如何利用Scrapy进行多页爬取"><a href="#如何利用Scrapy进行多页爬取" class="headerlink" title="如何利用Scrapy进行多页爬取"></a>如何利用Scrapy进行多页爬取</h3><h3 id="条条大路通请求-Requests方法"><a href="#条条大路通请求-Requests方法" class="headerlink" title="条条大路通请求(Requests方法)"></a>条条大路通请求(Requests方法)</h3><h3 id="另外一些栗子和爬虫模式"><a href="#另外一些栗子和爬虫模式" class="headerlink" title="另外一些栗子和爬虫模式"></a>另外一些栗子和爬虫模式</h3><h3 id="如何运用爬虫一些命令行参数"><a href="#如何运用爬虫一些命令行参数" class="headerlink" title="如何运用爬虫一些命令行参数"></a>如何运用爬虫一些命令行参数</h3><h3 id="接下来要干什么？"><a href="#接下来要干什么？" class="headerlink" title="接下来要干什么？"></a>接下来要干什么？</h3><h2 id="0x02-栗子"><a href="#0x02-栗子" class="headerlink" title="0x02 栗子"></a>0x02 栗子</h2></the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2018/04/17/Scrapy-docs/">Scrapy1.5 英-&gt;中</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
+        <p><span>发布时间:</span>2018-04-17, 17:40:10</p>
+        <p><span>最后更新:</span>2018-04-17, 22:44:49</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2018/04/17/Scrapy-docs/" title="Scrapy1.5 英-&gt;中">http://akkayin.github.io/2018/04/17/Scrapy-docs/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/04/17/Scrapy-docs/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/04/05/sql-blind/">
+                    浅谈SQL盲注
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-Scrapy指引"><span class="toc-text">0x01 Scrapy指引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个项目"><span class="toc-text">创建一个项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个爬虫"><span class="toc-text">第一个爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何开始我们的爬虫"><span class="toc-text">如何开始我们的爬虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#刚刚发生了些什么？"><span class="toc-text">刚刚发生了些什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条条大路通start-requests-方法"><span class="toc-text">条条大路通start_requests(方法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提取数据"><span class="toc-text">提取数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简单介绍XPath"><span class="toc-text">简单介绍XPath</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何提取引文和作者"><span class="toc-text">如何提取引文和作者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在我们的爬虫中处理数据"><span class="toc-text">在我们的爬虫中处理数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何储存我们所爬取的数据"><span class="toc-text">如何储存我们所爬取的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何利用Scrapy进行多页爬取"><span class="toc-text">如何利用Scrapy进行多页爬取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条条大路通请求-Requests方法"><span class="toc-text">条条大路通请求(Requests方法)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#另外一些栗子和爬虫模式"><span class="toc-text">另外一些栗子和爬虫模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何运用爬虫一些命令行参数"><span class="toc-text">如何运用爬虫一些命令行参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接下来要干什么？"><span class="toc-text">接下来要干什么？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-栗子"><span class="toc-text">0x02 栗子</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Scrapy1.5 英->中　| KarmA - You get served what you deserved.　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+        <section class="youyan" id="comments">
+    <script>
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2151016';
+            (d.head || d.body).appendChild(s);
+        }
+    </script>
+    
+    <script> loadComment(); </script>
+
+    <div id="uyan_frame"></div>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/04/05/sql-blind/" title="下一篇: 浅谈SQL盲注">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/17/Scrapy-docs/">Scrapy1.5 英->中</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/05/sql-blind/">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/03/rapid-recurrence/">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/17/getshell/">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/16/Mac-Personal-Settings/">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/复现Pwnhub会员日/">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/thanksgiving/">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/py3-spider/">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flaggs1/">It's time to set Flags in Freshman Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 12;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
