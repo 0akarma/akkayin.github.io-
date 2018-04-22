@@ -3,79 +3,16 @@
   
     
     <entry>
-      <title><![CDATA[Scrapy1.5 英->中]]></title>
-      <url>/2018/04/17/Scrapy-docs/</url>
+      <title><![CDATA[Scrapy Warm-Up]]></title>
+      <url>/2018/04/17/Scrapy-Exercises/</url>
       <content type="html"><![CDATA[<excerpt in="" index="" |="" 首页摘要="">
 
-<p>小组爬虫项目一步一步按计划进行，翻译也提上日程，先看一遍Scrapy 1.5的官方文档热热身先 <strong>:)</strong><a id="more"></a></p>
+<p>小组爬虫项目一步一步按计划进行，翻译也提上了日程，先看一遍Scrapy 1.5的官方文档热热身先 <strong>:)</strong></p>
+<p>翻译文档到时会统一整合到gitbook上！这里只分享一些自己用Scrapy的练习～<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<h1 id="FIRST-STEPS"><a href="#FIRST-STEPS" class="headerlink" title="FIRST STEPS"></a>FIRST STEPS</h1><h2 id="0x01-Scrapy指引"><a href="#0x01-Scrapy指引" class="headerlink" title="0x01 Scrapy指引"></a>0x01 Scrapy指引</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>In this tutorial, we’ll assume that Scrapy is already installed on your system. If that’s not the case, see <a href="https://doc.scrapy.org/en/latest/intro/install.html#intro-install" target="_blank" rel="noopener">Installation guide</a>.</p>
-<p>We are going to scrape <a href="http://quotes.toscrape.com/" target="_blank" rel="noopener">quotes.toscrape.com</a>, a website that lists quotes from famous authors.</p>
-<p>This tutorial will walk you through these tasks:</p>
-<ol>
-<li>Creating a new Scrapy project</li>
-<li>Writing a <a href="https://doc.scrapy.org/en/latest/topics/spiders.html#topics-spiders" target="_blank" rel="noopener">spider</a> to crawl a site and extract data</li>
-<li>Exporting the scraped data using the command line</li>
-<li>Changing spider to recursively follow links</li>
-<li>Using spider arguments</li>
-</ol>
-<p>Scrapy is written in <a href="https://www.python.org/" target="_blank" rel="noopener">Python</a>. If you’re new to the language you might want to start by getting an idea of what the language is like, to get the most out of Scrapy.</p>
-<p>If you’re already familiar with other languages, and want to learn Python quickly, we recommend reading through <a href="http://www.diveintopython3.net/" target="_blank" rel="noopener">Dive Into Python 3</a>. Alternatively, you can follow the <a href="https://docs.python.org/3/tutorial" target="_blank" rel="noopener">Python Tutorial</a>.</p>
-<p>If you’re new to programming and want to start with Python, you may find useful the online book <a href="https://learnpythonthehardway.org/book/" target="_blank" rel="noopener">Learn Python The Hard Way</a>. You can also take a look at <a href="https://wiki.python.org/moin/BeginnersGuide/NonProgrammers" target="_blank" rel="noopener">this list of Python resources for non-programmers</a>.</p>
-<h3 id="创建一个项目"><a href="#创建一个项目" class="headerlink" title="创建一个项目"></a>创建一个项目</h3><p>在开始爬虫之前，你要先建立一个Scrapy项目。进入一个你想存放代码的目录，然后输入如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy startproject tutorial</span><br></pre></td></tr></table></figure>
-<p>然后就创建了一个叫<strong>tutorial</strong>且带有如下文件的目录</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tutorial/</span><br><span class="line">    scrapy.cfg            <span class="comment"># deploy configuration file</span></span><br><span class="line">    tutorial/             <span class="comment"># project's Python module, you'll import your code from here</span></span><br><span class="line">        __init__.py</span><br><span class="line">        items.py          <span class="comment"># project items definition file</span></span><br><span class="line">        middlewares.py    <span class="comment"># project middlewares file</span></span><br><span class="line">        pipelines.py      <span class="comment"># project pipelines file</span></span><br><span class="line">        settings.py       <span class="comment"># project settings file</span></span><br><span class="line">        spiders/          <span class="comment"># a directory where you'll later put your spiders</span></span><br><span class="line">            __init__.py</span><br></pre></td></tr></table></figure>
-<h3 id="第一个爬虫"><a href="#第一个爬虫" class="headerlink" title="第一个爬虫"></a>第一个爬虫</h3><p>Spiders are classes that you define and that Scrapy uses to scrape information from a website (or a group of websites). They must subclass <code>scrapy.Spider</code> and define the initial requests to make, optionally how to follow links in the pages, and how to parse the downloaded page content to extract data.</p>
-<p>下面是我们第一个爬虫的代码，把如下代码储存在你项目/tutorial/spiders的目录下，并命名为<strong>quotes_spider.py </strong></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QuotesSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">"quotes"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></span><br><span class="line">        urls = [</span><br><span class="line">            <span class="string">'http://quotes.toscrape.com/page/1/'</span>,</span><br><span class="line">            <span class="string">'http://quotes.toscrape.com/page/2/'</span>,</span><br><span class="line">        ]</span><br><span class="line">        <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">            <span class="keyword">yield</span> scrapy.Request(url=url, callback=self.parse)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        page = response.url.split(<span class="string">"/"</span>)[<span class="number">-2</span>]</span><br><span class="line">        filename = <span class="string">'quotes-%s.html'</span> % page</span><br><span class="line">        <span class="keyword">with</span> open(filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.body)</span><br><span class="line">        self.log(<span class="string">'Saved file %s'</span> % filename)</span><br></pre></td></tr></table></figure>
-<p>正如你所看到的那样，我们的爬虫有一个<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider" target="_blank" rel="noopener"><code>scrapy.Spider</code></a> （一个已经定义了一些属性和方法的类）：</p>
-<ul>
-<li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.name" target="_blank" rel="noopener"><code>name</code></a>: 为了便于辨认各个爬虫，所以就必须要求每个爬虫互不重名。</li>
-<li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_requests" target="_blank" rel="noopener"><code>start_requests()</code></a>: </li>
-<li><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a>: 这是一个拿来处理来自每个request请求的回应。回应的参数，是一个带有网页内容文本实例（<a href="https://doc.scrapy.org/en/latest/topics/request-response.html#scrapy.http.TextResponse" target="_blank" rel="noopener"><code>TextResponse</code></a>），这个实例，我们后续有一些实用的方法可以处理它</li>
-</ul>
-<p><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a> 这个方法，经常用来处理回应，将储存在字典中的爬取数据提取出来，然后寻找下一个新的目标url，继续发送新的请求。</p>
-<h3 id="如何开始我们的爬虫"><a href="#如何开始我们的爬虫" class="headerlink" title="如何开始我们的爬虫"></a>如何开始我们的爬虫</h3><p>要让我们的爬虫运行起来，只需要cd到我们的项目根目录，然后执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy crawl quotes</span><br></pre></td></tr></table></figure>
-<p>这个命令就是执行我们上面建立的名叫<strong>quotes</strong>的爬虫文件，它会发送请求到<code>quotes.toscrape.com</code>这个域名上，然后你的命令行上就有类似如下输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">... (omitted for brevity)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] INFO: Spider opened</span><br><span class="line">2016-12-16 21:24:05 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] DEBUG: Crawled (404) &lt;GET http://quotes.toscrape.com/robots.txt&gt; (referer: None)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET http://quotes.toscrape.com/page/1/&gt; (referer: None)</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET http://quotes.toscrape.com/page/2/&gt; (referer: None)</span><br><span class="line">2016-12-16 21:24:05 [quotes] DEBUG: Saved file quotes-1.html</span><br><span class="line">2016-12-16 21:24:05 [quotes] DEBUG: Saved file quotes-2.html</span><br><span class="line">2016-12-16 21:24:05 [scrapy.core.engine] INFO: Closing spider (finished)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>现在，我们可以发现，目录下多了两个html文件：<em>quotes-1.html</em> 和 <em>quotes-2.html</em> ，他们根据我们<strong>parse</strong>方法的定义，各自储存着自己网页上的内容。</p>
-<blockquote>
-<p><strong>!Note</strong></p>
-<p>如果你想问，为什么我们还没开始分析我们的html？不用急。。我们待会就会讲到:)</p>
-</blockquote>
-<h3 id="刚刚发生了些什么？"><a href="#刚刚发生了些什么？" class="headerlink" title="刚刚发生了些什么？"></a>刚刚发生了些什么？</h3><h3 id="条条大路通start-requests-方法"><a href="#条条大路通start-requests-方法" class="headerlink" title="条条大路通start_requests(方法)"></a>条条大路通start_requests(方法)</h3><p>除了用<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_requests" target="_blank" rel="noopener"><code>start_requests()</code></a>方法来请求网页之外，你 还可以定义一个<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_urls" target="_blank" rel="noopener"><code>start_urls</code></a> 类带有一堆url的属性。这样子，就可以将它们排列起来，然后传递给<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.start_requests" target="_blank" rel="noopener"><code>start_requests()</code></a> 帮你的爬虫完成网页请求操作。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QuotesSpider</span><span class="params">(scrapy.Spider)</span>:</span></span><br><span class="line">    name = <span class="string">"quotes"</span></span><br><span class="line">    start_urls = [</span><br><span class="line">        <span class="string">'http://quotes.toscrape.com/page/1/'</span>,</span><br><span class="line">        <span class="string">'http://quotes.toscrape.com/page/2/'</span>,</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></span><br><span class="line">        page = response.url.split(<span class="string">"/"</span>)[<span class="number">-2</span>]</span><br><span class="line">        filename = <span class="string">'quotes-%s.html'</span> % page</span><br><span class="line">        <span class="keyword">with</span> open(filename, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(response.body)</span><br></pre></td></tr></table></figure>
-<p><a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a> 这个方法，会被用来处理每一个url的请求。即使我们还没有明确的告诉Scrapy要这样做，但是，因为<a href="https://doc.scrapy.org/en/latest/topics/spiders.html#scrapy.spiders.Spider.parse" target="_blank" rel="noopener"><code>parse()</code></a> 是Scrapy的默认回调方法，即是不用妈妈吩咐，就能自动自觉地去做家务的“乖乖仔”噢！！</p>
-<h3 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h3><p>要问怎么学习用Scrapy提取数据最有用，那就是尝试结合Scrapy的shell命令去学习利用选择器（CSS、Xpath），运行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scrapy shell &apos;http://quotes.toscrape.com/page/1/&apos;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>!Note</p>
-<p>记得url地址要用   <strong>‘</strong>  单引号闭合，不然会导致一些不必要的错误。</p>
-<p>如果是windows下，请把单引号换成双引号，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; scrapy shell &quot;http://quotes.toscrape.com/page/1/&quot;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>你就会看到如下响应：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[ ... Scrapy log here ... ]</span><br><span class="line"><span class="number">2016</span><span class="number">-09</span><span class="number">-19</span> <span class="number">12</span>:<span class="number">09</span>:<span class="number">27</span> [scrapy.core.engine] DEBUG: Crawled (<span class="number">200</span>) &lt;GET http://quotes.toscrape.com/page/<span class="number">1</span>/&gt; (referer: <span class="keyword">None</span>)</span><br><span class="line">[s] Available Scrapy objects:</span><br><span class="line">[s]   scrapy     scrapy module (contains scrapy.Request, scrapy.Selector, etc)</span><br><span class="line">[s]   crawler    &lt;scrapy.crawler.Crawler object at <span class="number">0x7fa91d888c90</span>&gt;</span><br><span class="line">[s]   item       &#123;&#125;</span><br><span class="line">[s]   request    &lt;GET http://quotes.toscrape.com/page/<span class="number">1</span>/&gt;</span><br><span class="line">[s]   response   &lt;<span class="number">200</span> http://quotes.toscrape.com/page/<span class="number">1</span>/&gt;</span><br><span class="line">[s]   settings   &lt;scrapy.settings.Settings object at <span class="number">0x7fa91d888c10</span>&gt;</span><br><span class="line">[s]   spider     &lt;DefaultSpider <span class="string">'default'</span> at <span class="number">0x7fa91c8af990</span>&gt;</span><br><span class="line">[s] Useful shortcuts:</span><br><span class="line">[s]   shelp()           Shell help (<span class="keyword">print</span> this help)</span><br><span class="line">[s]   fetch(req_or_url) Fetch request (<span class="keyword">or</span> URL) <span class="keyword">and</span> update local objects</span><br><span class="line">[s]   view(response)    View response <span class="keyword">in</span> a browser</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-<p>运用如上的一些命令，你就可以尝试运用<a href="https://www.w3.org/TR/selectors/" target="_blank" rel="noopener">CSS选择器</a>的一些知识寻找出响应对象中的一些元素：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title'</span>)</span><br><span class="line">[&lt;Selector xpath=<span class="string">'descendant-or-self::title'</span> data=<span class="string">'&lt;title&gt;Quotes to Scrape&lt;/title&gt;'</span>&gt;]</span><br></pre></td></tr></table></figure>
-<p>运行如上命令的结果就是得到一个叫选择器表（<a href="https://doc.scrapy.org/en/latest/topics/selectors.html#scrapy.selector.SelectorList" target="_blank" rel="noopener"><code>SelectorList</code></a>）的表对象，这就意味着这是一个包含了XML\HTML元素的可以用于接下来进一步提取的选择器。</p>
-<p>要提取上面title中的内容，你可以输入如下命令：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title::text'</span>).extract()</span><br><span class="line">[<span class="string">'Quotes to Scrape'</span>]</span><br></pre></td></tr></table></figure>
-<p>这里有两点值得注意：</p>
-<ol>
-<li>我们要在CSS查找指令中加上<code>::text</code> ，因为这样才能表明我们只要<title>中的文本元素，如果我们不加<code>::text</code> ，我们就会得到含title标签的文本：</title></li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title'</span>).extract()</span><br><span class="line">[<span class="string">'&lt;title&gt;Quotes to Scrape&lt;/title&gt;'</span>]</span><br></pre></td></tr></table></figure>
-<ol>
-<li><code>.extract()</code>的返回结果是一个列表，因为我们正在处理一个选择器表，如果你知道自己所要的内容就是第一个内容，你就可以这样：</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title::text'</span>).extract_first()</span><br><span class="line"><span class="string">'Quotes to Scrape'</span></span><br></pre></td></tr></table></figure>
-<p>当然，你也可以这样：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>response.css(<span class="string">'title::text'</span>)[<span class="number">0</span>].extract()</span><br><span class="line"><span class="string">'Quotes to Scrape'</span></span><br></pre></td></tr></table></figure>
-<h3 id="简单介绍XPath"><a href="#简单介绍XPath" class="headerlink" title="简单介绍XPath"></a>简单介绍XPath</h3><h3 id="如何提取引文和作者"><a href="#如何提取引文和作者" class="headerlink" title="如何提取引文和作者"></a>如何提取引文和作者</h3><h3 id="在我们的爬虫中处理数据"><a href="#在我们的爬虫中处理数据" class="headerlink" title="在我们的爬虫中处理数据"></a>在我们的爬虫中处理数据</h3><h3 id="如何储存我们所爬取的数据"><a href="#如何储存我们所爬取的数据" class="headerlink" title="如何储存我们所爬取的数据"></a>如何储存我们所爬取的数据</h3><h3 id="如何利用Scrapy进行多页爬取"><a href="#如何利用Scrapy进行多页爬取" class="headerlink" title="如何利用Scrapy进行多页爬取"></a>如何利用Scrapy进行多页爬取</h3><h3 id="条条大路通请求-Requests方法"><a href="#条条大路通请求-Requests方法" class="headerlink" title="条条大路通请求(Requests方法)"></a>条条大路通请求(Requests方法)</h3><h3 id="另外一些栗子和爬虫模式"><a href="#另外一些栗子和爬虫模式" class="headerlink" title="另外一些栗子和爬虫模式"></a>另外一些栗子和爬虫模式</h3><h3 id="如何运用爬虫一些命令行参数"><a href="#如何运用爬虫一些命令行参数" class="headerlink" title="如何运用爬虫一些命令行参数"></a>如何运用爬虫一些命令行参数</h3><h3 id="接下来要干什么？"><a href="#接下来要干什么？" class="headerlink" title="接下来要干什么？"></a>接下来要干什么？</h3><h2 id="0x02-栗子"><a href="#0x02-栗子" class="headerlink" title="0x02 栗子"></a>0x02 栗子</h2><h1 id="BASIC-CONCEPTS"><a href="#BASIC-CONCEPTS" class="headerlink" title="BASIC CONCEPTS"></a>BASIC CONCEPTS</h1><h1 id="BULIT-IN-SERVICES"><a href="#BULIT-IN-SERVICES" class="headerlink" title="BULIT-IN SERVICES"></a>BULIT-IN SERVICES</h1><h1 id="SOLVING-SPECIFIC-PROBLEMS"><a href="#SOLVING-SPECIFIC-PROBLEMS" class="headerlink" title="SOLVING SPECIFIC PROBLEMS"></a>SOLVING SPECIFIC PROBLEMS</h1><h1 id="EXTENDING-SCRAPY"><a href="#EXTENDING-SCRAPY" class="headerlink" title="EXTENDING SCRAPY"></a>EXTENDING SCRAPY</h1><h1 id="ALL-THE-REST"><a href="#ALL-THE-REST" class="headerlink" title="ALL THE REST"></a>ALL THE REST</h1></the></excerpt>]]></content>
+<h2 id="Novel"><a href="#Novel" class="headerlink" title="Novel"></a>Novel</h2><p>先做个简单的没有JS异步加载的爬小说吧！</p>
+</the></excerpt>]]></content>
       
         <categories>
             
@@ -416,9 +353,9 @@
             
             <tag> Summary </tag>
             
-            <tag> Notes </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Notes </tag>
             
         </tags>
         
@@ -868,9 +805,9 @@
             
             <tag> Summary </tag>
             
-            <tag> Notes </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Notes </tag>
             
         </tags>
         
@@ -1494,9 +1431,9 @@
             
             <tag> Summary </tag>
             
-            <tag> Linux </tag>
-            
             <tag> Notes </tag>
+            
+            <tag> Linux </tag>
             
         </tags>
         
