@@ -15,17 +15,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+<meta name="description" content="对SQL注入的理解还是不能上升到一定高度，也只能通过不停的刷题，来扩宽自己的知识面……终究还是太菜了！！">
+<meta name="keywords" content="Summary,SQL Injection">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://akkayin.github.io/2017/11/19/hello-world/index.html">
+<meta property="og:title" content="RedTiger 练习总结">
+<meta property="og:url" content="http://akkayin.github.io/2018/06/02/redtiger/index.html">
 <meta property="og:site_name" content="KarmA @ D0g3">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="对SQL注入的理解还是不能上升到一定高度，也只能通过不停的刷题，来扩宽自己的知识面……终究还是太菜了！！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-19T00:10:18.000Z">
+<meta property="og:updated_time" content="2018-06-02T11:37:45.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="RedTiger 练习总结">
+<meta name="twitter:description" content="对SQL注入的理解还是不能上升到一定高度，也只能通过不停的刷题，来扩宽自己的知识面……终究还是太菜了！！">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -57,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Hello World | KarmA @ D0g3</title>
+<title>RedTiger 练习总结 | KarmA @ D0g3</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -267,11 +268,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-redtiger" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/11/19/hello-world/" class="article-date">
-      <time datetime="2017-11-19T00:10:18.000Z" itemprop="datePublished">2017-11-19</time>
+      <a href="/2018/06/02/redtiger/" class="article-date">
+      <time datetime="2018-06-02T11:06:54.000Z" itemprop="datePublished">2018-06-02</time>
 </a>
 
 
@@ -286,7 +287,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      RedTiger 练习总结
     </h1>
   
 
@@ -294,8 +295,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -303,16 +312,29 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <excerpt in="" index="" |="" 首页摘要="">
 
+<p>对SQL注入的理解还是不能上升到一定高度，也只能通过不停的刷题，来扩宽自己的知识面……终究还是太菜了！！<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><a href="http://redtiger.labs.overthewire.org/" target="_blank" rel="noopener">题目传送门</a></p>
+<h2 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h2><p><a href="http://redtiger.labs.overthewire.org/level1.php" target="_blank" rel="noopener">http://redtiger.labs.overthewire.org/level1.php</a></p>
+<p>上来寻找注入点，看到Category：后面的“1”是个跳转，点了一下就得到”cat=1”</p>
+<p>于是就开始尝试。。结果发现。。只是数字型注入，不用闭合‘ “ ) ……，所以直接按照提示构造payload就ok了！</p>
+<ol>
+<li>order by</li>
+<li>查flag</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://redtiger.labs.overthewire.org/level1.php?cat=1 union select 1,2,username,password from level1_users</span><br></pre></td></tr></table></figure>
+<h2 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h2><p><a href="http://redtiger.labs.overthewire.org/level2.php" target="_blank" rel="noopener">http://redtiger.labs.overthewire.org/level2.php</a></p>
+<p>这也是一个比较简单的题了。</p>
+<p>提示也给了“A simple loginbypass”</p>
+<p>一来就用万能密码呗！</p>
+<p>万能用户名不行，那就试试万能密码呗。然后就拿到flag了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=admin&amp;password=1&apos;or 1=1#&amp;login=Login</span><br></pre></td></tr></table></figure>
+<h2 id="level-3"><a href="#level-3" class="headerlink" title="level 3"></a>level 3</h2><p>Hint: Try to get an error. Tablename: level3_users</p>
+<p>估计就是报错注入呗～</p>
+</the></excerpt>
       
     </div>
     
@@ -320,13 +342,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/11/19/hello-world/">Hello World</a></p>
+        <p><span>本文标题:</span><a href="/2018/06/02/redtiger/">RedTiger 练习总结</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
-        <p><span>发布时间:</span>2017-11-19, 08:10:18</p>
-        <p><span>最后更新:</span>2017-11-19, 08:10:18</p>
+        <p><span>发布时间:</span>2018-06-02, 19:06:54</p>
+        <p><span>最后更新:</span>2018-06-02, 19:37:45</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/11/19/hello-world/" title="Hello World">http://akkayin.github.io/2017/11/19/hello-world/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2017/11/19/hello-world/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2018/06/02/redtiger/" title="RedTiger 练习总结">http://akkayin.github.io/2018/06/02/redtiger/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/06/02/redtiger/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -338,12 +360,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2017/11/19/论Mac备份的重要性<-血的教训/">
-                    论Mac备份的重要性&lt;-血的教训
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/04/24/Scrapy-Efficiency/">
+                    How to Spider faster and faster
                 </a>
             </div>
-        
         
     </nav>
 
@@ -353,7 +375,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#level-1"><span class="toc-text">level 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#level-2"><span class="toc-text">level 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#level-3"><span class="toc-text">level 3</span></a></li></ol>
         
     </div>
     <style>
@@ -389,7 +411,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Hello World　| KarmA @ D0g3　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"RedTiger 练习总结　| KarmA @ D0g3　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -423,15 +445,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/11/19/论Mac备份的重要性<-血的教训/" title="上一篇: 论Mac备份的重要性&lt;-血的教训">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2018/04/24/Scrapy-Efficiency/" title="下一篇: How to Spider faster and faster">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
