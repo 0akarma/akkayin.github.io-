@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en, zh-Hans">
+<html lang="en">
 <head>
 
     <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/index.html">
 <meta property="og:site_name" content="KarmA @ D0g3">
 <meta property="og:description" content="边学边记，Sqli-labs">
-<meta property="og:locale" content="en, zh-Hans">
+<meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-04-23T01:49:10.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL Injection - Sqli-labs">
@@ -150,8 +150,8 @@
                 <div class="tips-box hide">
                     <div class="tips-arrow"></div>
                     <ul class="tips-inner">
-                        <li>菜单</li>
-                        <li>标签</li>
+                        <li>Menu</li>
+                        <li>Tags</li>
                         
                         
                     </ul>
@@ -256,7 +256,7 @@
             </nav>
         </header>                
     </div>
-    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
       <div class="body-wrap"><article id="post-sqlinjection-sqlilabs" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -439,17 +439,17 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></p>
-        <p><span>文章作者:</span><a href="/" title="回到主页">KarmA</a></p>
-        <p><span>发布时间:</span>2018-02-05, 18:15:13</p>
-        <p><span>最后更新:</span>2018-04-23, 09:49:10</p>
+        <p><span>Title:</span><a href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span>Created:</span>2018-02-05, 18:15:13</p>
+        <p><span>Updated:</span>2018-04-23, 09:49:10</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/02/05/sqlinjection-sqlilabs/" title="SQL Injection - Sqli-labs">http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/　　作者: KarmA" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/2018/02/05/sqlinjection-sqlilabs/" title="SQL Injection - Sqli-labs">http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/</a>
+            <span class="copy-path" data-clipboard-text="From http://akkayin.github.io/2018/02/05/sqlinjection-sqlilabs/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
         </p>
     </div>
 
@@ -476,7 +476,7 @@
 </article>
 
     <div id="toc" class="toc-article">
-        <strong class="toc-title">文章目录</strong>
+        <strong class="toc-title">Contents</strong>
         
             <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sqli-labs"><span class="toc-text">Sqli-labs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#less-1-GET-Error-based-Single-quotes-String"><span class="toc-text">less-1 GET - Error based - Single quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查询（union）"><span class="toc-text">查询（union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库连接函数"><span class="toc-text">数据库连接函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查表"><span class="toc-text">查表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-text">limit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-2-GET-Error-based-Intiger-based"><span class="toc-text">less-2 GET - Error based - Intiger based</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-1"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-3-GET-Error-based-Single-quotes-with-twist-string"><span class="toc-text">less-3 GET - Error based - Single quotes with twist string</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-2"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-4-GET-Error-based-Double-Quotes-String"><span class="toc-text">less-4 GET - Error based - Double Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-3"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-5-GET-Double-Injection-Single-Quotes-String"><span class="toc-text">less-5 GET - Double Injection - Single Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#报错注入"><span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-4"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-6-GET-Double-Injection-Double-Quotes-String"><span class="toc-text">less-6 GET - Double Injection - Double Quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-7-GET-Dump-into-outfile-String"><span class="toc-text">less-7 GET - Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-8-GET-Blind-Boolian-Based-Single-Quotes"><span class="toc-text">less-8 GET - Blind - Boolian Based - Single Quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔盲注"><span class="toc-text">布尔盲注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-9-GET-Blind-Time-based-Single-Quotes"><span class="toc-text">less-9 GET - Blind - Time based. -  Single Quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#延时注入"><span class="toc-text">延时注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-5"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-10-GET-Blind-Time-based-double-quotes"><span class="toc-text">less-10 GET - Blind - Time based - double quotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-11-POST-Error-Based-single-quotes-String"><span class="toc-text">less-11 POST - Error Based - single quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-12-POST-Error-Based-Double-quotes-String-with-twist"><span class="toc-text">less-12 POST - Error Based - Double quotes - String - with twist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-13-POST-Double-injection-Single-quotes-String-with-twist"><span class="toc-text">less-13 POST Double injection - Single quotes - String - with twist</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-6"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-14-POST-Double-injection-Single-quotes-String-with-twist"><span class="toc-text">less-14 POST - Double injection - Single quotes - String - with twist</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-7"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-15-POST-Blind-Boolian-time-Based-Single-quotes"><span class="toc-text">less-15 POST - Blind - Boolian/time Based - Single quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-8"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-16-POST-Blind-Boolian-Time-Based-Double-quotes"><span class="toc-text">less-16 POST - Blind - Boolian/Time Based - Double quotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-17-POST-Update-Query-Error-Based-String"><span class="toc-text">less-17 POST - Update Query - Error Based - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-18-POST-Header-injection-Uagent-field-Error-based"><span class="toc-text">less-18 POST - Header injection - Uagent field - Error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-19-POST-Header-injection-Referer-field-Error-based"><span class="toc-text">less-19 POST - Header injection Referer field - Error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-20-POST-Cookie-injection-Uagent-field-error-based"><span class="toc-text">less-20 POST - Cookie injection - Uagent field - error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-21-POST-Dump-into-outfile-String"><span class="toc-text">less-21 POST Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-22-Future-Editions"><span class="toc-text">less-22 Future Editions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过姿势"><span class="toc-text">绕过姿势</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤-or-和-and"><span class="toc-text">过滤 or 和 and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤-空格，or，and-–-等各种符号"><span class="toc-text">过滤 空格，or，and,/*,#,–,/等各种符号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-23"><span class="toc-text">less-23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-24"><span class="toc-text">less-24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-25"><span class="toc-text">less-25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Less-25a"><span class="toc-text">Less-25a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-26"><span class="toc-text">less-26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-26a"><span class="toc-text">less-26a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-27"><span class="toc-text">less-27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-27a"><span class="toc-text">less-27a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-28"><span class="toc-text">less-28</span></a></li></ol></li></ol>
         
@@ -492,10 +492,10 @@
         }
     </style>
 
-    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
 
     <script>
-        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
     </script>
 
 
@@ -548,15 +548,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/02/19/ctf-syb/" title="上一篇: CTF in ShiYanBa">
+            <a href="/2018/02/19/ctf-syb/" title="Pre: CTF in ShiYanBa">
                 <i class="fa fa-angle-left"></i>
             </a>
         
 
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/01/28/sqlinjection-note/" title="下一篇: SQL Injection 学习小记">
+            <a href="/2018/01/28/sqlinjection-note/" title="Next: SQL Injection 学习小记">
                 <i class="fa fa-angle-right"></i>
             </a>
         
@@ -579,14 +579,14 @@
                 2017-2018 KarmA
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
             </div>
         </div>
         
             <div class="visit">
                 
                     <span id="busuanzi_container_site_pv" style='display:none'>
-                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
                 
@@ -595,7 +595,7 @@
                 
                 
                     <span id="busuanzi_container_page_pv" style='display:none'>
-                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
                 
@@ -628,9 +628,9 @@
 
 
 <div class="scroll" id="scroll">
-    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
-    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
-    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
 </div>
 <script>
     // Open in New Window
