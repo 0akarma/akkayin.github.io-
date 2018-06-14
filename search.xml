@@ -207,7 +207,9 @@
 <p>regexp ‘^[a-z]’    // 在某些情况下，用正则表达式还是很方便的！</p>
 </blockquote>
 <p>最后只需要将手工测试的过程转换成python用代码自动化实现</p>
-<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><h3 id="DNSLOG"><a href="#DNSLOG" class="headerlink" title="DNSLOG"></a>DNSLOG</h3><p><strong>优点：</strong></p>
+<h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><p>直接上代码吧</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
+<h3 id="DNSLOG"><a href="#DNSLOG" class="headerlink" title="DNSLOG"></a>DNSLOG</h3><p><strong>优点：</strong></p>
 <p>​    1.简单，不需要像二分法一样繁琐地一个个遍历</p>
 <p>​    2.快速（相对于二分法而言）</p>
 <p><strong>缺点：</strong></p>
