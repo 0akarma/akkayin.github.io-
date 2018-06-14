@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fs8ge0tid7j316g0fcmy0.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs8ghvs1vij30lo0dm0tv.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs8h4y3tdbj317q098dgh.jpg">
-<meta property="og:updated_time" content="2018-06-14T09:31:49.779Z">
+<meta property="og:updated_time" content="2018-06-14T09:41:29.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈SQL盲注">
 <meta name="twitter:description" content="总结一下自己应对SQL Injection盲注的姿势与和对原理的理解。">
@@ -305,10 +305,14 @@
 <p>本文所有实战盲注例子，均来自<a href="https://www.exploit-db.com/exploits/42033/" target="_blank" rel="noopener">Joomla! 3.7.0 - ‘com_fields’ SQL Injection</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">由于篇幅有限，本文就不去剖析漏洞原理，直接告知payload插入点，来展现盲注的用法（如有需要可自行寻找各方大佬的研究文章）</span><br><span class="line">注入点：</span><br><span class="line">http://localhost/Joomla/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=[payload]</span><br></pre></td></tr></table></figure>
 <h2 id="BooleanBase"><a href="#BooleanBase" class="headerlink" title="BooleanBase"></a>BooleanBase</h2><h3 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h3><p><strong>优点：</strong></p>
-<p>​    1.比遍历穷举快</p>
+<ol>
+<li>比遍历穷举快</li>
+</ol>
 <p><strong>缺点：</strong></p>
-<p>​    1.容易被封ip</p>
-<p>​    2.速度慢</p>
+<ol>
+<li>容易被封ip</li>
+<li>速度慢</li>
+</ol>
 <h4 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h4><p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fs8cr9zofsj31kw13sgya.jpg" alt=""></p>
 <blockquote>
 <p>常用函数：</p>
@@ -321,11 +325,15 @@
 <h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><p>直接上代码吧</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
 <h3 id="DNSLOG"><a href="#DNSLOG" class="headerlink" title="DNSLOG"></a>DNSLOG</h3><p><strong>优点：</strong></p>
-<p>​    1.简单，不需要像二分法一样繁琐地一个个遍历</p>
-<p>​    2.快速（相对于二分法而言）</p>
+<ol>
+<li>简单，不需要像二分法一样繁琐地一个个遍历</li>
+<li>快速（相对于二分法而言）</li>
+</ol>
 <p><strong>缺点：</strong></p>
-<p>​    1.局限于Windows环境下（UNC路径）</p>
-<p>​    2.Mysql版本&gt;=5.5.53就要检查Secure_file_priv这个全局变量是否为空（若为NULL，则不可用，<a href="https://xz.aliyun.com/t/2293" target="_blank" rel="noopener">详见</a>）</p>
+<ol>
+<li>局限于Windows环境下（UNC路径）</li>
+<li>Mysql版本&gt;=5.5.53就要检查Secure_file_priv这个全局变量是否为空（若为NULL，则不可用，<a href="https://xz.aliyun.com/t/2293" target="_blank" rel="noopener">详见</a>）</li>
+</ol>
 <h4 id="原理解析-1"><a href="#原理解析-1" class="headerlink" title="原理解析"></a>原理解析</h4><p>找了国外的<a href="https://arxiv.org/ftp/arxiv/papers/1303/1303.3047.pdf" target="_blank" rel="noopener">paper</a>研究了一波，不懂的就来一波疯狂乱查，然后拿个小本本记下来～～</p>
 <p>虽然大概明白是个什么意思，但是计网的dns知识（明年这个时候才学），我。。。有点晕～</p>
 <p>然后自己似懂非懂地画了张利用dnslog进行sql盲注的原理流程图，如有不对，感谢各位大佬指正：</p>
@@ -413,7 +421,7 @@
         <p><span>Title:</span><a href="/2018/04/05/sql-blind/">浅谈SQL盲注</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
         <p><span>Created:</span>2018-04-05, 21:55:48</p>
-        <p><span>Updated:</span>2018-06-14, 17:31:49</p>
+        <p><span>Updated:</span>2018-06-14, 17:41:29</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2018/04/05/sql-blind/" title="浅谈SQL盲注">http://blog.karmaof.me/2018/04/05/sql-blind/</a>
             <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/2018/04/05/sql-blind/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
