@@ -257,35 +257,35 @@
   
   <div class="article-inner">
     
-  
-    <header class="article-header">
-      
+    
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       PHP常见危险函数及特殊函数Summary
     </h1>
   
 
+        
+      </header>
       
-    </header>
-    
-    <div class="article-info article-info-post">
-      
-      
+      <div class="article-info article-info-post">
+        
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Study/">Study</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
     </div>
 
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+      </div>
+      
     
-  
     <div class="article-entry" itemprop="articleBody">
       
           
@@ -337,7 +337,6 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;$cfunc = create_function(<span class="string">'$v'</span>, <span class="string">'return system($v);'</span>);</span><br><span class="line">&gt;&gt;$cfunc = (<span class="string">'whoami'</span>);</span><br><span class="line">&gt;&gt;<span class="comment">//上下两者创建匿名函数的方式不同，但是结果一样</span></span><br><span class="line">&gt;&gt;$cfunc = <span class="string">'sys'</span>.<span class="string">'tem'</span>;<span class="comment">//用'.'来拼接</span></span><br><span class="line">&gt;&gt;$cfunc = (<span class="string">'whoami'</span>);</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </blockquote>
-<p>&gt;</p>
 <blockquote>
 <p>两种定义函数方式的区别</p>
 <p><strong>function定义的函数是在编译阶段生成的</strong></p>
@@ -370,7 +369,7 @@
 <h3 id="proc-open"><a href="#proc-open" class="headerlink" title="proc_open()"></a>proc_open()</h3><p><strong><em>Grammar:</em></strong> </p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resource proc_open ( string $cmd , <span class="keyword">array</span> $descriptorspec , <span class="keyword">array</span> &amp;$pipes [, string $cwd [, <span class="keyword">array</span> $env [, <span class="keyword">array</span> $other_options ]]] )</span><br></pre></td></tr></table></figure>
 <p>执行一个命令，并且打开用来输入/输出的文件指针</p>
-<h3 id="shell-exec-amp"><a href="#shell-exec-amp" class="headerlink" title="shell_exec()&amp;``"></a>shell_exec()&amp;``</h3><p>shell_exec() 函数实际上仅是反撇号 (`) 操作符的变体</p>
+<h3 id="shell-exec-amp"><a href="#shell-exec-amp" class="headerlink" title="shell_exec()&amp;"></a>shell_exec()&amp;<code></code></h3><p>shell_exec() 函数实际上仅是反撇号 (`) 操作符的变体</p>
 <p>通过shell环境执行命令，并且将完整的输出以字符串的方式返回。</p>
 <h3 id="system"><a href="#system" class="headerlink" title="system()"></a>system()</h3><p><strong><em>Grammar:</em></strong> </p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">system</span><span class="params">(string $command,int[optional] $return_value)</span></span></span><br></pre></td></tr></table></figure>
@@ -490,6 +489,8 @@
     <div class="copyright">
         <p><span>Title:</span><a href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>3,001</p>
+        <p><span class="post-count">Time:</span>12 mins</p>
         <p><span>Created:</span>2017-12-12, 17:50:17</p>
         <p><span>Updated:</span>2017-12-14, 16:46:16</p>
         <p>
@@ -522,12 +523,13 @@
     </nav>
 
   
+  
 </article>
 
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP代码执行函数"><span class="toc-text">PHP代码执行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#eval"><span class="toc-text">eval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assert"><span class="toc-text">assert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#preg-replace-’-e’"><span class="toc-text">preg_replace +’/e’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建函数"><span class="toc-text">创建函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#callable"><span class="toc-text">callable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#array-map"><span class="toc-text">array_map</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含函数"><span class="toc-text">包含函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#include"><span class="toc-text">include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#require"><span class="toc-text">require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allow-url-include-on"><span class="toc-text">allow_url_include = on</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令执行函数"><span class="toc-text">命令执行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exec"><span class="toc-text">exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passthru"><span class="toc-text">passthru()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-open"><span class="toc-text">proc_open()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell-exec-amp"><span class="toc-text">shell_exec()&amp;``</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system"><span class="toc-text">system()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#popen"><span class="toc-text">popen()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fcntl-exec"><span class="toc-text">fcntl_exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ob-start"><span class="toc-text">ob_start()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#escapeshellcmd"><span class="toc-text">escapeshellcmd()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作函数"><span class="toc-text">文件操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#copy"><span class="toc-text">copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-get-contents"><span class="toc-text">file_get contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-put-contents"><span class="toc-text">file_put contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file"><span class="toc-text">file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fopen"><span class="toc-text">fopen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#move-uploaded-file"><span class="toc-text">move_uploaded_file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#readfile"><span class="toc-text">readfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rename"><span class="toc-text">rename</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unlink-amp-delete"><span class="toc-text">unlink &amp; delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读文件"><span class="toc-text">读文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊函数"><span class="toc-text">特殊函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信息泄漏"><span class="toc-text">信息泄漏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-phpinfo-int-what-INFO-ALL"><span class="toc-text">bool phpinfo ([int $what = INFO_ALL])</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软连接-读取文件内容："><span class="toc-text">软连接-读取文件内容：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-symlink-string-target-string-link"><span class="toc-text">bool symlink (string $target ,string $link)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#string-redline-string-path"><span class="toc-text">string redline (string $path)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量"><span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#string-getenv-string-varname"><span class="toc-text">string getenv (string $varname)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-putenv-string-setting"><span class="toc-text">bool putenv (string $setting)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载扩展"><span class="toc-text">加载扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-dl-string-library"><span class="toc-text">bool dl (string $library)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置相关"><span class="toc-text">配置相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字判断"><span class="toc-text">数字判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组相关"><span class="toc-text">数组相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超全局变量"><span class="toc-text">超全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量覆盖"><span class="toc-text">变量覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列目录"><span class="toc-text">列目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无参数获取信息"><span class="toc-text">无参数获取信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化函数"><span class="toc-text">序列化函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件上传"><span class="toc-text">文件上传</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP代码执行函数"><span class="toc-text">PHP代码执行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#eval"><span class="toc-text">eval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assert"><span class="toc-text">assert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#preg-replace-’-e’"><span class="toc-text">preg_replace +’/e’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建函数"><span class="toc-text">创建函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#callable"><span class="toc-text">callable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#array-map"><span class="toc-text">array_map</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含函数"><span class="toc-text">包含函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#include"><span class="toc-text">include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#require"><span class="toc-text">require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allow-url-include-on"><span class="toc-text">allow_url_include = on</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令执行函数"><span class="toc-text">命令执行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exec"><span class="toc-text">exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passthru"><span class="toc-text">passthru()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-open"><span class="toc-text">proc_open()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell-exec-amp"><span class="toc-text">shell_exec()&amp;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system"><span class="toc-text">system()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#popen"><span class="toc-text">popen()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fcntl-exec"><span class="toc-text">fcntl_exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ob-start"><span class="toc-text">ob_start()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#escapeshellcmd"><span class="toc-text">escapeshellcmd()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作函数"><span class="toc-text">文件操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#copy"><span class="toc-text">copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-get-contents"><span class="toc-text">file_get contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-put-contents"><span class="toc-text">file_put contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file"><span class="toc-text">file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fopen"><span class="toc-text">fopen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#move-uploaded-file"><span class="toc-text">move_uploaded_file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#readfile"><span class="toc-text">readfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rename"><span class="toc-text">rename</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unlink-amp-delete"><span class="toc-text">unlink &amp; delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读文件"><span class="toc-text">读文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊函数"><span class="toc-text">特殊函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信息泄漏"><span class="toc-text">信息泄漏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-phpinfo-int-what-INFO-ALL"><span class="toc-text">bool phpinfo ([int $what = INFO_ALL])</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软连接-读取文件内容："><span class="toc-text">软连接-读取文件内容：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-symlink-string-target-string-link"><span class="toc-text">bool symlink (string $target ,string $link)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#string-redline-string-path"><span class="toc-text">string redline (string $path)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量"><span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#string-getenv-string-varname"><span class="toc-text">string getenv (string $varname)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-putenv-string-setting"><span class="toc-text">bool putenv (string $setting)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载扩展"><span class="toc-text">加载扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-dl-string-library"><span class="toc-text">bool dl (string $library)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置相关"><span class="toc-text">配置相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字判断"><span class="toc-text">数字判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组相关"><span class="toc-text">数组相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超全局变量"><span class="toc-text">超全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量覆盖"><span class="toc-text">变量覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列目录"><span class="toc-text">列目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无参数获取信息"><span class="toc-text">无参数获取信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化函数"><span class="toc-text">序列化函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件上传"><span class="toc-text">文件上传</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
         
     </div>
     <style>
@@ -576,10 +578,11 @@
 
 
 
-    
-        <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM1NC8xMzg4OA==">
-	<script type="text/javascript">
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
    (function(d, s) {
        var j, e = d.getElementsByTagName(s)[0];
 
@@ -590,11 +593,12 @@
        j.async = true;
 
        e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
     
 
 
@@ -633,9 +637,8 @@
                 2017-2018 KarmA
             </div>
             <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
-                <div id="id_keep_div" style="display:inline;"><span class="my-face" style="vertical-align:middle;">
-
-                     Follow Your Heart.
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
                     <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
                 </div>
             </div>
@@ -657,17 +660,14 @@
                         </span>
                     </span>
                     <span>| </span>
-                    <span title="All Words">
+                    <span title="本站总字数统计">
                          <span><i class="fa fa-map" aria-hidden="true"></i></span>
-                         <span class="post-count"><b>75.9k</b></span>
+                        <span class="post-count"><b>76.3k</b></span>
                     </span>
                 
-
             </div>
         
-        </br>
         
-
     </div>
 </footer>
     </div>

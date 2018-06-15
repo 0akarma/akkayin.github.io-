@@ -266,35 +266,35 @@
   
   <div class="article-inner">
     
-  
-    <header class="article-header">
-      
+    
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       代码审计实例-BEES_4.0_R_20160525
     </h1>
   
 
+        
+      </header>
       
-    </header>
-    
-    <div class="article-info article-info-post">
-      
-      
+      <div class="article-info article-info-post">
+        
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Study/">Study</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
     </div>
 
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+      </div>
+      
     
-  
     <div class="article-entry" itemprop="articleBody">
       
           
@@ -351,7 +351,6 @@
 <hr>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;$file = tempnam(<span class="string">''</span>, <span class="string">'mail'</span>);</span><br><span class="line">&gt;</span><br><span class="line">&gt;file_put_contents($file, $body); <span class="comment">//TODO check this worked</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;$signed = tempnam(<span class="string">""</span>, <span class="string">"signed"</span>);</span><br><span class="line">&gt;<span class="keyword">if</span> (@openssl_pkcs7_sign($file, $signed, <span class="string">"file://"</span>.<span class="keyword">$this</span>-&gt;sign_cert_file, <span class="keyword">array</span>(<span class="string">"file://"</span>.<span class="keyword">$this</span>-&gt;sign_key_file, <span class="keyword">$this</span>-&gt;sign_key_pass), <span class="keyword">NULL</span>)) &#123;</span><br><span class="line">&gt;</span><br><span class="line">&gt;@unlink($file);</span><br><span class="line">&gt;</span><br><span class="line">&gt;@unlink($signed);</span><br><span class="line">&gt;</span><br><span class="line">&gt;$body = file_get_contents($signed);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>&gt;</p>
 <blockquote>
 <blockquote>
 <p><strong>$signed = tempnam(“”, “signed”);     </strong></p>
@@ -367,11 +366,15 @@
 <p>2 -&gt; admin_db.php</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elseif</span>($action==<span class="string">'save_import'</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!check_purview(<span class="string">'data_import'</span>))&#123;msg(<span class="string">'&lt;span style="color:red"&gt;操作失败,你的权限不足!&lt;/span&gt;'</span>);&#125;</span><br><span class="line">	$fl = $_GET[<span class="string">'fl'</span>];</span><br><span class="line">	$time = <span class="keyword">isset</span>($_GET[<span class="string">'time'</span>])?$_GET[<span class="string">'time'</span>]:<span class="string">''</span>;</span><br><span class="line">	$rand = <span class="keyword">isset</span>($_GET[<span class="string">'rand'</span>])?$_GET[<span class="string">'rand'</span>]:<span class="string">''</span>;</span><br><span class="line">	$page = <span class="keyword">isset</span>($_GET[<span class="string">'page'</span>])?$_GET[<span class="string">'page'</span>]:<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">empty</span>($fl))&#123;err(<span class="string">'&lt;span style="color:red"&gt;参数传递错误,请重新操作&lt;/span&gt;'</span>);&#125;</span><br><span class="line">	<span class="keyword">if</span>($time&amp;&amp;$rand&amp;&amp;$page)&#123;</span><br><span class="line">$import_file =DATA_PATH.<span class="string">'backup/'</span>.$fl.<span class="string">'/db_backup_'</span>.$time.<span class="string">'_'</span>.$rand.<span class="string">'_'</span>.$page.<span class="string">'.sql'</span>;</span><br><span class="line">	<span class="keyword">if</span>(@file_exists($import_file))</span><br><span class="line">	&#123;</span><br><span class="line">		$data=@file_get_contents($import_file);</span><br><span class="line">		$data=explode(<span class="string">";\n"</span>,trim($data));</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(!<span class="keyword">empty</span>($data))&#123;</span><br><span class="line">			<span class="keyword">foreach</span>($data <span class="keyword">as</span> $k=&gt;$v)&#123;</span><br><span class="line">				$GLOBALS[<span class="string">'mysql'</span>]-&gt;query($v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		show_htm(<span class="string">'卷'</span>.$page.<span class="string">'导入完成'</span>,<span class="string">'?action=save_import&amp;fl='</span>.$fl.<span class="string">'&amp;time='</span>.$time.<span class="string">'&amp;rand='</span>.$rand.<span class="string">'&amp;page='</span>.($page+<span class="number">1</span>).<span class="string">'&amp;nav='</span>.$admin_nav.<span class="string">'&amp;admin_p_nav='</span>.$admin_p_nav);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>$file_get_contents  &lt;- $import_file &lt;-(DATA_PATH.’backup/‘.$fl.’/db<em>backup</em>‘.$time.’<em>‘.$rand.’</em>‘.$page.’.sql’)</p>
+<p>$file_get_contents  &lt;- $import_file &lt;-(DATA_PATH.’backup/‘.$fl.’/db_backup_’.$time.’<em>‘.$rand.’</em>‘.$page.’.sql’)</p>
 <p>其中 <strong>$f1、$time、$rand、$page</strong> 都是通过 $_GET 传递的，所以，是可控的，看看是否有利用的价值。</p>
 <blockquote>
 <p>三元运算符： <strong>?: </strong></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; <span class="meta">&lt;?php</span></span><br><span class="line">&gt; &gt; <span class="comment">// Example usage for: Ternary Operator</span></span><br><span class="line">&gt; &gt; $action = (<span class="keyword">empty</span>($_POST[<span class="string">'action'</span>])) ? <span class="string">'default'</span> : $_POST[<span class="string">'action'</span>];</span><br><span class="line">&gt; &gt;</span><br><span class="line">&gt; &gt; <span class="comment">// The above is identical to this if/else statement</span></span><br><span class="line">&gt; &gt; <span class="keyword">if</span> (<span class="keyword">empty</span>($_POST[<span class="string">'action'</span>])) &#123;</span><br><span class="line">&gt; &gt;     $action = <span class="string">'default'</span>;</span><br><span class="line">&gt; &gt; &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">&gt; &gt;     $action = $_POST[<span class="string">'action'</span>];</span><br><span class="line">&gt; &gt; &#125;</span><br><span class="line">&gt; &gt; <span class="meta">?&gt;</span></span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
 <p>explode() 把字符串打散为数组</p>
 <p>trim() 移除字符串两侧的字符</p>
 </blockquote>
@@ -379,7 +382,7 @@
 <p>3 -&gt; tpl.class.php</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($include_cache)&#123;<span class="keyword">$this</span>-&gt;template_is_cache=<span class="number">0</span>;&#125;</span><br><span class="line"><span class="keyword">$this</span>-&gt;template_file=<span class="keyword">$this</span>-&gt;template_dir.$template_file.<span class="string">'.html'</span>;</span><br><span class="line"><span class="keyword">if</span>(!file_exists(<span class="keyword">$this</span>-&gt;template_file))&#123;<span class="keyword">die</span>(<span class="string">'不存在模板文件'</span>.$template_file.<span class="string">'.html'</span>);&#125;</span><br><span class="line"><span class="keyword">$this</span>-&gt;template_file_content=file_get_contents(<span class="keyword">$this</span>-&gt;template_file);</span><br><span class="line"><span class="keyword">$this</span>-&gt;template_com_file=<span class="keyword">$this</span>-&gt;template_compile.$template_file.<span class="string">'_'</span>.<span class="keyword">$this</span>-&gt;template_lang.<span class="keyword">$this</span>-&gt;mb.<span class="string">'_compile.php'</span>;<span class="comment">//编译文件</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;cache();<span class="comment">//生成缓存文件</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;compile();<span class="comment">//编译模板</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;view($is_copy);<span class="comment">//显示模板</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;tp)&#123;<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;content;&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>$this-&gt;template_file &lt;- $this-&gt;template_dir.$template_file.’.html’ 未发现可控变量，而且模版是直接从数据库中调出，并没有上传模版的地方。</p>
+<p>$this-&gt;template_file <- $this-="">template_dir.$template_file.’.html’ 未发现可控变量，而且模版是直接从数据库中调出，并没有上传模版的地方。</-></p>
 </blockquote>
 <h4 id="再从-fread-入手"><a href="#再从-fread-入手" class="headerlink" title="再从 fread() 入手"></a>再从 fread() 入手</h4><p>1 -&gt; fun.php</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy_lang</span><span class="params">($lang)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">isset</span>($lang))&#123;</span><br><span class="line">		<span class="keyword">if</span>(!$fp=@fopen(LANG_PATH.<span class="string">'lang_cn.php'</span>,<span class="string">'r'</span>))&#123;</span><br><span class="line">			msg(<span class="string">'基本语言包不能操作，请检查是否有操作文件的权限'</span>,<span class="string">'javascript:history.go(-1);'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		$fl=fread($fp,filesize(LANG_PATH.<span class="string">'lang_cn.php'</span>));</span><br><span class="line">		<span class="keyword">unset</span>($fp);</span><br><span class="line">		$fp2=@fopen(LANG_PATH.<span class="string">'lang_'</span>.$lang.<span class="string">'.php'</span>,<span class="string">'w'</span>);</span><br><span class="line">		<span class="keyword">return</span> fwrite($fp2,$fl);</span><br><span class="line">      </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">creat_inc</span><span class="params">($fl,$str)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(file_exists($fl))&#123;@unlink($fl);&#125;</span><br><span class="line">	<span class="keyword">if</span>(!$fp=@fopen($fl,<span class="string">'w'</span>))&#123;</span><br><span class="line">		msg(<span class="string">'文件打开失败,请检查是否有足够的权限操作文件'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	flock($fp,LOCK_EX);</span><br><span class="line">	<span class="keyword">if</span>(!fwrite($fp,$str))&#123;</span><br><span class="line">		msg(<span class="string">'写入文件失败,请检查是否有足够的权限操作文件'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	flock($fp,LOCK_UN);</span><br><span class="line">	<span class="keyword">unset</span>($fp);</span><br></pre></td></tr></table></figure>
@@ -417,6 +420,8 @@
     <div class="copyright">
         <p><span>Title:</span><a href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>2,004</p>
+        <p><span class="post-count">Time:</span>9 mins</p>
         <p><span>Created:</span>2017-12-20, 23:05:40</p>
         <p><span>Updated:</span>2018-03-19, 09:37:08</p>
         <p>
@@ -448,6 +453,7 @@
         
     </nav>
 
+  
   
 </article>
 
@@ -503,10 +509,11 @@
 
 
 
-    
-        <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM1NC8xMzg4OA==">
-	<script type="text/javascript">
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
    (function(d, s) {
        var j, e = d.getElementsByTagName(s)[0];
 
@@ -517,11 +524,12 @@
        j.async = true;
 
        e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
     
 
 
@@ -560,9 +568,8 @@
                 2017-2018 KarmA
             </div>
             <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
-                <div id="id_keep_div" style="display:inline;"><span class="my-face" style="vertical-align:middle;">
-
-                     Follow Your Heart.
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
                     <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
                 </div>
             </div>
@@ -584,17 +591,14 @@
                         </span>
                     </span>
                     <span>| </span>
-                    <span title="All Words">
+                    <span title="本站总字数统计">
                          <span><i class="fa fa-map" aria-hidden="true"></i></span>
-                         <span class="post-count"><b>75.9k</b></span>
+                        <span class="post-count"><b>76.3k</b></span>
                     </span>
                 
-
             </div>
         
-        </br>
         
-
     </div>
 </footer>
     </div>

