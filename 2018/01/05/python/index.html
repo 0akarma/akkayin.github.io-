@@ -81,7 +81,9 @@
 </script>
 
 
-    <script> yiliaConfig.jquery_ui = [false]; </script>
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
 
 
 
@@ -259,33 +261,35 @@
   
   <div class="article-inner">
     
-    
-      <header class="article-header">
-        
+  
+    <header class="article-header">
+      
   
     <h1 class="article-title" itemprop="name">
       Python Notes
     </h1>
   
 
-      </header>
       
-      <div class="article-info article-info-post">
-        
+    </header>
+    
+    <div class="article-info article-info-post">
+      
+      
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/Study/">Study</a>
     </div>
 
 
-        
+      
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notes/">Notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
     </div>
 
-        <div class="clearfix"></div>
-      </div>
-      
+      <div class="clearfix"></div>
+    </div>
     
+  
     <div class="article-entry" itemprop="articleBody">
       
           
@@ -532,7 +536,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-我和python的第一次亲密接触"><span class="toc-text">1.我和python的第一次亲密接触</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用Python设计的第一个游戏"><span class="toc-text">2.用Python设计的第一个游戏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-插曲之变量与字符串"><span class="toc-text">3.插曲之变量与字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量："><span class="toc-text">变量：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串："><span class="toc-text">字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转义字符"><span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原始字符串："><span class="toc-text">原始字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#长字符串："><span class="toc-text">长字符串：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-改进我们的小游戏"><span class="toc-text">4.改进我们的小游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-“and”和C-“-amp-amp-”-有什么区别"><span class="toc-text">Python “and”和C “&&” 有什么区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#短路逻辑（short-circuit-logic）"><span class="toc-text">短路逻辑（short-circuit logic）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-闲聊之Python的数据类型"><span class="toc-text">5.闲聊之Python的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型："><span class="toc-text">基本数据类型：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#int-（整型）"><span class="toc-text">int （整型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#float-（浮点型）"><span class="toc-text">float （浮点型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#str-（字符串）"><span class="toc-text">str （字符串）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-（布尔型）"><span class="toc-text">bool （布尔型）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#e记法-gt-科学计数法"><span class="toc-text">e记法-> 科学计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型转换"><span class="toc-text">数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整型强制转换函数-int"><span class="toc-text">整型强制转换函数 int()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点型强制转换函数float"><span class="toc-text">浮点型强制转换函数float()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型信息获取"><span class="toc-text">数据类型信息获取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数type"><span class="toc-text">函数type()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数isinstance"><span class="toc-text">函数isinstance()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Python之常用操作符"><span class="toc-text">6.Python之常用操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符"><span class="toc-text">算术运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#和-的区别"><span class="toc-text">/和//的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运算符与负号（-）运算符的优先级问题"><span class="toc-text">**运算符与负号（-）运算符的优先级问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如-x-5，x-5后，x的值为10"><span class="toc-text">允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如 x =5，x+=5后，x的值为10</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑操作符"><span class="toc-text">逻辑操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#and"><span class="toc-text">and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#or"><span class="toc-text">or</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#not"><span class="toc-text">not</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优先级"><span class="toc-text">优先级</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较运算符"><span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值运算符"><span class="toc-text">赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符优先级"><span class="toc-text">运算符优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元组的访问"><span class="toc-text">元组的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新和删除元组"><span class="toc-text">更新和删除元组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-字符串：各种奇葩的内置方法"><span class="toc-text">14.字符串：各种奇葩的内置方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的分片操作"><span class="toc-text">字符串的分片操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问字符串中的字符"><span class="toc-text">访问字符串中的字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的更新"><span class="toc-text">字符串的更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串内置方法"><span class="toc-text">字符串内置方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-字符串的格式语句与操作符"><span class="toc-text">15.字符串的格式语句与操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的格式化：format"><span class="toc-text">字符串的格式化：format</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-位置参数"><span class="toc-text">1.    位置参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关键字参数"><span class="toc-text">2.    关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-位置参数与关键字参数一起用时"><span class="toc-text">3.    位置参数与关键字参数一起用时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-打印花括号"><span class="toc-text">4.    打印花括号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-截断浮点数输出"><span class="toc-text">5.    截断浮点数输出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相应的字符串格式化符号"><span class="toc-text">相应的字符串格式化符号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-序列相关内置函数介绍"><span class="toc-text">16.序列相关内置函数介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么把可迭代对象转换为列表、元组和字符串"><span class="toc-text">怎么把可迭代对象转换为列表、元组和字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代"><span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举函数"><span class="toc-text">枚举函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打包函数"><span class="toc-text">打包函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-函数：Python的乐高积木"><span class="toc-text">17.函数：Python的乐高积木</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用函数的好处"><span class="toc-text">用函数的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的意义"><span class="toc-text">函数的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的定义和调用"><span class="toc-text">函数的定义和调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的参数"><span class="toc-text">函数的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的返回值"><span class="toc-text">函数的返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-函数：灵活即强大"><span class="toc-text">18.函数：灵活即强大</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#形参和实参"><span class="toc-text">形参和实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档的概念"><span class="toc-text">文档的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字参数"><span class="toc-text">关键字参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认参数"><span class="toc-text">默认参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收集参数"><span class="toc-text">收集参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-函数：我的地盘听我的"><span class="toc-text">19.函数：我的地盘听我的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数和过程的区别"><span class="toc-text">函数和过程的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数可以返回多个值"><span class="toc-text">函数可以返回多个值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局变量和局部变量"><span class="toc-text">全局变量和局部变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-函数：内嵌函数和闭包"><span class="toc-text">20.函数：内嵌函数和闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何在函数体内修改全局变量的值"><span class="toc-text">如何在函数体内修改全局变量的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内嵌函数"><span class="toc-text">内嵌函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在内嵌函数内修改外部函数内定义的变量的值"><span class="toc-text">在内嵌函数内修改外部函数内定义的变量的值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-函数：lambda表达式"><span class="toc-text">21.函数：lambda表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-函数：递归是神马"><span class="toc-text">22.函数：递归是神马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-递归：这帮小兔崽子"><span class="toc-text">23.递归：这帮小兔崽子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-递归：汉诺塔"><span class="toc-text">24.递归：汉诺塔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-字典：当索引不好用时"><span class="toc-text">25.字典：当索引不好用时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-字典：当索引不好用时2"><span class="toc-text">26.字典：当索引不好用时2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-集合：在我的世界里，你就是唯一"><span class="toc-text">27.集合：在我的世界里，你就是唯一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-文件：因为懂你，所以永恒"><span class="toc-text">28.文件：因为懂你，所以永恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-文件：一个任务"><span class="toc-text">29.文件：一个任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-文件系统：介绍一个高大上的东西"><span class="toc-text">30.文件系统：介绍一个高大上的东西</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-永久存储：腌制一缸美味的跑操"><span class="toc-text">31.永久存储：腌制一缸美味的跑操</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-异常处理：你不可能总是对的"><span class="toc-text">32.异常处理：你不可能总是对的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-异常处理：你不可能总是对的2"><span class="toc-text">33.异常处理：你不可能总是对的2</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-我和python的第一次亲密接触"><span class="toc-text">1.我和python的第一次亲密接触</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用Python设计的第一个游戏"><span class="toc-text">2.用Python设计的第一个游戏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-插曲之变量与字符串"><span class="toc-text">3.插曲之变量与字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量："><span class="toc-text">变量：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串："><span class="toc-text">字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转义字符"><span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原始字符串："><span class="toc-text">原始字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#长字符串："><span class="toc-text">长字符串：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-改进我们的小游戏"><span class="toc-text">4.改进我们的小游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-“and”和C-“-amp-amp-”-有什么区别"><span class="toc-text">Python “and”和C “&amp;&amp;” 有什么区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#短路逻辑（short-circuit-logic）"><span class="toc-text">短路逻辑（short-circuit logic）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-闲聊之Python的数据类型"><span class="toc-text">5.闲聊之Python的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型："><span class="toc-text">基本数据类型：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#int-（整型）"><span class="toc-text">int （整型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#float-（浮点型）"><span class="toc-text">float （浮点型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#str-（字符串）"><span class="toc-text">str （字符串）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-（布尔型）"><span class="toc-text">bool （布尔型）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#e记法-gt-科学计数法"><span class="toc-text">e记法-&gt; 科学计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型转换"><span class="toc-text">数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整型强制转换函数-int"><span class="toc-text">整型强制转换函数 int()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点型强制转换函数float"><span class="toc-text">浮点型强制转换函数float()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型信息获取"><span class="toc-text">数据类型信息获取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数type"><span class="toc-text">函数type()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数isinstance"><span class="toc-text">函数isinstance()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Python之常用操作符"><span class="toc-text">6.Python之常用操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符"><span class="toc-text">算术运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#和-的区别"><span class="toc-text">/和//的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运算符与负号（-）运算符的优先级问题"><span class="toc-text">**运算符与负号（-）运算符的优先级问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如-x-5，x-5后，x的值为10"><span class="toc-text">允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如 x =5，x+=5后，x的值为10</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑操作符"><span class="toc-text">逻辑操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#and"><span class="toc-text">and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#or"><span class="toc-text">or</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#not"><span class="toc-text">not</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优先级"><span class="toc-text">优先级</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较运算符"><span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值运算符"><span class="toc-text">赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符优先级"><span class="toc-text">运算符优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元组的访问"><span class="toc-text">元组的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新和删除元组"><span class="toc-text">更新和删除元组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-字符串：各种奇葩的内置方法"><span class="toc-text">14.字符串：各种奇葩的内置方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的分片操作"><span class="toc-text">字符串的分片操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问字符串中的字符"><span class="toc-text">访问字符串中的字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的更新"><span class="toc-text">字符串的更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串内置方法"><span class="toc-text">字符串内置方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-字符串的格式语句与操作符"><span class="toc-text">15.字符串的格式语句与操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的格式化：format"><span class="toc-text">字符串的格式化：format</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-位置参数"><span class="toc-text">1.    位置参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关键字参数"><span class="toc-text">2.    关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-位置参数与关键字参数一起用时"><span class="toc-text">3.    位置参数与关键字参数一起用时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-打印花括号"><span class="toc-text">4.    打印花括号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-截断浮点数输出"><span class="toc-text">5.    截断浮点数输出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相应的字符串格式化符号"><span class="toc-text">相应的字符串格式化符号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-序列相关内置函数介绍"><span class="toc-text">16.序列相关内置函数介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么把可迭代对象转换为列表、元组和字符串"><span class="toc-text">怎么把可迭代对象转换为列表、元组和字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代"><span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举函数"><span class="toc-text">枚举函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打包函数"><span class="toc-text">打包函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-函数：Python的乐高积木"><span class="toc-text">17.函数：Python的乐高积木</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用函数的好处"><span class="toc-text">用函数的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的意义"><span class="toc-text">函数的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的定义和调用"><span class="toc-text">函数的定义和调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的参数"><span class="toc-text">函数的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的返回值"><span class="toc-text">函数的返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-函数：灵活即强大"><span class="toc-text">18.函数：灵活即强大</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#形参和实参"><span class="toc-text">形参和实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档的概念"><span class="toc-text">文档的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字参数"><span class="toc-text">关键字参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认参数"><span class="toc-text">默认参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收集参数"><span class="toc-text">收集参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-函数：我的地盘听我的"><span class="toc-text">19.函数：我的地盘听我的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数和过程的区别"><span class="toc-text">函数和过程的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数可以返回多个值"><span class="toc-text">函数可以返回多个值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局变量和局部变量"><span class="toc-text">全局变量和局部变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-函数：内嵌函数和闭包"><span class="toc-text">20.函数：内嵌函数和闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何在函数体内修改全局变量的值"><span class="toc-text">如何在函数体内修改全局变量的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内嵌函数"><span class="toc-text">内嵌函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在内嵌函数内修改外部函数内定义的变量的值"><span class="toc-text">在内嵌函数内修改外部函数内定义的变量的值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-函数：lambda表达式"><span class="toc-text">21.函数：lambda表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-函数：递归是神马"><span class="toc-text">22.函数：递归是神马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-递归：这帮小兔崽子"><span class="toc-text">23.递归：这帮小兔崽子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-递归：汉诺塔"><span class="toc-text">24.递归：汉诺塔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-字典：当索引不好用时"><span class="toc-text">25.字典：当索引不好用时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-字典：当索引不好用时2"><span class="toc-text">26.字典：当索引不好用时2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-集合：在我的世界里，你就是唯一"><span class="toc-text">27.集合：在我的世界里，你就是唯一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-文件：因为懂你，所以永恒"><span class="toc-text">28.文件：因为懂你，所以永恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-文件：一个任务"><span class="toc-text">29.文件：一个任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-文件系统：介绍一个高大上的东西"><span class="toc-text">30.文件系统：介绍一个高大上的东西</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-永久存储：腌制一缸美味的跑操"><span class="toc-text">31.永久存储：腌制一缸美味的跑操</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-异常处理：你不可能总是对的"><span class="toc-text">32.异常处理：你不可能总是对的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-异常处理：你不可能总是对的2"><span class="toc-text">33.异常处理：你不可能总是对的2</span></a></li></ol>
         
     </div>
     <style>
@@ -582,19 +586,24 @@
 
 
     
-        <section class="youyan" id="comments">
-    <script>
-        var loadComment = function(){
-            var d = document, s = d.createElement('script');
-            s.src = 'http://v2.uyan.cc/code/uyan.js?uid=2151016';
-            (d.head || d.body).appendChild(s);
-        }
-    </script>
-    
-    <script> loadComment(); </script>
+        <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNzM1NC8xMzg4OA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
 
-    <div id="uyan_frame"></div>
-</section>
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
     
 
 
@@ -632,8 +641,12 @@
                 <i class="fa fa-copyright"></i> 
                 2017-2018 KarmA
             </div>
-            <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="A fast, simple &amp; powerful blog framework">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="Another simple and elegant theme for Hexo  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="id_keep_div" style="display:inline;"><span class="my-face" style="vertical-align:middle;">
+
+                     Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
             </div>
         </div>
         
@@ -652,9 +665,18 @@
                         <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
                         </span>
                     </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                         <span class="post-count"><b>75.9k</b></span>
+                    </span>
                 
+
             </div>
         
+        </br>
+        
+
     </div>
 </footer>
     </div>
@@ -720,6 +742,23 @@ ga('send', 'pageview');
         }
     
 </script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
