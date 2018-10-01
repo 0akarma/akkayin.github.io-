@@ -23,7 +23,6 @@
 <meta property="og:site_name" content="KarmA @ D0g3">
 <meta property="og:description" content="作者：KarmA@D0g3，本文转自先知社区，未经许可禁止转载 记录一下自己的LazySysAdmin通关过程">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fvcp4eq2xfj306404h748.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fvcp728tzaj31bo1digpm.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fvcr8ww61rj316009ut8v.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fviktxmqxyj31kw0jqtc4.jpg">
@@ -36,11 +35,11 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fvif1vsmz5j31by0b0aab.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fvicqvqvwdj31kw0rtjt0.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fvif4yz672j30l60yqgmm.jpg">
-<meta property="og:updated_time" content="2018-09-22T12:24:28.947Z">
+<meta property="og:updated_time" content="2018-10-01T07:06:53.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vulnhub-LazySysAdmin 通关指南">
 <meta name="twitter:description" content="作者：KarmA@D0g3，本文转自先知社区，未经许可禁止转载 记录一下自己的LazySysAdmin通关过程">
-<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fvcp4eq2xfj306404h748.jpg">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fvcp728tzaj31bo1digpm.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -311,10 +310,18 @@
 <p>记录一下自己的LazySysAdmin通关过程<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>It’s themed after the great James Bond film (and even better n64 game) GoldenEye.</p>
-<p>靶机命名来自詹士邦系列的电影——GoldenEye</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fvcp4eq2xfj306404h748.jpg" alt=""></p>
-<p>Goal：得到root权限&amp;找到flag</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>一个孤独和懒惰的系统管理员哭泣自己睡觉的故事</p>
+<p>Difficulty：中等/初学者</p>
+<p>Goal：</p>
+<p>​    1.教初学者一些基本的Linux枚举技巧</p>
+<p>​    2.让自己更加熟悉Linux的服务配置，然后创造更多靶机给大家去学习</p>
+<p>​    3.得到root权限&amp;找到flag</p>
+<p>Hint：</p>
+<ul>
+<li>枚举是关键</li>
+<li>使劲磕</li>
+<li>不要错过一些明显的东西</li>
+</ul>
 <h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>首先用netdiscover确定靶机ip，再用nmap扫下端口</p>
 <p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fvcp728tzaj31bo1digpm.jpg" alt=""></p>
 <p>一眼扫过去，发现竟然有Mysql、InspIRCd、Samba还挺有意思嘛！</p>
@@ -392,10 +399,10 @@
     <div class="copyright">
         <p><span>Title:</span><a href="/2018/08/22/vulnhub-LazySysAdmin/">Vulnhub-LazySysAdmin 通关指南</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
-        <p><span class="post-count">Words:</span>1,557</p>
-        <p><span class="post-count">Time:</span>6 mins</p>
+        <p><span class="post-count">Words:</span>1,619</p>
+        <p><span class="post-count">Time:</span>7 mins</p>
         <p><span>Created:</span>2018-08-22, 16:54:43</p>
-        <p><span>Updated:</span>2018-09-22, 20:24:28</p>
+        <p><span>Updated:</span>2018-10-01, 15:06:53</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2018/08/22/vulnhub-LazySysAdmin/" title="Vulnhub-LazySysAdmin 通关指南">http://blog.karmaof.me/2018/08/22/vulnhub-LazySysAdmin/</a>
             <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/2018/08/22/vulnhub-LazySysAdmin/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -523,7 +530,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/amateur-OPS/">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/vulnhub-Lampiao-1/">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/vulnhub-LazySysAdmin/">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/18/ballroom/">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/xhssf/">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/Flags2/">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/29/achievements/">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/sctf2018/">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/sql-blind/">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/redtiger/">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/24/Scrapy-Efficiency/">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/17/Scrapy-Exercises/">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/03/rapid-recurrence/">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/17/getshell/">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/16/Mac-Personal-Settings/">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/复现Pwnhub会员日/">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/thanksgiving/">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/py3-spider/">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flags1/">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/01/vulnhub-GoldenEye-1/">Vulnhub-GoldenEye 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/09/15/amateur-OPS/">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/vulnhub-Lampiao-1/">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/22/vulnhub-LazySysAdmin/">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/18/ballroom/">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/08/12/xhssf/">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/07/14/Flags2/">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/29/achievements/">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/21/sctf2018/">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/20/sql-blind/">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/02/redtiger/">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/24/Scrapy-Efficiency/">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/17/Scrapy-Exercises/">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/04/03/rapid-recurrence/">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/17/getshell/">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/16/Mac-Personal-Settings/">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/13/复现Pwnhub会员日/">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/thanksgiving/">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/01/py3-spider/">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/19/ctf-syb/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/05/sqlinjection-sqlilabs/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/28/sqlinjection-note/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/05/python/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/04/linux/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018books/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/2018films/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/01/bye2017/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/30/2017films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/26/渗透课程/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/20/代码审计实例-BEES-4-0-R-20160525/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/16/authenticwords/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/12/phpfunction/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/08/mentohust/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/04/Perception/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/03/Flags1/">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/01/2017班级对抗赛WP+心得/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/11/19/论Mac备份的重要性<-血的教训/">论Mac备份的重要性<-血的教训</a></li></ul>
 
 
 
@@ -565,7 +572,7 @@
                     <span>| </span>
                     <span title="All Words">
                          <span><i class="fa fa-map" aria-hidden="true"></i></span>
-                        <span class="post-count"><b>81.5k</b></span>
+                        <span class="post-count"><b>82.6k</b></span>
                     </span>
                 
             </div>
