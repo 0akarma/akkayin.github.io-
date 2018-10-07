@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="人生苦短，请用docker。 小组的各个网站几乎都是我一个人在运维，迈阿密的Vultr，装了个宝塔面板，图形化界面的确很爽～～但是感觉搬起来太麻烦了～于是乎就有了这个”放弃“教程">
+<meta name="keywords" content="Summary,Docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker建站——从入门到“放弃”">
+<meta property="og:url" content="http://blog.karmaof.me/2018/Study/1004091116-docker-website/index.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="人生苦短，请用docker。 小组的各个网站几乎都是我一个人在运维，迈阿密的Vultr，装了个宝塔面板，图形化界面的确很爽～～但是感觉搬起来太麻烦了～于是乎就有了这个”放弃“教程">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-07T16:08:15.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Docker建站——从入门到“放弃”">
+<meta name="twitter:description" content="人生苦短，请用docker。 小组的各个网站几乎都是我一个人在运维，迈阿密的Vultr，装了个宝塔面板，图形化界面的确很爽～～但是感觉搬起来太麻烦了～于是乎就有了这个”放弃“教程">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Docker建站——从入门到“放弃” | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-docker-website" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/Study/1004091116-docker-website/" class="article-date">
+      <time datetime="2018-10-04T01:11:16.000Z" itemprop="datePublished">2018-10-04</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Docker建站——从入门到“放弃”
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p><strong>人生苦短，请用docker。</strong></p>
+<p>小组的各个网站几乎都是我一个人在运维，迈阿密的Vultr，装了个宝塔面板，图形化界面的确很爽～～但是感觉搬起来太麻烦了～于是乎就有了这个”放弃“教程<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="0x01-preface"><a href="#0x01-preface" class="headerlink" title="0x01 preface"></a>0x01 preface</h2><p>想着学校服务器网络一直没弄好，小组业务线可能还要搬家几次，而且前段时间不想在物理机搭php开发环境的时候，就是拿docker复现的开发环境，用起来很舒服，但是都是一个一个容器的玩，没有很深入的去了解。最近在本地搭php审计环境的时候，又没找到好的“phpstudy”，所以又去遨游了两天的docker海洋。</p>
+<h2 id="0x02-docker"><a href="#0x02-docker" class="headerlink" title="0x02 docker"></a>0x02 docker</h2><p>再次验证一句话：学一样东西最快的方法，就是<strong>实战</strong>！！</p>
+<p>项目目录结构如下（有删减）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">KarmA ~/Downloads/docker-d0g3 <span class="comment"># tree -d</span></span><br><span class="line">.</span><br><span class="line">├── d0g3-blog 	<span class="comment"># 博客</span></span><br><span class="line">│   ├── conf.d</span><br><span class="line">│   └── copy</span><br><span class="line">├── d0g3-home 	<span class="comment"># 主页</span></span><br><span class="line">│   ├── conf.d</span><br><span class="line">│   └── copy</span><br><span class="line">├── d0g3-major 	<span class="comment"># nginx代理服务器</span></span><br><span class="line">│   ├── conf.d</span><br><span class="line">│   └── copy</span><br><span class="line">├── d0g3-php	<span class="comment"># php环境</span></span><br><span class="line">├── d0g3-skills <span class="comment"># 技能树</span></span><br><span class="line">│   ├── conf.d</span><br><span class="line">│   └── copy</span><br><span class="line">└── letsencrypt <span class="comment"># ssl证书</span></span><br></pre></td></tr></table></figure>
+<h3 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h3><p>几乎每个目录里面都有各自的dockerfile，用来定制每个container里面的一些不同的参数/变量……</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx	<span class="comment"># 引入那个镜像源</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> WEB_SITE www.d0g3.cn <span class="comment"># 定义环境变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir -p /etc/nginx/<span class="variable">$&#123;WEB_SITE&#125;</span>	<span class="comment"># 运行的命令</span></span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">COPY ./nginx.conf /etc/nginx/nginx.conf	</span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">LABEL description=<span class="string">"SSL &amp; D0g3-Home"</span> \	<span class="comment"># 标签</span></span></span><br><span class="line"><span class="bash">      maintainer=<span class="string">"0aKarmA &lt;karma@d0g3.cn&gt;"</span></span></span><br><span class="line"><span class="bash"></span></span><br><span class="line"><span class="bash">EXPOSE 80	<span class="comment">#开放80端口</span></span></span><br><span class="line"><span class="bash">EXPOSE 443	<span class="comment"># 开放443端口</span></span></span><br><span class="line"><span class="bash">CMD nginx -g <span class="string">'daemon off;'</span>	<span class="comment"># 使用nginx的前台运行模式</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="comment"># 基本环境</span></span><br><span class="line"><span class="attr">  mysql:</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">"d0g3-mysql"</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">mysql:5.7</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/20181001blog_d0g3_cn.sql:/docker-entrypoint-initdb.d/dump.sql"</span> <span class="comment"># 导入数据库文件</span></span><br><span class="line"><span class="attr">    depends_on:</span> <span class="comment"># 依赖关系，先安装php环境，再到mysql</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">php</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      MYSQL_ROOT_PASSWORD:</span> <span class="string">$&#123;MYSQL_ROOT_PASSWORD&#125;</span></span><br><span class="line"><span class="attr">      MYSQL_DATABASE:</span> <span class="string">$&#123;MYSQL_DATABASE&#125;</span></span><br><span class="line"><span class="attr">      MYSQL_USER:</span> <span class="string">$&#123;MYSQL_USER&#125;</span></span><br><span class="line"><span class="attr">      MYSQL_PASSWORD:</span> <span class="string">$&#123;MYSQL_PASSWORD&#125;</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3_net</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 主要容器</span></span><br><span class="line"><span class="attr">  php:</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">"d0g3-php"</span> <span class="comment"># 自定义容器名</span></span><br><span class="line">    <span class="comment"># build 该置顶目录下的dockerfile</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">./d0g3-php</span></span><br><span class="line">    <span class="comment"># image指定build Dockerfile生成镜像的名称</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">php:7.0-fpm-mysqli</span></span><br><span class="line"><span class="attr">    expose:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">9000</span> <span class="comment"># expose的端口是不会映射到宿主机上的</span></span><br><span class="line"><span class="attr">    environment:</span> <span class="comment"># 设定mysql的环境变量</span></span><br><span class="line"><span class="attr">      MYSQL_USER:</span> <span class="string">$&#123;MYSQL_USER&#125;</span></span><br><span class="line"><span class="attr">      MYSQL_PASSWORD:</span> <span class="string">$&#123;MYSQL_PASSWORD&#125;</span></span><br><span class="line"><span class="attr">    volumes:</span> <span class="comment"># 挂载文件，类似于vmware上的共享文件夹</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"$PWD/d0g3-blog/copy:/var/www/html"</span></span><br><span class="line"><span class="attr">    networks:</span> <span class="comment"># 容器间的网络设置</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3_net</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  d0g3-blog:</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">"d0g3-blog"</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">./d0g3-blog</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">nginx</span> <span class="bullet">-g</span> <span class="string">'daemon off;'</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="comment"># 数据卷</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/letsencrypt:/etc/letsencrypt/live/0u0.ooo/"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/d0g3-blog/conf.d:/etc/nginx/conf.d"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/d0g3-blog/nginx.conf:/etc/nginx/nginx.conf"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/d0g3-blog/copy:/usr/share/nginx/html"</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">mysql</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">php</span></span><br><span class="line"><span class="attr">    expose:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="number">80</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">      MYSQL_USER:</span> <span class="string">$&#123;MYSQL_USER&#125;</span></span><br><span class="line"><span class="attr">      MYSQL_PASSWORD:</span> <span class="string">$&#123;MYSQL_PASSWORD&#125;</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3_net</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  d0g3-major:</span></span><br><span class="line"><span class="attr">    container_name:</span> <span class="string">"d0g3-major"</span></span><br><span class="line"><span class="attr">    image:</span> <span class="string">nginx</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">./d0g3-major</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">nginx</span> <span class="bullet">-g</span> <span class="string">'daemon off;'</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="comment"># 数据卷</span></span><br><span class="line"><span class="attr">    volumes:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/nginx.conf:/etc/nginx/nginx.conf"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/letsencrypt:/etc/letsencrypt/live/0u0.ooo/"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/d0g3-major/conf.d:/etc/nginx/conf.d"</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"$PWD/d0g3-major/copy:/usr/share/nginx/html"</span></span><br><span class="line"><span class="attr">    links:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3-home</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3-blog</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3-skills</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3_net</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"80:80"</span> <span class="comment"># ports的端口，会映射到宿主机上，如果没有指定映射到宿主机哪一个，就会随机分配</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"443:443"</span></span><br><span class="line"><span class="attr">    networks:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">d0g3_net</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">    <span class="comment"># 配置docker network</span></span><br><span class="line"><span class="attr">    d0g3_net:</span></span><br><span class="line"><span class="attr">        driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://www.cnblogs.com/breezey/p/9426085.html#%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AAweb%E9%9B%86%E7%BE%A4" target="_blank" rel="noopener">https://www.cnblogs.com/breezey/p/9426085.html#%E9%83%A8%E7%BD%B2%E4%B8%80%E4%B8%AAweb%E9%9B%86%E7%BE%A4</a></p>
+<h2 id="0x03-nginx"><a href="#0x03-nginx" class="headerlink" title="0x03 nginx"></a>0x03 nginx</h2><blockquote>
+<p>nginx真是个好东西～～</p>
+</blockquote>
+<p><a href="https://www.phpyuan.com/235726.html" target="_blank" rel="noopener">https://www.phpyuan.com/235726.html</a></p>
+<h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><p><a href="https://www.jianshu.com/p/792048d08ebc" target="_blank" rel="noopener">X-Forwarded-For的一些理解</a></p>
+<p><a href="https://www.jianshu.com/p/3092d0cfc445" target="_blank" rel="noopener">http协议属性整理</a></p>
+<p><a href="https://www.jianshu.com/p/e0dadb871894" target="_blank" rel="noopener">nginx 403 Forbidden 排错记录</a></p>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p><a href="https://www.imooc.com/article/73794" target="_blank" rel="noopener">CORS跨域与Nginx反向代理跨域优劣对比</a></p>
+<h4 id="CORS跨域"><a href="#CORS跨域" class="headerlink" title="CORS跨域"></a>CORS跨域</h4><p><a href="https://www.hi-linux.com/posts/60405.html#%E5%90%AF%E7%94%A8cors%E8%AF%B7%E6%B1%82" target="_blank" rel="noopener">Nginx 通过 CORS 实现跨域</a></p>
+<p><a href="https://www.imooc.com/article/73794" target="_blank" rel="noopener">https://www.imooc.com/article/73794</a></p>
+<p><a href="https://www.jianshu.com/p/3092d0cfc445" target="_blank" rel="noopener">https://www.jianshu.com/p/3092d0cfc445</a></p>
+<h4 id="nginx反向代理跨域"><a href="#nginx反向代理跨域" class="headerlink" title="nginx反向代理跨域"></a>nginx反向代理跨域</h4><p><a href="https://ask.csdn.net/questions/701009" target="_blank" rel="noopener">https://ask.csdn.net/questions/701009</a></p>
+<p><a href="https://www.imooc.com/article/72374?block_id=tuijian_wz" target="_blank" rel="noopener">nginx反向代理跨域基本配置与常见误区</a></p>
+<p><a href="https://www.hi-linux.com/posts/41743.html" target="_blank" rel="noopener">用 Nginx 反向代理机制解决前端跨域问题</a></p>
+<p><a href="https://www.linuxidc.com/Linux/2018-03/151469.htm" target="_blank" rel="noopener">使用Nginx反向代理处理前后端跨域访问</a></p>
+<p><a href="https://mengkang.net/488.html" target="_blank" rel="noopener">用 nginx proxy_pass 绕过跨域请求的问题</a></p>
+<p><a href="https://blog.csdn.net/ZHangFFYY/article/details/78494637" target="_blank" rel="noopener">nginx 中配置多个location并解决js/css/jpg/等的加载问题</a></p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p><a href="http://xxgblog.com/2015/05/17/nginx-start/" target="_blank" rel="noopener">http://xxgblog.com/2015/05/17/nginx-start/</a></p>
+<p><a href="https://blog.csdn.net/benimang/article/details/80518631" target="_blank" rel="noopener">https://blog.csdn.net/benimang/article/details/80518631</a></p>
+<p><a href="http://blog.51cto.com/13598893/2090726" target="_blank" rel="noopener">http://blog.51cto.com/13598893/2090726</a></p>
+<p>反代后静态资源404:</p>
+<p><a href="https://blog.csdn.net/zhanqixuan22/article/details/47107865" target="_blank" rel="noopener">https://blog.csdn.net/zhanqixuan22/article/details/47107865</a></p>
+<p><a href="http://lucyhao.com/2016/02/01/ngnix%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90404%E9%97%AE%E9%A2%98/" target="_blank" rel="noopener">http://lucyhao.com/2016/02/01/ngnix%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90404%E9%97%AE%E9%A2%98/</a></p>
+<h2 id="0x03-Summarization"><a href="#0x03-Summarization" class="headerlink" title="0x03 Summarization"></a>0x03 Summarization</h2><p>渐渐的，发现自己爱上了docker！（逃</p>
+<h2 id="0x04-References"><a href="#0x04-References" class="headerlink" title="0x04 References"></a>0x04 References</h2><p><a href="https://blog.fundebug.com/2017/05/15/write-excellent-dockerfile/" target="_blank" rel="noopener">如何编写最佳的Dockerfile</a></p>
+<p><a href="https://www.jianshu.com/p/df6d13187578" target="_blank" rel="noopener">申请 Let’s Encrypt 泛域名证书 及 Nginx/Apache 证书配置</a></p>
+</the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/2018/Study/1004091116-docker-website/">Docker建站——从入门到“放弃”</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>1,157</p>
+        <p><span class="post-count">Time:</span>6 mins</p>
+        <p><span>Created:</span>2018-10-04, 09:11:16</p>
+        <p><span>Updated:</span>2018-10-08, 00:08:15</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/2018/Study/1004091116-docker-website/" title="Docker建站——从入门到“放弃”">http://blog.karmaof.me/2018/Study/1004091116-docker-website/</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/2018/Study/1004091116-docker-website/　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2018/Study/cjmz26tr3000ap2s6lnapp8xh/">
+                    Code Audit Environment on Mac
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-preface"><span class="toc-text">0x01 preface</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-docker"><span class="toc-text">0x02 docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#dockerfile"><span class="toc-text">dockerfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker-compose"><span class="toc-text">docker-compose</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-nginx"><span class="toc-text">0x03 nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本知识"><span class="toc-text">基本知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨域"><span class="toc-text">跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CORS跨域"><span class="toc-text">CORS跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nginx反向代理跨域"><span class="toc-text">nginx反向代理跨域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反向代理"><span class="toc-text">反向代理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-Summarization"><span class="toc-text">0x03 Summarization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-References"><span class="toc-text">0x04 References</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Docker建站——从入门到“放弃”　| KarmA @ D0g3　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2018/Study/cjmz26tr3000ap2s6lnapp8xh/" title="Next: Code Audit Environment on Mac">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/Study/1004091116-docker-website/">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26tr3000ap2s6lnapp8xh/">Code Audit Environment on Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26ts7002kp2s6yis58o4k/">Vulnhub-GoldenEye 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trm000yp2s62dta5wgo/">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26ts9002np2s65fk67g9i/">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26tsa002qp2s6xrrrvfei/">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Life/cjmz26trn0011p2s629k43tdb/">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Life/cjmz26tsb002tp2s6l2h5p13g/">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Life/cjmz26tr8000ep2s6icfp4qrf/">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trl000vp2s6gc63bwzh/">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26ts0001zp2s6ilpcx03q/">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26ts20026p2s6h2yifnh7/">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trz001wp2s6oydockvi/">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trh000lp2s6lvxappld/">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trj000qp2s6v4qbw4o6/">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26try001up2s6i8c3cw5j/">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trs001dp2s6vdxio2um/">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trc000ip2s6lv7pnvu5/">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26tsd002zp2s63l15jdf2/">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Life/cjmz26ts6002gp2s6d1dtu8ig/">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trx001rp2s6nva6l0cv/">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26trp0016p2s6mjfcz9en/">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26ts5002dp2s6hedryfmb/">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26ts30029p2s6qo93je92/">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26ts10022p2s6ymkke4zq/">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Study/cjmz26tru001kp2s6zzwrfo8n/">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Life/cjmz26tr00008p2s6mjsww9ls/">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Life/cjmz26tr10009p2s6hrbzifq9/">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/Life/cjmz26tro0014p2s6uh2xgo4e/">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Life/1230105847-2017-films/">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Study/cjmz26tt3005up2s6hxievanq/">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Study/cjmz26tsc002wp2s6r8u4vizq/">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Study/cjmz26trr001ap2s644xd1245/">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Study/cjmz26trw001op2s6fkd1lpbd/">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Study/cjmz26trt001hp2s6obhjekfa/">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Life/cjmz26trk000sp2s6hcjh39hj/">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Life/cjmz26tr6000dp2s6euj6wkae/">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Study/1201160825-classes-ctf/">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Life/cjmz26tse0031p2s6qvkiwwb1/">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>83.9k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-120617453-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+<script type="text/javascript" src="/resources/emoji.js"></script>
+
+
+  </div>
+</body>
+</html>
