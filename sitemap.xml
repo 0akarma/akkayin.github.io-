@@ -2,282 +2,205 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.karmaof.me/Life/2018-books.html</loc>
-    
-    <lastmod>2018-10-08T11:37:42.675Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/2017-films.html</loc>
-    
-    <lastmod>2018-10-08T11:37:41.987Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/classes-ctf.html</loc>
-    
-    <lastmod>2018-10-08T11:37:40.003Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/code-audit-BEES-4-0.html</loc>
-    
-    <lastmod>2018-10-08T11:37:30.592Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/achievemens-in-CyberSec.html</loc>
-    
-    <lastmod>2018-10-08T11:37:23.242Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/feelings-xhssf.html</loc>
-    
-    <lastmod>2018-10-08T10:56:46.049Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/vulnhub-lazysysadmin.html</loc>
-    
-    <lastmod>2018-10-08T10:56:36.918Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/vulnhub-lampiao.html</loc>
-    
-    <lastmod>2018-10-08T10:56:33.207Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/vulnhub-goldeneye.html</loc>
-    
-    <lastmod>2018-10-08T10:56:28.202Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/be-grateful.html</loc>
-    
-    <lastmod>2018-10-08T10:56:22.548Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/sqli-labs.html</loc>
-    
-    <lastmod>2018-10-08T10:56:16.177Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/sql-injection-notes.html</loc>
-    
-    <lastmod>2018-10-08T10:56:11.461Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/sql-blind.html</loc>
-    
-    <lastmod>2018-10-08T10:56:06.794Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/sctf-2018.html</loc>
-    
-    <lastmod>2018-10-08T10:55:58.541Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/scrapy-warmup.html</loc>
-    
-    <lastmod>2018-10-08T10:55:53.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/spider-faster.html</loc>
-    
-    <lastmod>2018-10-08T10:55:44.577Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/redtiger.html</loc>
-    
-    <lastmod>2018-10-08T10:55:39.664Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/rapid-recurrence.html</loc>
-    
-    <lastmod>2018-10-08T10:55:34.896Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/python-notes.html</loc>
-    
-    <lastmod>2018-10-08T10:55:29.515Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/spider-notes.html</loc>
-    
-    <lastmod>2018-10-08T10:55:24.505Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/php-dangerfuncts.html</loc>
-    
-    <lastmod>2018-10-08T10:55:20.243Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/perceptions-jobs.html</loc>
-    
-    <lastmod>2018-10-08T10:55:13.304Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/mentohust-mac.html</loc>
-    
-    <lastmod>2018-10-08T10:54:38.591Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/mac-personal-settings.html</loc>
-    
-    <lastmod>2018-10-08T10:54:30.955Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/linux-learning.html</loc>
-    
-    <lastmod>2018-10-08T10:54:19.685Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/privilege-escalation.html</loc>
-    
-    <lastmod>2018-10-08T10:54:05.614Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/sophomore-flags.html</loc>
-    
-    <lastmod>2018-10-08T10:54:00.439Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/freshman-flags.html</loc>
-    
-    <lastmod>2018-10-08T10:53:54.548Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/docker-website.html</loc>
-    
-    <lastmod>2018-10-08T10:53:50.395Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/ctf-syb.html</loc>
-    
-    <lastmod>2018-10-08T10:53:42.579Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/codeaudit-environment-mac.html</loc>
-    
-    <lastmod>2018-10-08T10:53:38.087Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/seeyou2017.html</loc>
-    
-    <lastmod>2018-10-08T10:53:30.760Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/ballroom-e-youkoso.html</loc>
-    
-    <lastmod>2018-10-08T10:53:25.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/authentic-words.html</loc>
-    
-    <lastmod>2018-10-08T10:53:21.250Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/Amateur-OPS-CTFd.html</loc>
-    
-    <lastmod>2018-10-08T10:53:16.748Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/penetrating-courses.html</loc>
-    
-    <lastmod>2018-10-08T10:53:01.003Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/importance-of-backup.html</loc>
-    
-    <lastmod>2018-10-08T10:52:53.938Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/rewrite-pwnhub-subject.html</loc>
-    
-    <lastmod>2018-10-08T10:52:47.064Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/2018-films.html</loc>
-    
-    <lastmod>2018-10-08T10:51:48.213Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.karmaof.me/about/index.html</loc>
     
-    <lastmod>2018-10-05T05:55:21.651Z</lastmod>
+    <lastmod>2018-10-08T14:07:55.076Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/11/19/%E8%AE%BAMac%E5%A4%87%E4%BB%BD%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%3C-%E8%A1%80%E7%9A%84%E6%95%99%E8%AE%AD/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.075Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/26/%E6%B8%97%E9%80%8F%E8%AF%BE%E7%A8%8B/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.074Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/03/13/%E5%A4%8D%E7%8E%B0Pwnhub%E4%BC%9A%E5%91%98%E6%97%A5/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.073Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/20/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E5%AE%9E%E4%BE%8B-BEES-4-0-R-20160525/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.072Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/03/01/thanksgiving/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.071Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/02/05/sqlinjection-sqlilabs/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.070Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/01/28/sqlinjection-note/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.069Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/04/05/sql-blind/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.068Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/06/02/redtiger/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.067Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/04/03/rapid-recurrence/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.066Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/01/05/python/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.065Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/03/01/py3-spider/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.064Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/12/phpfunction/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.064Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/08/mentohust/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.063Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/01/04/linux/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.057Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/03/17/getshell/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.056Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/01/01/bye2017/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.055Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/02/19/ctf-syb/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.055Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/04/17/Scrapy-Exercises/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.054Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/16/authenticwords/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.054Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/04/24/Scrapy-Efficiency/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.053Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/04/Perception/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.052Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/03/16/Mac-Personal-Settings/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.051Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/03/Flaggs1/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.050Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/01/01/2018films/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.049Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/01/2017%E7%8F%AD%E7%BA%A7%E5%AF%B9%E6%8A%97%E8%B5%9BWP+%E5%BF%83%E5%BE%97/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2018/01/01/2018books/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/2017/12/30/2017films/</loc>
+    
+    <lastmod>2018-10-08T14:07:55.047Z</lastmod>
     
   </url>
   
