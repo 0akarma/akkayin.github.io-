@@ -2,23 +2,275 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.karmaof.me/2017/Life/1230105847-2017-films/</loc>
+    <loc>http://blog.karmaof.me/Life/feelings-xhssf.html</loc>
     
-    <lastmod>2018-10-07T16:11:25.454Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Study/1201160825-classes-ctf/</loc>
-    
-    <lastmod>2018-10-07T16:10:40.598Z</lastmod>
+    <lastmod>2018-10-08T10:56:46.049Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.karmaof.me/2018/Study/1004091116-docker-website/</loc>
+    <loc>http://blog.karmaof.me/Study/vulnhub-lazysysadmin.html</loc>
     
-    <lastmod>2018-10-07T16:08:15.497Z</lastmod>
+    <lastmod>2018-10-08T10:56:36.918Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/vulnhub-lampiao.html</loc>
+    
+    <lastmod>2018-10-08T10:56:33.207Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/vulnhub-goldeneye.html</loc>
+    
+    <lastmod>2018-10-08T10:56:28.202Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/be-grateful.html</loc>
+    
+    <lastmod>2018-10-08T10:56:22.548Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/sqli-labs.html</loc>
+    
+    <lastmod>2018-10-08T10:56:16.177Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/sql-injection-notes.html</loc>
+    
+    <lastmod>2018-10-08T10:56:11.461Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/sql-blind.html</loc>
+    
+    <lastmod>2018-10-08T10:56:06.794Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/sctf-2018.html</loc>
+    
+    <lastmod>2018-10-08T10:55:58.541Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/scrapy-warmup.html</loc>
+    
+    <lastmod>2018-10-08T10:55:53.274Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/spider-faster.html</loc>
+    
+    <lastmod>2018-10-08T10:55:44.577Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/redtiger.html</loc>
+    
+    <lastmod>2018-10-08T10:55:39.664Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/rapid-recurrence.html</loc>
+    
+    <lastmod>2018-10-08T10:55:34.896Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/python-notes.html</loc>
+    
+    <lastmod>2018-10-08T10:55:29.515Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/spider-notes.html</loc>
+    
+    <lastmod>2018-10-08T10:55:24.505Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/php-dangerfuncts.html</loc>
+    
+    <lastmod>2018-10-08T10:55:20.243Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/perceptions-jobs.html</loc>
+    
+    <lastmod>2018-10-08T10:55:13.304Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/mentohust-mac.html</loc>
+    
+    <lastmod>2018-10-08T10:54:38.591Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/mac-personal-settings.html</loc>
+    
+    <lastmod>2018-10-08T10:54:30.955Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/linux-learning.html</loc>
+    
+    <lastmod>2018-10-08T10:54:19.685Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/privilege-escalation.html</loc>
+    
+    <lastmod>2018-10-08T10:54:05.614Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/sophomore-flags.html</loc>
+    
+    <lastmod>2018-10-08T10:54:00.439Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/freshman-flags.html</loc>
+    
+    <lastmod>2018-10-08T10:53:54.548Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/docker-website.html</loc>
+    
+    <lastmod>2018-10-08T10:53:50.395Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/ctf-syb.html</loc>
+    
+    <lastmod>2018-10-08T10:53:42.579Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/codeaudit-environment-mac.html</loc>
+    
+    <lastmod>2018-10-08T10:53:38.087Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/seeyou2017.html</loc>
+    
+    <lastmod>2018-10-08T10:53:30.760Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/ballroom-e-youkoso.html</loc>
+    
+    <lastmod>2018-10-08T10:53:25.812Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/authentic-words.html</loc>
+    
+    <lastmod>2018-10-08T10:53:21.250Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/Amateur-OPS-CTFd.html</loc>
+    
+    <lastmod>2018-10-08T10:53:16.748Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/achievemens-in-CyberSec.html</loc>
+    
+    <lastmod>2018-10-08T10:53:08.289Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/penetrating-courses.html</loc>
+    
+    <lastmod>2018-10-08T10:53:01.003Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/importance-of-backup.html</loc>
+    
+    <lastmod>2018-10-08T10:52:53.938Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/rewrite-pwnhub-subject.html</loc>
+    
+    <lastmod>2018-10-08T10:52:47.064Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/code-audit-BEES-4-0.html</loc>
+    
+    <lastmod>2018-10-08T10:52:00.589Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/2018-films.html</loc>
+    
+    <lastmod>2018-10-08T10:51:48.213Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/2018-books.html</loc>
+    
+    <lastmod>2018-10-08T10:51:41.899Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/2017-films.html</loc>
+    
+    <lastmod>2018-10-08T10:51:37.879Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/classes-ctf.html</loc>
+    
+    <lastmod>2018-10-08T10:51:30.778Z</lastmod>
     
   </url>
   
@@ -30,259 +282,7 @@
   </url>
   
   <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26tr3000ap2s6lnapp8xh/</loc>
-    
-    <lastmod>2018-10-03T02:48:31.045Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trl000vp2s6gc63bwzh/</loc>
-    
-    <lastmod>2018-10-01T09:50:15.629Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26ts7002kp2s6yis58o4k/</loc>
-    
-    <lastmod>2018-10-01T07:57:42.251Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26tsa002qp2s6xrrrvfei/</loc>
-    
-    <lastmod>2018-10-01T07:06:53.165Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26ts9002np2s65fk67g9i/</loc>
-    
-    <lastmod>2018-09-22T12:23:29.136Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trm000yp2s62dta5wgo/</loc>
-    
-    <lastmod>2018-09-17T06:57:36.769Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26ts20026p2s6h2yifnh7/</loc>
-    
-    <lastmod>2018-08-25T05:06:09.547Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Life/cjmz26trn0011p2s629k43tdb/</loc>
-    
-    <lastmod>2018-08-20T12:40:57.685Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Life/cjmz26tsb002tp2s6l2h5p13g/</loc>
-    
-    <lastmod>2018-08-20T11:30:44.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Life/cjmz26tr6000dp2s6euj6wkae/</loc>
-    
-    <lastmod>2018-08-19T15:50:27.045Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Life/cjmz26tr8000ep2s6icfp4qrf/</loc>
-    
-    <lastmod>2018-07-14T01:14:41.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26ts0001zp2s6ilpcx03q/</loc>
-    
-    <lastmod>2018-06-24T16:22:45.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trs001dp2s6vdxio2um/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trc000ip2s6lv7pnvu5/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26tsd002zp2s63l15jdf2/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Life/cjmz26ts6002gp2s6d1dtu8ig/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trx001rp2s6nva6l0cv/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/tags/index.html</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26ts5002dp2s6hedryfmb/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26ts30029p2s6qo93je92/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26ts10022p2s6ymkke4zq/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26tru001kp2s6zzwrfo8n/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Life/cjmz26tr00008p2s6mjsww9ls/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Life/cjmz26tr10009p2s6hrbzifq9/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Life/cjmz26tro0014p2s6uh2xgo4e/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trz001wp2s6oydockvi/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Study/cjmz26tt3005up2s6hxievanq/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Study/cjmz26tsc002wp2s6r8u4vizq/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Study/cjmz26trr001ap2s644xd1245/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Study/cjmz26trw001op2s6fkd1lpbd/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Study/cjmz26trt001hp2s6obhjekfa/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Life/cjmz26trk000sp2s6hcjh39hj/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trh000lp2s6lvxappld/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trj000qp2s6v4qbw4o6/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2017/Life/cjmz26tse0031p2s6qvkiwwb1/</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.karmaof.me//404.html</loc>
-    
-    <lastmod>2018-06-15T00:24:10.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26try001up2s6i8c3cw5j/</loc>
     
     <lastmod>2018-06-15T00:24:10.000Z</lastmod>
     
@@ -296,7 +296,7 @@
   </url>
   
   <url>
-    <loc>http://blog.karmaof.me/2018/Study/cjmz26trp0016p2s6mjfcz9en/</loc>
+    <loc>http://blog.karmaof.me/tags/index.html</loc>
     
     <lastmod>2018-06-15T00:24:10.000Z</lastmod>
     
