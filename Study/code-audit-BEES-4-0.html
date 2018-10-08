@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fmu7a6tic6j308y01a3yc.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fmww1nf2i1j315q01at8m.jpg">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fmwwlehuvej308m01adfo.jpg">
-<meta property="og:updated_time" content="2018-10-08T10:52:00.589Z">
+<meta property="og:updated_time" content="2018-10-08T11:37:30.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码审计实例-BEES_4.0_R_20160525">
 <meta name="twitter:description" content="从0到1，从无到有…… 开始涉足代码审计，了解了一些敏感函数之后，是时候拿点实例来练练手了！">
@@ -427,7 +427,7 @@
         <p><span class="post-count">Words:</span>2,004</p>
         <p><span class="post-count">Time:</span>9 mins</p>
         <p><span>Created:</span>2017-12-20, 23:05:40</p>
-        <p><span>Updated:</span>2018-10-08, 18:52:00</p>
+        <p><span>Updated:</span>2018-10-08, 19:37:30</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/Study/code-audit-BEES-4-0.html" title="代码审计实例-BEES_4.0_R_20160525">http://blog.karmaof.me/Study/code-audit-BEES-4-0.html</a>
             <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/Study/code-audit-BEES-4-0.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -458,7 +458,45 @@
     </nav>
 
   
-  
+  <!-- 添加打赏功能 只在文章详情中显示-->
+
+
+<! -- 添加捐赠图标 -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           欣赏此文？求鼓励，求支持！
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- 方式一： 
+            ![](/img/Alipay.jpg)
+            ![](/img/WeChatpay.jpg)
+        -->
+        <!-- 方式二；
+            step1：在_config.yml中添加配置
+                Alipay: /img/Alipay.jpg
+                WeChatpay: /img/WeChatpay.jpg
+            step2：此处两张图片的路径分别设置为如下
+                <img src=""
+                <img src=""
+        -->
+        <!-- 二合一打赏图案 -->
+        <img src="/img/pay.jpg" alt="二合一打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- 添加捐赠图标 -->
+
+
 </article>
 
     <div id="toc" class="toc-article">

@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h5jcdqdj30ps0ton17.jpg">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fm1h5uvt0ij30k00qsdhe.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h67v3snj30na13gtjq.jpg">
-<meta property="og:updated_time" content="2018-10-08T10:51:30.778Z">
+<meta property="og:updated_time" content="2018-10-08T11:37:40.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017班级对抗赛WP&amp;心得">
 <meta name="twitter:description" content="​    Geek 之后又来了一波班级对抗赛，成绩不是最重要的，主要是想见见世面，涨涨见识。知己知彼，百战不殆嘛！">
@@ -481,7 +481,7 @@
         <p><span class="post-count">Words:</span>2,912</p>
         <p><span class="post-count">Time:</span>12 mins</p>
         <p><span>Created:</span>2017-12-01, 16:08:25</p>
-        <p><span>Updated:</span>2018-10-08, 18:51:30</p>
+        <p><span>Updated:</span>2018-10-08, 19:37:40</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/Study/classes-ctf.html" title="2017班级对抗赛WP&amp;心得">http://blog.karmaof.me/Study/classes-ctf.html</a>
             <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/Study/classes-ctf.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -512,7 +512,45 @@
     </nav>
 
   
-  
+  <!-- 添加打赏功能 只在文章详情中显示-->
+
+
+<! -- 添加捐赠图标 -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           欣赏此文？求鼓励，求支持！
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- 方式一： 
+            ![](/img/Alipay.jpg)
+            ![](/img/WeChatpay.jpg)
+        -->
+        <!-- 方式二；
+            step1：在_config.yml中添加配置
+                Alipay: /img/Alipay.jpg
+                WeChatpay: /img/WeChatpay.jpg
+            step2：此处两张图片的路径分别设置为如下
+                <img src=""
+                <img src=""
+        -->
+        <!-- 二合一打赏图案 -->
+        <img src="/img/pay.jpg" alt="二合一打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- 添加捐赠图标 -->
+
+
 </article>
 
     <div id="toc" class="toc-article">

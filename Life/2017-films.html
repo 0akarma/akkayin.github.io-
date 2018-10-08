@@ -24,7 +24,7 @@
 <meta property="og:description" content="之前有些看的都已经忘记了～趁元旦有些许空档，就补了几部电影～">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fmyp5bfnt2j30fe0bkgmb.jpg">
-<meta property="og:updated_time" content="2018-10-08T10:51:37.879Z">
+<meta property="og:updated_time" content="2018-10-08T11:37:41.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017-films">
 <meta name="twitter:description" content="之前有些看的都已经忘记了～趁元旦有些许空档，就补了几部电影～">
@@ -317,7 +317,7 @@
         <p><span class="post-count">Words:</span>182</p>
         <p><span class="post-count">Time:</span>1 mins</p>
         <p><span>Created:</span>2017-12-30, 10:58:47</p>
-        <p><span>Updated:</span>2018-10-08, 18:51:37</p>
+        <p><span>Updated:</span>2018-10-08, 19:37:41</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/Life/2017-films.html" title="2017-films">http://blog.karmaof.me/Life/2017-films.html</a>
             <span class="copy-path" data-clipboard-text="From http://blog.karmaof.me/Life/2017-films.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -348,7 +348,45 @@
     </nav>
 
   
-  
+  <!-- 添加打赏功能 只在文章详情中显示-->
+
+
+<! -- 添加捐赠图标 -->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           ↑<br>
+           欣赏此文？求鼓励，求支持！
+        </span>
+        <br>
+      </div>  
+    <div id="donate_guide" class="donate_bar center hidden" >
+        <!-- 方式一： 
+            ![](/img/Alipay.jpg)
+            ![](/img/WeChatpay.jpg)
+        -->
+        <!-- 方式二；
+            step1：在_config.yml中添加配置
+                Alipay: /img/Alipay.jpg
+                WeChatpay: /img/WeChatpay.jpg
+            step2：此处两张图片的路径分别设置为如下
+                <img src=""
+                <img src=""
+        -->
+        <!-- 二合一打赏图案 -->
+        <img src="/img/pay.jpg" alt="二合一打赏">
+    </div>
+    <script type="text/javascript">
+        document.getElementById('btn_donate').onclick = function(){
+            $('#donate_board').addClass('hidden');
+            $('#donate_guide').removeClass('hidden');
+        }
+    </script>
+</div>
+<! -- 添加捐赠图标 -->
+
+
 </article>
 
     <div id="toc" class="toc-article">

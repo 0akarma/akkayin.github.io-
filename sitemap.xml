@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.karmaof.me/Life/2018-books.html</loc>
+    
+    <lastmod>2018-10-08T11:37:42.675Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Life/2017-films.html</loc>
+    
+    <lastmod>2018-10-08T11:37:41.987Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/classes-ctf.html</loc>
+    
+    <lastmod>2018-10-08T11:37:40.003Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/code-audit-BEES-4-0.html</loc>
+    
+    <lastmod>2018-10-08T11:37:30.592Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.karmaof.me/Study/achievemens-in-CyberSec.html</loc>
+    
+    <lastmod>2018-10-08T11:37:23.242Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.karmaof.me/Life/feelings-xhssf.html</loc>
     
     <lastmod>2018-10-08T10:56:46.049Z</lastmod>
@@ -212,13 +247,6 @@
   </url>
   
   <url>
-    <loc>http://blog.karmaof.me/Study/achievemens-in-CyberSec.html</loc>
-    
-    <lastmod>2018-10-08T10:53:08.289Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.karmaof.me/Study/penetrating-courses.html</loc>
     
     <lastmod>2018-10-08T10:53:01.003Z</lastmod>
@@ -240,37 +268,9 @@
   </url>
   
   <url>
-    <loc>http://blog.karmaof.me/Study/code-audit-BEES-4-0.html</loc>
-    
-    <lastmod>2018-10-08T10:52:00.589Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.karmaof.me/Life/2018-films.html</loc>
     
     <lastmod>2018-10-08T10:51:48.213Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/2018-books.html</loc>
-    
-    <lastmod>2018-10-08T10:51:41.899Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Life/2017-films.html</loc>
-    
-    <lastmod>2018-10-08T10:51:37.879Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.karmaof.me/Study/classes-ctf.html</loc>
-    
-    <lastmod>2018-10-08T10:51:30.778Z</lastmod>
     
   </url>
   
@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>http://blog.karmaof.me/board/index.html</loc>
+    <loc>http://blog.karmaof.me/tags/index.html</loc>
     
     <lastmod>2018-06-15T00:24:10.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.karmaof.me/tags/index.html</loc>
+    <loc>http://blog.karmaof.me/board/index.html</loc>
     
     <lastmod>2018-06-15T00:24:10.000Z</lastmod>
     
