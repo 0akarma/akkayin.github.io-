@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="vps利用率一直都不是很高，所以花点时间把博客搭在vps上，加快一下国内访问速度">
+<meta name="keywords" content="Summary,Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在vps上搭建Hexo博客">
+<meta property="og:url" content="http://blog.0akarma.me/Study/hero-vps.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="vps利用率一直都不是很高，所以花点时间把博客搭在vps上，加快一下国内访问速度">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-12T02:00:46.158Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何在vps上搭建Hexo博客">
+<meta name="twitter:description" content="vps利用率一直都不是很高，所以花点时间把博客搭在vps上，加快一下国内访问速度">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>如何在vps上搭建Hexo博客 | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?af7140fc2364ae33aedfd77c0de502e1";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-hexo-vps" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Study/hero-vps.html" class="article-date">
+      <time datetime="2018-10-12T01:25:26.000Z" itemprop="datePublished">2018-10-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      如何在vps上搭建Hexo博客
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>vps利用率一直都不是很高，所以花点时间把博客搭在vps上，加快一下国内访问速度<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近一直在玩docker，所以博客自然也是在docker下搭的～本来想用dockerfile，但是后来发现手动设置的东西太多了，就懒得自动化了，还是老老实实手动配置好了～～</p>
+<h2 id="辛酸史"><a href="#辛酸史" class="headerlink" title="辛酸史"></a>辛酸史</h2><p>结合了很多大佬的教程，自己总结出重（踩）要（坑）的地方……</p>
+<p>如果是用docker搭，首先run的时候要开启容器防火墙，加上参数<code>--privileged=true</code>即可。</p>
+<h3 id="0x01-建立裸库"><a href="#0x01-建立裸库" class="headerlink" title="0x01 建立裸库"></a>0x01 建立裸库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/repo</span><br><span class="line">git init --bare /var/repo/zwb.io.git</span><br></pre></td></tr></table></figure>
+<h3 id="0x02-建立网站文件夹"><a href="#0x02-建立网站文件夹" class="headerlink" title="0x02 建立网站文件夹"></a>0x02 建立网站文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /var/www/</span><br><span class="line">mkdir /var/www/blog <span class="comment"># 放置博客文件</span></span><br><span class="line">mkdir /var/www/zwb.io</span><br></pre></td></tr></table></figure>
+<h3 id="0x03-修改nginx配置文件"><a href="#0x03-修改nginx配置文件" class="headerlink" title="0x03 修改nginx配置文件"></a>0x03 修改nginx配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">rm /etc/nginx/conf.d/default.conf <span class="comment"># 删除默认配置文件</span></span><br><span class="line">vi web.conf</span><br><span class="line"><span class="comment"># 复制下面代码进conf配置文件中，root指向放置博客的目录，server_name填自己的域名</span></span><br><span class="line">server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        root /var/www/blog;</span><br><span class="line">        index index.html index.htm index.nginx-debian.html;</span><br><span class="line">        server_name blog.0akarma.me;</span><br><span class="line">        location / &#123;</span><br><span class="line">                <span class="comment"># First attempt to serve request as file, then</span></span><br><span class="line">                <span class="comment"># as directory, then fall back to displaying a 404.</span></span><br><span class="line">                try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~* ^.+\.(css|js|txt|xml|swf|wav)$ &#123;</span><br><span class="line">                root /var/www/blog;</span><br><span class="line">                access_log   off;</span><br><span class="line">                expires      10m;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ &#123;</span><br><span class="line">                root /var/www/blog;</span><br><span class="line">                access_log   off;</span><br><span class="line">                expires      1d;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最后还可以检查一下配置是否正确</span></span><br><span class="line">nginx -t </span><br><span class="line"><span class="comment"># 重启nginx</span></span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+<h3 id="0x04-配置git钩子"><a href="#0x04-配置git钩子" class="headerlink" title="0x04 配置git钩子"></a>0x04 配置git钩子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /var/repo/zwb.io.git/hooks/post-receive</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将下面的两行代码粘贴进post-receive文件中，前面的是博客目录，后面是仓库目录</span></span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git --work-tree=/var/www/blog --git-dir=/var/repo/akkayin.github.io-.git checkout -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存之后，执行下面命令</span></span><br><span class="line">chmod +x /var/repo/akkayin.github.io-.git/hooks/post-receive</span><br></pre></td></tr></table></figure>
+<h3 id="0x05-创建git用户"><a href="#0x05-创建git用户" class="headerlink" title="0x05 创建git用户"></a>0x05 创建git用户</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">useradd -d /home/git -m git</span><br><span class="line">chmod 740 /etc/sudoers</span><br><span class="line">vim /etc/sudoers</span><br><span class="line"><span class="comment"># 在 root All=(ALL) ALL 后面追加</span></span><br><span class="line">git     ALL=(ALL)       ALL</span><br><span class="line"><span class="comment"># 保存退出后</span></span><br><span class="line">chmod 400 /etc/sudoers</span><br><span class="line"></span><br><span class="line">sudo chown git:git /var/www/blog</span><br><span class="line">sudo chown -R git:git /var/repo/akkayin.github.io-.git</span><br></pre></td></tr></table></figure>
+<h3 id="0x06-设置ssh-key"><a href="#0x06-设置ssh-key" class="headerlink" title="0x06 设置ssh-key"></a>0x06 设置ssh-key</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成ssh-key</span></span><br><span class="line">ssh-keygen -t rsa -f ~/.ssh/id_rsa_vps -C <span class="string">"yourmail@xxx.com"</span> <span class="comment"># 本机执行</span></span><br><span class="line">cat ~/.ssh/id_rsa_vps.pub <span class="comment"># 复制本机的公钥到服务器的authorized_keys中</span></span><br><span class="line">vi ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置验证 （⬇️本机执行）</span></span><br><span class="line">vim ~/.ssh/config</span><br><span class="line"><span class="comment"># 将下面5行复制进config中</span></span><br><span class="line"><span class="comment"># two</span></span><br><span class="line">Host yourIp</span><br><span class="line">HostName yourIp </span><br><span class="line">User git</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_vps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置ssh设置 （⬇️服务器执行）</span></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="comment"># 复制下面5行</span></span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile      .ssh/authorized_keys</span><br><span class="line">PermitRootLogin yes <span class="comment"># 允许 root 用户 SSH 登陆</span></span><br><span class="line">PasswordAuthentication no <span class="comment"># 禁用密码登陆</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置权限</span></span><br><span class="line">chmod 700 ~/.ssh</span><br><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务 </span></span><br><span class="line">service sshd restart</span><br><span class="line"><span class="comment"># 尝试手动ssh看看配置是否正常</span></span><br><span class="line"><span class="comment"># 如果出现connection refused，检查防火墙端口，以及是否安装sshd</span></span><br><span class="line">ssh -v git@yourIp -p yourPort</span><br></pre></td></tr></table></figure>
+<h3 id="0x07-更改博客配置文件-config-yml"><a href="#0x07-更改博客配置文件-config-yml" class="headerlink" title="0x07 更改博客配置文件_config.yml"></a>0x07 更改博客配置文件_config.yml</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/akkayin/akkayin.github.io-.git</span> <span class="comment"># github仓库</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">- type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="attr">ssh://git@yourIp:yourPort/var/repo/akkayin.github.io-.git</span> <span class="comment"># 裸库目录</span></span><br><span class="line"><span class="attr">  branch:</span> <span class="string">master</span>                            </span><br><span class="line"><span class="attr">  message:</span></span><br></pre></td></tr></table></figure>
+<h3 id="0x08-修改git权限"><a href="#0x08-修改git权限" class="headerlink" title="0x08 修改git权限"></a>0x08 修改git权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br><span class="line"></span><br><span class="line">git:x:1003:1003:,,,:/home/git:/bin/bash <span class="comment"># 将⬅️改成⬇️，只需复制/home后面的即可</span></span><br><span class="line">git:x:1003:1003:,,,:/home/git:/usr/bin/git-shell <span class="comment">#这样git就只能使用git-shell而不能使用bash。</span></span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="http://zwb.io/p/6612.html" target="_blank" rel="noopener">使用 VPS 让 Hexo 博客快的飞起</a></p>
+<p><a href="https://www.vhyz.me/2018/06/09/hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0github%E5%92%8CVPS%E4%B8%8A/index.html" target="_blank" rel="noopener">hexo博客同时部署到github和VPS上</a></p>
+<p><a href="https://www.linuxidc.com/Linux/2017-11/148586.htm" target="_blank" rel="noopener">CentOS SSH提示：connect to host centos-py port 22: Connection refused</a></p>
+<p><a href="https://blog.csdn.net/u011704394/article/details/54599727" target="_blank" rel="noopener">docker 容器防火墙设置</a></p>
+</the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/Study/hero-vps.html">如何在vps上搭建Hexo博客</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>903</p>
+        <p><span class="post-count">Time:</span>4 mins</p>
+        <p><span>Created:</span>2018-10-12, 09:25:26</p>
+        <p><span>Updated:</span>2018-10-12, 10:00:46</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/Study/hero-vps.html" title="如何在vps上搭建Hexo博客">http://blog.0akarma.me/Study/hero-vps.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/hero-vps.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/Study/code-audit-mac.html">
+                    Mac下代码审计环境配置
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+    
+    <div style="padding: 0; margin: 20px auto; width: 90%; text-align: center;">
+      <br>
+      <div>如果觉得文章海星，那就打赏一下吧！</div>
+      <br>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <div class="btn btn-pay">打赏支持</div>
+      </button>
+      <br>
+      <br>
+      <div id="QR" style="display: none;">
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/img/pay.jpg" alt="KarmA Alipay"/>
+            <p>二合一打赏</p>
+          </div>
+        
+        <br>
+        <br>
+      </div>
+    </div>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#辛酸史"><span class="toc-text">辛酸史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-建立裸库"><span class="toc-text">0x01 建立裸库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-建立网站文件夹"><span class="toc-text">0x02 建立网站文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-修改nginx配置文件"><span class="toc-text">0x03 修改nginx配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x04-配置git钩子"><span class="toc-text">0x04 配置git钩子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x05-创建git用户"><span class="toc-text">0x05 创建git用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x06-设置ssh-key"><span class="toc-text">0x06 设置ssh-key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x07-更改博客配置文件-config-yml"><span class="toc-text">0x07 更改博客配置文件_config.yml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x08-修改git权限"><span class="toc-text">0x08 修改git权限</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="Back to Homepage"><i class="fa fa-home"></i></a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/Study/code-audit-mac.html" title="Next: Mac下代码审计环境配置">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Study/hero-vps.html">如何在vps上搭建Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-mac.html">Mac下代码审计环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/docker-website.html">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-goldeneye.html">GoldenEye:1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/amateur-ops-ctfd.html">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lampião.html">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lazySysAdmin.html">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/ballroom-e-youkoso.html">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/feelings-xhssf.html">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/sophomore-flags.html">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/achievement.html">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scff-2018.html">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-blind.html">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/red-tiger.html">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider.html">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scrapy.html">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rapid-recurrence.html">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/privilege-escalation.html">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mac-settings.html">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rewrite-pwnhub-subject.html">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/be-grateful.html">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-notes.html">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/ctf-syb.html">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-injection.html">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/python-notes.html">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/linux-learning.html">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-books.html">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-films.html">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/bye2017.html">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2017-films.html">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/penetrating-courses.html">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-bees4.html">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/authentic-words.html">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mentohust.html">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/perceptions-stave-jobs.html">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/freshman-flags.html">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/2017-classes-ctf.html">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/importance-backup.html">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>85.2k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+    
+  <script type="text/javascript" src="/js/emoji.js"></script>
+</body>
+</html>

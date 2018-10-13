@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="开始涉足代码审计，将自己的一些笔记记录下来！">
+<meta name="keywords" content="Summary,代码审计,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP常见危险函数及特殊函数Summary">
+<meta property="og:url" content="http://blog.0akarma.me/Study/php-dangerfuncts.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="开始涉足代码审计，将自己的一些笔记记录下来！">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-09T15:29:36.372Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP常见危险函数及特殊函数Summary">
+<meta name="twitter:description" content="开始涉足代码审计，将自己的一些笔记记录下来！">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>PHP常见危险函数及特殊函数Summary | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?af7140fc2364ae33aedfd77c0de502e1";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-phpfunction" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Study/php-dangerfuncts.html" class="article-date">
+      <time datetime="2017-12-12T09:50:17.000Z" itemprop="datePublished">2017-12-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP常见危险函数及特殊函数Summary
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>开始涉足代码审计，将自己的一些笔记记录下来！<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+
+
+<h2 id="PHP代码执行函数"><a href="#PHP代码执行函数" class="headerlink" title="PHP代码执行函数"></a>PHP代码执行函数</h2><h3 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h3><p><strong><em>Grammar:</em></strong>     eval(phpcode)</p>
+<p>eval() 函数把字符串按照 PHP 代码来计算。</p>
+<p>该字符串必须是‘合法的 PHP 代码’，且必须以‘分号’结尾。</p>
+<p>如果没有在代码字符串中调用 return 语句，则返回 NULL。如果代码中存在解析错误，则 eval() 函数返回 false。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$string = <span class="string">"beautiful"</span>;</span><br><span class="line">$time = <span class="string">"winter"</span>;</span><br><span class="line"></span><br><span class="line">$str = <span class="string">'This is a $string $time morning!'</span>;</span><br><span class="line"><span class="keyword">echo</span> $str. <span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">eval</span>(<span class="string">"\$str = \"$str\";"</span>); <span class="comment">/*一定要用\转义，不然会出现语法错误 */</span></span><br><span class="line"><span class="keyword">echo</span> $str;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">/* eval 还可以实现</span></span><br><span class="line"><span class="comment">  1.运行普通字符串 eg:	eval("echo 'aaa';")</span></span><br><span class="line"><span class="comment">  2.运行带&lt;? php开头的字符串</span></span><br><span class="line"><span class="comment">  3.运行&lt;? Php开头，?&gt;结尾的字符串</span></span><br><span class="line"><span class="comment">  4，运行HTML与PHP混合的字符串</span></span><br><span class="line"><span class="comment">  5.从MySQL读取代码（字符串形式），并动态加载</span></span><br><span class="line"><span class="comment">  6.运行包含include和request的代码</span></span><br><span class="line"><span class="comment">  7.知道运行的过程是否出现异常（但无法捕捉到详细异常信息）</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="assert"><a href="#assert" class="headerlink" title="assert"></a>assert</h3><p>assert函数在php中用于判断一个表达式是否成立。返回bool；</p>
+<p><strong><em>Grammar:</em></strong>     </p>
+<p>PHP 5</p>
+<figure class="highlight plain"><figcaption><span>**assert** ( [mixed $assertion [, string $description ] )</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool assert ( mixed $assertion [, string $description ] )</span><br></pre></td></tr></table></figure>
+<p>PHP 7</p>
+<figure class="highlight plain"><figcaption><span>assert ( mixed $assertion [, Throwable $exception ] )</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool assert ( mixed $assertion [, Throwable $exception ] )</span><br></pre></td></tr></table></figure>
+<p><code>mixed</code> 说明一个参数可以接受多种不同的（但不一定是所有的）类型。</p>
+<p>例如 <a href="http://php.net/manual/zh/function.gettype.php" target="_blank" rel="noopener">gettype()</a> 可以接受所有的 PHP 类型，<a href="http://php.net/manual/zh/function.str-replace.php" target="_blank" rel="noopener">str_replace()</a> 可以接受字符串和数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$s = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">echo</span> assert(<span class="string">"is_int($s)"</span>);</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="comment">//	1 [Finished in 0.0s]</span></span><br></pre></td></tr></table></figure>
+<p>从这个例子可以看到字符串参数会被执行，这跟eval()类似。不过eval($code_str)只是执行符合php编码规范的$code_str。<br>assert的用法却更详细一点。</p>
+<p>assert_option()可以用来对assert()进行一些约束和控制;</p>
+<blockquote>
+<p>默认值</p>
+<blockquote>
+<p>ASSERT_ACTIVE=1 //Assert函数的开关<br>ASSERT_WARNING =1 //当表达式为false时，是否要输出警告性的错误提示,issue a PHP warning for each failed assertion<br>ASSERT_BAIL= 0 //是否要中止运行；terminate execution on failed assertions<br>ASSERT_QUIET_EVAL= 0 //是否关闭错误提示，在执行表达式时；disable error_reporting during assertion expression evaluation<br>ASSERT_CALLBACK= (NULL) // 是否启动回调函数 user function to call on failed assertions</p>
+</blockquote>
+</blockquote>
+<h3 id="preg-replace-’-e’"><a href="#preg-replace-’-e’" class="headerlink" title="preg_replace +’/e’"></a>preg_replace +’/e’</h3><p>preg_replace — 执行一个正则表达式的搜索和替换</p>
+<p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed preg_replace ( mixed $pattern , mixed $replacement , mixed $subject [, int $limit = -1 [, int &amp;$count ]] )</span><br></pre></td></tr></table></figure>
+<p>搜索<code>subject</code>中匹配<code>pattern</code>的部分（通常用正则匹配）， 以<code>replacement</code>进行替换。</p>
+<p>/e 修正符使preg_replace()将replacement 参数当作php代码执行，但是php5.5.0以及后面的php7都已经不再支持了，用 <a href="http://php.net/manual/zh/function.preg-replace-callback.php" target="_blank" rel="noopener">preg_replace_callback()</a> 代替。</p>
+<h3 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string create_function (string $args,string $code)</span><br></pre></td></tr></table></figure>
+<p>创建一个匿名函数，但不是真正的匿名函数，因为它返回值为函数名</p>
+<p>$args 代表参数，多个参数用逗号分隔，</p>
+<p>$code 代表函数体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">func2=create_function(&quot;$args1,$args2&quot;,&quot;return $args1+$args2&quot;);</span><br><span class="line">返回值为创建的函数名，是唯一的一个字符串</span><br><span class="line">函数调用</span><br><span class="line">func2(3,5);  //返回值为8</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>创建函数有两种方式：</p>
+<p>1.使用<strong>function</strong>关键字</p>
+<p>2.用<strong>string create_function (string $args,string $code)</strong></p>
+<blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;$cfunc = create_function(<span class="string">'$v'</span>, <span class="string">'return system($v);'</span>);</span><br><span class="line">&gt;&gt;$cfunc = (<span class="string">'whoami'</span>);</span><br><span class="line">&gt;&gt;<span class="comment">//上下两者创建匿名函数的方式不同，但是结果一样</span></span><br><span class="line">&gt;&gt;$cfunc = <span class="string">'sys'</span>.<span class="string">'tem'</span>;<span class="comment">//用'.'来拼接</span></span><br><span class="line">&gt;&gt;$cfunc = (<span class="string">'whoami'</span>);</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>两种定义函数方式的区别</p>
+<p><strong>function定义的函数是在编译阶段生成的</strong></p>
+<p><strong>create_function创建的函数是在执行阶段生成的</strong></p>
+<p><strong>所以，可以在function定义的函数定义之前或则之后调用它。</strong></p>
+</blockquote>
+<h3 id="callable"><a href="#callable" class="headerlink" title="callable"></a>callable</h3><p>call_user_func_array()  和。call_user_func()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">($v1)</span></span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"testing $v1"</span>;</span><br><span class="line">&#125;</span><br><span class="line">call_user_func(<span class="string">'test'</span>,<span class="string">'karma'</span>);</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"><span class="comment">//输出 testing karma</span></span><br><span class="line"><span class="comment">//若为function test(callable $v1) 强制回调类型，则会出现错误 （why？）</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<h3 id="array-map"><a href="#array-map" class="headerlink" title="array_map"></a>array_map</h3><h2 id="包含函数"><a href="#包含函数" class="headerlink" title="包含函数"></a>包含函数</h2><h3 id="include"><a href="#include" class="headerlink" title="include"></a>include</h3><p>include如果引入的文件不存在,试图继续往下执行,报一个warning<br>(如果你不介意之前的内容是否被包含，之后的内容都要执行，就使用include)</p>
+<p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span> $file;</span><br></pre></td></tr></table></figure>
+<p>在变量$file 可控的情况下，我们就可以包含任意文件。</p>
+<p>由于配置环境不同，可以分为<strong>远程文件</strong>和<strong>本地文件</strong>包含。</p>
+<p>包含函数也能读取任意文件内容，需要用到【支持的协议和封装协议】和【过滤器】</p>
+<p>eg:用php留filter读取任意文件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include</span>($_GET[<span class="string">'file'</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//?file=php://filter/convert.base64-encode/resource=index.php</span></span><br></pre></td></tr></table></figure>
+<h3 id="require"><a href="#require" class="headerlink" title="require"></a>require</h3><p>比include更严谨：</p>
+<p>require如果引入的文件不存在,报fatal error,不再继续执行.<br>(如果之前的内容一定要被包含，才允许继续执行之后的代码，就使用require)</p>
+<p><em>Include/require 与 include_once /require_once的区别</em></p>
+<p><em>_once 会自动判断文件是否已经引入,如果引入,不再重复执行.</em><br><em>即:保证被包含文件只可能被引入一次.</em><br><em>(如果包含的文件里有定义函数，那么被包含的文件只能被包含一次，如果多次包含，就会出现函数重定义的错误，php是不运行函数重定义的，会出现致命错误，之后代码不在运行)</em></p>
+<h3 id="allow-url-include-on"><a href="#allow-url-include-on" class="headerlink" title="allow_url_include = on"></a>allow_url_include = on</h3><p>远程文件包含</p>
+<h2 id="命令执行函数"><a href="#命令执行函数" class="headerlink" title="命令执行函数"></a>命令执行函数</h2><h3 id="exec"><a href="#exec" class="headerlink" title="exec()"></a>exec()</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">exec</span><span class="params">(string $command,array[optional] $output,int[optional] $return_value)</span></span></span><br></pre></td></tr></table></figure>
+<p>执行一个外部程序</p>
+<p>exec 执行系统外部命令时不会输出结果，而是返回结果的最后一行，如果你想得到结果你可以使用第二个参数，让其输出到指定的数组，此数组一个记录代表输出的一行，即如果输出结果有20行，则这个数组就有20条记录，所以如果你需要反复输出调用不同系统外部命令的结果，你最好在输出每一条系统外部命令结果时清空这个数组，以防混乱。第三个参数用来取得命令执行的状态码，通常执行成功都是返回０。</p>
+<h3 id="passthru"><a href="#passthru" class="headerlink" title="passthru()"></a>passthru()</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">passthru</span><span class="params">(string $command,int[optional] $return_value)</span></span></span><br></pre></td></tr></table></figure>
+<p>执行外部程序并且显示原始输出</p>
+<p>passthru与system的区别，passthru直接将结果输出到浏览器，不需要使用 echo 或 return 来查看结果，不返回任何值，且其可以输出二进制，比如图像数据。</p>
+<h3 id="proc-open"><a href="#proc-open" class="headerlink" title="proc_open()"></a>proc_open()</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resource proc_open ( string $cmd , <span class="keyword">array</span> $descriptorspec , <span class="keyword">array</span> &amp;$pipes [, string $cwd [, <span class="keyword">array</span> $env [, <span class="keyword">array</span> $other_options ]]] )</span><br></pre></td></tr></table></figure>
+<p>执行一个命令，并且打开用来输入/输出的文件指针</p>
+<h3 id="shell-exec-amp"><a href="#shell-exec-amp" class="headerlink" title="shell_exec()&amp;"></a>shell_exec()&amp;<code></code></h3><p>shell_exec() 函数实际上仅是反撇号 (`) 操作符的变体</p>
+<p>通过shell环境执行命令，并且将完整的输出以字符串的方式返回。</p>
+<h3 id="system"><a href="#system" class="headerlink" title="system()"></a>system()</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">system</span><span class="params">(string $command,int[optional] $return_value)</span></span></span><br></pre></td></tr></table></figure>
+<p>执行外部程序，并且显示输出</p>
+<p>system和exec的区别在于system在执行系统外部命令时，直接将结果输出到浏览器，不需要使用 echo 或 return 来查看结果，如果执行命令成功则返回true，否则返回false。第二个参数与exec第三个参数含义一样。</p>
+<h3 id="popen"><a href="#popen" class="headerlink" title="popen()"></a>popen()</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">popen(command,mode)</span><br></pre></td></tr></table></figure>
+<p>通过popen()的参数传递一条命令，并对popen()所打开的文件进行执行。</p>
+<h3 id="fcntl-exec"><a href="#fcntl-exec" class="headerlink" title="fcntl_exec()"></a>fcntl_exec()</h3><h3 id="ob-start"><a href="#ob-start" class="headerlink" title="ob_start()"></a>ob_start()</h3><h3 id="escapeshellcmd"><a href="#escapeshellcmd" class="headerlink" title="escapeshellcmd()"></a>escapeshellcmd()</h3><p>// 该函数用于过滤</p>
+<p>……</p>
+<h2 id="文件操作函数"><a href="#文件操作函数" class="headerlink" title="文件操作函数"></a>文件操作函数</h2><h3 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copy(source,destination)</span><br></pre></td></tr></table></figure>
+<p>拷贝文件</p>
+<h3 id="file-get-contents"><a href="#file-get-contents" class="headerlink" title="file_get contents"></a>file_get contents</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file_get_contents(path,include_path,context,start,max_length)</span><br></pre></td></tr></table></figure>
+<p>将整个文件读入一个字符串</p>
+<h3 id="file-put-contents"><a href="#file-put-contents" class="headerlink" title="file_put contents"></a>file_put contents</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file_put_contents(file,data,mode,context)</span><br></pre></td></tr></table></figure>
+<p>将一个字符串写入文件</p>
+<h3 id="file"><a href="#file" class="headerlink" title="file"></a>file</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file(path,include_path,context)</span><br></pre></td></tr></table></figure>
+<p>把整个文件读入一个数组中</p>
+<h3 id="fopen"><a href="#fopen" class="headerlink" title="fopen"></a>fopen</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fopen(filename,mode,include_path,context)</span><br></pre></td></tr></table></figure>
+<p>打开文件或者url</p>
+<h3 id="move-uploaded-file"><a href="#move-uploaded-file" class="headerlink" title="move_uploaded_file"></a>move_uploaded_file</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">move_uploaded_file(file,newloc)</span><br></pre></td></tr></table></figure>
+<p>将上传的文件移动到新的位置</p>
+<h3 id="readfile"><a href="#readfile" class="headerlink" title="readfile"></a>readfile</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readfile(filename,include_path,context)</span><br></pre></td></tr></table></figure>
+<p>输出文件</p>
+<h3 id="rename"><a href="#rename" class="headerlink" title="rename"></a>rename</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rename(oldname,newname,context)</span><br></pre></td></tr></table></figure>
+<p>重命名一个文件或目录</p>
+<h3 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir(dir,context)</span><br></pre></td></tr></table></figure>
+<p>删除目录</p>
+<h3 id="unlink-amp-delete"><a href="#unlink-amp-delete" class="headerlink" title="unlink &amp; delete"></a>unlink &amp; delete</h3><p><strong><em>Grammar:</em></strong> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unlink(filename,context)</span><br></pre></td></tr></table></figure>
+<p>删除文件</p>
+<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><blockquote>
+<p>hightlight_file($filename);<br>show_source($filename);<br>print_r(php_strip_whitespace($filename));<br>print_r(file_get_contents($filename));<br>readfile($filename);<br>print_r(file($filename)); // var_dump<br>fread(fopen(filename,”r”),filename,”r”),size);<br>include($filename); // 非php代码<br>include_once($filename); // 非php代码<br>require($filename); // 非php代码<br>require_once($filename); // 非php代码<br>print_r(fread(popen(“cat flag”, “r”), $size));<br>print_r(fgets(fopen($filename, “r”))); // 读取一行<br>fpassthru(fopen($filename, “r”)); // 从当前位置一直读取到 EOF<br>print_r(fgetcsv(fopen(filename,”r”),filename,”r”),size));<br>print_r(fgetss(fopen($filename, “r”))); // 从文件指针中读取一行并过滤掉 HTML 标记<br>print_r(fscanf(fopen(“flag”, “r”),”%s”));<br>print_r(parse_ini_file($filename)); // 失败时返回 false , 成功返回配置数组</p>
+</blockquote>
+<p>……</p>
+<h2 id="特殊函数"><a href="#特殊函数" class="headerlink" title="特殊函数"></a>特殊函数</h2><h3 id="信息泄漏"><a href="#信息泄漏" class="headerlink" title="信息泄漏"></a>信息泄漏</h3><h4 id="bool-phpinfo-int-what-INFO-ALL"><a href="#bool-phpinfo-int-what-INFO-ALL" class="headerlink" title="bool phpinfo ([int $what = INFO_ALL])"></a>bool phpinfo ([int $what = INFO_ALL])</h4><p>输出php当前状态的大量信息</p>
+<h3 id="软连接-读取文件内容："><a href="#软连接-读取文件内容：" class="headerlink" title="软连接-读取文件内容："></a>软连接-读取文件内容：</h3><h4 id="bool-symlink-string-target-string-link"><a href="#bool-symlink-string-target-string-link" class="headerlink" title="bool symlink (string $target ,string $link)"></a>bool symlink (string $target ,string $link)</h4><p>symlink()对于已有的target建立一个名为link的符号连接</p>
+<h4 id="string-redline-string-path"><a href="#string-redline-string-path" class="headerlink" title="string redline (string $path)"></a>string redline (string $path)</h4><p>readlink()和同名的c函数做同样的事，返回符号连接的内容</p>
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><h4 id="string-getenv-string-varname"><a href="#string-getenv-string-varname" class="headerlink" title="string getenv (string $varname)"></a>string getenv (string $varname)</h4><p>获取一个环境变量的值</p>
+<h4 id="bool-putenv-string-setting"><a href="#bool-putenv-string-setting" class="headerlink" title="bool putenv (string $setting)"></a>bool putenv (string $setting)</h4><p>增加setting到服务器环境变量。环境变量仅存活于当前请求期间。在请求结束时环境会恢复到初始状态</p>
+<h3 id="加载扩展"><a href="#加载扩展" class="headerlink" title="加载扩展"></a>加载扩展</h3><h4 id="bool-dl-string-library"><a href="#bool-dl-string-library" class="headerlink" title="bool dl (string $library)"></a>bool dl (string $library)</h4><p>载入指定参数library的php扩展</p>
+<h3 id="配置相关"><a href="#配置相关" class="headerlink" title="配置相关"></a>配置相关</h3><p>string ini_get (string $varname)</p>
+<p>成功时返回配置选项的值</p>
+<p>string ini_set (string $varname , string $newvalue)</p>
+<p>string ini_alter (string $varname , string $newvalue)</p>
+<p>设置指定配置选项。这个选项会在脚本执行时 保持新的值，并在脚本结束后恢复</p>
+<p>void ini_numeric (mixed $var)</p>
+<p>恢复指定的配置选项到它的原始值</p>
+<h3 id="数字判断"><a href="#数字判断" class="headerlink" title="数字判断"></a>数字判断</h3><p>Bool is_numeric (mixed $var)</p>
+<p>如果var时数字和数字字符串则返回true，否则返回false</p>
+<p><strong>仅用is_numeric判断而不用intval转换就有可能插入16进制的字符串到数据库，进而可能导致sql二次注入</strong></p>
+<h3 id="数组相关"><a href="#数组相关" class="headerlink" title="数组相关"></a>数组相关</h3><p>Bool in_array (mixed. $needle , array $haystack [,bool $strict =false])</p>
+<p>在haystack中搜索needle，如果没有设置strict则使用宽松的比较</p>
+<p>该函数有一个特性，比较之前会进行自动类型转换：<strong><em>$a = ‘1abc’;</em></strong></p>
+<h3 id="超全局变量"><a href="#超全局变量" class="headerlink" title="超全局变量"></a>超全局变量</h3><blockquote>
+<p><a href="http://php.net/manual/zh/language.variables.superglobals.php" target="_blank" rel="noopener">$GLOBALS</a></p>
+</blockquote>
+<h3 id="变量覆盖"><a href="#变量覆盖" class="headerlink" title="变量覆盖"></a>变量覆盖</h3><p>void parse_str (string $str [,array &amp; &amp;str])</p>
+<p>如果str是URL传递入的查询字符串(query string)，则将它解析为变量并设置到当前作用域</p>
+<p>int extract (array &amp;var_array [,int $extract_type = EXTR_OVERWRITE [, srting $orefix = NULL]])</p>
+<p>本函数用来将变量从数组中导入到当前的符号表中。检查每个键名看是否可以作为一个合法的变量名，同时也检查和符号表中已有的变量名的冲突</p>
+<p>Bool mb_parse_str ( string $encoded_string [, array. &amp;result ])</p>
+<p>解析GET/POST/Cookie 变量导入到全局作用域中。如果你禁止了 register_glovals，但又想用到一些全局变量，那么此函数就很有用</p>
+<blockquote>
+<p>extract()<br>import_request_variables()<br>parse_str()<br>mb_parse_str()<br>全局变量覆盖：register_globals为ON，$GLOBALS</p>
+</blockquote>
+<h3 id="列目录"><a href="#列目录" class="headerlink" title="列目录"></a>列目录</h3><p>array glob ( string $pattern [, int $flags =0])</p>
+<p>glob()函数依照libc glob()函数使用的规则寻找所有与pattern匹配的文件路径，类似于一般shells所用的规则一样。不进行缩写扩展或参数替代。</p>
+<blockquote>
+<p>print_r(glob(“<em>”)); // 列当前目录<br>print_r(glob(“/</em>”)); // 列根目录 print_r(scandir(“.”));<br>print_r(scandir(“/“));<br>$d=opendir(“.”);while(false!==($f=readdir($d))){echo”$f\n”;}<br>$d=dir(“.”);while(false!==($f=$d-&gt;read())){echo$f.”\n”;}</p>
+</blockquote>
+<h3 id="无参数获取信息"><a href="#无参数获取信息" class="headerlink" title="无参数获取信息"></a>无参数获取信息</h3><p>array get_defined_vars (void)</p>
+<p>返回一个包含所有已定义变量列表的多维数组，这些变量包括环境变量、服务器变量和用户自定义变量</p>
+<p>array get_defined_constants ([bool $categorize = false])</p>
+<p>返回当前所有已定义的常量名和值。这包含define()函数所创建的，也包含了所有拓展所创建的</p>
+<p>array get_defined_functions (void)</p>
+<p>返回一个包含所有已定义函数列表的多位数组</p>
+<p>array get_included_files (void)</p>
+<p>返回所有被include、include_once、require和require_once的文件名</p>
+<h3 id="序列化函数"><a href="#序列化函数" class="headerlink" title="序列化函数"></a>序列化函数</h3><blockquote>
+<p>serialize()<br>unserialize()<br>ini_set(‘session.serialize_handler’, ‘php_serialize’);</p>
+</blockquote>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><blockquote>
+<p>move_uploaded_file()<br>getimagesize() //验证文件头只要为GIF89a，就会返回真</p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>代码执行函数：</p>
+<p><a href="http://www.cnblogs.com/galaxyyao/archive/2013/04/25/3043104.html" target="_blank" rel="noopener">PHP Eval研究笔记</a></p>
+<p><a href="https://www.douban.com/note/217557007/" target="_blank" rel="noopener">PHP assert函数的用法</a></p>
+<p><a href="http://www.jb51.net/article/46458.htm" target="_blank" rel="noopener">PHP preg_replace() 正则替换所有符合条件的字符串</a></p>
+<p><a href="http://blog.csdn.net/hsd2012/article/details/46274475" target="_blank" rel="noopener">PHP——创建函数</a></p>
+<p><a href="http://blog.csdn.net/fdipzone/article/details/52336763" target="_blank" rel="noopener">PHP——使用callable强制指定回调类型</a></p>
+<p>包含函数：</p>
+<p><a href="http://netsecurity.51cto.com/art/201605/511323.htm" target="_blank" rel="noopener">PHP——Info()信息泄漏漏洞利用提权及防范</a></p>
+<p><a href="">PHP——include 和 require 的理解与区别</a></p>
+<p>命令执行函数：</p>
+<p><a href="http://blog.csdn.net/shaobingj126/article/details/6461721" target="_blank" rel="noopener">PHP——exec()函数以及获取其返回值</a></p>
+<p><a href="http://blog.csdn.net/beyond__devil/article/details/53868309" target="_blank" rel="noopener">PHP——执行系统外部命令函数:exec()、passthru()、system()、shell_exec()</a></p>
+<p>文件操作函数：</p>
+<p>特殊函数：</p>
+<p><a href="http://blog.csdn.net/xiajun07061225/article/details/7163249" target="_blank" rel="noopener">Linux连接文件：硬连接和软连接</a></p>
+</the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>3,001</p>
+        <p><span class="post-count">Time:</span>12 mins</p>
+        <p><span>Created:</span>2017-12-12, 17:50:17</p>
+        <p><span>Updated:</span>2018-10-09, 23:29:36</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/Study/php-dangerfuncts.html" title="PHP常见危险函数及特殊函数Summary">http://blog.0akarma.me/Study/php-dangerfuncts.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/php-dangerfuncts.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/Study/authentic-words.html">
+                    Authentic Words Summary
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/Study/mentohust.html">
+                    Mac下配置mentohust连接校园网/移动/联通/
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+    
+    <div style="padding: 0; margin: 20px auto; width: 90%; text-align: center;">
+      <br>
+      <div>如果觉得文章海星，那就打赏一下吧！</div>
+      <br>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <div class="btn btn-pay">打赏支持</div>
+      </button>
+      <br>
+      <br>
+      <div id="QR" style="display: none;">
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/img/pay.jpg" alt="KarmA Alipay"/>
+            <p>二合一打赏</p>
+          </div>
+        
+        <br>
+        <br>
+      </div>
+    </div>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PHP代码执行函数"><span class="toc-text">PHP代码执行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#eval"><span class="toc-text">eval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assert"><span class="toc-text">assert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#preg-replace-’-e’"><span class="toc-text">preg_replace +’/e’</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建函数"><span class="toc-text">创建函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#callable"><span class="toc-text">callable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#array-map"><span class="toc-text">array_map</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含函数"><span class="toc-text">包含函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#include"><span class="toc-text">include</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#require"><span class="toc-text">require</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#allow-url-include-on"><span class="toc-text">allow_url_include = on</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令执行函数"><span class="toc-text">命令执行函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#exec"><span class="toc-text">exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passthru"><span class="toc-text">passthru()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-open"><span class="toc-text">proc_open()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell-exec-amp"><span class="toc-text">shell_exec()&amp;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#system"><span class="toc-text">system()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#popen"><span class="toc-text">popen()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fcntl-exec"><span class="toc-text">fcntl_exec()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ob-start"><span class="toc-text">ob_start()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#escapeshellcmd"><span class="toc-text">escapeshellcmd()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作函数"><span class="toc-text">文件操作函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#copy"><span class="toc-text">copy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-get-contents"><span class="toc-text">file_get contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-put-contents"><span class="toc-text">file_put contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file"><span class="toc-text">file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fopen"><span class="toc-text">fopen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#move-uploaded-file"><span class="toc-text">move_uploaded_file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#readfile"><span class="toc-text">readfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rename"><span class="toc-text">rename</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmdir"><span class="toc-text">rmdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unlink-amp-delete"><span class="toc-text">unlink &amp; delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读文件"><span class="toc-text">读文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特殊函数"><span class="toc-text">特殊函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信息泄漏"><span class="toc-text">信息泄漏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-phpinfo-int-what-INFO-ALL"><span class="toc-text">bool phpinfo ([int $what = INFO_ALL])</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#软连接-读取文件内容："><span class="toc-text">软连接-读取文件内容：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-symlink-string-target-string-link"><span class="toc-text">bool symlink (string $target ,string $link)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#string-redline-string-path"><span class="toc-text">string redline (string $path)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#环境变量"><span class="toc-text">环境变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#string-getenv-string-varname"><span class="toc-text">string getenv (string $varname)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-putenv-string-setting"><span class="toc-text">bool putenv (string $setting)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载扩展"><span class="toc-text">加载扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bool-dl-string-library"><span class="toc-text">bool dl (string $library)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置相关"><span class="toc-text">配置相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数字判断"><span class="toc-text">数字判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组相关"><span class="toc-text">数组相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#超全局变量"><span class="toc-text">超全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量覆盖"><span class="toc-text">变量覆盖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列目录"><span class="toc-text">列目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无参数获取信息"><span class="toc-text">无参数获取信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#序列化函数"><span class="toc-text">序列化函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件上传"><span class="toc-text">文件上传</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/Study/authentic-words.html" title="Pre: Authentic Words Summary">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/Study/mentohust.html" title="Next: Mac下配置mentohust连接校园网/移动/联通/">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Study/hero-vps.html">如何在vps上搭建Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-mac.html">Mac下代码审计环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/docker-website.html">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-goldeneye.html">GoldenEye:1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/amateur-ops-ctfd.html">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lampião.html">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lazySysAdmin.html">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/ballroom-e-youkoso.html">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/feelings-xhssf.html">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/sophomore-flags.html">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/achievement.html">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scff-2018.html">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-blind.html">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/red-tiger.html">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider.html">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scrapy.html">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rapid-recurrence.html">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/privilege-escalation.html">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mac-settings.html">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rewrite-pwnhub-subject.html">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/be-grateful.html">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-notes.html">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/ctf-syb.html">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-injection.html">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/python-notes.html">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/linux-learning.html">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-books.html">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-films.html">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/bye2017.html">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2017-films.html">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/penetrating-courses.html">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-bees4.html">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/authentic-words.html">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mentohust.html">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/perceptions-stave-jobs.html">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/freshman-flags.html">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/2017-classes-ctf.html">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/importance-backup.html">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>85.2k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+    
+  <script type="text/javascript" src="/js/emoji.js"></script>
+</body>
+</html>

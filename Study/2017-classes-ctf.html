@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="​    Geek 之后又来了一波班级对抗赛，成绩不是最重要的，主要是想见见世面，涨涨见识。知己知彼，百战不殆嘛！">
+<meta name="keywords" content="CTF,Summary">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017班级对抗赛WP&amp;心得">
+<meta property="og:url" content="http://blog.0akarma.me/Study/2017-classes-ctf.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="​    Geek 之后又来了一波班级对抗赛，成绩不是最重要的，主要是想见见世面，涨涨见识。知己知彼，百战不殆嘛！">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gs4a6g0j30km0f4wfj.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fm1gtzr8ctj30pu0zk4dy.jpg">
+<meta property="og:image" content="file:////Users/akk/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image002.png">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1guxx7wpj30cs05y74n.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1gvbag93j30j80r80xs.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fm1gvouzpdj30ny0c4mzc.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gwl78c8j30m8046wfg.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gwxewwhj30p60h0gne.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1gxua1utj30k40a60ut.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fm1gy3lkpaj30ps08otck.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fm1gyvyl5wj30pq0qqn1x.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1gzkgqshj30bk09e3zy.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h0fe9ofj30qa07sq4f.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fm1h0s0yw9j30oe09wn0v.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fm1h0yf7wej30ns0hkgp4.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h1h4eabj30n004gade.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h23dgouj30n202omzp.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h2gn3qpj30ca0cgk0l.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h42cuf5j30g20iidi0.jpg">
+<meta property="og:image" content="http://ovc0f0a85.bkt.clouddn.com/01j4epe30xxn79hqs0vujgbwhr.png">
+<meta property="og:image" content="http://ovc0f0a85.bkt.clouddn.com/a211szfgpkyjsmc887nyxldgkq.png">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fm1h4zjdm8j30qk0autd1.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h5jcdqdj30ps0ton17.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1fm1h5uvt0ij30k00qsdhe.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h67v3snj30na13gtjq.jpg">
+<meta property="og:updated_time" content="2018-10-09T15:35:38.275Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017班级对抗赛WP&amp;心得">
+<meta name="twitter:description" content="​    Geek 之后又来了一波班级对抗赛，成绩不是最重要的，主要是想见见世面，涨涨见识。知己知彼，百战不殆嘛！">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gs4a6g0j30km0f4wfj.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>2017班级对抗赛WP&amp;心得 | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?af7140fc2364ae33aedfd77c0de502e1";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-2017班级对抗赛WP+心得" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Study/2017-classes-ctf.html" class="article-date">
+      <time datetime="2017-12-01T08:08:25.000Z" itemprop="datePublished">2017-12-01</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2017班级对抗赛WP&amp;心得
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excerpt in="" index="" |="" 首页摘要=""><br>​    Geek 之后又来了一波班级对抗赛，成绩不是最重要的，主要是想见见世面，涨涨见识。知己知彼，百战不殆嘛！<a id="more"></a></excerpt></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="简单代码审计（送分）by-Ph0rse"><a href="#简单代码审计（送分）by-Ph0rse" class="headerlink" title="简单代码审计（送分）by  Ph0rse"></a>简单代码审计（送分）by  Ph0rse</h2><h3 id="题目地址"><a href="#题目地址" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="http://45.32.90.22:2501/index.php" target="_blank" rel="noopener">http://45.32.90.22:2501/index.php</a></p>
+<h3 id="题目类型"><a href="#题目类型" class="headerlink" title="题目类型"></a>题目类型</h3><p>代码审计，PHP弱类型</p>
+<h3 id="考察知识点"><a href="#考察知识点" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>1、Base64解密<br>2、变量覆盖<br>3、md5弱类型相等<br>4、md5数组加密漏洞</p>
+<h3 id="Payload"><a href="#Payload" class="headerlink" title="Payload"></a>Payload</h3><p><a href="http://45.32.90.22:2501/index.php?name=xiaohong&amp;sex=nv&amp;key=240610708&amp;pen[]=1&amp;apple[]=2" target="_blank" rel="noopener">http://45.32.90.22:2501/index.php?name=xiaohong&amp;sex=nv&amp;key=240610708&amp;pen[]=1&amp;apple[]=2</a></p>
+<h3 id="Flag"><a href="#Flag" class="headerlink" title="Flag"></a>Flag</h3><p>D0G3{BAC0N_IS_TASTY!}</p>
+<p>Writeup：</p>
+<p>送分代码审计 看源码啥也没有，考虑源码泄露。而且源码里面base64也提示了<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gs4a6g0j30km0f4wfj.jpg" alt=""> </p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fm1gtzr8ctj30pu0zk4dy.jpg" alt=""></p>
+<p>这里给一个学习php弱类型的网站：<a href="https://www.cnblogs.com/Mrsm1th/p/6745532.html" target="_blank" rel="noopener">https://www.cnblogs.com/Mrsm1th/p/6745532.html</a></p>
+<h5 id="划重点："><a href="#划重点：" class="headerlink" title="划重点："></a>划重点：</h5><p>源码泄露</p>
+<h2 id="Myblog-Typecho——EXP-by-Ph0rse"><a href="#Myblog-Typecho——EXP-by-Ph0rse" class="headerlink" title="Myblog  Typecho——EXP   by   Ph0rse"></a>Myblog  Typecho——EXP   by   Ph0rse</h2><h3 id="环境地址"><a href="#环境地址" class="headerlink" title="环境地址"></a>环境地址</h3><p><a href="http://45.32.90.22:2502/" target="_blank" rel="noopener">http://45.32.90.22:2502/</a><br>数据库密码为空，但限制了只有本地IP可以访问<br>后台管理员账号密码为D0g233333</p>
+<h3 id="考察知识点-1"><a href="#考察知识点-1" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>快速锁定版本号，搜索exp，getshell<br>反序列化<br>快速代码审计</p>
+<h3 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h3><p><a href="http://ph0rse.me/2017/10/30/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B9%8BTypecho%E4%BA%8C%E8%BF%9E%E7%88%86/3" target="_blank" rel="noopener">http://ph0rse.me/2017/10/30/%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B9%8BTypecho%E4%BA%8C%E8%BF%9E%E7%88%86/3</a></p>
+<h3 id="Flag-1"><a href="#Flag-1" class="headerlink" title="Flag"></a>Flag</h3><p>D0g3{th1s_here_hihihi}</p>
+<h5 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h5><p>1.</p>
+<h2 id="secret-code-by-Sn00py"><a href="#secret-code-by-Sn00py" class="headerlink" title="secret code  by  Sn00py"></a>secret code  by  Sn00py</h2><h3 id="考察知识点-2"><a href="#考察知识点-2" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>1.php源码加密</p>
+<h3 id="Payload-1"><a href="#Payload-1" class="headerlink" title="Payload"></a>Payload</h3><p><a href="http://222.18.158.244:4141/" target="_blank" rel="noopener">http://222.18.158.244:4141/</a> post:debug=1&amp;file=flag.php<br>burpsuite下拷贝加密源码到flag.php,包含flag.php,输出全局变量.</p>
+<h3 id="Flag-2"><a href="#Flag-2" class="headerlink" title="Flag"></a>Flag</h3><p>D0g3{hava_fun!!!!!!}</p>
+<h5 id="Question-1"><a href="#Question-1" class="headerlink" title="Question:"></a>Question:</h5><p>1.</p>
+<h2 id="血红的双眼-by-C1em0"><a href="#血红的双眼-by-C1em0" class="headerlink" title="血红的双眼 by C1em0"></a>血红的双眼 by C1em0</h2><h3 id="题目名"><a href="#题目名" class="headerlink" title="题目名"></a>题目名</h3><p>《血红的双眼》 by C1em0</p>
+<h3 id="考察内容"><a href="#考察内容" class="headerlink" title="考察内容"></a>考察内容</h3><p>sql布尔盲注，过滤绕过，python脚本编写，bp使用。</p>
+<h3 id="payload"><a href="#payload" class="headerlink" title="payload:"></a>payload:</h3><p>根据测出的过滤处进行编写脚本或者用bp跑就行，python脚本注意编码问题。</p>
+<h5 id="Question-2"><a href="#Question-2" class="headerlink" title="Question:"></a>Question:</h5><p>1.</p>
+<h2 id="WEB-64号基地-by-zev3n"><a href="#WEB-64号基地-by-zev3n" class="headerlink" title="WEB-64号基地  by zev3n"></a>WEB-64号基地  by zev3n</h2><h3 id="题目地址-1"><a href="#题目地址-1" class="headerlink" title="题目地址"></a>题目地址</h3><p>还没传到服务器。。。</p>
+<h3 id="题目类型-1"><a href="#题目类型-1" class="headerlink" title="题目类型"></a>题目类型</h3><p>文件包含导致的任意文件读取</p>
+<h3 id="考察知识点-3"><a href="#考察知识点-3" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>1.php伪协议<br>2.伪协议中filter过滤器的常见种类</p>
+<h3 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h3><p>1.点开页面中的链接，得到file参数的提示，应该想到文件包含<br>2.尝试用php://filter/read=<strong>convert.base64-encode</strong>/resourse=index.php读取出本页面的源码<br>3.读出“源码”的base64，解密后发现没有想象中那么简单<br>4.使用<strong>string.rot13</strong>过滤器重新读取，解密后得到flag</p>
+<h2 id="What-remains-of-Bruce-Finch-by-Skye"><a href="#What-remains-of-Bruce-Finch-by-Skye" class="headerlink" title="What remains of Bruce Finch  by Skye"></a>What remains of Bruce Finch  by Skye</h2><h3 id="链接：http-222-18-158-244-4151"><a href="#链接：http-222-18-158-244-4151" class="headerlink" title="链接：http://222.18.158.244:4151/"></a>链接：<a href="http://222.18.158.244:4151/" target="_blank" rel="noopener">http://222.18.158.244:4151/</a></h3><h3 id="考察：暴力破解，两次加密处理，firebug使用（删除节点）"><a href="#考察：暴力破解，两次加密处理，firebug使用（删除节点）" class="headerlink" title="考察：暴力破解，两次加密处理，firebug使用（删除节点）"></a>考察：暴力破解，两次加密处理，firebug使用（删除节点）</h3><h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>firebug中删除节点，将干扰字幕除去，进入表单，用burpsuite对用户名和密码进行爆破，用户名根据提示中的四个名字。用户名是Edith，密码123321，用burp的时候又MD5和base64加密。<br>flag：Dog3{Brut3_f0rc3_50_e45y}</p>
+<h5 id="Question-3"><a href="#Question-3" class="headerlink" title="Question:"></a>Question:</h5><p>1.</p>
+<h2 id="计算题-by-We2sWing"><a href="#计算题-by-We2sWing" class="headerlink" title="计算题 by We2sWing"></a>计算题 by We2sWing</h2><p>浏览器F12看源码 改长度  得到base64加密和url加密的字符串  解密一次即可</p>
+<p>By myself:</p>
+<p>改长度+base64解密</p>
+<p><img src="file:////Users/akk/Library/Group%20Containers/UBF8T346G9.Office/msoclip1/01/clip_image002.png" alt="img"></p>
+<p>flag{D0g3_happy~}</p>
+<h2 id="加0题-by-We2sWing"><a href="#加0题-by-We2sWing" class="headerlink" title="加0题 by We2sWing"></a>加0题 by We2sWing</h2><p>robot.txt 直接在网页后面加一个robot.txt 进去就能看源码 在根据源码 去url编码字符串</p>
+<p>writeup：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1guxx7wpj30cs05y74n.jpg" alt=""></p>
+<p>页面给出robo.txt提示 访问</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1gvbag93j30j80r80xs.jpg" alt=""></p>
+<p>url编码，传输过去后会被默认解码一次，所以将jia0编码两次，再传入就可以得到flag</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fm1gvouzpdj30ny0c4mzc.jpg" alt=""></p>
+<h2 id="Love-China-by-汪子豪"><a href="#Love-China-by-汪子豪" class="headerlink" title="Love China  by 汪子豪"></a>Love China  by 汪子豪</h2><p>JavaScript操作题 在浏览器控制台让clicks大于1000000就行（也可以使用POST提交） </p>
+<p>By myself：</p>
+<p>肯定不可能真的点100w次，所以。。</p>
+<p>查看源码：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gwl78c8j30m8046wfg.jpg" alt=""></p>
+<p>发现点击次数会post到后台，所以只要在hackbar上面改改数据，就可以拿到flag </p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fm1gwxewwhj30p60h0gne.jpg" alt=""></p>
+<h2 id="php反序列化-by-汪子豪"><a href="#php反序列化-by-汪子豪" class="headerlink" title="php反序列化 by 汪子豪"></a>php反序列化 by 汪子豪</h2><p>PHP反序列化，给提示:hint<br>登录没反应，提示:GET一个hint就有源代码<br> 审计代码，要传一个cookie名为D0g3的反序列值。并且反序列后的值要全等于$KEY<br>注意这里穿进去的是空，即<br>payload<br>Cookie: s:0:””;</p>
+<h5 id="Question-4"><a href="#Question-4" class="headerlink" title="Question:"></a>Question:</h5><p>1.</p>
+<h2 id="web1-by-drac0nids"><a href="#web1-by-drac0nids" class="headerlink" title="web1: by drac0nids"></a>web1: by drac0nids</h2><p>直接post一个超全局变量GLOBALS</p>
+<p>Writeup：</p>
+<p>进去直接源码出来， </p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1gxua1utj30k40a60ut.jpg" alt=""></p>
+<p>看到最后一行，eval(“var_dump($$args)”)   可变变量，传一个全局数组变量。args=GLOBALS</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fm1gy3lkpaj30ps08otck.jpg" alt=""></p>
+<h5 id="Question-5"><a href="#Question-5" class="headerlink" title="Question:"></a>Question:</h5><p>1.</p>
+<h2 id="web2-by-drac0nids"><a href="#web2-by-drac0nids" class="headerlink" title="web2: by drac0nids"></a>web2: by drac0nids</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">echo</span>    <span class="string">"&lt;!--index.phps--&gt;"</span>;</span><br><span class="line"><span class="keyword">if</span>(!$_GET[<span class="string">'id'</span>])</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"hahahaha"</span>;</span><br><span class="line">&#125;</span><br><span class="line">$id=$_GET[<span class="string">'id'</span>];</span><br><span class="line">$a=$_GET[<span class="string">'a'</span>];</span><br><span class="line">$b=$_GET[<span class="string">'b'</span>];</span><br><span class="line"><span class="keyword">if</span>(stripos($a,<span class="string">'.'</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'23333'</span>;</span><br><span class="line">    <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">$data = @file_get_contents($a,<span class="string">'r'</span>);</span><br><span class="line"><span class="keyword">if</span>($data==<span class="string">"I want to join D0g3"</span> <span class="keyword">and</span> $id==<span class="number">0</span> <span class="keyword">and</span> strlen($b)&gt;<span class="number">5</span> <span class="keyword">and</span> strlen($b&lt;<span class="number">7</span>) <span class="keyword">and</span> eregi($b,<span class="string">"1114"</span>) <span class="keyword">and</span> substr($b,<span class="number">0</span>,<span class="number">1</span>)!=<span class="number">4</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">include</span> <span class="string">"flag.php"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"work harder!harder!harder!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>一道代码审计题<br>梳理一下得到flag的条件：<br>第一个if出id不能等于0，若id等于0，那么!$_GET[‘id’]==1，就会进入if语句内部，然后会跳转但后面有要求id==0,当传入id等于一个英文字母时，由于php的弱类型，会将字母转化为0在进行比较，因此，我们可以使id=a来绕过</p>
+<p>由后面a在file_get_contents中可以知道，a应该传入一个文件名，data读取a文件的内容后为”I want to join D0g3”,此处利用file_get_contents的特性，当用到php://input的时候，file_get_contents支持字节流输入，因此将a设为php://input,然后post我们想要输入a中的内容就可以了</p>
+<p>使用eregi进行正则匹配时，只要第一个参数是第二个参数的子串就会匹配成功，返回true，在php中%00会对eregi()函数进行截断，但不会对strlen()函数进行截断，而且b的长度我做了限制只能为6位，因此，我们使用%00来构造截断绕过限制b=1%0012345，strlen不会ba%00算在字符长度里面   </p>
+<p>Writeup：</p>
+<p>这里看到源码，strlen可以通过%00来截断绕过，id==0 随便测试传个值，b需要绕过eregi 用00截 断 data通过使用伪协议绕过stripos</p>
+<p>payload:</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fm1gyvyl5wj30pq0qqn1x.jpg" alt=""></p>
+<h2 id="绝对找不到的D0g3-by-TimeS0ng"><a href="#绝对找不到的D0g3-by-TimeS0ng" class="headerlink" title="绝对找不到的D0g3 by TimeS0ng"></a>绝对找不到的D0g3 by TimeS0ng</h2><p>Wireshark抓包分析，ftp基于明文传输账号密码<br>payload:利用Wireshark过滤ftp数据包</p>
+<p>By OldTang：</p>
+<p>Wireshark打开查找D0g3</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1gzkgqshj30bk09e3zy.jpg" alt=""></p>
+<h2 id="还能找到算我输-by-TimeS0ng"><a href="#还能找到算我输-by-TimeS0ng" class="headerlink" title="还能找到算我输   by TimeS0ng"></a>还能找到算我输   by TimeS0ng</h2><p>考察内容：aircrack-ng破解WPA2握手包密码，airdecap-ng还原802.11数据包<br>Tips1:数据包里有握手包  Tips2:flag以D0g3{IP_xxxx}形式提交我的内网IP</p>
+<blockquote>
+<p>aircrack-ng -w common.txt wpa2-01.cap<br>airdecap-ng D0g3-1.cap -e TimeS0ng -p password -b E4:F3:F5:2D:55:A8<br>airmon-ng start wlan0;iwconfig</p>
+</blockquote>
+<p>airodump-ng wlan0mon</p>
+<p>airodump-ng wlan0mon -c 1 –essid TimeS0ng -w wpa2</p>
+<p>aireplay-ng wlan0mon -0 3 -a E4:F3:F5:2D:55:A8  -c 98:01:a7:c5:f7:6d</p>
+<p>aircrack-ng -w common.txt wpa2-01.cap</p>
+<p>airdecap-ng wpa2-01.cap -e TimeS0ng -p password -b E4:F3:F5:2D:55:A8</p>
+<h2 id="Amazing-magic-by-w1mps"><a href="#Amazing-magic-by-w1mps" class="headerlink" title="Amazing magic    by w1mps"></a>Amazing magic    by w1mps</h2><p>提示post个key，源码里提示post个source过来，然后给出了源码，审一下，ban了1到9，但是0可以用，利用0x绕过就可以了<br>payload: key=0xdec0de</p>
+<p>Flag:D0g3{mmmmmagic!?!}</p>
+<p>writeup：</p>
+<p>post随便传个值后在页源码中发现一句提示</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h0fe9ofj30qa07sq4f.jpg" alt=""></p>
+<p>接着post key=source</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fm1h0s0yw9j30oe09wn0v.jpg" alt=""></p>
+<p>得到源码，源码要让number==14598366 但是字符并不能相同，所以这里想到通过转换进制 使用 两个进制进行比较  把14598366转换为16进制得到0xdec0de</p>
+<p>所以key=0xdec0de</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fm1h0yf7wej30ns0hkgp4.jpg" alt=""></p>
+<p>#####这道题难道是我在整理writeup的时候出的？我怎么一点印象都没有！！</p>
+<h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><h2 id="热身upup"><a href="#热身upup" class="headerlink" title="热身upup"></a>热身upup</h2><h3 id="考察知识点-4"><a href="#考察知识点-4" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>摩斯电码，听得出来可以直接翻译，但是乐感较差的可以用音频编辑软件打开，例如AU，即可看到明显的分段</p>
+<h3 id="Flag-3"><a href="#Flag-3" class="headerlink" title="Flag"></a>Flag</h3><p>D0g3{UUUTUTUUT}</p>
+<h5 id="划重点：-1"><a href="#划重点：-1" class="headerlink" title="划重点："></a>划重点：</h5><p>一开始听到这个音频，简直懵逼，就各种试验，丢到au里，感觉不对劲，就各种百度google找到了摩斯电码这个神奇的东西。</p>
+<h2 id="芬奇的日记"><a href="#芬奇的日记" class="headerlink" title="芬奇的日记"></a>芬奇的日记</h2><h3 id="链接-https-pan-baidu-com-s-1eSJAWWM-密码-ju3h"><a href="#链接-https-pan-baidu-com-s-1eSJAWWM-密码-ju3h" class="headerlink" title="链接: https://pan.baidu.com/s/1eSJAWWM 密码: ju3h"></a>链接: <a href="https://pan.baidu.com/s/1eSJAWWM" target="_blank" rel="noopener">https://pan.baidu.com/s/1eSJAWWM</a> 密码: ju3h</h3><h3 id="考察：图种，二维码反色，base64解密解法"><a href="#考察：图种，二维码反色，base64解密解法" class="headerlink" title="考察：图种，二维码反色，base64解密解法"></a>考察：图种，二维码反色，base64解密<strong>解法</strong></h3><p>丢在binwalk中跑，发现图中还有另一个图，分离出来，二维码反色，扫了之后得到字符串，base64解密</p>
+<p>flag：<code>D0g3{Y0u _4re_c0Oi!}</code></p>
+<p>writeup：</p>
+<p>芬奇的日记 下载下来是一张png图片，先放到kali看看能不能分离</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h1h4eabj30n004gade.jpg" alt=""></p>
+<p>发现有两张png图片，那么就dd分离 </p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h23dgouj30n202omzp.jpg" alt=""></p>
+<p>得到了一张二维码的图片  </p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h2gn3qpj30ca0cgk0l.jpg" alt=""></p>
+<p>用stegsolve打开调制Gray bits得到二维码</p>
+<p>然后扫描得到下面的一串编码</p>
+<p>Base64解一下得flag</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h42cuf5j30g20iidi0.jpg" alt=""></p>
+<p>#####划重点：</p>
+<p>论linux的重要性，在window下用winhex各种工具也看不出猫腻！</p>
+<h2 id="来自佛的一封信-by-C1em0"><a href="#来自佛的一封信-by-C1em0" class="headerlink" title="来自佛的一封信  by C1em0"></a>来自佛的一封信  by C1em0</h2><ol>
+<li>题目名：《来自佛的一封信》</li>
+<li>考察内容：源码查看习惯，百度能力，base64编码</li>
+<li>payload:在注释中找到密文，百度题目关键字就能在线解密。</li>
+</ol>
+<h5 id="划重点：-2"><a href="#划重点：-2" class="headerlink" title="划重点："></a>划重点：</h5><h2 id="留图不留种-by-zev3n"><a href="#留图不留种-by-zev3n" class="headerlink" title="留图不留种  by zev3n"></a>留图不留种  by zev3n</h2><h3 id="题目地址-2"><a href="#题目地址-2" class="headerlink" title="题目地址"></a>题目地址</h3><p><a href="http://pan.baidu.com/s/1pLNv33H" target="_blank" rel="noopener">http://pan.baidu.com/s/1pLNv33H</a></p>
+<h3 id="题目类型-2"><a href="#题目类型-2" class="headerlink" title="题目类型"></a>题目类型</h3><p>zip伪加密，图种，二维码</p>
+<h3 id="考察知识点-5"><a href="#考察知识点-5" class="headerlink" title="考察知识点"></a>考察知识点</h3><p>1.binwalk或winhex的使用<br>2.图种的解压<br>3.二维码两种定位点的作用<br>4.二维码的纠错功能</p>
+<h3 id="解题步骤-1"><a href="#解题步骤-1" class="headerlink" title="解题步骤"></a>解题步骤</h3><p>1.winhex修改标记破解伪加密或者直接拿进Linux系统解压出图种<br>2.binwalk -e分解或者直接修改文件后缀名得到隐藏压缩包<br>3.得到两张不完整的二维码图片<br>4.观察二维码缺失定位点（以及辅助定位点），再观察图片中心有一个定位点样式区域<br>5.复制中心区域到三个角，再拼接上辅助定位点，扫描得到flag</p>
+<h5 id="划重点"><a href="#划重点" class="headerlink" title="划重点:"></a>划重点:</h5><p>观察二维码缺失位点、辅助定位点</p>
+<h2 id="RRRSA-by-w1mps"><a href="#RRRSA-by-w1mps" class="headerlink" title="RRRSA  by w1mps"></a>RRRSA  by w1mps</h2><p>rsa.txt<br>n的一个因数比较小，很容易跑出来p和q，求出d就解出来了，为了提示他们暴力跑。。另外一个因数其实也没给很大，不写脚本其实也可以出，比如可以去<a href="http://factordb.com/求解" target="_blank" rel="noopener">http://factordb.com/求解</a> </p>
+<p>解密脚本：</p>
+<h3 id="coding-utf-8"><a href="#coding-utf-8" class="headerlink" title="coding: utf-8"></a>coding: utf-8</h3><p>  c = [‘231209168460534368’,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&apos;653775369641132514&apos;,</span><br><span class="line">&apos;572992224772813854&apos;,</span><br><span class="line">&apos;24661130601438802&apos;,</span><br><span class="line">&apos;207970797586895508&apos;,</span><br><span class="line">&apos;7420374200071926&apos;,</span><br><span class="line">&apos;220033179808126041&apos;,</span><br><span class="line">&apos;690428728542718718&apos;,</span><br><span class="line">&apos;522803131162521381&apos;,</span><br><span class="line">&apos;108831082199640865&apos;,</span><br><span class="line">&apos;209002588024035867&apos;,</span><br><span class="line">&apos;690428728542718718&apos;,</span><br><span class="line">&apos;86875381817289627&apos;,</span><br><span class="line">&apos;86875381817289627&apos;,</span><br><span class="line">&apos;86875381817289627&apos;,</span><br><span class="line">&apos;576873037271561711&apos;,</span><br><span class="line">&apos;185467894761485820&apos;]</span><br></pre></td></tr></table></figure>
+<p>  n = 696074725189933717<br>  e = 65537</p>
+<h3 id="n很小，猜解其中一个因数很小"><a href="#n很小，猜解其中一个因数很小" class="headerlink" title="n很小，猜解其中一个因数很小"></a>n很小，猜解其中一个因数很小</h3><p>  def pq():</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for p in xrange(2, 100):</span><br><span class="line">    if (n % p == 0):</span><br><span class="line">        return p</span><br></pre></td></tr></table></figure>
+<p>  def fast_mod(b, e, m):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">result = 1</span><br><span class="line">while e != 0:</span><br><span class="line">    if (e&amp;1) == 1:</span><br><span class="line">        # ei = 1, then mul</span><br><span class="line"></span><br><span class="line">        result = (result * b) % m</span><br><span class="line">    e &gt;&gt;= 1</span><br><span class="line">    # b, b^2, b^4, b^8, ... , b^(2^n)</span><br><span class="line">    b = (b*b) % m</span><br><span class="line">return result</span><br></pre></td></tr></table></figure>
+<p>  def extendedGCD(a, b):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">if b == 0:</span><br><span class="line">    return (1, 0, a)</span><br><span class="line">x1 = 1</span><br><span class="line">y1 = 0</span><br><span class="line">x2 = 0</span><br><span class="line">y2 = 1</span><br><span class="line">while b != 0:</span><br><span class="line">    q = a / b</span><br><span class="line">    r = a % b</span><br><span class="line">    a = b</span><br><span class="line">    b = r</span><br><span class="line">    x = x1 - q*x2</span><br><span class="line">    x1 = x2</span><br><span class="line">    x2 = x</span><br><span class="line">    y = y1 - q*y2</span><br><span class="line">    y1 = y2</span><br><span class="line">    y2 = y</span><br><span class="line">return(x1, y1, a)</span><br></pre></td></tr></table></figure>
+<p>  def computeD(fn, e):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(x, y, r) = extendedGCD(fn, e)</span><br><span class="line">#y maybe &lt; 0, so convert it</span><br><span class="line">if y &lt; 0:</span><br><span class="line">    return fn + y</span><br><span class="line">return y</span><br></pre></td></tr></table></figure>
+<p>  if <strong>name</strong> == ‘<strong>main</strong>‘:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">print &apos;n=&apos; + str(n)</span><br><span class="line">print &apos;e=&apos; + str(e)</span><br><span class="line">p = pq()</span><br><span class="line">q = n / pq()</span><br><span class="line">print &apos;p=&apos;+str(p)</span><br><span class="line">print &quot;q=&quot;+str(q)</span><br><span class="line">fn = (q-1)*(p-1)</span><br><span class="line">d = computeD(fn, e)</span><br><span class="line">print &apos;d=&apos; + str(d)</span><br><span class="line">for i in c:</span><br><span class="line">    c = int(i)</span><br><span class="line">    m1=fast_mod(c,d,n)</span><br><span class="line">    print &apos;解密:&apos;+str(m1)+&quot;     %s&quot; % ((&quot;%x&quot; % m1).decode(&quot;hex&quot;))</span><br></pre></td></tr></table></figure>
+<p><img src="http://ovc0f0a85.bkt.clouddn.com/01j4epe30xxn79hqs0vujgbwhr.png" alt=""><br><img src="http://ovc0f0a85.bkt.clouddn.com/a211szfgpkyjsmc887nyxldgkq.png" alt=""></p>
+<p>writeup：</p>
+<p>首先还是要学习一下RSA算法是什么，下面贴一下学习的地方。 <a href="http://bobao.360.cn/learning/detail/3058.html" target="_blank" rel="noopener">http://bobao.360.cn/learning/detail/3058.html</a> 在这里主要思路就是先通过n计算出p,q，通过p,q再计算出d，之后就可以求出m。 就在我上面贴的网址里面有可以求出p,q的值的网址。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fm1h4zjdm8j30qk0autd1.jpg" alt=""></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fm1h5jcdqdj30ps0ton17.jpg" alt=""></p>
+<p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fm1h5uvt0ij30k00qsdhe.jpg" alt=""></p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fm1h67v3snj30na13gtjq.jpg" alt=""></p>
+<p>这里就贴一部分了，最后解出来，就是这样。</p>
+<h2 id="crypt-by-drac0nids"><a href="#crypt-by-drac0nids" class="headerlink" title="crypt  by drac0nids"></a>crypt  by drac0nids</h2><p>第一关给了一串二位数<br>二位数第一位代表手机键盘对应的位置<br>第二位数字代表第几个字母<br>得到密码为zhimakaimen<br>进入第二关<br>哈夫曼树<br>将叶子位置的节点先ascii转字符<br>然后按照哈夫曼编码排出先后顺序</p>
+<h5 id="Question-6"><a href="#Question-6" class="headerlink" title="Question:"></a>Question:</h5><p>1.</p>
+<p>2.</p>
+<p>题目来源：dog3</p>
+<p>没有注明的writeup均来自163faker。</p>
+<p>谨做个人学习笔记之用，如有侵权请告知！</p>
+</the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/Study/2017-classes-ctf.html">2017班级对抗赛WP&amp;心得</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>2,912</p>
+        <p><span class="post-count">Time:</span>12 mins</p>
+        <p><span>Created:</span>2017-12-01, 16:08:25</p>
+        <p><span>Updated:</span>2018-10-09, 23:35:38</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/Study/2017-classes-ctf.html" title="2017班级对抗赛WP&amp;心得">http://blog.0akarma.me/Study/2017-classes-ctf.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/2017-classes-ctf.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/Life/freshman-flags.html">
+                    It&#39;s time to set Flags in Freshman Year (完结)
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/Life/importance-backup.html">
+                    论Mac备份的重要性&lt;-血的教训
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+    
+    <div style="padding: 0; margin: 20px auto; width: 90%; text-align: center;">
+      <br>
+      <div>如果觉得文章海星，那就打赏一下吧！</div>
+      <br>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <div class="btn btn-pay">打赏支持</div>
+      </button>
+      <br>
+      <br>
+      <div id="QR" style="display: none;">
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/img/pay.jpg" alt="KarmA Alipay"/>
+            <p>二合一打赏</p>
+          </div>
+        
+        <br>
+        <br>
+      </div>
+    </div>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web"><span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单代码审计（送分）by-Ph0rse"><span class="toc-text">简单代码审计（送分）by  Ph0rse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目地址"><span class="toc-text">题目地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目类型"><span class="toc-text">题目类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考察知识点"><span class="toc-text">考察知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Payload"><span class="toc-text">Payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flag"><span class="toc-text">Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#划重点："><span class="toc-text">划重点：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Myblog-Typecho——EXP-by-Ph0rse"><span class="toc-text">Myblog  Typecho——EXP   by   Ph0rse</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#环境地址"><span class="toc-text">环境地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考察知识点-1"><span class="toc-text">考察知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EXP"><span class="toc-text">EXP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flag-1"><span class="toc-text">Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question"><span class="toc-text">Question:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#secret-code-by-Sn00py"><span class="toc-text">secret code  by  Sn00py</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#考察知识点-2"><span class="toc-text">考察知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Payload-1"><span class="toc-text">Payload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flag-2"><span class="toc-text">Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question-1"><span class="toc-text">Question:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#血红的双眼-by-C1em0"><span class="toc-text">血红的双眼 by C1em0</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目名"><span class="toc-text">题目名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考察内容"><span class="toc-text">考察内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#payload"><span class="toc-text">payload:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question-2"><span class="toc-text">Question:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WEB-64号基地-by-zev3n"><span class="toc-text">WEB-64号基地  by zev3n</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目地址-1"><span class="toc-text">题目地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目类型-1"><span class="toc-text">题目类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考察知识点-3"><span class="toc-text">考察知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题步骤"><span class="toc-text">解题步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-remains-of-Bruce-Finch-by-Skye"><span class="toc-text">What remains of Bruce Finch  by Skye</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链接：http-222-18-158-244-4151"><span class="toc-text">链接：http://222.18.158.244:4151/</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考察：暴力破解，两次加密处理，firebug使用（删除节点）"><span class="toc-text">考察：暴力破解，两次加密处理，firebug使用（删除节点）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解法"><span class="toc-text">解法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question-3"><span class="toc-text">Question:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算题-by-We2sWing"><span class="toc-text">计算题 by We2sWing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加0题-by-We2sWing"><span class="toc-text">加0题 by We2sWing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Love-China-by-汪子豪"><span class="toc-text">Love China  by 汪子豪</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php反序列化-by-汪子豪"><span class="toc-text">php反序列化 by 汪子豪</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question-4"><span class="toc-text">Question:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web1-by-drac0nids"><span class="toc-text">web1: by drac0nids</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question-5"><span class="toc-text">Question:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web2-by-drac0nids"><span class="toc-text">web2: by drac0nids</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绝对找不到的D0g3-by-TimeS0ng"><span class="toc-text">绝对找不到的D0g3 by TimeS0ng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#还能找到算我输-by-TimeS0ng"><span class="toc-text">还能找到算我输   by TimeS0ng</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Amazing-magic-by-w1mps"><span class="toc-text">Amazing magic    by w1mps</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MISC"><span class="toc-text">MISC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#热身upup"><span class="toc-text">热身upup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#考察知识点-4"><span class="toc-text">考察知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Flag-3"><span class="toc-text">Flag</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#划重点：-1"><span class="toc-text">划重点：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#芬奇的日记"><span class="toc-text">芬奇的日记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链接-https-pan-baidu-com-s-1eSJAWWM-密码-ju3h"><span class="toc-text">链接: https://pan.baidu.com/s/1eSJAWWM 密码: ju3h</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考察：图种，二维码反色，base64解密解法"><span class="toc-text">考察：图种，二维码反色，base64解密解法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#来自佛的一封信-by-C1em0"><span class="toc-text">来自佛的一封信  by C1em0</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#划重点：-2"><span class="toc-text">划重点：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#留图不留种-by-zev3n"><span class="toc-text">留图不留种  by zev3n</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目地址-2"><span class="toc-text">题目地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题目类型-2"><span class="toc-text">题目类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考察知识点-5"><span class="toc-text">考察知识点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解题步骤-1"><span class="toc-text">解题步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#划重点"><span class="toc-text">划重点:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RRRSA-by-w1mps"><span class="toc-text">RRRSA  by w1mps</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#coding-utf-8"><span class="toc-text">coding: utf-8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#n很小，猜解其中一个因数很小"><span class="toc-text">n很小，猜解其中一个因数很小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crypt-by-drac0nids"><span class="toc-text">crypt  by drac0nids</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Question-6"><span class="toc-text">Question:</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/Life/freshman-flags.html" title="Pre: It&#39;s time to set Flags in Freshman Year (完结)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/Life/importance-backup.html" title="Next: 论Mac备份的重要性&lt;-血的教训">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Study/hero-vps.html">如何在vps上搭建Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-mac.html">Mac下代码审计环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/docker-website.html">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-goldeneye.html">GoldenEye:1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/amateur-ops-ctfd.html">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lampião.html">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lazySysAdmin.html">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/ballroom-e-youkoso.html">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/feelings-xhssf.html">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/sophomore-flags.html">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/achievement.html">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scff-2018.html">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-blind.html">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/red-tiger.html">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider.html">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scrapy.html">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rapid-recurrence.html">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/privilege-escalation.html">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mac-settings.html">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rewrite-pwnhub-subject.html">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/be-grateful.html">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-notes.html">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/ctf-syb.html">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-injection.html">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/python-notes.html">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/linux-learning.html">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-books.html">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-films.html">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/bye2017.html">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2017-films.html">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/penetrating-courses.html">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-bees4.html">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/authentic-words.html">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mentohust.html">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/perceptions-stave-jobs.html">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/freshman-flags.html">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/2017-classes-ctf.html">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/importance-backup.html">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>85.2k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+    
+  <script type="text/javascript" src="/js/emoji.js"></script>
+</body>
+</html>

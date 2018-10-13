@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="KarmA" />
+
+
+
+<meta name="description" content="从0到1，从无到有…… 开始涉足代码审计，了解了一些敏感函数之后，是时候拿点实例来练练手了！">
+<meta name="keywords" content="Summary,代码审计,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码审计实例-BEES_4.0_R_20160525">
+<meta property="og:url" content="http://blog.0akarma.me/Study/code-audit-bees4.html">
+<meta property="og:site_name" content="KarmA @ D0g3">
+<meta property="og:description" content="从0到1，从无到有…… 开始涉足代码审计，了解了一些敏感函数之后，是时候拿点实例来练练手了！">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fms93w2edbj30su02w0su.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1fmsaj82fhoj30z40a2aaz.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNc79gy1fmt8uyotp9j30tk0cqgm9.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79gy1fmt9e5nmcxj313e0eeaam.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fmu79c9wx2j30ae01eq2s.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fmu7a6tic6j308y01a3yc.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcly1fmww1nf2i1j315q01at8m.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcly1fmwwlehuvej308m01adfo.jpg">
+<meta property="og:updated_time" content="2018-10-09T15:34:54.312Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="代码审计实例-BEES_4.0_R_20160525">
+<meta name="twitter:description" content="从0到1，从无到有…… 开始涉足代码审计，了解了一些敏感函数之后，是时候拿点实例来练练手了！">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1fms93w2edbj30su02w0su.jpg">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="KarmA @ D0g3" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>代码审计实例-BEES_4.0_R_20160525 | KarmA @ D0g3</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56ff76c972fc0cf9"></script>
+
+
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?af7140fc2364ae33aedfd77c0de502e1";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/2.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">KarmA</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>Menu</li>
+                        <li>Tags</li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">Home</a></li>
+                        
+                            <li><a href="/archives/">Archives</a></li>
+                        
+                            <li><a href="/tags/">Tags</a></li>
+                        
+                            <li><a href="/board/">Comment</a></li>
+                        
+                            <li><a href="/about/">About &amp; Links</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Achievements/">Achievements</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Book/">Book</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CET/">CET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CMS-Recurrence/">CMS Recurrence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CTF/">CTF</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Expectation/">Expectation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Film/">Film</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Flag/">Flag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MISC/">MISC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mark/">Mark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Meditation/">Meditation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Movie/">Movie</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Notes/">Notes</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Perception/">Perception</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL-Injection/">SQL Injection</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrapy/">Scrapy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Summary/">Summary</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Words-Phrases/">Words&Phrases</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mentohust/">mentohust</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代码审计/">代码审计</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心路历程/">心路历程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/渗透课程/">渗透课程</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">KarmA</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/2.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">KarmA</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Stay hungry.Stay foolish.</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Archives</a></li>
+                
+                    <li><a href="/tags/">Tags</a></li>
+                
+                    <li><a href="/board/">Comment</a></li>
+                
+                    <li><a href="/about/">About &amp; Links</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/akkayin" title="GitHub"></a>
+                            
+                                <a class="fa Email" target="_blank" href="mailto:karma@d0g3.cn" title="Email"></a>
+                            
+                                <a class="fa 新浪微博" target="_blank" href="http://weibo.com/akkayin" title="新浪微博"></a>
+                            
+                                <a class="fa 知乎" target="_blank" href="https://www.zhihu.com/people/harold-95-37/activities" title="知乎"></a>
+                            
+                                <a class="fa Twitter" target="_blank" href="https://twitter.com/harold_kung" title="Twitter"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
+</nav>
+      <div class="body-wrap"><article id="post-代码审计实例-BEES-4-0-R-20160525" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Study/code-audit-bees4.html" class="article-date">
+      <time datetime="2017-12-20T15:05:40.000Z" itemprop="datePublished">2017-12-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      代码审计实例-BEES_4.0_R_20160525
+    </h1>
+  
+
+        
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Study/">Study</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代码审计/">代码审计</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <excerpt in="" index="" |="" 首页摘要="">
+
+<p>从0到1，从无到有……</p>
+<p>开始涉足代码审计，了解了一些敏感函数之后，是时候拿点实例来练练手了！<a id="more"></a></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<p><br></p>
+<p>把握大局（分析网站结构）-&gt;  通读全文法/敏感函数参数回溯法/定向功能分析法  -&gt; </p>
+<p><br></p>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><h3 id="move-uploaded-file"><a href="#move-uploaded-file" class="headerlink" title="move_uploaded_file"></a>move_uploaded_file</h3><p>用sexy法师的审计系统扫一扫，发现存在四个地方存在文件上传（move_uploaded_file 函数）</p>
+<p>1.admin_pic.php</p>
+<blockquote>
+<p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1fms93w2edbj30su02w0su.jpg" width="50%"></p>
+<p>这个只是在图片列表“修改”选项处的重新上传，并将旧照片替换掉，用burp改参数的确可以直接传一个php文件，但是后缀名是不变的，所以没有利用的地方。</p>
+</blockquote>
+<p>2.fun.php</p>
+<blockquote>
+<p>定义函数的汇总 php。这里定义了一个 up_img 函数，规定了大小、格式、是否重名……</p>
+<p>同样的，上传这一关很容易就bypass过去了。但是仔细审计 up_img 函数就会发现。它的 $file_name 不是直接就从上传那直接获得，而是经过一系列的拼接，估计就是为了防止稍微用burp改一下参数就导致文件上传漏洞的产生吧！</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNc79ly1fmsaj82fhoj30z40a2aaz.jpg" width="50%"></p>
+</blockquote>
+<p>3.img.class.php</p>
+<blockquote>
+<p>这里也有一些关于图片信息的函数，文件名是由“年月日时分秒+id（rand）+拓展名（ext）”拼接而成</p>
+</blockquote>
+<p>4.upload_more.php</p>
+<blockquote>
+<p>上传多张图片</p>
+</blockquote>
+<p>在upload.php中测试怎么bypass<img src="https://ws1.sinaimg.cn/large/006tNc79gy1fmt8uyotp9j30tk0cqgm9.jpg" width="50%"></p>
+<p>经过上述php的审计，得出他是用白名单策略来检查扩展名，所以就试了下 <strong>nginx空子节漏洞</strong>，用burp在.jpg后加上<strong>%00.php</strong>后发现上传的jpg文件已经被解析为php了。所以…. <strong>:)</strong> </p>
+<p>难道只存在解析漏洞？再找找看～～</p>
+<p>但是我又在之前已嵌入php代码的png文件中尝试用%00.php 来执行png中的代码，发现不得行：<img src="https://ws3.sinaimg.cn/large/006tNc79gy1fmt9e5nmcxj313e0eeaam.jpg" width="50%"></p>
+<p>初步分析是过滤了<strong>%</strong>，<img src="https://ws4.sinaimg.cn/large/006tKfTcly1fmu79c9wx2j30ae01eq2s.jpg" width="30%">但是直接在url上加%后enter，发现，没有被转义啊！<img src="https://ws2.sinaimg.cn/large/006tKfTcly1fmu7a6tic6j308y01a3yc.jpg" width="30%"></p>
+<p><strong>But Why？</strong></p>
+<h3 id="getimagesize"><a href="#getimagesize" class="headerlink" title="getimagesize()"></a>getimagesize()</h3><p>验证文件头只要为GIF89a，就会返回真</p>
+<p>1.admin_pic.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($is_thumb)&#123;<span class="comment">//开启缩略图</span></span><br><span class="line">		$file_info=@getimagesize($file_name);</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">empty</span>($file_info))&#123;msg(<span class="string">'图片不存在，操作失败'</span>);&#125;</span><br></pre></td></tr></table></figure>
+<p>2.fun.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!move_uploaded_file($file[<span class="string">'tmp_name'</span>],$file_name))&#123;</span><br><span class="line">			msg(<span class="string">'图片上传失败'</span>,<span class="string">''</span>,<span class="number">0</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		$file_info=@getimagesize($file_name);</span><br><span class="line">			<span class="keyword">switch</span>($file_info[<span class="number">2</span>])&#123;</span><br><span class="line"> 			<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line"> 			$php_file=@imagecreatefromgif($file_name);</span><br><span class="line"> 			<span class="keyword">break</span>;</span><br><span class="line"> 			<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line"> 			$php_file=@imagecreatefromjpeg($file_name);</span><br><span class="line"> 			<span class="keyword">break</span>;</span><br><span class="line"> 			<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line"> 			$php_file=@imagecreatefrompng($file_name);</span><br><span class="line"> 			<span class="keyword">break</span>;</span><br><span class="line"> 			&#125;</span><br></pre></td></tr></table></figure>
+<p>上传图片下面有getimagesize()函数，对参数进行处理。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($_sys[<span class="string">'image_type'</span>][<span class="number">0</span>])&#123;</span><br><span class="line">				$logo=CMS_PATH.<span class="string">'upload/'</span>.$_sys[<span class="string">'pic'</span>];</span><br><span class="line">				$logo_info=@getimagesize($logo);</span><br><span class="line">				<span class="keyword">switch</span>($logo_info[<span class="number">2</span>])&#123;</span><br><span class="line"> 				<span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line"> 				$logo_file=@imagecreatefromgif($logo);</span><br><span class="line"> 				<span class="keyword">break</span>;</span><br><span class="line"> 				<span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line"> 				$logo_file=@imagecreatefromjpeg($logo);</span><br><span class="line"> 				<span class="keyword">break</span>;</span><br><span class="line"> 				<span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line"> 				$logo_file=@imagecreatefrompng($logo);</span><br><span class="line"> 				<span class="keyword">break</span>;</span><br><span class="line"> 				&#125;</span><br></pre></td></tr></table></figure>
+<p>虽然加了png文件头，识别为图片后缀。但是想绕过上传，怕是不大行，因为都是用同一套上传验证机制。这个函数好像在这里好像只是用于读取长宽，并判断后缀名，下面也对postion位置进行case分类[1-2-3]，然后拼接。用imagecopy拷贝一下图像参数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imagecopy($logo_img,$logo_file,$position[<span class="number">0</span>],$position[<span class="number">1</span>],<span class="number">0</span>,<span class="number">0</span>,$logo_info[<span class="number">0</span>],$logo_info[<span class="number">1</span>]);</span><br></pre></td></tr></table></figure>
+<p><a href="https://segmentfault.com/a/1190000003911296" target="_blank" rel="noopener">getimagesize 函数不是完全可靠的</a></p>
+<h2 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h2><p>遍历了所有包含<strong>include</strong>的文件，全都是直接拼接的路径like “ <strong>include(DATA_PATH.$lang.’_info.php’);</strong> “,没有发现包含来自（$_GET or $POST ）来的文件，所以。。在当前的知识框架下，我好像找不到其他利用的方式，也就无法配合<strong>伪协议+文件上传漏洞</strong>来利用。</p>
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="任意文件读取"><a href="#任意文件读取" class="headerlink" title="任意文件读取"></a>任意文件读取</h3><h4 id="先从-file-get-contents-入手"><a href="#先从-file-get-contents-入手" class="headerlink" title="先从 file_get_contents() 入手"></a>先从 <strong>file_get_contents()</strong> 入手</h4><p>1 -&gt; mail.php</p>
+<blockquote>
+<p>$privKeyStr = file_get_contents($this-&gt;DKIM_private); </p>
+<p><strong>DKIM是域名密钥识别邮件标准</strong> ，所以此处应该只是将隐私信息赋给 $privkeystr ，没有发现可控的地方。</p>
+<hr>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt;$file = tempnam(<span class="string">''</span>, <span class="string">'mail'</span>);</span><br><span class="line">&gt;</span><br><span class="line">&gt;file_put_contents($file, $body); <span class="comment">//TODO check this worked</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;$signed = tempnam(<span class="string">""</span>, <span class="string">"signed"</span>);</span><br><span class="line">&gt;<span class="keyword">if</span> (@openssl_pkcs7_sign($file, $signed, <span class="string">"file://"</span>.<span class="keyword">$this</span>-&gt;sign_cert_file, <span class="keyword">array</span>(<span class="string">"file://"</span>.<span class="keyword">$this</span>-&gt;sign_key_file, <span class="keyword">$this</span>-&gt;sign_key_pass), <span class="keyword">NULL</span>)) &#123;</span><br><span class="line">&gt;</span><br><span class="line">&gt;@unlink($file);</span><br><span class="line">&gt;</span><br><span class="line">&gt;@unlink($signed);</span><br><span class="line">&gt;</span><br><span class="line">&gt;$body = file_get_contents($signed);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<blockquote>
+<p><strong>$signed = tempnam(“”, “signed”);     </strong></p>
+<p>// tempnam(dir,prefix)   创建一个具有唯一文件名的临时文件。</p>
+<p><strong>@openssl_pkcs7_sign($file, $signed, “file://“.$this-&gt;sign_cert_file, array(“file://“.$this-&gt;sign_key_file, $this-&gt;sign_key_pass), NULL)</strong></p>
+<p>// openssl_pkcs7_sign  —&gt; <em>Sign an S/MIME message</em> 好像是一个类似数字签名验证的东西</p>
+</blockquote>
+<p>$signed 里面的数据是在验证中从 $file 中传过去的，而 $file &lt;- sign_cert_file  ，好像也没有可控的变量 <strong>:(</strong></p>
+<hr>
+<p>$file_buffer  = file_get_contents($path);</p>
+<p>$file_buffer  = $this-&gt;EncodeString($file_buffer, $encoding);  // base64转义</p>
+</blockquote>
+<p>2 -&gt; admin_db.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elseif</span>($action==<span class="string">'save_import'</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!check_purview(<span class="string">'data_import'</span>))&#123;msg(<span class="string">'&lt;span style="color:red"&gt;操作失败,你的权限不足!&lt;/span&gt;'</span>);&#125;</span><br><span class="line">	$fl = $_GET[<span class="string">'fl'</span>];</span><br><span class="line">	$time = <span class="keyword">isset</span>($_GET[<span class="string">'time'</span>])?$_GET[<span class="string">'time'</span>]:<span class="string">''</span>;</span><br><span class="line">	$rand = <span class="keyword">isset</span>($_GET[<span class="string">'rand'</span>])?$_GET[<span class="string">'rand'</span>]:<span class="string">''</span>;</span><br><span class="line">	$page = <span class="keyword">isset</span>($_GET[<span class="string">'page'</span>])?$_GET[<span class="string">'page'</span>]:<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">empty</span>($fl))&#123;err(<span class="string">'&lt;span style="color:red"&gt;参数传递错误,请重新操作&lt;/span&gt;'</span>);&#125;</span><br><span class="line">	<span class="keyword">if</span>($time&amp;&amp;$rand&amp;&amp;$page)&#123;</span><br><span class="line">$import_file =DATA_PATH.<span class="string">'backup/'</span>.$fl.<span class="string">'/db_backup_'</span>.$time.<span class="string">'_'</span>.$rand.<span class="string">'_'</span>.$page.<span class="string">'.sql'</span>;</span><br><span class="line">	<span class="keyword">if</span>(@file_exists($import_file))</span><br><span class="line">	&#123;</span><br><span class="line">		$data=@file_get_contents($import_file);</span><br><span class="line">		$data=explode(<span class="string">";\n"</span>,trim($data));</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(!<span class="keyword">empty</span>($data))&#123;</span><br><span class="line">			<span class="keyword">foreach</span>($data <span class="keyword">as</span> $k=&gt;$v)&#123;</span><br><span class="line">				$GLOBALS[<span class="string">'mysql'</span>]-&gt;query($v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		show_htm(<span class="string">'卷'</span>.$page.<span class="string">'导入完成'</span>,<span class="string">'?action=save_import&amp;fl='</span>.$fl.<span class="string">'&amp;time='</span>.$time.<span class="string">'&amp;rand='</span>.$rand.<span class="string">'&amp;page='</span>.($page+<span class="number">1</span>).<span class="string">'&amp;nav='</span>.$admin_nav.<span class="string">'&amp;admin_p_nav='</span>.$admin_p_nav);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>$file_get_contents  &lt;- $import_file &lt;-(DATA_PATH.’backup/‘.$fl.’/db_backup_’.$time.’<em>‘.$rand.’</em>‘.$page.’.sql’)</p>
+<p>其中 <strong>$f1、$time、$rand、$page</strong> 都是通过 $_GET 传递的，所以，是可控的，看看是否有利用的价值。</p>
+<blockquote>
+<p>三元运算符： <strong>?: </strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; &gt; <span class="meta">&lt;?php</span></span><br><span class="line">&gt; &gt; <span class="comment">// Example usage for: Ternary Operator</span></span><br><span class="line">&gt; &gt; $action = (<span class="keyword">empty</span>($_POST[<span class="string">'action'</span>])) ? <span class="string">'default'</span> : $_POST[<span class="string">'action'</span>];</span><br><span class="line">&gt; &gt;</span><br><span class="line">&gt; &gt; <span class="comment">// The above is identical to this if/else statement</span></span><br><span class="line">&gt; &gt; <span class="keyword">if</span> (<span class="keyword">empty</span>($_POST[<span class="string">'action'</span>])) &#123;</span><br><span class="line">&gt; &gt;     $action = <span class="string">'default'</span>;</span><br><span class="line">&gt; &gt; &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">&gt; &gt;     $action = $_POST[<span class="string">'action'</span>];</span><br><span class="line">&gt; &gt; &#125;</span><br><span class="line">&gt; &gt; <span class="meta">?&gt;</span></span><br><span class="line">&gt; &gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>explode() 把字符串打散为数组</p>
+<p>trim() 移除字符串两侧的字符</p>
+</blockquote>
+</blockquote>
+<p>3 -&gt; tpl.class.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>($include_cache)&#123;<span class="keyword">$this</span>-&gt;template_is_cache=<span class="number">0</span>;&#125;</span><br><span class="line"><span class="keyword">$this</span>-&gt;template_file=<span class="keyword">$this</span>-&gt;template_dir.$template_file.<span class="string">'.html'</span>;</span><br><span class="line"><span class="keyword">if</span>(!file_exists(<span class="keyword">$this</span>-&gt;template_file))&#123;<span class="keyword">die</span>(<span class="string">'不存在模板文件'</span>.$template_file.<span class="string">'.html'</span>);&#125;</span><br><span class="line"><span class="keyword">$this</span>-&gt;template_file_content=file_get_contents(<span class="keyword">$this</span>-&gt;template_file);</span><br><span class="line"><span class="keyword">$this</span>-&gt;template_com_file=<span class="keyword">$this</span>-&gt;template_compile.$template_file.<span class="string">'_'</span>.<span class="keyword">$this</span>-&gt;template_lang.<span class="keyword">$this</span>-&gt;mb.<span class="string">'_compile.php'</span>;<span class="comment">//编译文件</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;cache();<span class="comment">//生成缓存文件</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;compile();<span class="comment">//编译模板</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;view($is_copy);<span class="comment">//显示模板</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;tp)&#123;<span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;content;&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>$this-&gt;template_file <- $this-="">template_dir.$template_file.’.html’ 未发现可控变量，而且模版是直接从数据库中调出，并没有上传模版的地方。</-></p>
+</blockquote>
+<h4 id="再从-fread-入手"><a href="#再从-fread-入手" class="headerlink" title="再从 fread() 入手"></a>再从 fread() 入手</h4><p>1 -&gt; fun.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">copy_lang</span><span class="params">($lang)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">isset</span>($lang))&#123;</span><br><span class="line">		<span class="keyword">if</span>(!$fp=@fopen(LANG_PATH.<span class="string">'lang_cn.php'</span>,<span class="string">'r'</span>))&#123;</span><br><span class="line">			msg(<span class="string">'基本语言包不能操作，请检查是否有操作文件的权限'</span>,<span class="string">'javascript:history.go(-1);'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		$fl=fread($fp,filesize(LANG_PATH.<span class="string">'lang_cn.php'</span>));</span><br><span class="line">		<span class="keyword">unset</span>($fp);</span><br><span class="line">		$fp2=@fopen(LANG_PATH.<span class="string">'lang_'</span>.$lang.<span class="string">'.php'</span>,<span class="string">'w'</span>);</span><br><span class="line">		<span class="keyword">return</span> fwrite($fp2,$fl);</span><br><span class="line">      </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">creat_inc</span><span class="params">($fl,$str)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(file_exists($fl))&#123;@unlink($fl);&#125;</span><br><span class="line">	<span class="keyword">if</span>(!$fp=@fopen($fl,<span class="string">'w'</span>))&#123;</span><br><span class="line">		msg(<span class="string">'文件打开失败,请检查是否有足够的权限操作文件'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	flock($fp,LOCK_EX);</span><br><span class="line">	<span class="keyword">if</span>(!fwrite($fp,$str))&#123;</span><br><span class="line">		msg(<span class="string">'写入文件失败,请检查是否有足够的权限操作文件'</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	flock($fp,LOCK_UN);</span><br><span class="line">	<span class="keyword">unset</span>($fp);</span><br></pre></td></tr></table></figure>
+<p>生成语言配置文件，好像。。没办法从基本语言包处入手啊！</p>
+<p>2 -&gt; admin_template_php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elseif</span>($action==<span class="string">'xg'</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!check_purview(<span class="string">'tpl_manage'</span>))&#123;msg(<span class="string">'&lt;span style="color:red"&gt;操作失败,你的权限不足!&lt;/span&gt;'</span>);&#125;</span><br><span class="line">	$file = $_GET[<span class="string">'file'</span>];</span><br><span class="line">	$path=CMS_PATH.$file;</span><br><span class="line">	<span class="keyword">if</span>(!$fp=@fopen($path,<span class="string">'r+'</span>))&#123;err(<span class="string">'&lt;span style="color:red"&gt;模板打开失败,请确定【'</span>.$file.<span class="string">'】模板是否存在&lt;/span&gt;'</span>);&#125;</span><br><span class="line">	flock($fp,LOCK_EX);</span><br><span class="line">	$str=@fread($fp,filesize($path));</span><br><span class="line">	$str = str_replace(<span class="string">"&amp;"</span>,<span class="string">"&amp;amp;"</span>,$str);</span><br><span class="line">	$str= str_replace(<span class="keyword">array</span>(<span class="string">"'"</span>,<span class="string">'"'</span>,<span class="string">"&lt;"</span>,<span class="string">"&gt;"</span>),<span class="keyword">array</span>(<span class="string">"&amp;#39;"</span>,<span class="string">"&amp;quot;"</span>,<span class="string">"&amp;lt;"</span>,<span class="string">"&amp;gt;"</span>),$str);</span><br><span class="line">	flock($fp,LOCK_UN);</span><br><span class="line">	fclose($fp);</span><br><span class="line">	<span class="keyword">include</span>(<span class="string">'template/admin_template_xg.php'</span>);</span><br></pre></td></tr></table></figure>
+<p>$path &lt;- CMS_PATH.$file &lt;-$_GET[‘file’]</p>
+<p>虽然变量可控，但是好像没有echo的地方啊，也无法形成任意文件读取漏洞～ <strong>:(</strong></p>
+<p>​                         </p>
+<p>3 -&gt; mail.php</p>
+<p><a href="http://blog.nsfocus.net/multiple-php-mail-function-vulnerability-analysis/" target="_blank" rel="noopener">多个PHP mail函数引发的命令执行漏洞分析</a></p>
+<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><h2 id="SQL-Injection"><a href="#SQL-Injection" class="headerlink" title="SQL Injection"></a>SQL Injection</h2><p>1-&gt; member.php</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcly1fmww1nf2i1j315q01at8m.jpg" width="50%">登陆的时候随便测试了一下万能密码，发现 <strong>‘</strong> 被 <strong>\’</strong> 转义了，<strong>=</strong> 也被过滤了。</p>
+<p>但是在burp上稍微改改参数，但是会显示密码不正确，好像还没看懂如何验证登录。</p>
+<p>首页的搜索框是不是也可以看看有没有注入的点？</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fmwwlehuvej308m01adfo.jpg" width="30%">好像一有query语句，就会有x和y……</p>
+<p>然后sql语句执行了有上90条～估计是遍历各个地方看看有没有所需的东西。</p>
+<h2 id="代码-命令执行"><a href="#代码-命令执行" class="headerlink" title="代码/命令执行"></a>代码/命令执行</h2><h3 id="preg-replace"><a href="#preg-replace" class="headerlink" title="preg_replace()"></a>preg_replace()</h3><h3 id="popen"><a href="#popen" class="headerlink" title="popen()"></a>popen()</h3><p>1.mail.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;SingleTo === <span class="keyword">true</span>) &#123;</span><br><span class="line">      <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;SingleToArray <span class="keyword">as</span> $key =&gt; $val) &#123;</span><br><span class="line">        <span class="keyword">if</span>(!@$mail = popen($sendmail, <span class="string">'w'</span>)) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> phpmailerException(<span class="keyword">$this</span>-&gt;Lang(<span class="string">'execute'</span>) . <span class="keyword">$this</span>-&gt;Sendmail, <span class="keyword">self</span>::STOP_CRITICAL);</span><br><span class="line">        &#125;</span><br><span class="line">        fputs($mail, <span class="string">"To: "</span> . $val . <span class="string">"\n"</span>);</span><br><span class="line">        fputs($mail, $header);</span><br><span class="line">        fputs($mail, $body);</span><br><span class="line">        $result = pclose($mail);</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="NOTES"><a href="#NOTES" class="headerlink" title="NOTES"></a>NOTES</h3><p><a href="https://www.zhihu.com/question/39878368?sort=created" target="_blank" rel="noopener">payload、shellcode、exp、poc怎么区别？</a></p>
+<p><a href="http://blog.csdn.net/hanliuxinming/article/details/20871165" target="_blank" rel="noopener">php中$this-&gt;是什么意思？</a></p>
+<p><a href="http://blog.csdn.net/u012767263/article/details/16952757" target="_blank" rel="noopener">PHP中的符号 -&gt;、=&gt; 和 :: 分别表示什么意思?</a></p>
+<p><a href="https://www.seebug.org/vuldb/ssvid-20898" target="_blank" rel="noopener">Nginx %00空字节执行任意代码(php)漏洞</a></p>
+<p><br></p>
+<center><strong>·End·</strong></center>
+
+</the></excerpt>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>Title:</span><a href="/Study/code-audit-bees4.html">代码审计实例-BEES_4.0_R_20160525</a></p>
+        <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
+        <p><span class="post-count">Words:</span>2,004</p>
+        <p><span class="post-count">Time:</span>9 mins</p>
+        <p><span>Created:</span>2017-12-20, 23:05:40</p>
+        <p><span>Updated:</span>2018-10-09, 23:34:54</p>
+        <p>
+            <span>Full URL:</span><a class="post-url" href="/Study/code-audit-bees4.html" title="代码审计实例-BEES_4.0_R_20160525">http://blog.0akarma.me/Study/code-audit-bees4.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/code-audit-bees4.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>License:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"CC BY-NC-SA 4.0"</a> Keep Link &amp; Author if Distribute.
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/Study/penetrating-courses.html">
+                    渗透课程
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/Study/authentic-words.html">
+                    Authentic Words Summary
+                </a>
+            </div>
+        
+    </nav>
+
+  
+  
+    
+    <div style="padding: 0; margin: 20px auto; width: 90%; text-align: center;">
+      <br>
+      <div>如果觉得文章海星，那就打赏一下吧！</div>
+      <br>
+      <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+        <div class="btn btn-pay">打赏支持</div>
+      </button>
+      <br>
+      <br>
+      <div id="QR" style="display: none;">
+        
+        
+          <div id="alipay" style="display: inline-block">
+            <img id="alipay_qr" src="/img/pay.jpg" alt="KarmA Alipay"/>
+            <p>二合一打赏</p>
+          </div>
+        
+        <br>
+        <br>
+      </div>
+    </div>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件上传"><span class="toc-text">文件上传</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#move-uploaded-file"><span class="toc-text">move_uploaded_file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getimagesize"><span class="toc-text">getimagesize()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件包含"><span class="toc-text">文件包含</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件操作"><span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#任意文件读取"><span class="toc-text">任意文件读取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#先从-file-get-contents-入手"><span class="toc-text">先从 file_get_contents() 入手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#再从-fread-入手"><span class="toc-text">再从 fread() 入手</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS"><span class="toc-text">XSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-Injection"><span class="toc-text">SQL Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码-命令执行"><span class="toc-text">代码/命令执行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#preg-replace"><span class="toc-text">preg_replace()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#popen"><span class="toc-text">popen()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NOTES"><span class="toc-text">NOTES</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="Hide"  title="Show or Hide Table of Contents">
+
+    <script>
+        yiliaConfig.toc = ["Hide", "Show", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+
+    
+        <div class="addthis_sharing_toolbox"></div>
+    
+</div>
+
+
+
+
+
+
+
+        
+      <section class="livere" id="comments">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="MTAyMC8zNDM3Ny8xMDkxNA==">
+    <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+       })(document, 'script');
+    </script>
+    <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/Study/penetrating-courses.html" title="Pre: 渗透课程">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/Study/authentic-words.html" title="Next: Authentic Words Summary">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/Study/hero-vps.html">如何在vps上搭建Hexo博客</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-mac.html">Mac下代码审计环境配置</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/docker-website.html">Docker建站——从入门到“放弃”</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-goldeneye.html">GoldenEye:1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/amateur-ops-ctfd.html">Act as an Amateur OPS in D0g3-CTFd</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lampião.html">Vulnhub-Lampião：1 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/vulnhub-lazySysAdmin.html">Vulnhub-LazySysAdmin 通关指南</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/ballroom-e-youkoso.html">《Ballroom e Youkoso 舞动青春》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/feelings-xhssf.html">《西虹市首富》观后感</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/sophomore-flags.html">It's time to set Flags in Sophomore Year (持续更新)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/achievement.html">Achievements in Cyber Security</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scff-2018.html">SCTF 2018 WriteUp & Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-blind.html">浅谈SQL盲注</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/red-tiger.html">RedTiger 练习总结</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider.html">How to Spider faster and faster</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/scrapy.html">Scrapy Warm-Up</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rapid-recurrence.html">Rapid Recurrence Of CVEs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/privilege-escalation.html">Get Shell ->  Get Root</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mac-settings.html">Mac Personal Settings</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/rewrite-pwnhub-subject.html">复现Pwnhub会员日的一道题</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/be-grateful.html">Being grateful for what you have</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/spider-notes.html">Python3 Web Spider Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/ctf-syb.html">CTF in ShiYanBa</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sqli-labs.html">SQL Injection - Sqli-labs</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/sql-injection.html">SQL Injection 学习小记</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/python-notes.html">Python Notes</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/linux-learning.html">Linux初探</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-books.html">My Book List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2018-films.html">My Film List In 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/bye2017.html">See you 2017 , Hello 2018</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/2017-films.html">2017-films</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/penetrating-courses.html">渗透课程</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/code-audit-bees4.html">代码审计实例-BEES_4.0_R_20160525</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/authentic-words.html">Authentic Words Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/php-dangerfuncts.html">PHP常见危险函数及特殊函数Summary</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/mentohust.html">Mac下配置mentohust连接校园网/移动/联通/</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/perceptions-stave-jobs.html">Some perceptions after secondly read Steve Jobs‘s speech in Stanford</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/freshman-flags.html">It's time to set Flags in Freshman Year (完结)</a></li><li class="post-list-item"><a class="post-list-link" href="/Study/2017-classes-ctf.html">2017班级对抗赛WP&心得</a></li><li class="post-list-item"><a class="post-list-link" href="/Life/importance-backup.html">论Mac备份的重要性<-血的教训</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017-2018 KarmA
+            </div>
+            <div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden;">
+                <div id="web_count_div" class="post-count-bottom" style="display:inline;">
+                    Follow Your Heart.
+                    <i class="fa fa-heart animated infinite pulse" style="color:red;margin-left:2px;"></i><!-- 红心-->
+                </div>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="Site Visitors"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="Page Hits"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                    <span>| </span>
+                    <span title="All Words">
+                         <span><i class="fa fa-map" aria-hidden="true"></i></span>
+                        <span class="post-count"><b>85.2k</b></span>
+                    </span>
+                
+            </div>
+        
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 6;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="Back to Top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="Comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="Go to Bottom"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+             post: ".article-entry a[href], .copyright a[href]", 
+             tags: ".article-tag a", 
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "(つェ⊂) 我藏好了哦~ " + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "(*´∇｀*) 被你发现啦~ " + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  </div>
+    
+  <script type="text/javascript" src="/js/emoji.js"></script>
+</body>
+</html>
