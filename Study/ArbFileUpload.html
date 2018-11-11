@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="KarmA @ D0g3">
 <meta property="og:description" content="I knew little about code audit before. Now I just wanna combine these knowledge with code audit examples. It may help me have a better understandings of code audit. :)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-28T05:32:02.471Z">
+<meta property="og:updated_time" content="2018-11-11T17:45:11.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arbitrary File Upload In Code Audit">
 <meta name="twitter:description" content="I knew little about code audit before. Now I just wanna combine these knowledge with code audit examples. It may help me have a better understandings of code audit. :)">
@@ -312,7 +312,7 @@
 
 
 
-</the></excerpt>
+<h2 id="0x00-Check-Process-of-File-Upload"><a href="#0x00-Check-Process-of-File-Upload" class="headerlink" title="0x00 Check Process of File Upload"></a>0x00 Check Process of File Upload</h2><h2 id="0x01-Client-Check-Javascript"><a href="#0x01-Client-Check-Javascript" class="headerlink" title="0x01 Client Check (Javascript)"></a>0x01 Client Check (Javascript)</h2><h2 id="0x02-Server-Check"><a href="#0x02-Server-Check" class="headerlink" title="0x02 Server Check"></a>0x02 Server Check</h2><h3 id="MIME-type-content-type"><a href="#MIME-type-content-type" class="headerlink" title="MIME-type  (content-type)"></a>MIME-type  (content-type)</h3><h3 id="upload-path"><a href="#upload-path" class="headerlink" title="upload path"></a>upload path</h3><h3 id="file-content-file-include"><a href="#file-content-file-include" class="headerlink" title="file content (file include)"></a>file content (file include)</h3><h3 id="php-character"><a href="#php-character" class="headerlink" title="php character"></a>php character</h3><h3 id="file-head"><a href="#file-head" class="headerlink" title="file head"></a>file head</h3><h3 id="upload-compete"><a href="#upload-compete" class="headerlink" title="upload compete"></a>upload compete</h3><h2 id="0x03-Vulns-on-CMSs"><a href="#0x03-Vulns-on-CMSs" class="headerlink" title="0x03 Vulns on CMSs"></a>0x03 Vulns on CMSs</h2><h2 id="0x04-Vulns-on-Editors"><a href="#0x04-Vulns-on-Editors" class="headerlink" title="0x04 Vulns on Editors"></a>0x04 Vulns on Editors</h2><h2 id="0x05-Vulns-on-Wafs"><a href="#0x05-Vulns-on-Wafs" class="headerlink" title="0x05 Vulns on Wafs"></a>0x05 Vulns on Wafs</h2><h2 id="0x06-Summarization"><a href="#0x06-Summarization" class="headerlink" title="0x06 Summarization"></a>0x06 Summarization</h2><h2 id="0x07-Defending-Suggestion"><a href="#0x07-Defending-Suggestion" class="headerlink" title="0x07 Defending Suggestion"></a>0x07 Defending Suggestion</h2></the></excerpt>
       
     </div>
     
@@ -322,10 +322,10 @@
     <div class="copyright">
         <p><span>Title:</span><a href="/Study/ArbFileUpload.html">Arbitrary File Upload In Code Audit</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage">KarmA</a></p>
-        <p><span class="post-count">Words:</span>29</p>
+        <p><span class="post-count">Words:</span>75</p>
         <p><span class="post-count">Time:</span>1 mins</p>
         <p><span>Created:</span>2018-10-21, 21:16:04</p>
-        <p><span>Updated:</span>2018-10-28, 13:32:02</p>
+        <p><span>Updated:</span>2018-11-12, 01:45:11</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/Study/ArbFileUpload.html" title="Arbitrary File Upload In Code Audit">http://blog.0akarma.me/Study/ArbFileUpload.html</a>
             <span class="copy-path" data-clipboard-text="From http://blog.0akarma.me/Study/ArbFileUpload.html　　By KarmA" title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -386,7 +386,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00-Check-Process-of-File-Upload"><span class="toc-text">0x00 Check Process of File Upload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-Client-Check-Javascript"><span class="toc-text">0x01 Client Check (Javascript)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-Server-Check"><span class="toc-text">0x02 Server Check</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MIME-type-content-type"><span class="toc-text">MIME-type  (content-type)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upload-path"><span class="toc-text">upload path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-content-file-include"><span class="toc-text">file content (file include)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-character"><span class="toc-text">php character</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#file-head"><span class="toc-text">file head</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upload-compete"><span class="toc-text">upload compete</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-Vulns-on-CMSs"><span class="toc-text">0x03 Vulns on CMSs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-Vulns-on-Editors"><span class="toc-text">0x04 Vulns on Editors</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05-Vulns-on-Wafs"><span class="toc-text">0x05 Vulns on Wafs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06-Summarization"><span class="toc-text">0x06 Summarization</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07-Defending-Suggestion"><span class="toc-text">0x07 Defending Suggestion</span></a></li></ol>
         
     </div>
     <style>
@@ -507,7 +507,7 @@
                     <span>| </span>
                     <span title="All Words">
                          <span><i class="fa fa-map" aria-hidden="true"></i></span>
-                        <span class="post-count"><b>86.4k</b></span>
+                        <span class="post-count"><b>87.1k</b></span>
                     </span>
                 
             </div>
