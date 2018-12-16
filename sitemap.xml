@@ -2,317 +2,324 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.0akarma.me/Life/sophomore-flags.html</loc>
-    
-    <lastmod>2018-12-07T06:58:54.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/hexo-vps.html</loc>
-    
-    <lastmod>2018-12-07T06:30:16.432Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/ArbFileUpload.html</loc>
-    
-    <lastmod>2018-11-12T06:46:46.169Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/SSRF.html</loc>
-    
-    <lastmod>2018-11-11T17:39:07.117Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/sql-blind.html</loc>
-    
-    <lastmod>2018-11-11T05:26:00.255Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/HR-audit.html</loc>
-    
-    <lastmod>2018-11-03T04:03:42.856Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/tags/index.html</loc>
-    
-    <lastmod>2018-10-28T09:40:05.798Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/code-audit-bees4.html</loc>
-    
-    <lastmod>2018-10-22T00:37:28.127Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/php-dangerfuncts.html</loc>
-    
-    <lastmod>2018-10-22T00:37:18.605Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/code-audit-mac.html</loc>
-    
-    <lastmod>2018-10-22T00:36:45.214Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/docker-website.html</loc>
-    
-    <lastmod>2018-10-19T12:48:41.792Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/about/index.html</loc>
-    
-    <lastmod>2018-10-13T01:03:00.897Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/feelings-xhssf.html</loc>
-    
-    <lastmod>2018-10-11T16:42:17.249Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/vulnhub-lazySysAdmin.html</loc>
-    
-    <lastmod>2018-10-11T16:41:55.881Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/vulnhub-lampi%C3%A3o.html</loc>
-    
-    <lastmod>2018-10-11T16:41:29.087Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/be-grateful.html</loc>
-    
-    <lastmod>2018-10-11T16:41:06.003Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/sqli-labs.html</loc>
-    
-    <lastmod>2018-10-11T16:40:52.460Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/sql-injection.html</loc>
-    
-    <lastmod>2018-10-11T16:40:43.550Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/scff-2018.html</loc>
-    
-    <lastmod>2018-10-11T16:40:15.890Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/scrapy.html</loc>
-    
-    <lastmod>2018-10-11T16:40:03.439Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/spider.html</loc>
-    
-    <lastmod>2018-10-11T16:39:54.389Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/red-tiger.html</loc>
-    
-    <lastmod>2018-10-11T16:39:45.506Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/rapid-recurrence.html</loc>
-    
-    <lastmod>2018-10-11T16:39:37.156Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/python-notes.html</loc>
-    
-    <lastmod>2018-10-11T16:39:21.956Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/vulnhub-goldeneye.html</loc>
-    
-    <lastmod>2018-10-10T07:33:49.880Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/achievement.html</loc>
-    
-    <lastmod>2018-10-09T16:12:27.893Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/2017-classes-ctf.html</loc>
-    
-    <lastmod>2018-10-09T15:35:38.275Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/2017-films.html</loc>
-    
-    <lastmod>2018-10-09T15:35:20.838Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/2018-books.html</loc>
-    
-    <lastmod>2018-10-09T15:35:13.649Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.0akarma.me/Life/2018-films.html</loc>
     
-    <lastmod>2018-10-09T15:35:03.220Z</lastmod>
+    <lastmod>2018-12-16T03:46:38.324Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.0akarma.me/Study/rewrite-pwnhub-subject.html</loc>
+    <loc>http://blog.0akarma.me/Life/self-talking-of-2018.html</loc>
     
-    <lastmod>2018-10-09T15:34:32.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/importance-backup.html</loc>
-    
-    <lastmod>2018-10-09T15:34:04.560Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/penetrating-courses.html</loc>
-    
-    <lastmod>2018-10-09T15:33:52.955Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/amateur-ops-ctfd.html</loc>
-    
-    <lastmod>2018-10-09T15:33:26.484Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/authentic-words.html</loc>
-    
-    <lastmod>2018-10-09T15:33:11.401Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/ballroom-e-youkoso.html</loc>
-    
-    <lastmod>2018-10-09T15:32:58.871Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/bye2017.html</loc>
-    
-    <lastmod>2018-10-09T15:32:42.705Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/ctf-syb.html</loc>
-    
-    <lastmod>2018-10-09T15:32:33.056Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Life/freshman-flags.html</loc>
-    
-    <lastmod>2018-10-09T15:32:22.391Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/privilege-escalation.html</loc>
-    
-    <lastmod>2018-10-09T15:31:25.300Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.0akarma.me/Study/linux-learning.html</loc>
-    
-    <lastmod>2018-10-09T15:30:54.852Z</lastmod>
+    <lastmod>2018-12-16T03:43:16.167Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.0akarma.me/Study/mac-settings.html</loc>
     
-    <lastmod>2018-10-09T15:30:39.296Z</lastmod>
+    <lastmod>2018-12-08T12:49:32.149Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/sophomore-flags.html</loc>
+    
+    <lastmod>2018-12-07T06:58:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/hexo-vps.html</loc>
+    
+    <lastmod>2018-12-07T06:30:16.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/ArbFileUpload.html</loc>
+    
+    <lastmod>2018-11-12T06:46:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/SSRF.html</loc>
+    
+    <lastmod>2018-11-11T17:39:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/sql-blind.html</loc>
+    
+    <lastmod>2018-11-11T05:26:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/HR-audit.html</loc>
+    
+    <lastmod>2018-11-03T04:03:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/tags/index.html</loc>
+    
+    <lastmod>2018-10-28T09:40:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/code-audit-bees4.html</loc>
+    
+    <lastmod>2018-10-22T00:37:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/php-dangerfuncts.html</loc>
+    
+    <lastmod>2018-10-22T00:37:18.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/code-audit-mac.html</loc>
+    
+    <lastmod>2018-10-22T00:36:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/docker-website.html</loc>
+    
+    <lastmod>2018-10-19T12:48:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/about/index.html</loc>
+    
+    <lastmod>2018-10-13T01:03:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/feelings-xhssf.html</loc>
+    
+    <lastmod>2018-10-11T16:42:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/vulnhub-lazySysAdmin.html</loc>
+    
+    <lastmod>2018-10-11T16:41:55.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/vulnhub-lampi%C3%A3o.html</loc>
+    
+    <lastmod>2018-10-11T16:41:29.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/be-grateful.html</loc>
+    
+    <lastmod>2018-10-11T16:41:06.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/sqli-labs.html</loc>
+    
+    <lastmod>2018-10-11T16:40:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/sql-injection.html</loc>
+    
+    <lastmod>2018-10-11T16:40:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/scff-2018.html</loc>
+    
+    <lastmod>2018-10-11T16:40:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/scrapy.html</loc>
+    
+    <lastmod>2018-10-11T16:40:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/spider.html</loc>
+    
+    <lastmod>2018-10-11T16:39:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/red-tiger.html</loc>
+    
+    <lastmod>2018-10-11T16:39:45.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/rapid-recurrence.html</loc>
+    
+    <lastmod>2018-10-11T16:39:37.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/python-notes.html</loc>
+    
+    <lastmod>2018-10-11T16:39:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/vulnhub-goldeneye.html</loc>
+    
+    <lastmod>2018-10-10T07:33:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/achievement.html</loc>
+    
+    <lastmod>2018-10-09T16:12:27.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/2017-classes-ctf.html</loc>
+    
+    <lastmod>2018-10-09T15:35:38.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/2017-films.html</loc>
+    
+    <lastmod>2018-10-09T15:35:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/2018-books.html</loc>
+    
+    <lastmod>2018-10-09T15:35:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/rewrite-pwnhub-subject.html</loc>
+    
+    <lastmod>2018-10-09T15:34:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/importance-backup.html</loc>
+    
+    <lastmod>2018-10-09T15:34:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/penetrating-courses.html</loc>
+    
+    <lastmod>2018-10-09T15:33:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/amateur-ops-ctfd.html</loc>
+    
+    <lastmod>2018-10-09T15:33:26.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/authentic-words.html</loc>
+    
+    <lastmod>2018-10-09T15:33:11.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/ballroom-e-youkoso.html</loc>
+    
+    <lastmod>2018-10-09T15:32:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/bye2017.html</loc>
+    
+    <lastmod>2018-10-09T15:32:42.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/ctf-syb.html</loc>
+    
+    <lastmod>2018-10-09T15:32:33.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Life/freshman-flags.html</loc>
+    
+    <lastmod>2018-10-09T15:32:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/privilege-escalation.html</loc>
+    
+    <lastmod>2018-10-09T15:31:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.0akarma.me/Study/linux-learning.html</loc>
+    
+    <lastmod>2018-10-09T15:30:54.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.0akarma.me/Study/mentohust.html</loc>
     
-    <lastmod>2018-10-09T15:30:19.708Z</lastmod>
+    <lastmod>2018-10-09T15:30:19.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.0akarma.me/Life/perceptions-stave-jobs.html</loc>
     
-    <lastmod>2018-10-09T15:30:00.204Z</lastmod>
+    <lastmod>2018-10-09T15:30:00.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.0akarma.me/Study/spider-notes.html</loc>
     
-    <lastmod>2018-10-09T15:29:15.172Z</lastmod>
+    <lastmod>2018-10-09T15:29:15.000Z</lastmod>
     
   </url>
   
